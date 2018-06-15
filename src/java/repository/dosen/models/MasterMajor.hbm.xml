@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="repository.dosen.models.MasterMajor" table="MasterMajor">
+        <id name="idMajor" column="idMajor">
+            <generator class="assigned"/>
+        </id>
+        <property name="nameMajor" column="nameMajor"/>
+        <many-to-one name="faculty" column="idFaculty" not-null="true" class="repository.dosen.models.MasterFaculty"/> 
+    </class>
+</hibernate-mapping>

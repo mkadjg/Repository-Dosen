@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="repository.dosen.models.DetailFile" table="DetailFile">
+    <id column="idDetail" name="idDetail">
+      <generator class="native"/>
+    </id>
+    <property column="nameDokumen" name="nameDokumen"/>
+    <property column="idEvent" name="idEvent"/>
+  </class>
+</hibernate-mapping>

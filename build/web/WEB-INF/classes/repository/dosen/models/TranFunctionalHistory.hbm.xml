@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="repository.dosen.models.TranFunctionalHistory" table="TranFunctionalHistory">
+        <id name="idFunctionalHistory" column="idFunctionalHistory">
+            <generator class="native"/>
+        </id>
+        <property name="SkDate" column="SkDate"/>
+        <property name="SkNumber" column="SkNumber"/>
+        <many-to-one name="lecturer" column="idLecturer" not-null="true" class="repository.dosen.models.MasterLecturer"/>
+        <many-to-one name="functional" column="idFunctional" not-null="true" class="repository.dosen.models.MasterFunctional"/>
+        <many-to-one name="tranFile" column="idTranFile" not-null="true" class="repository.dosen.models.TranFile"/>
+    </class>
+</hibernate-mapping>

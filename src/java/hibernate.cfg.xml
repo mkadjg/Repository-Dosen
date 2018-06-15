@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/repository-dosen?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    
+    <mapping resource="repository/dosen/models/MasterFaculty.hbm.xml"/>
+    <mapping resource="repository/dosen/models/MasterGender.hbm.xml"/>
+    <mapping resource="repository/dosen/models/MasterLecturer.hbm.xml"/>
+    <mapping resource="repository/dosen/models/MasterMajor.hbm.xml"/>
+    <mapping resource="repository/dosen/models/MasterReligion.hbm.xml"/>
+    <mapping resource="repository/dosen/models/User.hbm.xml"/>
+    <mapping resource="repository/dosen/models/MasterLecture.hbm.xml"/>
+    <mapping resource="repository/dosen/models/DetailFile.hbm.xml"/>
+    <mapping resource="repository/dosen/models/DetailProgress.hbm.xml"/>
+    <mapping resource="repository/dosen/models/MasterFunctional.hbm.xml"/>
+    <mapping resource="repository/dosen/models/MasterStudy.hbm.xml"/>
+    <mapping resource="repository/dosen/models/TranFile.hbm.xml"/>
+    <mapping resource="repository/dosen/models/TranFunctionalHistory.hbm.xml"/>
+    <mapping resource="repository/dosen/models/TranLectureHistory.hbm.xml"/>
+    <mapping resource="repository/dosen/models/TranSertificationHistory.hbm.xml"/>
+    <mapping resource="repository/dosen/models/TranStudyHistory.hbm.xml"/>
+    
+  </session-factory>
+</hibernate-configuration>

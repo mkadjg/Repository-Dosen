@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/web/WEB-INF/jsp/portofolio_page.jsp</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/controllers/LectureHistoryController.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/controllers/PortofolioController.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/impl/LecturerDaoImpl.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/web/WEB-INF/jsp/master_data_page.jsp</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/web/WEB-INF/jsp/lecturer_page.jsp</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/controllers/MasterDataController.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dto/Lecturer.java</file>
+        </group>
+    </open-files>
+</project-private>

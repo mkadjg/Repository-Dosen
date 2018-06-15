@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="repository.dosen.models.TranSertificationHistory" table="TranSertificationHistory">
+        <id name="idSertificationHistory" column="idSertificationHistory">
+            <generator class="native"/>
+        </id>
+        <property name="SertificationPart" column="SertificationPart"/>
+        <property name="studyPart" column="studyPart"/>
+        <property name="RegistrationNumber" column="RegistrationNumber"/>
+        <property name="PtpsNumber" column="PtpsNumber"/>
+        <many-to-one name="lecturer" column="idLecturer" not-null="true" class="repository.dosen.models.MasterLecturer"/>
+        <many-to-one name="TranFile" column="idTranFile" not-null="true" class="repository.dosen.models.TranFile"/>
+    </class>
+</hibernate-mapping>

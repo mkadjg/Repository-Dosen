@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="repository.dosen.models.MasterLecturer" table="MasterLecturer">
+        <id name="idLecturer" column="idLecturer">
+            <generator class="native"/>
+        </id>
+        
+        <property name="nameLecturer" column="nameLecturer"/>
+        <property name="address" column="address"/>
+        <property name="birthdate" column="birthdate"/>
+        <property name="birthplace" column="birthplace"/>
+        <property name="email" column="email"/>
+        <property name="username" column="username"/>
+        <property name="password" column="password"/>
+        <property name="nidn" column="nidn"/>
+        <property name="numberPhone" column="numberPhone"/>
+        
+        <many-to-one name="gender" column="idGender" class="repository.dosen.models.MasterGender" />
+        <many-to-one name="major" column="idMajor" class="repository.dosen.models.MasterMajor" />
+        <many-to-one name="religion" column="idReligion" class="repository.dosen.models.MasterReligion" />
+        </class>
+</hibernate-mapping>
