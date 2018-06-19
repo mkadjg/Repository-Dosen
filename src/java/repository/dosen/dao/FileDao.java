@@ -5,6 +5,7 @@
  */
 package repository.dosen.dao;
 
+import java.util.List;
 import repository.dosen.models.TranFile;
 
 /**
@@ -13,4 +14,9 @@ import repository.dosen.models.TranFile;
  */
 public interface FileDao {
     public void saveFile(TranFile tranFile);
+    public void deleteFile(TranFile tranFile);
+    public TranFile getDataFile(int idTranFile);
+    public TranFile getLastDataFile();
+    public List<TranFile> getFile(int idLecturer);
+    public List<Object[]> searchFile(String nameDetail);
 }

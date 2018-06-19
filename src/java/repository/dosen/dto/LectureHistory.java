@@ -4,9 +4,6 @@
  * and open the template in the editor.
  */
 package repository.dosen.dto;
-
-import org.springframework.web.multipart.MultipartFile;
-
 /**
  *
  * @author sandi
@@ -20,8 +17,16 @@ public class LectureHistory {
     String nameLecture;
     int idTranFile;
     int idDetail;
-    MultipartFile file;
+    String pathFile;
 
+    public String getPathFile() {
+        return pathFile;
+    }
+
+    public void setPathFile(String pathFile) {
+        this.pathFile = pathFile;
+    }
+    
     public int getIdDetail() {
         return idDetail;
     }
@@ -36,14 +41,6 @@ public class LectureHistory {
 
     public void setIdTranFile(int idTranFile) {
         this.idTranFile = idTranFile;
-    }
-
-    public MultipartFile getFile() {
-        return file;
-    }
-
-    public void setFile(MultipartFile file) {
-        this.file = file;
     }
 
     public String getNameLecture() {

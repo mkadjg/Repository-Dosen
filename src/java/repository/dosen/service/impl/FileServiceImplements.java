@@ -5,6 +5,8 @@
  */
 package repository.dosen.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,5 +50,41 @@ public class FileServiceImplements implements FileService {
         tranFile.setLecturer(masterLecturer);
         tranFile.setDetail(detailFile);
         fileDao.saveFile(tranFile);
+    }
+
+    @Override
+    public List<FileDto> getFile(int idLecturer) {
+        List<FileDto> listFile = new ArrayList<>();
+        List<TranFile> listTranFile = fileDao.getFile(idLecturer);
+        for (TranFile tranFile : listTranFile){
+            FileDto fileDto = new FileDto();
+            fileDto.setIdTranFile(tranFile.getIdTranFile());
+            fileDto.setNameDokumen(tranFile.getDetail().getNameDokumen());
+            fileDto.setNameFile(tranFile.getNameFile());
+            listFile.add(fileDto);
+        }
+        return listFile;
+    }
+
+    @Override
+    public void deleteFile(int idTranFile) {
+        TranFile tranFile = new TranFile();
+        tranFile.setIdTranFile(idTranFile);
+        fileDao.deleteFile(tranFile);
+    }
+
+    @Override
+    public List<FileDto> searchFile(String nameDokumen) {
+        List<FileDto> listFile = new ArrayList<>();
+        List<Object[]> listModel = fileDao.searchFile(nameDokumen);
+        for (Object[] tranFile : listModel){
+            FileDto fileDto = new FileDto();
+            fileDto.setIdTranFile(Integer.parseInt(tranFile[0].toString()));
+            DetailFile detailFile = detailFileDao.getDataDetailFile(Integer.parseInt(tranFile[6].toString()));
+            fileDto.setNameDokumen(detailFile.getNameDokumen());
+            fileDto.setNameFile(tranFile[2].toString());
+            listFile.add(fileDto);
+        }
+        return listFile;
     }
 }

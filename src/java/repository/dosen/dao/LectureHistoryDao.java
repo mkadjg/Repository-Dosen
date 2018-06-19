@@ -5,6 +5,7 @@
  */
 package repository.dosen.dao;
 
+import java.util.List;
 import repository.dosen.models.TranLectureHistory;
 
 /**
@@ -13,4 +14,7 @@ import repository.dosen.models.TranLectureHistory;
  */
 public interface LectureHistoryDao {
     public void saveLectureHistory(TranLectureHistory tranLectureHistory);
+    public void deleteLectureHistory(TranLectureHistory tranLectureHistory);
+    public List<TranLectureHistory> getLectureHistory(int idLecturer);
+    public List<Object[]> serachLectureHistory(String nameLecture);
 }

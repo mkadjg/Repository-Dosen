@@ -5,6 +5,7 @@
  */
 package repository.dosen.service;
 
+import java.util.List;
 import repository.dosen.dto.FileDto;
 
 /**
@@ -13,4 +14,7 @@ import repository.dosen.dto.FileDto;
  */
 public interface FileService {
     public void saveFile(FileDto fileDto);
+    public void deleteFile(int idTranFile);
+    public List<FileDto> getFile(int idLecturer);
+    public List<FileDto> searchFile(String nameDokumen);
 }

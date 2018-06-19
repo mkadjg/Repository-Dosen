@@ -82,11 +82,17 @@
     <bean id="majorService" class="repository.dosen.service.impl.MajorServiceImplement"/>
     <bean id="majorDao" class="repository.dosen.dao.impl.MajorDaoImpl"/>
     
+    <bean id="studyService" class="repository.dosen.service.impl.StudyServiceImplement"/>
+    <bean id="studyDao" class="repository.dosen.dao.impl.StudyDaoImpl"/>
+    
     <bean id="genderService" class="repository.dosen.service.impl.GenderServiceImplement"/>
     <bean id="genderDao" class="repository.dosen.dao.impl.GenderDaoImpl"/>
     
     <bean id="religionService" class="repository.dosen.service.impl.ReligionServiceImplement"/>
     <bean id="religionDao" class="repository.dosen.dao.impl.ReligionDaoImpl"/>
+    
+    <bean id="functionalService" class="repository.dosen.service.impl.FunctionalServiceImplement"/>
+    <bean id="functionalDao" class="repository.dosen.dao.impl.FunctionalDaoImpl"/>
     
     <bean id="lectureService" class="repository.dosen.service.impl.LectureServiceImplement"/>
     <bean id="lectureDao" class="repository.dosen.dao.impl.LectureDaoImpl"/>
@@ -103,5 +109,13 @@
     <bean id="lectureHistoryService" class="repository.dosen.service.impl.LectureHistoryServiceImplement"/>
     <bean id="lectureHistoryDao" class="repository.dosen.dao.impl.LectureHistoryDaoImpl"/>
     
+    <bean id="studyHistoryService" class="repository.dosen.service.impl.StudyHistoryServiceImplement"/>
+    <bean id="studyHistoryDao" class="repository.dosen.dao.impl.StudyDaoImpl"/>
+    
+    <bean id="functionalHistoryService" class="repository.dosen.service.impl.FunctionalHistoryServiceImplement"/>
+    <bean id="functionalHistoryDao" class="repository.dosen.dao.impl.FunctionalHistoryDaoImpl"/>
+    
+    <bean id="sertificationHistoryService" class="repository.dosen.service.impl.SertificationHistoryServiceImplement"/>
+    <bean id="sertificationHistoryDao" class="repository.dosen.dao.impl.SertificationHistoryDaoImpl"/>
     
 </beans>
