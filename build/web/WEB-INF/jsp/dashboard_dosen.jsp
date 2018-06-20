@@ -55,18 +55,13 @@
                              </a>
                             <ul class="dropdown-menu drp-mnu">
                                 <li> 
-                                    <a href="add_admin.htm">
-                                        <i class="fa fa-user-plus"></i> Tambah Admin
+                                    <a href="#">
+                                        <i class="fa fa-cog"></i> Settings
                                     </a> 
                                 </li>
                                 <li> 
-                                    <a href="setting_admin.htm">
-                                        <i class="fa fa-cog"></i> Pengaturan
-                                    </a> 
-                                </li> 
-                                <li> 
                                     <a href="logout.htm">
-                                        <i class="fa fa-sign-out"></i> Keluar
+                                        <i class="fa fa-sign-out"></i> Logout
                                     </a> 
                                 </li>
                             </ul>
@@ -123,55 +118,16 @@
                         </a>
                     </li>
                     <li>
-                        <a href="lecturer.htm">
+                        <a href="portofolio_dosen.htm?idLecturer=${sessionScope.idLecturer}">
                             <i class="fa fa-book nav_icon"></i>
-                            <span>Dosen Tetap</span>
+                            <span>Portofolio</span>
                         </a>
-                    </li>
-                    <li id="menu-comunicacao" >
-                        <a href="#">
-                            <i class="fa fa-file-text"></i>
-                            <span>Laporan</span>
-                            <span class="fa fa-angle-right" style="float: right"></span>
-                        </a>
-                        <ul id="menu-comunicacao-sub" >
-                            <li id="menu-arquivos" >
-                                <a href="showReportResume.htm">Resume Dosen Tetap</a>		              
-                            </li>
-                            <li id="menu-arquivos" >
-                                <a href="showReportComprehen.htm">Kelengkapan Portofolio</a>
-                            </li>
-                            <li id="menu-arquivos" >
-                                <a href="icons.html">Jenjang Karir</a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
                         <a href="showProgress.htm">
                         <i class="fa fa-bar-chart"></i>
                         <span>Progress</span>
                         </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-cog"></i>
-                            <span>Kelola Master</span>
-                            <span class="fa fa-angle-right" style="float: right"></span>
-                        </a>
-                        <ul id="menu-academico-sub" >
-                            <li id="menu-academico-boletim">
-                                <a href="showMasterData.htm">Master Data
-                                </a>
-                            </li>
-                            <li id="menu-academico-boletim">
-                                <a href="showMasterFile.htm">Detail Persyaratan
-                                </a>
-                            </li>
-                            <li id="menu-academico-boletim">
-                                <a href="showMasterProgress.htm">Detail Progress
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </div>

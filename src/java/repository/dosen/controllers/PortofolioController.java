@@ -58,4 +58,23 @@ public class PortofolioController {
         return "portofolio_page";
     }
     
+    @RequestMapping( value = "/portofolio_dosen", method = RequestMethod.GET)
+    public String showPortofolioDosen(int idLecturer, ModelMap model){
+        Lecturer lecturer = lecturerService.getDataLecturer(idLecturer);
+        List<DetailFileDto> listDetailHistoryLecture = detailFileService.getDetailFileHistoryLecture();
+        List<DetailFileDto> listDetailHistoryStudy = detailFileService.getDetailFileHistoryStudy();
+        List<DetailFileDto> listDetailHistoryFunctional = detailFileService.getDetailFileHistoryFunctional();
+        List<DetailFileDto> listDetailHistorySertification = detailFileService.getDetailFileHistorySertification();
+        List<Study> listStudy = studyService.getStudy();
+        List<Functional> listFunctional = functionalService.getFunctional();
+        model.addAttribute("fileHistoryLecture", listDetailHistoryLecture);
+        model.addAttribute("fileHistoryStudy", listDetailHistoryStudy);
+        model.addAttribute("fileHistoryFunctional", listDetailHistoryFunctional);
+        model.addAttribute("fileHistorySertification", listDetailHistorySertification);
+        model.addAttribute("listBiodata", lecturer);
+        model.addAttribute("dataStudy", listStudy);
+        model.addAttribute("dataFunctional", listFunctional);
+        return "portofolio_page_dosen";
+    }
+    
 }

@@ -11,9 +11,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!--Bootstrap file library-->
     <link href="resource/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
     <link href="resource/css/style.css" rel="stylesheet" type="text/css" media="all"/>
-    <script src="resource/js/jquery.nicescroll.js"></script>
-    <script src="resource/js/scripts.js"></script>
-    <script src="resource/js/bootstrap.js"> </script>
     <link href="resource/css/font-awesome.css" rel="stylesheet"> 
     <link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
@@ -96,7 +93,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 error: function(e){
                     var data = JSON.parse(e.responseText);
                     if (data.status === 1){
-                        window.location.replace('dashboard.htm');
+                        if (data.role === 1){
+                            window.location.replace('dashboard.htm');
+                        } else {
+                            window.location.replace('dashboard_dosen.htm');
+                        }
+                        
                     } else {
                         $(function(){
                             $.growl.error({title: "Peringatan !", message: "Username atau Password Salah !!!" });
@@ -107,6 +109,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         });
     });
 </script>
+<script src="resource/js/jquery.nicescroll.js"></script>
+<script src="resource/js/scripts.js"></script>
+<script src="resource/js/bootstrap.js"> </script>
 </html>
 
 

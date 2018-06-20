@@ -56,18 +56,18 @@
                              </a>
                             <ul class="dropdown-menu drp-mnu">
                                 <li> 
-                                    <a href="#">
-                                        <i class="fa fa-cog"></i> Settings
+                                    <a href="add_admin.htm">
+                                        <i class="fa fa-user-plus"></i> Tambah Admin
                                     </a> 
-                                </li> 
+                                </li>
                                 <li> 
-                                    <a href="#">
-                                        <i class="fa fa-user"></i> Profile
+                                    <a href="setting_admin.htm">
+                                        <i class="fa fa-cog"></i> Pengaturan
                                     </a> 
                                 </li> 
                                 <li> 
                                     <a href="logout.htm">
-                                        <i class="fa fa-sign-out"></i> Logout
+                                        <i class="fa fa-sign-out"></i> Keluar
                                     </a> 
                                 </li>
                             </ul>
@@ -420,7 +420,7 @@
             <div class="menu">
                 <ul id="menu" >
                     <li id="menu-home" >
-                        <a href="index.html">
+                        <a href="dashboard.htm">
                             <i class="fa fa-home"></i>
                             <span>Beranda</span>
                         </a>

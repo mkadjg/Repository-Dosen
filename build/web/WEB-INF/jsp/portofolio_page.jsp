@@ -65,18 +65,18 @@
                              </a>
                             <ul class="dropdown-menu drp-mnu">
                                 <li> 
-                                    <a href="#">
-                                        <i class="fa fa-cog"></i> Settings
+                                    <a href="add_admin.htm">
+                                        <i class="fa fa-user-plus"></i> Tambah Admin
                                     </a> 
-                                </li> 
+                                </li>
                                 <li> 
-                                    <a href="#">
-                                        <i class="fa fa-user"></i> Profile
+                                    <a href="setting_admin.htm">
+                                        <i class="fa fa-cog"></i> Pengaturan
                                     </a> 
                                 </li> 
                                 <li> 
                                     <a href="logout.htm">
-                                        <i class="fa fa-sign-out"></i> Logout
+                                        <i class="fa fa-sign-out"></i> Keluar
                                     </a> 
                                 </li>
                             </ul>
@@ -1172,7 +1172,7 @@
             <div class="menu">
                 <ul id="menu" >
                     <li id="menu-home" >
-                        <a href="index.html">
+                        <a href="dashboard.htm">
                             <i class="fa fa-home"></i>
                             <span>Beranda</span>
                         </a>
@@ -1593,7 +1593,9 @@
                                             <td>' + (i + 1) + '</td>\n\
                                             <td class="nameDokumen">' + data[i].nameDokumen + '</td>\n\
                                             <td>\n\
-                                                <a href="#"><span class="fa fa-search"></span></a>\n\
+                                                <a href="showFile.htm?nameFile=' + data[i].nameFile + '">\n\
+                                                    <span class="fa fa-search"></span>\n\
+                                                </a>\n\
                                             </td>\n\
                                         </tr>';
                             $('#tableBodyFile').html(content);
@@ -2111,6 +2113,36 @@
                         }
                     }
                 });            
+            });
+            
+            $('#searchFile').click(function(){
+                var nameDokumen = $('input[name=nameSearchFile]').val();
+                $.ajax({
+                    url : "searchFile.htm",
+                    data : "nameDokumen=" + nameDokumen,
+                    type: 'GET',
+                    success : function(response){
+                        var data = JSON.parse(response);
+                        var len = data.length;
+                        if (len === 0){
+                            $(function(){
+                                $.growl.warning({title: "Maaf", message: "Data tidak ada !" });
+                            });
+                        } else {
+                            var content = '';
+                            for (var i =0; i < len; i++){
+                                content +=' <tr>\n\
+                                                <td>' + (i + 1) + '</td>\n\
+                                                <td class="nameDokumen">' + data[i].nameDokumen + '</td>\n\
+                                                <td>\n\
+                                                    <a href="#"><span class="fa fa-search"></span></a>\n\
+                                                </td>\n\
+                                            </tr>';
+                                $('#tableBodyFile').html(content);
+                            }
+                        }
+                    }
+                });
             });
             
             $('select[name=idStudy]').change(function(event){

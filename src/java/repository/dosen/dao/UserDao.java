@@ -14,5 +14,5 @@ import repository.dosen.models.User;
 public interface UserDao {
     
     public User getDataUser(String username, String password);
-    
+    public void saveUser(User user);
 }

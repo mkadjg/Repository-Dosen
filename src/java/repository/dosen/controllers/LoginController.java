@@ -49,9 +49,11 @@ public class LoginController {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("name", user.getUsername());
                 session.setAttribute("role", "Administrator");
+                session.setAttribute("idUser", user.getIdUser());
                 Map map = new HashMap<>();
                 map.put("message", "Berhasil login");
                 map.put("status", 1);
+                map.put("role", 1);
                 return new Gson().toJson(map);
             } else {
                 Map map = new HashMap<>();
@@ -65,9 +67,11 @@ public class LoginController {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("name", lecturer.getNameLecturer());
                 session.setAttribute("role", "Dosen Tetap");
+                session.setAttribute("idLecturer", lecturer.getIdLecturer());
                 Map map = new HashMap<>();
                 map.put("message", "Berhasil login");
                 map.put("status", 1);
+                map.put("role", 2);
                 return new Gson().toJson(map);
             } else {
                 Map map = new HashMap<>();

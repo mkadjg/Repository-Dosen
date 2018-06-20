@@ -14,5 +14,5 @@ import repository.dosen.dto.UserDto;
 public interface UserService {
     
     public UserDto getDataUser(String username, String password);
-    
+    public void saveUser(UserDto userDto);
 }

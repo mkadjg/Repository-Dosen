@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -206,4 +207,11 @@ public class FileController {
         return new Gson().toJson(listFile);
     }
     
+    @RequestMapping(value = "/showFile", method = RequestMethod.GET)
+    public String showFile(String nameFile, ModelMap model){
+        FileDto fileDto = new FileDto();
+        fileDto.setNameFile(nameFile);
+        model.addAttribute("file", fileDto);
+        return "show_file";
+    }
 }

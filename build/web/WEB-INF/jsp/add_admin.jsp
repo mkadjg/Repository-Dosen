@@ -29,7 +29,7 @@
 		<div class="header-main">
                     <div class="header-left col-md-6">
                         <center>
-                            <h3 style="margin-top: 13px;">BERANDA</h3>
+                            <h3 style="margin-top: 13px;">PENGATURAN</h3>
                         </center>							
                         <div class="clearfix"> </div>
                     </div>
@@ -47,6 +47,7 @@
                                     <div class="user-name">
                                         <p>${sessionScope.name}</p>
                                         <span>${sessionScope.role}</span>
+                                        <input type="hidden" name="idUser" value="0"/>
                                     </div>
                                     <i class="fa fa-angle-down lnr"></i>
                                     <i class="fa fa-angle-up lnr"></i>
@@ -89,18 +90,64 @@
 			 
 		});
 		</script>
-                <div class="portlet-grid-page" style="padding: 20px">  	
-                    <div class="portlet panel-success col-md-12" 
-                         style="border: solid 1px #65cea7"> 
-                        <div class="panel-heading">
-                            <h3 class="panel-title">PDDIKTI Resmi Umumkan Sertifikasi Dosen Tahun 2018</h3>
-                        </div> 
-                        <div class="panel-body">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam.
-                        </div> 
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label style="padding-left: 188px; padding-top: 30px">Tambah Administrator</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-3" style="margin-top: 7px; text-align: right">
+                                Username<span style="color: red">*</span>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text"
+                                       placeholder="Username"
+                                       name="username"
+                                       class="form-control"
+                                       required=""/>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">    
+                            <div class="col-md-3" style="margin-top: 7px; text-align: right">
+                                Password<span style="color: red">*</span>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="password"
+                                       placeholder="Password Baru" 
+                                       name="newPassword"
+                                       class="form-control"
+                                       required=""/>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">    
+                            <div class="col-md-3" style="margin-top: 7px; text-align: right">
+                                Konfirmasi Password<span style="color: red">*</span>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="password"
+                                       placeholder="Konfirmasi Password Baru" 
+                                       name="password"
+                                       class="form-control"
+                                       required=""/>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">    
+                            <div class="col-md-offset-3 col-md-2">
+                                <button class="form-control-submit" 
+                                        id="submitCek">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="clearfix"></div>    
+                </div>    
             </div>
         </div>
         <div class="sidebar-menu">
@@ -194,6 +241,31 @@
                 }, 400);
             }               
                 toggle = !toggle;
+            });
+            
+            $(document).ready(function(){
+                $('#submitCek').click(function(){
+                    var username = $('input[name=username]').val();
+                    var idUser = $('input[name=idUser]').val();
+                    var newPassword = $('input[name=newPassword]').val();
+                    var password = $('input[name=password]').val();
+                    if (newPassword !== password) {
+                        $.growl.warning({title: "Peringatan", message: "Konfirmasi password baru salah!"});
+                    } else {
+                        $.ajax({
+                            url: 'updateAdministrator.htm',
+                            data: {idUser:idUser , username: username, password: password},
+                            type: 'GET',
+                            success : function(response){
+                                $.growl.notice({title: "Berhasil", message: "Data berhasil di tambah!"});
+                                $('input[name=username]').val("");
+                                $('input[name=idUser]').val(0);
+                                $('input[name=newPassword]').val("");
+                                $('input[name=password]').val("");
+                            }
+                        });    
+                    }
+                });
             });
     </script>
     <script src="resource/js/jquery.nicescroll.js"></script>

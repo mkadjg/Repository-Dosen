@@ -37,6 +37,15 @@ public class UserServiceImplement implements UserService{
             return userDto;
         }
     }
+
+    @Override
+    public void saveUser(UserDto userDto) {
+        User user = new User();
+        user.setIdUser(userDto.getIdUser());
+        user.setPassword(userDto.getPassword());
+        user.setUsername(userDto.getUsername());
+        userDao.saveUser(user);
+    }
         
     
 }

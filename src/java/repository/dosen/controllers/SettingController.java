@@ -14,16 +14,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Jaret
  */
 @Controller
-public class DashboardController {
+public class SettingController {
     
-    @RequestMapping( value="/dashboard", method = RequestMethod.GET)
-    public String showDashboard(){
-        return "dashboard";
+    @RequestMapping( value="/setting_admin", method = RequestMethod.GET)
+    public String showSettingAdmin(){
+        return "setting_admin";
     }
     
-    @RequestMapping( value="/dashboard_dosen", method = RequestMethod.GET)
-    public String showDashboardDosen(){
-        return "dashboard_dosen";
+    @RequestMapping( value="/add_admin", method = RequestMethod.GET)
+    public String showAddAdmin(){
+        return "add_admin";
     }
     
 }

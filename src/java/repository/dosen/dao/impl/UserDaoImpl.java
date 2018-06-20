@@ -24,5 +24,10 @@ public class UserDaoImpl extends HibernateUtil implements UserDao {
         User user = (User) query.uniqueResult();
         return user;
     }
+
+    @Override
+    public void saveUser(User user) {
+        getSession().saveOrUpdate(user);
+    }
     
 }
