@@ -46,6 +46,17 @@ public class UserServiceImplement implements UserService{
         user.setUsername(userDto.getUsername());
         userDao.saveUser(user);
     }
+
+    @Override
+    public int cekUsername(String username) {
+        User user = userDao.getDataUser(username);
+        if (user == null){
+            return 1;
+        } else {
+            return 0;
+        }
+        
+    }
         
     
 }

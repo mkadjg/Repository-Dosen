@@ -87,4 +87,25 @@ public class FileServiceImplements implements FileService {
         }
         return listFile;
     }
+
+    @Override
+    public List<FileDto> getFileRecruitment(int idLecturer) {
+        List<FileDto> listFileRecruitment = new ArrayList<>();
+        List<DetailFile> listDetail = detailFileDao.getDetailFileRecruitment();
+        List<Object[]> listFile = fileDao.getFileRecruitment(idLecturer);
+        for (int i = 0; i < listDetail.size(); i++){
+            FileDto fileDto = new FileDto();
+            if (i > (listFile.size() - 1)){
+                fileDto.setIdTranFile(0);
+                fileDto.setState(0);
+            } else {
+                fileDto.setIdTranFile(Integer.parseInt(listFile.get(i)[0].toString()));
+                fileDto.setState(Integer.parseInt(listFile.get(i)[1].toString()));
+            }
+            fileDto.setIdDetail(listDetail.get(i).getIdDetail());
+            fileDto.setNameDokumen(listDetail.get(i).getNameDokumen());
+            listFileRecruitment.add(fileDto);
+        }
+        return listFileRecruitment;
+     }
 }

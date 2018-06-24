@@ -17,4 +17,5 @@ public interface FileService {
     public void deleteFile(int idTranFile);
     public List<FileDto> getFile(int idLecturer);
     public List<FileDto> searchFile(String nameDokumen);
+    public List<FileDto> getFileRecruitment(int idLecturer);
 }

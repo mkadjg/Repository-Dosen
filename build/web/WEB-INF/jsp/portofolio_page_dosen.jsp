@@ -55,7 +55,7 @@
                                         <img src="images/p1.png" alt=""> 
                                     </span> 
                                     <div class="user-name">
-                                        <p>${sessionScope.name}</p>
+                                        <p>${sessionScope.nameLecturer}</p>
                                         <span>${sessionScope.role}</span>
                                     </div>
                                     <i class="fa fa-angle-down lnr"></i>
@@ -65,10 +65,10 @@
                              </a>
                             <ul class="dropdown-menu drp-mnu">
                                 <li> 
-                                    <a href="#">
+                                    <a href="setting_dosen.htm">
                                         <i class="fa fa-cog"></i> Settings
                                     </a> 
-                                </li> 
+                                </li>
                                 <li> 
                                     <a href="logout.htm">
                                         <i class="fa fa-sign-out"></i> Logout
@@ -1167,7 +1167,7 @@
             <div class="menu">
                 <ul id="menu" >
                     <li id="menu-home" >
-                        <a href="dashboard.htm">
+                        <a href="dashboard_dosen.htm">
                             <i class="fa fa-home"></i>
                             <span>Beranda</span>
                         </a>
@@ -1837,29 +1837,26 @@
                         } else {
                             var content = '';
                             for (var i =0; i < len; i++){
-                                var content = '';
-                                for (var i =0; i < len; i++){
-                                    content +=' <tr>\n\
-                                                    <td>' + (i + 1) + '</td>\n\
-                                                    <td class="nameUniversity">' + data[i].nameUniversity + '</td>\n\
-                                                    <td class="studyDescription">' + data[i].studyDescription + '</td>\n\
-                                                    <td class="degree">' + data[i].degree + '</td>\n\
-                                                    <td class="graduateYear">' + data[i].graduateYear + '</td>\n\
-                                                    <td>\n\
-                                                        <input type="hidden" class="idStudyHistory" value="' + data[i].idStudyHistory + '"/>\n\
-                                                        <input type="hidden" class="idTranFile" value="' + data[i].idTranFile + '"/>\n\
-                                                        <input type="hidden" class="idStudy" value="' + data[i].idStudy + '"/>\n\
-                                                        <input type="hidden" class="idDetail" value="' + data[i].idDetail + '"/>\n\
-                                                        <input type="hidden" class="joinYear" value="' + data[i].joinYear + '"/>\n\
-                                                        <input type="hidden" class="studyProgram" value="' + data[i].studyProgram + '"/>\n\
-                                                        <a href="#"><span class="updateStudyHistory fa fa-pencil"></span></a>\n\
-                                                    </td>\n\
-                                                    <td>\n\
-                                                        <a href="#"><span class="deleteStudyHistory fa fa-trash"></span></a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    $('#tableBodyStudyHistory').html(content);
-                                }
+                                content +=' <tr>\n\
+                                                <td>' + (i + 1) + '</td>\n\
+                                                <td class="nameUniversity">' + data[i].nameUniversity + '</td>\n\
+                                                <td class="studyDescription">' + data[i].studyDescription + '</td>\n\
+                                                <td class="degree">' + data[i].degree + '</td>\n\
+                                                <td class="graduateYear">' + data[i].graduateYear + '</td>\n\
+                                                <td>\n\
+                                                    <input type="hidden" class="idStudyHistory" value="' + data[i].idStudyHistory + '"/>\n\
+                                                    <input type="hidden" class="idTranFile" value="' + data[i].idTranFile + '"/>\n\
+                                                    <input type="hidden" class="idStudy" value="' + data[i].idStudy + '"/>\n\
+                                                    <input type="hidden" class="idDetail" value="' + data[i].idDetail + '"/>\n\
+                                                    <input type="hidden" class="joinYear" value="' + data[i].joinYear + '"/>\n\
+                                                    <input type="hidden" class="studyProgram" value="' + data[i].studyProgram + '"/>\n\
+                                                    <a href="#"><span class="updateStudyHistory fa fa-pencil"></span></a>\n\
+                                                </td>\n\
+                                                <td>\n\
+                                                    <a href="#"><span class="deleteStudyHistory fa fa-trash"></span></a>\n\
+                                                </td>\n\
+                                            </tr>';
+                                $('#tableBodyStudyHistory').html(content);
                             }
                         }
                         
@@ -1925,26 +1922,23 @@
                         } else {
                             var content = '';
                             for (var i =0; i < len; i++){
-                                var content = '';
-                                for (var i =0; i < len; i++){
-                                    content +=' <tr>\n\
-                                                    <td>' + (i + 1) + '</td>\n\
-                                                    <td class="nameFunctional">' + data[i].nameFunctional + '</td>\n\
-                                                    <td class="skNumber">' + data[i].skNumber + '</td>\n\
-                                                    <td class="skDate">' + data[i].skDate + '</td>\n\
-                                                    <td>\n\
-                                                        <input type="hidden" class="idFunctionalHistory" value="' + data[i].idFunctionalHistory + '"/>\n\
-                                                        <input type="hidden" class="idTranFile" value="' + data[i].idTranFile + '"/>\n\
-                                                        <input type="hidden" class="idFunctional" value="' + data[i].idFunctional + '"/>\n\
-                                                        <input type="hidden" class="idDetail" value="' + data[i].idDetail + '"/>\n\
-                                                        <a href="#"><span class="updateFunctionalHistory fa fa-pencil"></span></a>\n\
-                                                    </td>\n\
-                                                    <td>\n\
-                                                        <a href="#"><span class="deleteFunctionalHistory fa fa-trash"></span></a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    $('#tableBodyFunctionalHistory').html(content);
-                                }
+                                content +=' <tr>\n\
+                                                <td>' + (i + 1) + '</td>\n\
+                                                <td class="nameFunctional">' + data[i].nameFunctional + '</td>\n\
+                                                <td class="skNumber">' + data[i].skNumber + '</td>\n\
+                                                <td class="skDate">' + data[i].skDate + '</td>\n\
+                                                <td>\n\
+                                                    <input type="hidden" class="idFunctionalHistory" value="' + data[i].idFunctionalHistory + '"/>\n\
+                                                    <input type="hidden" class="idTranFile" value="' + data[i].idTranFile + '"/>\n\
+                                                    <input type="hidden" class="idFunctional" value="' + data[i].idFunctional + '"/>\n\
+                                                    <input type="hidden" class="idDetail" value="' + data[i].idDetail + '"/>\n\
+                                                    <a href="#"><span class="updateFunctionalHistory fa fa-pencil"></span></a>\n\
+                                                </td>\n\
+                                                <td>\n\
+                                                    <a href="#"><span class="deleteFunctionalHistory fa fa-trash"></span></a>\n\
+                                                </td>\n\
+                                            </tr>';
+                                $('#tableBodyFunctionalHistory').html(content);
                             }
 
                             $('.updateFunctionalHistory').click(function(){
@@ -2004,27 +1998,25 @@
                         } else {
                             var content = '';
                             for (var i =0; i < len; i++){
-                                var content = '';
-                                for (var i =0; i < len; i++){
-                                    content +=' <tr>\n\
-                                                    <td>' + (i + 1) + '</td>\n\
-                                                    <td class="sertificationPart">' + data[i].sertificationPart + '</td>\n\
-                                                    <td class="studyPart">' + data[i].studyPart + '</td>\n\
-                                                    <td class="ptpsNumber">' + data[i].ptpsNumber + '</td>\n\
-                                                    <td class="registrationNumber">' + data[i].registrationNumber + '</td>\n\
-                                                    <td>\n\
-                                                        <input type="hidden" class="idSertificationHistory" value="' + data[i].idSertificationHistory + '"/>\n\
-                                                        <input type="hidden" class="idTranFile" value="' + data[i].idTranFile + '"/>\n\
-                                                        <input type="hidden" class="idDetail" value="' + data[i].idDetail + '"/>\n\
-                                                        <a href="#"><span class="updateSertificationHistory fa fa-pencil"></span></a>\n\
-                                                    </td>\n\
-                                                    <td>\n\
-                                                        <a href="#"><span class="deleteSertificationHistory fa fa-trash"></span></a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    $('#tableBodySertificationHistory').html(content);
-                                }
+                                content +=' <tr>\n\
+                                                <td>' + (i + 1) + '</td>\n\
+                                                <td class="sertificationPart">' + data[i].sertificationPart + '</td>\n\
+                                                <td class="studyPart">' + data[i].studyPart + '</td>\n\
+                                                <td class="ptpsNumber">' + data[i].ptpsNumber + '</td>\n\
+                                                <td class="registrationNumber">' + data[i].registrationNumber + '</td>\n\
+                                                <td>\n\
+                                                    <input type="hidden" class="idSertificationHistory" value="' + data[i].idSertificationHistory + '"/>\n\
+                                                    <input type="hidden" class="idTranFile" value="' + data[i].idTranFile + '"/>\n\
+                                                    <input type="hidden" class="idDetail" value="' + data[i].idDetail + '"/>\n\
+                                                    <a href="#"><span class="updateSertificationHistory fa fa-pencil"></span></a>\n\
+                                                </td>\n\
+                                                <td>\n\
+                                                    <a href="#"><span class="deleteSertificationHistory fa fa-trash"></span></a>\n\
+                                                </td>\n\
+                                            </tr>';
+                                $('#tableBodySertificationHistory').html(content);
                             }
+
 
                             $('.updateSertificationHistory').click(function(){
                                 var sertificationPart = $(this).closest('tr').find('.sertificationPart').html();

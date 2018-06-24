@@ -29,5 +29,13 @@ public class UserDaoImpl extends HibernateUtil implements UserDao {
     public void saveUser(User user) {
         getSession().saveOrUpdate(user);
     }
+
+    @Override
+    public User getDataUser(String username) {
+        String sql = "select model from User model where username=:username";
+        Query query = createQuery(sql).setParameter("username", username);
+        User user = (User) query.uniqueResult();
+        return user;
+    }
     
 }

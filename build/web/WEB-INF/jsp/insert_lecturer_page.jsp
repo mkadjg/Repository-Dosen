@@ -54,8 +54,8 @@
                                             <img src="images/p1.png" alt=""> 
                                         </span> 
                                         <div class="user-name">
-                                            <p>Malorum</p>
-                                            <span>Administrator</span>
+                                            <p>${sessionScope.name}</p>
+                                            <span>${sessionScope.role}</span>
                                         </div>
                                         <i class="fa fa-angle-down lnr"></i>
                                         <i class="fa fa-angle-up lnr"></i>
@@ -64,18 +64,18 @@
                                  </a>
                                 <ul class="dropdown-menu drp-mnu">
                                     <li> 
-                                        <a href="#">
-                                            <i class="fa fa-cog"></i> Settings
+                                        <a href="add_admin.htm">
+                                            <i class="fa fa-user-plus"></i> Tambah Admin
+                                        </a> 
+                                    </li>
+                                    <li> 
+                                        <a href="setting_admin.htm">
+                                            <i class="fa fa-cog"></i> Pengaturan
                                         </a> 
                                     </li> 
                                     <li> 
-                                        <a href="#">
-                                            <i class="fa fa-user"></i> Profile
-                                        </a> 
-                                    </li> 
-                                    <li> 
-                                        <a href="#">
-                                            <i class="fa fa-sign-out"></i> Logout
+                                        <a href="logout.htm">
+                                            <i class="fa fa-sign-out"></i> Keluar
                                         </a> 
                                     </li>
                                 </ul>
@@ -100,24 +100,26 @@
 		</script>
                 
                 <!--Judul-->
-                <div class="row">
+<!--                <div class="row">
                     <div class="col-md-12" align="center">
                         <label style="padding-top: 30px; font-size: 18px; font-family: calibri">
                             FORM PENGISIAN PROFIL DOSEN TETAP
                         </label>
                     </div>
-                </div>
+                </div>-->
                 <!--End Judul-->
                 
-                <hr>
-                
+<!--                <hr>-->
+                <br>
+                <br>
                 <!--Isi-->
                 <div class="row">
-                    <div class="col-md-6" align="center">
-                        <form action="saveLecturer.htm"
+                    <form action="saveLecturer.htm"
                                    id="formLecturer"
                                    name="lecturer"
                                    method="POST">
+                        
+                        <div class="col-md-6" align="center">
                             <div class="row">
                                 <div class="col-md-4" style="margin-top: 7px; text-align: right">
                                     NIDN
@@ -248,8 +250,8 @@
                                        required="" />
                                 </div>
                             </div>
-                    </div>
-                    <div class="col-md-6" align="center">
+                        </div>
+                        <div class="col-md-6" align="center">
                             <div class="row">
                                 <div class="col-md-4" style="margin-top: 7px; text-align: right">
                                     Homebase Dosen
@@ -288,6 +290,7 @@
                                         id="major"      
                                         class="form-control" 
                                         required="">
+                                        <option selected="true">--Pilih Jurusan</option>
                                     </select>
                                 </div>
                             </div>
@@ -316,8 +319,8 @@
                                     Password<span style="color: red">*</span>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="text" 
-                                       class="lock" 
+                                    <input type="password" 
+                                       class="form-control" 
                                        name="password"
                                        placeholder="Password"
                                        required="" />
@@ -329,8 +332,8 @@
                                     Konfirmasi Password<span style="color: red">*</span>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="text" 
-                                       class="lock" 
+                                    <input type="password" 
+                                       class="form-control" 
                                        name="passwordConfirm"
                                        placeholder="Konfirmasi Password"
                                        required="" />
@@ -345,7 +348,6 @@
                                            value="Simpan"/>
                                 </div>
                             </div>   
-                        </form>
                             <div class="row">
                                 <div class="col-md-4">
                                     <i style="font-size: 12px">Keterangan :</i> 
@@ -356,7 +358,8 @@
                                     <span style="color: red;">*</span> <i style="font-size: 12px">Wajib diisi</i>
                                 </div>
                             </div>
-                    </div>
+                        </div>
+                    </form>    
                 </div>
                 <!--End Isi-->
                 
@@ -495,9 +498,12 @@
                         dataType: "form-data",
                         data: $('#formLecturer').serialize(),
                         error: function(e){
-                            $(function(){
-                                $.growl.notice({title: "Berhasil !", message: "Data berhasil ditambahkan !" });
-                            });
+                            var data = JSON.parse(e.responseText);
+                            if (data.status === 0){
+                                $.growl.error({title: "Peringatan !", message: "Username sudah tersedia !" });
+                            } else {
+                                window.location.replace("addFileRecruitment.htm?idLecturer=" + data.idLecturer);
+                            }
                         } 
                     });
                 }

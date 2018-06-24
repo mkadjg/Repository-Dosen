@@ -45,7 +45,7 @@
                                         <img src="images/p1.png" alt=""> 
                                     </span> 
                                     <div class="user-name">
-                                        <p>${sessionScope.name}</p>
+                                        <p>${sessionScope.nameLecturer}</p>
                                         <span>${sessionScope.role}</span>
                                     </div>
                                     <i class="fa fa-angle-down lnr"></i>
@@ -55,7 +55,7 @@
                              </a>
                             <ul class="dropdown-menu drp-mnu">
                                 <li> 
-                                    <a href="#">
+                                    <a href="setting_dosen.htm">
                                         <i class="fa fa-cog"></i> Settings
                                     </a> 
                                 </li>
@@ -112,7 +112,7 @@
             <div class="menu">
                 <ul id="menu" >
                     <li id="menu-home" >
-                        <a href="dashboard.htm">
+                        <a href="dashboard_dosen.htm">
                             <i class="fa fa-home"></i>
                             <span>Beranda</span>
                         </a>

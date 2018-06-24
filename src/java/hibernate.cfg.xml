@@ -23,6 +23,11 @@
     <mapping resource="repository/dosen/models/TranLectureHistory.hbm.xml"/>
     <mapping resource="repository/dosen/models/TranSertificationHistory.hbm.xml"/>
     <mapping resource="repository/dosen/models/TranStudyHistory.hbm.xml"/>
-    
+    <mapping resource="repository/dosen/models/FunctionalProgressHistory.hbm.xml"/>
+    <mapping resource="repository/dosen/models/LecturerProgressHistory.hbm.xml"/>
+    <mapping resource="repository/dosen/models/SertificationProgressHistory.hbm.xml"/>
+    <mapping resource="repository/dosen/models/TranProgressFunctional.hbm.xml"/>
+    <mapping resource="repository/dosen/models/TranProgressLecturer.hbm.xml"/>
+    <mapping resource="repository/dosen/models/TranProgressSertification.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

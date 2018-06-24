@@ -107,14 +107,51 @@ public class LecturerController {
     @RequestMapping(value = "/saveLecturer", method = RequestMethod.POST)
     @ResponseBody
     public String saveLecturer(Lecturer lecturer){
+        int cekData = lecturerService.saveLecturer(lecturer);
+        if (cekData == 1){
+            Map map = new HashMap();
+            map.put("status", 0);
+            map.put("message", "Username sudah tersedia");
+            return new Gson().toJson(map);
+        } else {
+            Lecturer newLecturer = lecturerService.getDataLecturerForLogin(lecturer.getUsername(), lecturer.getPassword());
+            Map map = new HashMap();
+            map.put("status", 1);
+            map.put("message", "Berhasil execute data");
+            map.put("idLecturer", newLecturer.getIdLecturer());
+            return new Gson().toJson(map);
+        }
+    }
+    
+    @RequestMapping(value = "/cekLecturer", method = RequestMethod.GET)
+    @ResponseBody
+    public String cekLecturer(String username, String oldPassword){
+        Lecturer lecturer = lecturerService.getDataLecturerForLogin(username, oldPassword);
+        if (lecturer != null){
+            Map map = new HashMap<>();
+            map.put("message", "Cek berhasil");
+            map.put("status", 1);
+            return new Gson().toJson(map);
+        } else {
+            Map map = new HashMap<>();
+            map.put("message", "Password lama anda salah !!!");
+            map.put("status", 0);
+            return new Gson().toJson(map);
+        }
+    }
+    
+    @RequestMapping(value = "/updateLecturer", method = RequestMethod.GET)
+    @ResponseBody
+    public String updateLecturer(String idLecturer, String username, String password){
+        Lecturer lecturer = lecturerService.getDataLecturer(Integer.parseInt(idLecturer));
+        lecturer.setIdLecturer(Integer.parseInt(idLecturer));
+        lecturer.setUsername(username);
+        lecturer.setPassword(password);
         lecturerService.saveLecturer(lecturer);
-        Map map = new HashMap();
+        Map map = new HashMap<>();
+        map.put("message", "Data berhasil diupdate");
         map.put("status", 1);
-        map.put("message", "Berhasil execute data");
-        map.put("idLecturer", lecturer.getIdLecturer());
         return new Gson().toJson(map);
     }
     
-    
-
 }

@@ -12,7 +12,7 @@ import repository.dosen.dto.UserDto;
  * @author Jaret
  */
 public interface UserService {
-    
+    public int cekUsername(String username);
     public UserDto getDataUser(String username, String password);
     public void saveUser(UserDto userDto);
 }

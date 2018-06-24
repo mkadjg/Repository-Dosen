@@ -15,6 +15,7 @@ import repository.dosen.models.MasterLecturer;
  */
 public interface LecturerDao {
     public MasterLecturer getDataLecturerForLogin(String username, String password);
+    public MasterLecturer getDataLecturerByUsername(String username);
     public MasterLecturer getDataLecturer(int idLecturer);
     public List<MasterLecturer> getLecturer();
     public List<MasterLecturer> getLecturerByMajor(String idMajor);

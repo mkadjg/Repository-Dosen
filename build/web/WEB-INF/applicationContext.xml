@@ -47,7 +47,13 @@
                     <value>repository/dosen/models/TranLectureHistory.hbm.xml</value>
                     <value>repository/dosen/models/TranSertificationHistory.hbm.xml</value>
                     <value>repository/dosen/models/TranStudyHistory.hbm.xml</value>
-    
+                    
+                    <value>repository/dosen/models/FunctionalProgressHistory.hbm.xml</value>
+                    <value>repository/dosen/models/LecturerProgressHistory.hbm.xml</value>
+                    <value>repository/dosen/models/SertificationProgressHistory.hbm.xml</value>
+                    <value>repository/dosen/models/TranProgressFunctional.hbm.xml</value>
+                    <value>repository/dosen/models/TranProgressLecturer.hbm.xml</value>
+                    <value>repository/dosen/models/TranProgressSertification.hbm.xml</value>
                 </list>  
             </property>  
             <property name="hibernateProperties">  
@@ -117,5 +123,11 @@
     
     <bean id="sertificationHistoryService" class="repository.dosen.service.impl.SertificationHistoryServiceImplement"/>
     <bean id="sertificationHistoryDao" class="repository.dosen.dao.impl.SertificationHistoryDaoImpl"/>
+    
+    <bean id="lecturerProgressHistoryService" class="repository.dosen.service.impl.LecturerProgressHistoryServiceImplement"/>
+    <bean id="lecturerProgressHistoryDao" class="repository.dosen.dao.impl.LecturerProgressHistoryDaoImpl"/>
+    
+    <bean id="functionalProgressHistoryService" class="repository.dosen.service.impl.FunctionalProgressHistoryServiceImplement"/>
+    <bean id="functionalProgressHistoryDao" class="repository.dosen.dao.impl.FunctionalProgressHistoryDaoImpl"/>
     
 </beans>

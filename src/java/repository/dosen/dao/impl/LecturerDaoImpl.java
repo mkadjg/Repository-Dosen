@@ -20,7 +20,7 @@ public class LecturerDaoImpl extends HibernateUtil implements LecturerDao{
 
     @Override
     public MasterLecturer getDataLecturerForLogin(String username, String password) {
-        String sql = "select model from MasterLecturer model where username=:username or email=:username and password=:password";
+        String sql = "select model from MasterLecturer model where username=:username and password=:password";
         Query query = createQuery(sql).setParameter("username", username).setParameter("password", password);
         return (MasterLecturer) query.uniqueResult();
     }
@@ -57,7 +57,7 @@ public class LecturerDaoImpl extends HibernateUtil implements LecturerDao{
 
     @Override
     public void saveLecturer(MasterLecturer masterLecturer) {
-        getSession().save(masterLecturer);
+        getSession().saveOrUpdate(masterLecturer);
     }
 
     @Override
@@ -80,6 +80,13 @@ public class LecturerDaoImpl extends HibernateUtil implements LecturerDao{
     public MasterLecturer getDataLecturer(int idLecturer) {
         String sql = "select model from MasterLecturer model where idLecturer=:ids";
         Query query = createQuery(sql).setParameter("ids", idLecturer);
+        return (MasterLecturer) query.uniqueResult();
+    }
+
+    @Override
+    public MasterLecturer getDataLecturerByUsername(String username) {
+        String sql = "select model from MasterLecturer model where username=:username";
+        Query query = createQuery(sql).setParameter("username", username);
         return (MasterLecturer) query.uniqueResult();
     }
 }

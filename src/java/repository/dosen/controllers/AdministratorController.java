@@ -46,15 +46,24 @@ public class AdministratorController {
     @RequestMapping(value = "/updateAdministrator", method = RequestMethod.GET)
     @ResponseBody
     public String updateAdministrator(String idUser, String username, String password){
-        UserDto userDto = new UserDto();
-        userDto.setIdUser(Integer.parseInt(idUser));
-        userDto.setUsername(username);
-        userDto.setPassword(password);
-        userService.saveUser(userDto);
-        Map map = new HashMap<>();
-        map.put("message", "Berhasil update data !!!");
-        map.put("status", 1);
-        return new Gson().toJson(map);
+        int cekData = userService.cekUsername(username);
+        if (cekData == 0){
+            Map map = new HashMap<>();
+            map.put("message", "Username sudah dipakai !!!");
+            map.put("status", 0);
+            return new Gson().toJson(map);
+        } else {
+            UserDto userDto = new UserDto();
+            userDto.setIdUser(Integer.parseInt(idUser));
+            userDto.setUsername(username);
+            userDto.setPassword(password);
+            userService.saveUser(userDto);
+            Map map = new HashMap<>();
+            map.put("message", "Berhasil update data !!!");
+            map.put("status", 1);
+            return new Gson().toJson(map);
+        }
+        
     }
     
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="repository.dosen.models.FunctionalProgressHistory" table="FunctionalProgressHistory">
+    <id column="idProgressHistory" name="idProgressHistory">
+      <generator class="native"/>
+    </id>
+    <many-to-one class="repository.dosen.models.MasterLecturer" column="idLecturer" name="lecturer" not-null="true"/>
+    <many-to-one class="repository.dosen.models.MasterFunctional" column="idFunctional" name="functional" not-null="true"/>
+    <property column="state" name="state"/>
+  </class>
+</hibernate-mapping>

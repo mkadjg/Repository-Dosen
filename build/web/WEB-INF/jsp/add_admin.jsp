@@ -257,11 +257,19 @@
                             data: {idUser:idUser , username: username, password: password},
                             type: 'GET',
                             success : function(response){
-                                $.growl.notice({title: "Berhasil", message: "Data berhasil di tambah!"});
-                                $('input[name=username]').val("");
-                                $('input[name=idUser]').val(0);
-                                $('input[name=newPassword]').val("");
-                                $('input[name=password]').val("");
+                                var data = JSON.parse(response);
+                                if (data.status === 0){
+                                    $.growl.warning({
+                                        title: "Peringatan", 
+                                        message: "Username sudah dipakai!"
+                                    });
+                                } else {
+                                    $.growl.notice({title: "Berhasil", message: "Data berhasil di tambah!"});
+                                    $('input[name=username]').val("");
+                                    $('input[name=idUser]').val(0);
+                                    $('input[name=newPassword]').val("");
+                                    $('input[name=password]').val("");
+                                }
                             }
                         });    
                     }

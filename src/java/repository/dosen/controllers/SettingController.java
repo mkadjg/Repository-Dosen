@@ -21,6 +21,11 @@ public class SettingController {
         return "setting_admin";
     }
     
+    @RequestMapping( value="/setting_dosen", method = RequestMethod.GET)
+    public String showSettingDosen(){
+        return "setting_dosen";
+    }
+    
     @RequestMapping( value="/add_admin", method = RequestMethod.GET)
     public String showAddAdmin(){
         return "add_admin";

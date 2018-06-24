@@ -34,44 +34,44 @@
                         <div class="clearfix"> </div>
                     </div>
                     <div class="profile_details">		
-                    <ul>
-                        <li class="dropdown profile_details_drop">
-                            <a href="#" 
-                               class="dropdown-toggle" 
-                               data-toggle="dropdown" 
-                               aria-expanded="false">
-                                <div class="profile_img">	
-                                    <span class="prfil-img">
-                                        <img src="images/p1.png" alt=""> 
-                                    </span> 
-                                    <div class="user-name">
-                                        <p>${sessionScope.name}</p>
-                                        <span>${sessionScope.role}</span>
-                                    </div>
-                                    <i class="fa fa-angle-down lnr"></i>
-                                    <i class="fa fa-angle-up lnr"></i>
-                                    <div class="clearfix"></div>	
-                                </div>	
-                             </a>
-                            <ul class="dropdown-menu drp-mnu">
-                                <li> 
-                                    <a href="add_admin.htm">
-                                        <i class="fa fa-user-plus"></i> Tambah Admin
-                                    </a> 
-                                </li>
-                                <li> 
-                                    <a href="setting_admin.htm">
-                                        <i class="fa fa-cog"></i> Pengaturan
-                                    </a> 
-                                </li> 
-                                <li> 
-                                    <a href="logout.htm">
-                                        <i class="fa fa-sign-out"></i> Keluar
-                                    </a> 
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                        <ul>
+                            <li class="dropdown profile_details_drop">
+                                <a href="#" 
+                                   class="dropdown-toggle" 
+                                   data-toggle="dropdown" 
+                                   aria-expanded="false">
+                                    <div class="profile_img">	
+                                        <span class="prfil-img">
+                                            <img src="images/p1.png" alt=""> 
+                                        </span> 
+                                        <div class="user-name">
+                                            <p>${sessionScope.name}</p>
+                                            <span>${sessionScope.role}</span>
+                                        </div>
+                                        <i class="fa fa-angle-down lnr"></i>
+                                        <i class="fa fa-angle-up lnr"></i>
+                                        <div class="clearfix"></div>	
+                                    </div>	
+                                 </a>
+                                <ul class="dropdown-menu drp-mnu">
+                                    <li> 
+                                        <a href="add_admin.htm">
+                                            <i class="fa fa-user-plus"></i> Tambah Admin
+                                        </a> 
+                                    </li>
+                                    <li> 
+                                        <a href="setting_admin.htm">
+                                            <i class="fa fa-cog"></i> Pengaturan
+                                        </a> 
+                                    </li> 
+                                    <li> 
+                                        <a href="logout.htm">
+                                            <i class="fa fa-sign-out"></i> Keluar
+                                        </a> 
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                     <div class="clearfix"> </div>					
 		</div>

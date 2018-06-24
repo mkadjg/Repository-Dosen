@@ -119,25 +119,31 @@ public class LecturerServiceImplement implements LecturerService{
     }
     
     @Override
-    public void saveLecturer(Lecturer lecturer) {
-        MasterLecturer masterLecturer = new MasterLecturer();
-        MasterMajor masterMajor = majorDao.getDataMajor(lecturer.getIdMajor());
-        MasterReligion masterReligion = religionDao.getDataReligion(lecturer.getIdReligion());
-        MasterGender masterGender = genderDao.getDataGender(lecturer.getIdGender());
-        masterLecturer.setIdLecturer(lecturer.getIdLecturer());
-        masterLecturer.setNameLecturer(lecturer.getNameLecturer());
-        masterLecturer.setAddress(lecturer.getAddress());
-        masterLecturer.setBirthdate(lecturer.getBirthdate());
-        masterLecturer.setBirthplace(lecturer.getBirthplace());
-        masterLecturer.setEmail(lecturer.getEmail());
-        masterLecturer.setNumberPhone(lecturer.getNumberPhone());
-        masterLecturer.setNidn(lecturer.getNidn());
-        masterLecturer.setUsername(lecturer.getUsername());
-        masterLecturer.setPassword(lecturer.getPassword());
-        masterLecturer.setGender(masterGender);
-        masterLecturer.setReligion(masterReligion);
-        masterLecturer.setMajor(masterMajor);
-        lecturerDao.saveLecturer(masterLecturer);
+    public int saveLecturer(Lecturer lecturer) {
+        MasterLecturer cekLecturer = lecturerDao.getDataLecturerByUsername(lecturer.getUsername());
+        if (cekLecturer != null){
+            return 1;
+        } else {
+            MasterLecturer masterLecturer = new MasterLecturer();
+            MasterMajor masterMajor = majorDao.getDataMajor(lecturer.getIdMajor());
+            MasterReligion masterReligion = religionDao.getDataReligion(lecturer.getIdReligion());
+            MasterGender masterGender = genderDao.getDataGender(lecturer.getIdGender());
+            masterLecturer.setIdLecturer(lecturer.getIdLecturer());
+            masterLecturer.setNameLecturer(lecturer.getNameLecturer());
+            masterLecturer.setAddress(lecturer.getAddress());
+            masterLecturer.setBirthdate(lecturer.getBirthdate());
+            masterLecturer.setBirthplace(lecturer.getBirthplace());
+            masterLecturer.setEmail(lecturer.getEmail());
+            masterLecturer.setNumberPhone(lecturer.getNumberPhone());
+            masterLecturer.setNidn(lecturer.getNidn());
+            masterLecturer.setUsername(lecturer.getUsername());
+            masterLecturer.setPassword(lecturer.getPassword());
+            masterLecturer.setGender(masterGender);
+            masterLecturer.setReligion(masterReligion);
+            masterLecturer.setMajor(masterMajor);
+            lecturerDao.saveLecturer(masterLecturer);
+            return 0;
+        }
     }
 
     @Override

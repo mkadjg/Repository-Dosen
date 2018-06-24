@@ -65,7 +65,8 @@ public class LoginController {
             Lecturer lecturer = lecturerService.getDataLecturerForLogin(userDto.getUsername(), userDto.getPassword());
             if (lecturer != null){
                 HttpSession session = request.getSession(true);
-                session.setAttribute("name", lecturer.getNameLecturer());
+                session.setAttribute("name", lecturer.getUsername());
+                session.setAttribute("nameLecturer", lecturer.getNameLecturer());
                 session.setAttribute("role", "Dosen Tetap");
                 session.setAttribute("idLecturer", lecturer.getIdLecturer());
                 Map map = new HashMap<>();

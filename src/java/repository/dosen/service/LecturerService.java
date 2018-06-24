@@ -21,5 +21,5 @@ public interface LecturerService {
     public List<Lecturer> getLecturerByNameLecturer(String nameLecturer);
     public List<Lecturer> getLecturerByMajor(String nameLecturer, String idMajor);
     public List<Lecturer> getLecturerByFaculty(String nameLecturer, String idFaculty);
-    public void saveLecturer(Lecturer lecturer);
+    public int saveLecturer(Lecturer lecturer);
 }

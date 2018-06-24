@@ -12,7 +12,7 @@ import repository.dosen.models.User;
  * @author Jaret
  */
 public interface UserDao {
-    
+    public User getDataUser(String username);
     public User getDataUser(String username, String password);
     public void saveUser(User user);
 }
