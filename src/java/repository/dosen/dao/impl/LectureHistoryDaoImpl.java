@@ -42,5 +42,19 @@ public class LectureHistoryDaoImpl extends HibernateUtil implements LectureHisto
         Query query = createNativeQuery(sql);
         return query.list();
     }
+
+    @Override
+    public TranLectureHistory getMaxLectureHistory(int idLecturer) {
+        String sql = "select max(model) from TranLectureHistory model where idLecturer=:ids order by year desc";
+        Query query = createQuery(sql).setParameter("ids", idLecturer);
+        return (TranLectureHistory) query.uniqueResult();
+    }
+
+    @Override
+    public TranLectureHistory getMinLectureHistory(int idLecturer) {
+        String sql = "select min(model) from TranLectureHistory model where idLecturer=:ids order by year desc";
+        Query query = createQuery(sql).setParameter("ids", idLecturer);
+        return (TranLectureHistory) query.uniqueResult();
+    }
     
 }

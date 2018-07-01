@@ -89,4 +89,142 @@ public class LecturerDaoImpl extends HibernateUtil implements LecturerDao{
         Query query = createQuery(sql).setParameter("username", username);
         return (MasterLecturer) query.uniqueResult();
     }
+    
+    @Override
+    public List<Object[]> getLecturerNidn(String idFaculty, String idMajor) {
+        String sql = "select * from MasterLecturer where "
+                    + "idLecturer in ("
+                    + "select idLecturer from LecturerProgressHistory where state = 1 and "
+                    + "idLecturer not in ("
+                    + "select idLecturer from FunctionalProgressHistory where idFunctional = 1))";
+        if (!(idFaculty.equals("0"))) {
+            if (idMajor.equals("0")){
+                sql += " and idMajor in (" 
+                        + "select idMajor from MasterMajor where "
+                        + "idFaculty ='" + idFaculty + "')";
+            } else {
+                sql += " and idMajor ='" + idMajor + "'";
+            }
+        }
+        Query query = createNativeQuery(sql);
+        List<Object[]> listResult = query.list();
+        return listResult;
+    }
+
+    @Override
+    public List<Object[]> getLecturerAssistant(String idFaculty, String idMajor) {
+        String sql = "select * from MasterLecturer where "
+                    + "idLecturer in ("
+                    + "select idLecturer from FunctionalProgressHistory where idFunctional = 1 and state = 1 and "
+                    + "idLecturer not in ("
+                    + "select idLecturer from FunctionalProgressHistory where idFunctional = 2))";
+        if (!(idFaculty.equals("0"))) {
+            if (idMajor.equals("0")){
+                sql += "AND idMajor IN (" 
+                        + "SELECT idMajor FROM MasterMajor WHERE "
+                        + "idFaculty =" + idFaculty + ")";
+            } else {
+                sql += "AND idMajor ='" + idMajor + "'";
+            }
+        }
+        Query query = createNativeQuery(sql);
+        List<Object[]> listResult = query.list();
+        return listResult;
+    }
+
+    @Override
+    public List<Object[]> getLecturerlectors(String idFaculty, String idMajor) {
+        String sql = "select * from MasterLecturer where "
+                    + "idLecturer in ("
+                    + "select idLecturer from FunctionalProgressHistory where idFunctional = 2 and state = 1 and "
+                    + "idLecturer not in ("
+                    + "select idLecturer from FunctionalProgressHistory where idFunctional = 3))";
+        if (!(idFaculty.equals("0"))) {
+            if (idMajor.equals("0")){
+                sql += "AND idMajor IN (" 
+                        + "SELECT idMajor FROM MasterMajor WHERE "
+                        + "idFaculty =" + idFaculty + ")";
+            } else {
+                sql += "AND idMajor ='" + idMajor + "'";
+            }
+        }
+        Query query = createNativeQuery(sql);
+        List<Object[]> listResult = query.list();
+        return listResult;
+    }
+
+    @Override
+    public List<Object[]> getLecturerHeadlectors(String idFaculty, String idMajor) {
+        String sql = "select * from MasterLecturer where "
+                    + "idLecturer in ("
+                    + "select idLecturer from FunctionalProgressHistory where idFunctional = 3 and state = 1 and "
+                    + "idLecturer not in ("
+                    + "select idLecturer from FunctionalProgressHistory where idFunctional = 4))";
+        if (!(idFaculty.equals("0"))) {
+            if (idMajor.equals("0")){
+                sql += " AND idMajor IN (" 
+                        + "SELECT idMajor FROM MasterMajor WHERE "
+                        + "idFaculty =" + idFaculty + ")";
+            } else {
+                sql += " AND idMajor ='" + idMajor + "'";
+            }
+        }
+        Query query = createNativeQuery(sql);
+        List<Object[]> listResult = query.list();
+        return listResult;
+    }
+
+    @Override
+    public List<Object[]> getLecturerProfessor(String idFaculty, String idMajor) {
+        String sql = "select * from MasterLecturer where "
+                    + "idLecturer in ("
+                    + "select idLecturer from FunctionalProgressHistory where idFunctional = 2 and state = 1";
+        if (!(idFaculty.equals("0"))) {
+            if (idMajor.equals("0")){
+                sql += " AND idMajor IN (" 
+                        + "SELECT idMajor FROM MasterMajor WHERE "
+                        + "idFaculty =" + idFaculty + ")";
+            } else {
+                sql += " AND idMajor ='" + idMajor + "'";
+            }
+        }
+        Query query = createNativeQuery(sql);
+        List<Object[]> listResult = query.list();
+        return listResult;
+    }
+
+    @Override
+    public List<Object[]> getLecturerSertification(String idFaculty, String idMajor) {
+        String sql = " SELECT * FROM sertificationprogresshistory WHERE state=1";
+        if(idMajor.equals("0") && (!(idFaculty.equals("0")))){
+            sql += " AND idLecturer IN (SELECT idMajor FROM masterlecturer "
+                    + "WHERE idMajor IN (SELECT idFaculty FROM masterfaculty "
+                    + "WHERE idFaculty =" + idFaculty +"))";
+        }
+        if((!idMajor.equals("0")) && (!(idFaculty.equals("0")))){
+            sql += "  AND idLecturer IN (SELECT idMajor FROM masterlecturer WHERE idMajor =" +idMajor+ ")";
+        }
+        Query query = createNativeQuery(sql);
+        List<Object[]> listResult = query.list();
+        return listResult;
+    }
+
+    @Override
+    public List<Object[]> getNewLecturer(String idFaculty, String idMajor) {
+        String sql = "select * from MasterLecturer where "
+                    + "idLecturer not in ("
+                    + "select idLecturer from FunctionalProgressHistory where idFunctional = 1 )";
+        if (!(idFaculty.equals("0"))) {
+            if (idMajor.equals("0")){
+                sql += " AND idMajor IN (" 
+                        + "SELECT idMajor FROM MasterMajor WHERE "
+                        + "idFaculty ='" + idFaculty + "')";
+            } else {
+                sql += " AND idMajor ='" + idMajor + "'";
+            }
+        }
+        Query query = createNativeQuery(sql);
+        List<Object[]> listResult = query.list();
+        return listResult;
+    }
 }

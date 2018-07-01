@@ -23,6 +23,11 @@
         <script src="resource/javascripts/jquery.growl.js" type="text/javascript"></script>
         <link href="resource/stylesheets/jquery.growl.css" rel="stylesheet" type="text/css" />
         
+        <!--datatable file library-->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <!--<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>-->
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        
     </head>
     <body>	
     <div class="page-container" style="overflow: scroll">	
@@ -199,38 +204,16 @@
                                         </form>
                                     </div>
                                 </div>
-                                <br>
-                                <br>
+                                <hr>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-offset-8 col-md-3">
-                                                <input type="search"
-                                                       name="nameSearchNidn"
-                                                           placeholder="Search..."
-                                                           class="form-control"
-                                                           required="">
-                                            </div>
-                                            <div class="col-md-1" align="left">
-                                                <button id="searchNidn" 
-                                                    style="padding-top: 7px; border-radius:5px " >
-                                                    <span class="glyphicon glyphicon-search"></span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <hr>
                                         <div class="table-responsive">
-                                            <table class="table table-hover">
+                                            <table class="table table-hover" id="tableProgressNidn">
                                                 <thead>
-                                                    <tr>
-                                                        <th>Urutan Proses</th>
-                                                        <th>Deskripsi Proses</th>
-                                                        <th colspan="2">Aksi</th>
-                                                    </tr>
+                                                    <th>Urutan Proses</th>
+                                                    <th>Deskripsi Proses</th>
+                                                    <th>Aksi</th>
                                                 </thead>
-                                                <tbody id="tableBodyProgressNidn">
-
-                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -302,38 +285,16 @@
                                         </form>
                                     </div>
                                 </div>
-                                <br>
-                                <br>
+                                <hr>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-offset-8 col-md-3">
-                                                <input type="search"
-                                                       name="nameSearchAssistant"
-                                                           placeholder="Search..."
-                                                           class="form-control"
-                                                           required="">
-                                            </div>
-                                            <div class="col-md-1" align="left">
-                                                <button id="searchAssistant" 
-                                                    style="padding-top: 7px; border-radius:5px " >
-                                                    <span class="glyphicon glyphicon-search"></span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <hr>
                                         <div class="table-responsive">
-                                            <table class="table table-hover">
+                                            <table class="table table-hover" id="tableProgressAssistant">
                                                 <thead>
-                                                    <tr>
-                                                        <th>Urutan Proses</th>
-                                                        <th>Deskripsi Proses</th>
-                                                        <th colspan="2">Aksi</th>
-                                                    </tr>
+                                                    <th>Urutan Proses</th>
+                                                    <th>Deskripsi Proses</th>
+                                                    <th>Aksi</th>
                                                 </thead>
-                                                <tbody id="tableBodyProgressAssistant">
-
-                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -405,38 +366,16 @@
                                         </form>
                                     </div>
                                 </div>
-                                <br>
-                                <br>
+                                <hr>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-offset-8 col-md-3">
-                                                <input type="search"
-                                                       name="nameSearchLectors"
-                                                           placeholder="Search..."
-                                                           class="form-control"
-                                                           required="">
-                                            </div>
-                                            <div class="col-md-1" align="left">
-                                                <button id="searchLectors" 
-                                                    style="padding-top: 7px; border-radius:5px " >
-                                                    <span class="glyphicon glyphicon-search"></span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <hr>
                                         <div class="table-responsive">
-                                            <table class="table table-hover">
+                                            <table class="table table-hover" id="tableProgressLectors">
                                                 <thead>
-                                                    <tr>
-                                                        <th>Urutan Proses</th>
-                                                        <th>Deskripsi Proses</th>
-                                                        <th colspan="2">Aksi</th>
-                                                    </tr>
+                                                    <th>Urutan Proses</th>
+                                                    <th>Deskripsi Proses</th>
+                                                    <th colspan="2">Aksi</th>
                                                 </thead>
-                                                <tbody id="tableBodyProgressLectors">
-
-                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -508,38 +447,16 @@
                                         </form>
                                     </div>
                                 </div>
-                                <br>
-                                <br>
+                                <hr>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-offset-8 col-md-3">
-                                                <input type="search"
-                                                       name="nameSearchHeadlectors"
-                                                           placeholder="Search..."
-                                                           class="form-control"
-                                                           required="">
-                                            </div>
-                                            <div class="col-md-1" align="left">
-                                                <button id="searchHeadlectors" 
-                                                    style="padding-top: 7px; border-radius:5px " >
-                                                    <span class="glyphicon glyphicon-search"></span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <hr>
                                         <div class="table-responsive">
-                                            <table class="table table-hover">
+                                            <table class="table table-hover" id="tableProgressHeadlectors">
                                                 <thead>
-                                                    <tr>
-                                                        <th>Urutan Proses</th>
-                                                        <th>Deskripsi Proses</th>
-                                                        <th colspan="2">Aksi</th>
-                                                    </tr>
+                                                    <th>Urutan Proses</th>
+                                                    <th>Deskripsi Proses</th>
+                                                    <th>Aksi</th>
                                                 </thead>
-                                                <tbody id="tableBodyProgressHeadlectors">
-
-                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -611,38 +528,16 @@
                                         </form>
                                     </div>
                                 </div>
-                                <br>
-                                <br>
+                                <hr>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-offset-8 col-md-3">
-                                                <input type="search"
-                                                       name="nameSearchProfessor"
-                                                           placeholder="Search..."
-                                                           class="form-control"
-                                                           required="">
-                                            </div>
-                                            <div class="col-md-1" align="left">
-                                                <button id="searchProfessor" 
-                                                    style="padding-top: 7px; border-radius:5px " >
-                                                    <span class="glyphicon glyphicon-search"></span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <hr>
                                         <div class="table-responsive">
-                                            <table class="table table-hover">
+                                            <table class="table table-hover" id="tableProgressProfessor">
                                                 <thead>
-                                                    <tr>
-                                                        <th>Urutan Proses</th>
-                                                        <th>Deskripsi Proses</th>
-                                                        <th colspan="2">Aksi</th>
-                                                    </tr>
+                                                    <th>Urutan Proses</th>
+                                                    <th>Deskripsi Proses</th>
+                                                    <th>Aksi</th>
                                                 </thead>
-                                                <tbody id="tableBodyProgressProfessor">
-
-                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -714,38 +609,16 @@
                                         </form>
                                     </div>
                                 </div>
-                                <br>
-                                <br>
+                                <hr>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-offset-8 col-md-3">
-                                                <input type="search"
-                                                       name="nameSearchSertification"
-                                                           placeholder="Search..."
-                                                           class="form-control"
-                                                           required="">
-                                            </div>
-                                            <div class="col-md-1" align="left">
-                                                <button id="searchSertification" 
-                                                    style="padding-top: 7px; border-radius:5px " >
-                                                    <span class="glyphicon glyphicon-search"></span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <hr>
                                         <div class="table-responsive">
-                                            <table class="table table-hover">
+                                            <table class="table table-hover" id="tableProgressSertification">
                                                 <thead>
-                                                    <tr>
-                                                        <th>Urutan Proses</th>
-                                                        <th>Deskripsi Proses</th>
-                                                        <th colspan="2">Aksi</th>
-                                                    </tr>
+                                                    <th>Urutan Proses</th>
+                                                    <th>Deskripsi Proses</th>
+                                                    <th colspan="2">Aksi</th>
                                                 </thead>
-                                                <tbody id="tableBodyProgressSertification">
-
-                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -865,6 +738,108 @@
                 reloadDetailProgressProfessor();
                 reloadDetailProgressSertification();
                 
+                var tableProgressNidn = $('#tableProgressNidn').DataTable({
+                    columns: [
+                        { data: 'numberRequirement', sortable: false},
+                        { data: 'description'},
+                        { data: null, sortable: false,
+                            render : function(data, type, full) {
+                                if (data.numberRequirement === countDetailNidn) {
+                                    return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
+                                        <button id="delete"><span class="fa fa-trash"></span></button>';
+                                } else {
+                                    return '<button id="update"><span class="fa fa-pencil"></span></button>';
+                                }
+                            }
+                        }    
+                    ]
+                });
+                
+                var tableProgressAssistant = $('#tableProgressAssistant').DataTable({
+                    columns: [
+                        { data: 'numberRequirement', sortable: false},
+                        { data: 'description'},
+                        { data: null, sortable: false,
+                            render : function(data, type, full) {
+                                if (data.numberRequirement === countDetailAssistant) {
+                                    return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
+                                        <button id="delete"><span class="fa fa-trash"></span></button>';
+                                } else {
+                                    return '<button id="update"><span class="fa fa-pencil"></span></button>';
+                                }
+                            }
+                        }    
+                    ]
+                });
+                
+                var tableProgressLectors = $('#tableProgressLectors').DataTable({
+                    columns: [
+                        { data: 'numberRequirement', sortable: false},
+                        { data: 'description'},
+                        { data: null, sortable: false,
+                            render : function(data, type, full) {
+                                if (data.numberRequirement === countDetailLectors) {
+                                    return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
+                                        <button id="delete"><span class="fa fa-trash"></span></button>';
+                                } else {
+                                    return '<button id="update"><span class="fa fa-pencil"></span></button>';
+                                }
+                            }
+                        }    
+                    ]
+                });
+                
+                var tableProgressHeadlectors = $('#tableProgressHeadlectors').DataTable({
+                    columns: [
+                        { data: 'numberRequirement', sortable: false},
+                        { data: 'description'},
+                        { data: null, sortable: false,
+                            render : function(data, type, full) {
+                                if (data.numberRequirement === countDetailHeadlectors) {
+                                    return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
+                                        <button id="delete"><span class="fa fa-trash"></span></button>';
+                                } else {
+                                    return '<button id="update"><span class="fa fa-pencil"></span></button>';
+                                }
+                            }
+                        }    
+                    ]
+                });
+                
+                var tableProgressProfessor = $('#tableProgressProfessor').DataTable({
+                    columns: [
+                        { data: 'numberRequirement', sortable: false},
+                        { data: 'description'},
+                        { data: null, sortable: false,
+                            render : function(data, type, full) {
+                                if (data.numberRequirement === countDetailProfessor) {
+                                    return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
+                                        <button id="delete"><span class="fa fa-trash"></span></button>';
+                                } else {
+                                    return '<button id="update"><span class="fa fa-pencil"></span></button>';
+                                }
+                            }
+                        }    
+                    ]
+                });
+                
+                var tableProgressSertification = $('#tableProgressSertification').DataTable({
+                    columns: [
+                        { data: 'numberRequirement', sortable: false},
+                        { data: 'description'},
+                        { data: null, sortable: false,
+                            render : function(data, type, full) {
+                                if (data.numberRequirement === countDetailSertification) {
+                                    return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
+                                        <button id="delete"><span class="fa fa-trash"></span></button>';
+                                } else {
+                                    return '<button id="update"><span class="fa fa-pencil"></span></button>';
+                                }
+                            }
+                        }    
+                    ]
+                });
+                
                 function reloadDetailProgressNidn(){
                     $.ajax({
                         url : 'getDetailProgressNidn.htm',
@@ -873,65 +848,9 @@
                             var data = JSON.parse(response);
                             console.log(data);
                             var len = data.length;
-                            countDetailNidn = len + 1;
-                            $('input[id=numberRequirementNidn]').val(countDetailNidn);
-                            var content = '';
-                            for (var i = 0; i < len; i++){
-                                if (i === (len-1)){
-                                    content +=' <tr>\n\
-                                                <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                <td class="description">' + data[i].description + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateDetailProgressNidn fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteDetailProgressNidn fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                } else {
-                                    content +=' <tr>\n\
-                                                <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                <td class="description">' + data[i].description + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateDetailProgressNidn fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                }
-                                
-                                $('#tableBodyProgressNidn').html(content);
-                            }
-
-                            $('.updateDetailProgressNidn').click(function(){
-                                var description = $(this).closest('tr').find('.description').html();
-                                var numberRequirement = $(this).closest('tr').find('.numberRequirement').html();
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $('input[id=idDetailNidn]').val(idDetail);
-                                $('input[id=descriptionNidn]').val(description);
-                                $('input[id=numberRequirementNidn]').val(numberRequirement);
-                            });
-
-                            $('.deleteDetailProgressNidn').click(function(){
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $.ajax({
-                                    url: "deleteDetailProgress.htm",
-                                    data: "idDetail=" + idDetail,
-                                    type: 'GET',
-                                    success : function(response){
-                                        $(function(){
-                                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                        });
-                                        reloadDetailProgressNidn();
-                                    }
-                                });
-                            });
-                            
-                            $('#resetNidn').click(function(){
-                                $('input[id=idDetailNidn]').val(0);
-                                $('input[id=numberRequirementNidn]').val(countDetailNidn);
-                                $('input[id=descriptionNidn]').val("");
-                            });
+                            countDetailNidn = len;
+                            $('input[id=numberRequirementNidn]').val(countDetailNidn + 1);
+                            tableProgressNidn.rows.add(data).draw();
                         }
                     });
                 }
@@ -944,64 +863,9 @@
                             var data = JSON.parse(response);
                             console.log(data);
                             var len = data.length;
-                            countDetailAssistant = len + 1;
-                            $('input[id=numberRequirementAssistant]').val(countDetailAssistant);
-                            var content = '';
-                            for (var i = 0; i < len; i++){
-                                 if (i === (len-1)){
-                                     content +=' <tr>\n\
-                                                <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                <td class="description">' + data[i].description + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateDetailProgressAssistant fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteDetailProgressAssistant fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                 } else {
-                                     content +=' <tr>\n\
-                                                <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                <td class="description">' + data[i].description + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateDetailProgressAssistant fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                }
-                                $('#tableBodyProgressAssistant').html(content);
-                            }
-
-                            $('.updateDetailProgressAssistant').click(function(){
-                                var description = $(this).closest('tr').find('.description').html();
-                                var numberRequirement = $(this).closest('tr').find('.numberRequirement').html();
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $('input[id=idDetailAssistant]').val(idDetail);
-                                $('input[id=descriptionAssistant]').val(description);
-                                $('input[id=numberRequirementAssistant]').val(numberRequirement);
-                            });
-
-                            $('.deleteDetailProgressAssistant').click(function(){
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $.ajax({
-                                    url: "deleteDetailProgress.htm",
-                                    data: "idDetail=" + idDetail,
-                                    type: 'GET',
-                                    success : function(response){
-                                        $(function(){
-                                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                        });
-                                        reloadDetailProgressAssistant();
-                                    }
-                                });
-                            });
-                            
-                            $('#resetAssistant').click(function(){
-                                $('input[id=idDetailAssistant]').val(0);
-                                $('input[id=numberRequirementAssistant]').val(countDetailAssistant);
-                                $('input[id=descriptionAssistant]').val("");
-                            });
+                            countDetailAssistant = len;
+                            $('input[id=numberRequirementAssistant]').val(countDetailAssistant + 1);
+                            tableProgressAssistant.rows.add(data).draw();
                         }
                     });
                 }
@@ -1014,64 +878,9 @@
                             var data = JSON.parse(response);
                             console.log(data);
                             var len = data.length;
-                            countDetailLectors = len + 1;
-                            $('input[id=numberRequirementLectors]').val(countDetailLectors);    
-                            var content = '';
-                            for (var i = 0; i < len; i++){
-                                if (i === (len - 1)){
-                                    content +=' <tr>\n\
-                                                <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                <td class="description">' + data[i].description + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateDetailProgressLectors fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteDetailProgressLectors fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                } else {
-                                    content +=' <tr>\n\
-                                                <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                <td class="description">' + data[i].description + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateDetailProgressLectors fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                }
-                                $('#tableBodyProgressLectors').html(content);
-                            }
-
-                            $('.updateDetailProgressLectors').click(function(){
-                                var description = $(this).closest('tr').find('.description').html();
-                                var numberRequirement = $(this).closest('tr').find('.numberRequirement').html();
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $('input[id=idDetailLectors]').val(idDetail);
-                                $('input[id=descriptionLectors]').val(description);
-                                $('input[id=numberRequirementLectors]').val(numberRequirement);
-                            });
-
-                            $('.deleteDetailProgressLectors').click(function(){
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $.ajax({
-                                    url: "deleteDetailProgress.htm",
-                                    data: "idDetail=" + idDetail,
-                                    type: 'GET',
-                                    success : function(response){
-                                        $(function(){
-                                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                        });
-                                        reloadDetailProgressLectors();
-                                    }
-                                });
-                            });
-                            
-                            $('#resetLectors').click(function(){
-                                $('input[id=idDetailLectors]').val(0);
-                                $('input[id=numberRequirementLectors]').val(countDetailLectors);
-                                $('input[id=descriptionLectors]').val("");
-                            });
+                            countDetailLectors = len;
+                            $('input[id=numberRequirementLectors]').val(countDetailLectors + 1);
+                            tableProgressLectors.rows.add(data).draw();
                         }
                     });
                 }
@@ -1084,58 +893,9 @@
                             var data = JSON.parse(response);
                             console.log(data);
                             var len = data.length;
-                            countDetailHeadlectors = len + 1;
-                            $('input[id=numberRequirementHeadlectors]').val(countDetailHeadlectors);    
-                            var content = '';
-                            for (var i = 0; i < len; i++){
-                                if (i === (len - 1)){
-                                    content +=' <tr>\n\
-                                                <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                <td class="description">' + data[i].description + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateDetailProgressHeadlectors fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteDetailProgressHeadlectors fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                } else {
-                                    content +=' <tr>\n\
-                                                <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                <td class="description">' + data[i].description + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateDetailProgressHeadlectors fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                }
-                                $('#tableBodyProgressHeadlectors').html(content);
-                            }
-
-                            $('.updateDetailProgressHeadlectors').click(function(){
-                                var description = $(this).closest('tr').find('.description').html();
-                                var numberRequirement = $(this).closest('tr').find('.numberRequirement').html();
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $('input[id=idDetailHeadlectors]').val(idDetail);
-                                $('input[id=descriptionHeadlectors]').val(description);
-                                $('input[id=numberRequirementHeadlectors]').val(numberRequirement);
-                            });
-
-                            $('.deleteDetailProgressHeadlectors').click(function(){
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $.ajax({
-                                    url: "deleteDetailProgress.htm",
-                                    data: "idDetail=" + idDetail,
-                                    type: 'GET',
-                                    success : function(response){
-                                        $(function(){
-                                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                        });
-                                        reloadDetailProgressHeadlectors();
-                                    }
-                                });
-                            });
+                            countDetailHeadlectors = len;
+                            $('input[id=numberRequirementHeadlectors]').val(countDetailHeadlectors + 1);
+                            tableProgressHeadlectors.rows.add(data).draw();
                         }
                     });
                 }
@@ -1148,64 +908,9 @@
                             var data = JSON.parse(response);
                             console.log(data);
                             var len = data.length;
-                            countDetailProfessor = len + 1;
-                            $('input[id=numberRequirementProfessor]').val(countDetailProfessor);
-                            var content = '';
-                            for (var i = 0; i < len; i++){
-                                if (i === (len - 1)){
-                                    content +=' <tr>\n\
-                                                <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                <td class="description">' + data[i].description + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateDetailProgressProfessor fa fa-pencil"></span></a>\n\
-                                                </td>\n\\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteDetailProgressProfessor fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                } else {
-                                    content +=' <tr>\n\
-                                                <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                <td class="description">' + data[i].description + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateDetailProgressProfessor fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                }
-                                $('#tableBodyProgressProfessor').html(content);
-                            }
-
-                            $('.updateDetailProgressProfessor').click(function(){
-                                var description = $(this).closest('tr').find('.description').html();
-                                var numberRequirement = $(this).closest('tr').find('.numberRequirement').html();
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $('input[id=idDetailProfessor]').val(idDetail);
-                                $('input[id=descriptionProfessor]').val(description);
-                                $('input[id=numberRequirementProfessor]').val(numberRequirement);
-                            });
-
-                            $('.deleteDetailProgressProfessor').click(function(){
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $.ajax({
-                                    url: "deleteDetailProgress.htm",
-                                    data: "idDetail=" + idDetail,
-                                    type: 'GET',
-                                    success : function(response){
-                                        $(function(){
-                                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                        });
-                                        reloadDetailProgressProfessor();
-                                    }
-                                });
-                            });
-                            
-                            $('#resetProfessor').click(function(){
-                                $('input[id=idDetailProfessor]').val(0);
-                                $('input[id=numberRequirementProfessor]').val(countDetailHeadlectors);
-                                $('input[id=descriptionProfessor]').val("");
-                            });
+                            countDetailProfessor = len;
+                            $('input[id=numberRequirementProfessor]').val(countDetailProfessor + 1);
+                            tableProgressProfessor.rows.add(data).draw();
                         }
                     });
                 }
@@ -1218,67 +923,162 @@
                             var data = JSON.parse(response);
                             console.log(data);
                             var len = data.length;
-                            countDetailSertification = len + 1;
-                            $('input[id=numberRequirementSertification]').val(countDetailSertification);
-                            var content = '';
-                            for (var i = 0; i < len; i++){
-                                if (i === (len - 1)){
-                                    content +=' <tr>\n\
-                                                <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                <td class="description">' + data[i].description + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateDetailProgressSertification fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteDetailProgressSertification fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                } else {
-                                    content +=' <tr>\n\
-                                                <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                <td class="description">' + data[i].description + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateDetailProgressSertification fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                }
-                                $('#tableBodyProgressSertification').html(content);
-                            }
-
-                            $('.updateDetailProgressSertification').click(function(){
-                                var description = $(this).closest('tr').find('.description').html();
-                                var numberRequirement = $(this).closest('tr').find('.numberRequirement').html();
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $('input[id=idDetailSertification]').val(idDetail);
-                                $('input[id=descriptionSertification]').val(description);
-                                $('input[id=numberRequirementSertification]').val(numberRequirement);
-                            });
-
-                            $('.deleteDetailProgressSertification').click(function(){
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $.ajax({
-                                    url: "deleteDetailProgress.htm",
-                                    data: "idDetail=" + idDetail,
-                                    type: 'GET',
-                                    success : function(response){
-                                        $(function(){
-                                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                        });
-                                        reloadDetailProgressSertification();
-                                    }
-                                });
-                            });
-                            
-                            $('#resetSertification').click(function(){
-                                $('input[id=idDetailSertification]').val(0);
-                                $('input[id=numberRequirementSertification]').val(countDetailSertification);
-                                $('input[id=descriptionSertification]').val("");
-                            });
+                            countDetailSertification = len;
+                            $('input[id=numberRequirementSertification]').val(countDetailSertification + 1);
+                            tableProgressSertification.rows.add(data).draw();
                         }
                     });
                 }
+                
+                $('#tableProgressNidn tbody').on('click', 'button#update', function () {
+                    var data = tableProgressNidn.row(this.closest('tr')).data();
+                    $('input[id=idDetailNidn]').val(data.idDetail);
+                    $('input[id=descriptionNidn]').val(data.description);
+                    $('input[id=numberRequirementNidn]').val(data.numberRequirement);                            
+                });
+                
+                $('#tableProgressAssistant tbody').on('click', 'button#update', function () {
+                    var data = tableProgressAssistant.row(this.closest('tr')).data();
+                    $('input[id=idDetailAssistant]').val(data.idDetail);
+                    $('input[id=descriptionAssistant]').val(data.description);
+                    $('input[id=numberRequirementAssistant]').val(data.numberRequirement);                            
+                });
+                
+                $('#tableProgressLectors tbody').on('click', 'button#update', function () {
+                    var data = tableProgressLectors.row(this.closest('tr')).data();
+                    $('input[id=idDetailLectors]').val(data.idDetail);
+                    $('input[id=descriptionLectors]').val(data.description);
+                    $('input[id=numberRequirementLectors]').val(data.numberRequirement);                            
+                });
+                
+                $('#tableProgressHeadlectors tbody').on('click', 'button#update', function () {
+                    var data = tableProgressHeadlectors.row(this.closest('tr')).data();
+                    $('input[id=idDetailHeadlectors]').val(data.idDetail);
+                    $('input[id=descriptionHeadlectors]').val(data.description);
+                    $('input[id=numberRequirementHeadlectors]').val(data.numberRequirement);                            
+                });
+                
+                $('#tableProgressProfessor tbody').on('click', 'button#update', function () {
+                    var data = tableProgressProfessor.row(this.closest('tr')).data();
+                    $('input[id=idDetailProfessor]').val(data.idDetail);
+                    $('input[id=descriptionProfessor]').val(data.description);
+                    $('input[id=numberRequirementProfessor]').val(data.numberRequirement);                            
+                });
+                
+                $('#tableProgressSertification tbody').on('click', 'button#update', function () {
+                    var data = tableProgressSertification.row(this.closest('tr')).data();
+                    $('input[id=idDetailSertification]').val(data.idDetail);
+                    $('input[id=descriptionSertification]').val(data.description);
+                    $('input[id=numberRequirementSertification]').val(data.numberRequirement);                            
+                });
+                
+                $('#tableProgressNidn tbody').on('click', 'button#delete', function () {
+                    var data = tableProgressNidn.row(this.closest('tr')).data();
+                    $.ajax({
+                        url: "deleteDetailProgress.htm",
+                        data: "idDetail=" + data.idDetail,
+                        daraType: "form-data",
+                        type: 'GET',
+                        success : function(response){
+                            $(function(){
+                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                            });
+                            $('#formDetailProgressNidn').trigger('reset');
+                            tableProgressNidn.clear().draw();
+                            reloadDetailProgressNidn();
+                        }
+                    });
+                });
+                
+                $('#tableProgressAssistant tbody').on('click', 'button#delete', function () {
+                    var data = tableProgressAssistant.row(this.closest('tr')).data();
+                    $.ajax({
+                        url: "deleteDetailProgress.htm",
+                        data: "idDetail=" + data.idDetail,
+                        daraType: "form-data",
+                        type: 'GET',
+                        success : function(response){
+                            $(function(){
+                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                            });
+                            $('#formDetailProgressAssistant').trigger('reset');
+                            tableProgressAssistant.clear().draw();
+                            reloadDetailProgressAssistant();
+                        }
+                    });
+                });
+                
+                $('#tableProgressLectors tbody').on('click', 'button#delete', function () {
+                    var data = tableProgressLectors.row(this.closest('tr')).data();
+                    $.ajax({
+                        url: "deleteDetailProgress.htm",
+                        data: "idDetail=" + data.idDetail,
+                        daraType: "form-data",
+                        type: 'GET',
+                        success : function(response){
+                            $(function(){
+                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                            });
+                            $('#formDetailProgressLectors').trigger('reset');
+                            tableProgressLectors.clear().draw();
+                            reloadDetailProgressLectors();
+                        }
+                    });
+                });
+                
+                $('#tableProgressHeadlectors tbody').on('click', 'button#delete', function () {
+                    var data = tableProgressHeadlectors.row(this.closest('tr')).data();
+                    $.ajax({
+                        url: "deleteDetailProgress.htm",
+                        data: "idDetail=" + data.idDetail,
+                        daraType: "form-data",
+                        type: 'GET',
+                        success : function(response){
+                            $(function(){
+                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                            });
+                            $('#formDetailProgressHeadlectors').trigger('reset');
+                            tableProgressHeadlectors.clear().draw();
+                            reloadDetailProgressHeadlectors();
+                        }
+                    });
+                });
+                
+                $('#tableProgressProfessor tbody').on('click', 'button#delete', function () {
+                    var data = tableProgressProfessor.row(this.closest('tr')).data();
+                    $.ajax({
+                        url: "deleteDetailProgress.htm",
+                        data: "idDetail=" + data.idDetail,
+                        daraType: "form-data",
+                        type: 'GET',
+                        success : function(response){
+                            $(function(){
+                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                            });
+                            $('#formDetailProgressProfessor').trigger('reset');
+                            tableProgressProfessor.clear().draw();
+                            reloadDetailProgressProfessor();
+                        }
+                    });
+                });
+                
+                $('#tableProgressSertification tbody').on('click', 'button#delete', function () {
+                    var data = tableProgressSertification.row(this.closest('tr')).data();
+                    $.ajax({
+                        url: "deleteDetailProgress.htm",
+                        data: "idDetail=" + data.idDetail,
+                        daraType: "form-data",
+                        type: 'GET',
+                        success : function(response){
+                            $(function(){
+                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                            });
+                            $('#formDetailProgressSertification').trigger('reset');
+                            tableProgressSertification.clear().draw();
+                            reloadDetailProgressSertification();
+                        }
+                    });
+                });
                 
                 $('#formDetailProgressNidn').submit(function(e){
                     e.preventDefault();
@@ -1291,6 +1091,8 @@
                                 $.growl.notice({title: "Berhasil !", message: "Data berhasil ditambahkan !" });
                             });
                             $('input[id=idDetailNidn]').val(0);
+                            $('#formDetailProgressNidn').trigger('reset');
+                            tableProgressNidn.clear().draw();
                             reloadDetailProgressNidn();
                         }
                     });
@@ -1307,6 +1109,8 @@
                                 $.growl.notice({title: "Berhasil !", message: "Data berhasil ditambahkan !" });
                             });
                             $('input[id=idDetailAssistant]').val(0);
+                            $('#formDetailProgressAssistant').trigger('reset');
+                            tableProgressAssistant.clear().draw();
                             reloadDetailProgressAssistant();
                         }
                     });
@@ -1323,6 +1127,8 @@
                                 $.growl.notice({title: "Berhasil !", message: "Data berhasil ditambahkan !" });
                             });
                             $('input[id=idDetailLectors]').val(0);
+                            $('#formDetailProgressLectors').trigger('reset');
+                            tableProgressLectors.clear().draw();
                             reloadDetailProgressLectors();
                         }
                     });
@@ -1339,6 +1145,8 @@
                                 $.growl.notice({title: "Berhasil !", message: "Data berhasil ditambahkan !" });
                             });
                             $('input[id=idDetailHeadlectors]').val(0);
+                            $('#formDetailProgressHeadlectors').trigger('reset');
+                            tableProgressHeadlectors.clear().draw();
                             reloadDetailProgressHeadlectors();
                         }
                     });
@@ -1355,6 +1163,8 @@
                                 $.growl.notice({title: "Berhasil !", message: "Data berhasil ditambahkan !" });
                             });
                             $('input[id=idDetailProfessor]').val(0);
+                            $('#formDetailProgressProfessor').trigger('reset');
+                            tableProgressProfessor.clear().draw();
                             reloadDetailProgressProfessor();
                         }
                     });
@@ -1371,465 +1181,11 @@
                                 $.growl.notice({title: "Berhasil !", message: "Data berhasil ditambahkan !" });
                             });
                             $('input[id=idDetaiSertification]').val(0);
+                            $('#formDetailProgressSertification').trigger('reset');
+                            tableProgressSertification.clear().draw();
                             reloadDetailProgressSertification();
                         }
                     });
-                });
-                
-                $('#searchNidn').click(function(){
-                    var description = $('input[name=nameSearchNidn]').val().toString();
-                    var idEvent = "1";
-                    $.ajax({
-                        url: "searchDetailProgress.htm",
-                        data: {description: description, idEvent: idEvent},
-                        type: "GET",
-                        success: function(response){
-                            var data = JSON.parse(response);
-                            var len = data.length;
-                            if (len === 0) {
-                                $(function(){
-                                    $.growl.warning({title: "Maaf !", message: "Data tidak ada !" });
-                                });
-                            } else {
-                                var content = '';
-                                for (var i = 0; i < len; i++){
-                                    if (data[i].numberRequirement === (countDetailNidn - 1)){
-                                        content +=' <tr>\n\
-                                                    <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                    <td class="description">' + data[i].description + '</td>\n\
-                                                    <td>\n\
-                                                        <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                        <a href="#"><span class="updateDetailProgressNidn fa fa-pencil"></span></a>\n\
-                                                    </td>\n\
-                                                    <td>\n\
-                                                        <a href="#"><span class="deleteDetailProgressNidn fa fa-trash"></span></a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    } else {
-                                        content +=' <tr>\n\
-                                                    <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                    <td class="description">' + data[i].description + '</td>\n\
-                                                    <td>\n\
-                                                        <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                        <a href="#"><span class="updateDetailProgressNidn fa fa-pencil"></span></a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    }
-                                    $('#tableBodyProgressNidn').html(content);
-                                }
-
-                                $('.updateDetailProgressNidn').click(function(){
-                                    var description = $(this).closest('tr').find('.description').html();
-                                    var numberRequirement = $(this).closest('tr').find('.numberRequirement').html();
-                                    var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                    $('input[id=idDetailNidn]').val(idDetail);
-                                    $('input[id=descriptionNidn]').val(description);
-                                    $('input[id=numberRequirementNidn]').val(numberRequirement);
-                                });
-
-                                $('.deleteDetailProgressNidn').click(function(){
-                                    var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                    $.ajax({
-                                        url: "deleteDetailProgress.htm",
-                                        data: "idDetail=" + idDetail,
-                                        type: 'GET',
-                                        success : function(response){
-                                            $(function(){
-                                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                            });
-                                            reloadDetailProgressNidn();
-                                        }
-                                    });
-                                });
-
-                                $('#resetNidn').click(function(){
-                                    $('input[id=idDetailNidn]').val(0);
-                                    $('input[id=numberRequirementNidn]').val(countDetailNidn);
-                                    $('input[id=descriptionNidn]').val("");
-                                });
-                            }
-                        }
-                    });        
-                });
-                
-                $('#searchAssistant').click(function(){
-                    var description = $('input[name=nameSearchAssistant]').val().toString();
-                    var idEvent = "2";
-                    $.ajax({
-                        url: "searchDetailProgress.htm",
-                        data: {description: description, idEvent: idEvent},
-                        type: "GET",
-                        success: function(response){
-                            var data = JSON.parse(response);
-                            var len = data.length;
-                            if (len === 0) {
-                                $(function(){
-                                    $.growl.warning({title: "Maaf !", message: "Data tidak ada !" });
-                                });
-                            } else {
-                                var content = '';
-                                for (var i = 0; i < len; i++){
-                                    if (data[i].numberRequirement === (countDetailAssistant - 1)){
-                                        content +=' <tr>\n\
-                                                    <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                    <td class="description">' + data[i].description + '</td>\n\
-                                                    <td>\n\
-                                                        <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                        <a href="#"><span class="updateDetailProgressAssistant fa fa-pencil"></span></a>\n\
-                                                    </td>\n\
-                                                    <td>\n\
-                                                        <a href="#"><span class="deleteDetailProgressAssistant fa fa-trash"></span></a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    } else {
-                                        content +=' <tr>\n\
-                                                    <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                    <td class="description">' + data[i].description + '</td>\n\
-                                                    <td>\n\
-                                                        <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                        <a href="#"><span class="updateDetailProgressAssistant fa fa-pencil"></span></a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    }
-                                    $('#tableBodyProgressAssistant').html(content);
-                                }
-
-                                $('.updateDetailProgressAssistant').click(function(){
-                                    var description = $(this).closest('tr').find('.description').html();
-                                    var numberRequirement = $(this).closest('tr').find('.numberRequirement').html();
-                                    var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                    $('input[id=idDetailAssistant]').val(idDetail);
-                                    $('input[id=descriptionAssistant]').val(description);
-                                    $('input[id=numberRequirementAssistant]').val(numberRequirement);
-                                });
-
-                                $('.deleteDetailProgressAssistant').click(function(){
-                                    var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                    $.ajax({
-                                        url: "deleteDetailProgress.htm",
-                                        data: "idDetail=" + idDetail,
-                                        type: 'GET',
-                                        success : function(response){
-                                            $(function(){
-                                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                            });
-                                            reloadDetailProgressAssistant();
-                                        }
-                                    });
-                                });
-
-                                $('#resetAssistant').click(function(){
-                                    $('input[id=idDetailAssistant]').val(0);
-                                    $('input[id=numberRequirementAssistant]').val(countDetailAssistant);
-                                    $('input[id=descriptionAssistant]').val("");
-                                });
-                            }
-                        }
-                    });        
-                });
-                
-                $('#searchLectors').click(function(){
-                    var description = $('input[name=nameSearchLectors]').val().toString();
-                    var idEvent = "3";
-                    $.ajax({
-                        url: "searchDetailProgress.htm",
-                        data: {description: description, idEvent: idEvent},
-                        type: "GET",
-                        success: function(response){
-                            var data = JSON.parse(response);
-                            var len = data.length;
-                            if (len === 0) {
-                                $(function(){
-                                    $.growl.warning({title: "Maaf !", message: "Data tidak ada !" });
-                                });
-                            } else {
-                                var content = '';
-                                for (var i = 0; i < len; i++){
-                                    if (data[i].numberRequirement === (countDetailLectors - 1)){
-                                        content +=' <tr>\n\
-                                                    <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                    <td class="description">' + data[i].description + '</td>\n\
-                                                    <td>\n\
-                                                        <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                        <a href="#"><span class="updateDetailProgressLectors fa fa-pencil"></span></a>\n\
-                                                    </td>\n\
-                                                    <td>\n\
-                                                        <a href="#"><span class="deleteDetailProgressLectors fa fa-trash"></span></a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    } else {
-                                        content +=' <tr>\n\
-                                                    <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                    <td class="description">' + data[i].description + '</td>\n\
-                                                    <td>\n\
-                                                        <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                        <a href="#"><span class="updateDetailProgressLectors fa fa-pencil"></span></a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    }
-                                    $('#tableBodyProgressLectors').html(content);
-                                }
-
-                                $('.updateDetailProgressLectors').click(function(){
-                                    var description = $(this).closest('tr').find('.description').html();
-                                    var numberRequirement = $(this).closest('tr').find('.numberRequirement').html();
-                                    var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                    $('input[id=idDetailLectors]').val(idDetail);
-                                    $('input[id=descriptionLectors]').val(description);
-                                    $('input[id=numberRequirementLectors]').val(numberRequirement);
-                                });
-
-                                $('.deleteDetailProgressLectors').click(function(){
-                                    var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                    $.ajax({
-                                        url: "deleteDetailProgress.htm",
-                                        data: "idDetail=" + idDetail,
-                                        type: 'GET',
-                                        success : function(response){
-                                            $(function(){
-                                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                            });
-                                            reloadDetailProgressLectors();
-                                        }
-                                    });
-                                });
-
-                                $('#resetLectors').click(function(){
-                                    $('input[id=idDetailLectors]').val(0);
-                                    $('input[id=numberRequirementLectors]').val(countDetailLectors);
-                                    $('input[id=descriptionLectors]').val("");
-                                });
-                            }
-                        }
-                    });        
-                });
-                
-                $('#searchHeadlectors').click(function(){
-                    var description = $('input[name=nameSearchHeadlectors]').val().toString();
-                    var idEvent = "4";
-                    $.ajax({
-                        url: "searchDetailProgress.htm",
-                        data: {description: description, idEvent: idEvent},
-                        type: "GET",
-                        success: function(response){
-                            var data = JSON.parse(response);
-                            var len = data.length;
-                            if (len === 0) {
-                                $(function(){
-                                    $.growl.warning({title: "Maaf !", message: "Data tidak ada !" });
-                                });
-                            } else {
-                                var content = '';
-                                for (var i = 0; i < len; i++){
-                                    if (data[i].numberRequirement === (countDetailHeadlectors - 1)){
-                                        content +=' <tr>\n\
-                                                    <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                    <td class="description">' + data[i].description + '</td>\n\
-                                                    <td>\n\
-                                                        <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                        <a href="#"><span class="updateDetailProgressHeadlectors fa fa-pencil"></span></a>\n\
-                                                    </td>\n\
-                                                    <td>\n\
-                                                        <a href="#"><span class="deleteDetailProgressHeadlectors fa fa-trash"></span></a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    } else {
-                                        content +=' <tr>\n\
-                                                    <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                    <td class="description">' + data[i].description + '</td>\n\
-                                                    <td>\n\
-                                                        <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                        <a href="#"><span class="updateDetailProgressHeadlectors fa fa-pencil"></span></a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    }
-                                    $('#tableBodyProgressHeadlectors').html(content);
-                                }
-
-                                $('.updateDetailProgressHeadlectors').click(function(){
-                                    var description = $(this).closest('tr').find('.description').html();
-                                    var numberRequirement = $(this).closest('tr').find('.numberRequirement').html();
-                                    var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                    $('input[id=idDetailHeadlectors]').val(idDetail);
-                                    $('input[id=descriptionHeadlectors]').val(description);
-                                    $('input[id=numberRequirementHeadlectors]').val(numberRequirement);
-                                });
-
-                                $('.deleteDetailProgressHeadlectors').click(function(){
-                                    var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                    $.ajax({
-                                        url: "deleteDetailProgress.htm",
-                                        data: "idDetail=" + idDetail,
-                                        type: 'GET',
-                                        success : function(response){
-                                            $(function(){
-                                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                            });
-                                            reloadDetailProgressHeadlectors();
-                                        }
-                                    });
-                                });
-
-                                $('#resetHeadlectors').click(function(){
-                                    $('input[id=idDetailHeadlectors]').val(0);
-                                    $('input[id=numberRequirementHeadlectors]').val(countDetailHeadlectors);
-                                    $('input[id=descriptionHeadlectors]').val("");
-                                });
-                            }
-                        }
-                    });        
-                });
-                
-                $('#searchProfessor').click(function(){
-                    var description = $('input[name=nameSearchProfessor]').val().toString();
-                    var idEvent = "5";
-                    $.ajax({
-                        url: "searchDetailProgress.htm",
-                        data: {description: description, idEvent: idEvent},
-                        type: "GET",
-                        success: function(response){
-                            var data = JSON.parse(response);
-                            var len = data.length;
-                            if (len === 0) {
-                                $(function(){
-                                    $.growl.warning({title: "Maaf !", message: "Data tidak ada !" });
-                                });
-                            } else {
-                                var content = '';
-                                for (var i = 0; i < len; i++){
-                                    if (data[i].numberRequirement === (countDetailProfessor - 1)){
-                                        content +=' <tr>\n\
-                                                    <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                    <td class="description">' + data[i].description + '</td>\n\
-                                                    <td>\n\
-                                                        <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                        <a href="#"><span class="updateDetailProgressProfessor fa fa-pencil"></span></a>\n\
-                                                    </td>\n\
-                                                    <td>\n\
-                                                        <a href="#"><span class="deleteDetailProgressProfessor fa fa-trash"></span></a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    } else {
-                                        content +=' <tr>\n\
-                                                    <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                    <td class="description">' + data[i].description + '</td>\n\
-                                                    <td>\n\
-                                                        <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                        <a href="#"><span class="updateDetailProgressProfessor fa fa-pencil"></span></a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    }
-                                    $('#tableBodyProgressProfessor').html(content);
-                                }
-
-                                $('.updateDetailProgressProfessor').click(function(){
-                                    var description = $(this).closest('tr').find('.description').html();
-                                    var numberRequirement = $(this).closest('tr').find('.numberRequirement').html();
-                                    var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                    $('input[id=idDetailProfessor]').val(idDetail);
-                                    $('input[id=descriptionProfessor]').val(description);
-                                    $('input[id=numberRequirementProfessor]').val(numberRequirement);
-                                });
-
-                                $('.deleteDetailProgressProfessor').click(function(){
-                                    var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                    $.ajax({
-                                        url: "deleteDetailProgress.htm",
-                                        data: "idDetail=" + idDetail,
-                                        type: 'GET',
-                                        success : function(response){
-                                            $(function(){
-                                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                            });
-                                            reloadDetailProgressProfessor();
-                                        }
-                                    });
-                                });
-
-                                $('#resetProfessor').click(function(){
-                                    $('input[id=idDetailProfessor]').val(0);
-                                    $('input[id=numberRequirementProfessor]').val(countDetailProfessor);
-                                    $('input[id=descriptionProfessor]').val("");
-                                });
-                            }
-                        }
-                    });        
-                });
-                
-                $('#searchSertification').click(function(){
-                    var description = $('input[name=nameSearchSertification]').val().toString();
-                    var idEvent = "6";
-                    $.ajax({
-                        url: "searchDetailProgress.htm",
-                        data: {description: description, idEvent: idEvent},
-                        type: "GET",
-                        success: function(response){
-                            var data = JSON.parse(response);
-                            var len = data.length;
-                            if (len === 0) {
-                                $(function(){
-                                    $.growl.warning({title: "Maaf !", message: "Data tidak ada !" });
-                                });
-                            } else {
-                                var content = '';
-                                for (var i = 0; i < len; i++){
-                                    if (data[i].numberRequirement === (countDetailSertification - 1)){
-                                        content +=' <tr>\n\
-                                                    <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                    <td class="description">' + data[i].description + '</td>\n\
-                                                    <td>\n\
-                                                        <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                        <a href="#"><span class="updateDetailProgressSertification fa fa-pencil"></span></a>\n\
-                                                    </td>\n\
-                                                    <td>\n\
-                                                        <a href="#"><span class="deleteDetailProgressSertification fa fa-trash"></span></a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    } else {
-                                        content +=' <tr>\n\
-                                                    <td class="numberRequirement">' + data[i].numberRequirement + '</td>\n\
-                                                    <td class="description">' + data[i].description + '</td>\n\
-                                                    <td>\n\
-                                                        <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                        <a href="#"><span class="updateDetailProgressSertification fa fa-pencil"></span></a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    }
-                                    $('#tableBodyProgressSertification').html(content);
-                                }
-
-                                $('.updateDetailProgressSertification').click(function(){
-                                    var description = $(this).closest('tr').find('.description').html();
-                                    var numberRequirement = $(this).closest('tr').find('.numberRequirement').html();
-                                    var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                    $('input[id=idDetailSertification]').val(idDetail);
-                                    $('input[id=descriptionSertification]').val(description);
-                                    $('input[id=numberRequirementSertification]').val(numberRequirement);
-                                });
-
-                                $('.deleteDetailProgressSertification').click(function(){
-                                    var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                    $.ajax({
-                                        url: "deleteDetailProgress.htm",
-                                        data: "idDetail=" + idDetail,
-                                        type: 'GET',
-                                        success : function(response){
-                                            $(function(){
-                                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                            });
-                                            reloadDetailProgressSertification();
-                                        }
-                                    });
-                                });
-
-                                $('#resetSertification').click(function(){
-                                    $('input[id=idDetailSertification]').val(0);
-                                    $('input[id=numberRequirementSertification]').val(countDetailSertification);
-                                    $('input[id=descriptionSertification]').val("");
-                                });
-                            }
-                        }
-                    });        
                 });
             });
     </script>

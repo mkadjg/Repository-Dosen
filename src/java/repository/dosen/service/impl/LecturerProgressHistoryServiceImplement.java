@@ -10,9 +10,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import repository.dosen.dao.LecturerDao;
 import repository.dosen.dao.LecturerProgressHistoryDao;
 import repository.dosen.dto.LecturerProgressHistoryDto;
 import repository.dosen.models.LecturerProgressHistory;
+import repository.dosen.models.MasterLecturer;
 import repository.dosen.service.LecturerProgressHistoryService;
 
 /**
@@ -25,6 +27,9 @@ public class LecturerProgressHistoryServiceImplement implements LecturerProgress
     
     @Autowired
     LecturerProgressHistoryDao lecturerProgressHistoryDao;
+    
+     @Autowired
+     LecturerDao lecturerDao;
     
     @Override
     public List<LecturerProgressHistoryDto> getLecturerProgressHistory() {
@@ -75,6 +80,16 @@ public class LecturerProgressHistoryServiceImplement implements LecturerProgress
             listData.add(lecturerProgressHistoryDto);
         }
         return listData;
+    }
+
+    @Override
+    public void saveLecturerProgressHistory(LecturerProgressHistoryDto lecturerProgressHistoryDto) {
+        LecturerProgressHistory lecturerProgressHistory = new LecturerProgressHistory();
+        lecturerProgressHistory.setIdProgressHistory(lecturerProgressHistoryDto.getIdProgressHistory());
+        MasterLecturer lecturer = lecturerDao.getDataLecturer(lecturerProgressHistoryDto.getIdLecturer());
+        lecturerProgressHistory.setLecturer(lecturer);
+        lecturerProgressHistory.setState(0);
+        lecturerProgressHistoryDao.saveLecturerProgressHistory(lecturerProgressHistory);
     }
     
 }

@@ -30,7 +30,6 @@ public class FacultyServiceImplement implements FacultyService {
     public List<Faculty> getFaculty() {
         List<Faculty> listFaculty = new ArrayList<>();
         List<MasterFaculty> listMasterFaculty = facultyDao.getFaculty();
-        
         for (MasterFaculty masterFaculty : listMasterFaculty){
             Faculty faculty = new Faculty();
             faculty.setIdFaculty(masterFaculty.getIdFaculty());

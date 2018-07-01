@@ -23,6 +23,11 @@
         <script src="resource/javascripts/jquery.growl.js" type="text/javascript"></script>
         <link href="resource/stylesheets/jquery.growl.css" rel="stylesheet" type="text/css" />
         
+        <!--datatable file library-->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <!--<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>-->
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        
     </head>
     <body>	
     <div class="page-container" style="overflow: scroll">	
@@ -196,38 +201,16 @@
                                     </form>
                                 </div>
                             </div>
-                            <br>
-                            <br>
+                            <hr>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-offset-8 col-md-3">
-                                            <input type="search"
-                                                   name="nameSearchRecruitment"
-                                                       placeholder="Search..."
-                                                       class="form-control"
-                                                       required="">
-                                        </div>
-                                        <div class="col-md-1" align="left">
-                                            <button id="searchRecruitment" 
-                                                style="padding-top: 7px; border-radius:5px " >
-                                                <span class="glyphicon glyphicon-search"></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <hr>
                                     <div class="table-responsive">
-                                        <table class="table table-hover">
+                                        <table class="table table-hover" id="tableFileRecruitment">
                                             <thead>
-                                                <tr>
-                                                    <th>Nomor</th>
-                                                    <th>Nama Dokumen</th>
-                                                    <th colspan="2">Aksi</th>
-                                                </tr>
+                                                <th>Nomor</th>
+                                                <th>Nama Dokumen</th>
+                                                <th colspan="2">Aksi</th>
                                             </thead>
-                                            <tbody id="tableBodyFileRecruitment">
-
-                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -285,38 +268,16 @@
                                     </form>
                                 </div>
                             </div>
-                            <br>
-                            <br>
+                            <hr>        
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-offset-8 col-md-3">
-                                            <input type="search"
-                                                   name="nameSearchNidn"
-                                                       placeholder="Search..."
-                                                       class="form-control"
-                                                       required="">
-                                        </div>
-                                        <div class="col-md-1" align="left">
-                                            <button id="searchNidn" 
-                                                style="padding-top: 7px; border-radius:5px " >
-                                                <span class="glyphicon glyphicon-search"></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <hr>
                                     <div class="table-responsive">
-                                        <table class="table table-hover">
+                                        <table class="table table-hover" id="tableFileNidn">
                                             <thead>
-                                                <tr>
-                                                    <th>Nomor</th>
-                                                    <th>Nama Dokumen</th>
-                                                    <th colspan="2">Aksi</th>
-                                                </tr>
+                                                <th>Nomor</th>
+                                                <th>Nama Dokumen</th>
+                                                <th colspan="2">Aksi</th>
                                             </thead>
-                                            <tbody id="tableBodyFileNidn">
-
-                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -374,38 +335,16 @@
                                     </form>
                                 </div>
                             </div>
-                            <br>
-                            <br>
+                            <hr>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-offset-8 col-md-3">
-                                            <input type="search"
-                                                   name="nameSearchAssistant"
-                                                       placeholder="Search..."
-                                                       class="form-control"
-                                                       required="">
-                                        </div>
-                                        <div class="col-md-1" align="left">
-                                            <button id="searchAssistant" 
-                                                style="padding-top: 7px; border-radius:5px " >
-                                                <span class="glyphicon glyphicon-search"></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <hr>
                                     <div class="table-responsive">
-                                        <table class="table table-hover">
+                                        <table class="table table-hover" id="tableFileAssistant">
                                             <thead>
-                                                <tr>
-                                                    <th>Nomor</th>
-                                                    <th>Nama Dokumen</th>
-                                                    <th colspan="2">Aksi</th>
-                                                </tr>
+                                                <th>Nomor</th>
+                                                <th>Nama Dokumen</th>
+                                                <th colspan="2">Aksi</th>
                                             </thead>
-                                            <tbody id="tableBodyFileAssistant">
-
-                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -463,38 +402,16 @@
                                     </form>
                                 </div>
                             </div>
-                            <br>
-                            <br>
+                            <hr>    
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-offset-8 col-md-3">
-                                            <input type="search"
-                                                   name="nameSearchLectors"
-                                                       placeholder="Search..."
-                                                       class="form-control"
-                                                       required="">
-                                        </div>
-                                        <div class="col-md-1" align="left">
-                                            <button id="searchLectors" 
-                                                style="padding-top: 7px; border-radius:5px " >
-                                                <span class="glyphicon glyphicon-search"></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <hr>
                                     <div class="table-responsive">
-                                        <table class="table table-hover">
+                                        <table class="table table-hover" id="tableFileLectors">
                                             <thead>
-                                                <tr>
-                                                    <th>Nomor</th>
-                                                    <th>Nama Dokumen</th>
-                                                    <th colspan="2">Aksi</th>
-                                                </tr>
+                                                <th>Nomor</th>
+                                                <th>Nama Dokumen</th>
+                                                <th colspan="2">Aksi</th>
                                             </thead>
-                                            <tbody id="tableBodyFileLectors">
-
-                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -552,38 +469,16 @@
                                     </form>
                                 </div>
                             </div>
-                            <br>
-                            <br>
+                            <hr>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-offset-8 col-md-3">
-                                            <input type="search"
-                                                   name="nameSearchHeadlectors"
-                                                       placeholder="Search..."
-                                                       class="form-control"
-                                                       required="">
-                                        </div>
-                                        <div class="col-md-1" align="left">
-                                            <button id="searchHeadlectors" 
-                                                style="padding-top: 7px; border-radius:5px " >
-                                                <span class="glyphicon glyphicon-search"></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <hr>
                                     <div class="table-responsive">
-                                        <table class="table table-hover">
+                                        <table class="table table-hover" id="tableFileHeadlectors">
                                             <thead>
-                                                <tr>
-                                                    <th>Nomor</th>
-                                                    <th>Nama Dokumen</th>
-                                                    <th colspan="2">Aksi</th>
-                                                </tr>
+                                                <th>Nomor</th>
+                                                <th>Nama Dokumen</th>
+                                                <th colspan="2">Aksi</th>
                                             </thead>
-                                            <tbody id="tableBodyFileHeadlectors">
-
-                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -641,38 +536,16 @@
                                     </form>
                                 </div>
                             </div>
-                            <br>
-                            <br>
+                            <hr>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-offset-8 col-md-3">
-                                            <input type="search"
-                                                   name="nameSearchProfessor"
-                                                       placeholder="Search..."
-                                                       class="form-control"
-                                                       required="">
-                                        </div>
-                                        <div class="col-md-1" align="left">
-                                            <button id="searchProfessor" 
-                                                style="padding-top: 7px; border-radius:5px " >
-                                                <span class="glyphicon glyphicon-search"></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <hr>
                                     <div class="table-responsive">
-                                        <table class="table table-hover">
+                                        <table class="table table-hover" id="tableFileProfessor">
                                             <thead>
-                                                <tr>
-                                                    <th>Nomor</th>
-                                                    <th>Nama Dokumen</th>
-                                                    <th colspan="2">Aksi</th>
-                                                </tr>
+                                                <th>Nomor</th>
+                                                <th>Nama Dokumen</th>
+                                                <th colspan="2">Aksi</th>
                                             </thead>
-                                            <tbody id="tableBodyFileProfessor">
-
-                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -680,37 +553,16 @@
                         </div>
                         <div class="tab-pane" 
                              id="tab7">
-                            <br>
+                            <hr>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-offset-8 col-md-3">
-                                            <input type="search"
-                                                   name="nameSearchSertification"
-                                                       placeholder="Search..."
-                                                       class="form-control"
-                                                       required="">
-                                        </div>
-                                        <div class="col-md-1" align="left">
-                                            <button id="searchSertification" 
-                                                style="padding-top: 7px; border-radius:5px " >
-                                                <span class="glyphicon glyphicon-search"></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <hr>
                                     <div class="table-responsive">
-                                        <table class="table table-hover">
+                                        <table class="table table-hover" id="tableFileSertification">
                                             <thead>
-                                                <tr>
-                                                    <th>Nomor</th>
-                                                    <th>Nama Dokumen</th>
-                                                </tr>
+                                                <th>Nomor</th>
+                                                <th>Nama Dokumen</th>
                                             </thead>
-                                            <tbody id="tableBodyFileSertification">
-
-                                            </tbody>
-                                        </table>
+                                       </table>
                                     </div>
                                 </div>
                             </div>
@@ -824,51 +676,92 @@
             reloadDetailFileSertification();
             
             
+            var tableFileRecruitment = $('#tableFileRecruitment').DataTable({
+                columns: [
+                    { data: null, sortable: false},
+                    { data: 'nameDokumen'},
+                    { data: null, sortable: false,
+                      render : function(data, type, full) {
+                        return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
+                                <button id="delete"><span class="fa fa-trash"></span></button>';}
+                    }
+                ]
+            });
+            
+            var tableFileNidn = $('#tableFileNidn').DataTable({
+                columns: [
+                    { data: null, sortable: false},
+                    { data: 'nameDokumen'},
+                    { data: null, sortable: false,
+                      render : function(data, type, full) {
+                        return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
+                                <button id="delete"><span class="fa fa-trash"></span></button>';}
+                    }
+                ]
+            });
+            
+            var tableFileAssistant = $('#tableFileAssistant').DataTable({
+                columns: [
+                    { data: null, sortable: false},
+                    { data: 'nameDokumen'},
+                    { data: null, sortable: false,
+                      render : function(data, type, full) {
+                        return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
+                                <button id="delete"><span class="fa fa-trash"></span></button>';}
+                    }
+                ]
+            });
+            
+            var tableFileLectors = $('#tableFileLectors').DataTable({
+                columns: [
+                    { data: null, sortable: false},
+                    { data: 'nameDokumen'},
+                    { data: null, sortable: false,
+                      render : function(data, type, full) {
+                        return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
+                                <button id="delete"><span class="fa fa-trash"></span></button>';}
+                    }
+                ]
+            });
+            
+            var tableFileHeadlectors = $('#tableFileHeadlectors').DataTable({
+                columns: [
+                    { data: null, sortable: false},
+                    { data: 'nameDokumen'},
+                    { data: null, sortable: false,
+                      render : function(data, type, full) {
+                        return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
+                                <button id="delete"><span class="fa fa-trash"></span></button>';}
+                    }
+                ]
+            });
+            
+            var tableFileProfessor = $('#tableFileProfessor').DataTable({
+                columns: [
+                    { data: null, sortable: false},
+                    { data: 'nameDokumen'},
+                    { data: null, sortable: false,
+                      render : function(data, type, full) {
+                        return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
+                                <button id="delete"><span class="fa fa-trash"></span></button>';}
+                    }
+                ]
+            });
+            
+            var tableFileSertification = $('#tableFileSertification').DataTable({
+                columns: [
+                    { data: null, sortable: false},
+                    { data: 'nameDokumen'}
+                ]
+            });
+            
             function reloadDetailFileRecruitment(){
                 $.ajax({
                     url : 'getDetailFileRecruitment.htm',
                     type: 'GET',
                     success : function(response) {
                         var data = JSON.parse(response);
-                        console.log(data);
-                        var len = data.length;
-                        var content = '';
-                        for (var i = 0; i < len; i++){
-                            content +=' <tr>\n\
-                                            <td>' + (i + 1) + '</td>\n\
-                                            <td class="nameDokumen">' + data[i].nameDokumen + '</td>\n\
-                                            <td>\n\
-                                                <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                <a href="#"><span class="updateDetailFileRecruitment fa fa-pencil"></span></a>\n\
-                                            </td>\n\
-                                            <td>\n\
-                                                <a href="#"><span class="deleteDetailFileRecruitment fa fa-trash"></span></a>\n\
-                                            </td>\n\
-                                        </tr>';
-                            $('#tableBodyFileRecruitment').html(content);
-                        }
-                        
-                        $('.updateDetailFileRecruitment').click(function(){
-                            var nameDokumen = $(this).closest('tr').find('.nameDokumen').html();
-                            var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                            $('input[id=idDetailRecruitment]').val(idDetail);
-                            $('input[id=recruitment]').val(nameDokumen);
-                        });
-                        
-                        $('.deleteDetailFileRecruitment').click(function(){
-                            var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                            $.ajax({
-                                url: "deleteDetailFile.htm",
-                                data: "idDetail=" + idDetail,
-                                type: 'GET',
-                                success : function(response){
-                                    $(function(){
-                                        $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                    });
-                                    reloadDetailFileRecruitment();
-                                }
-                            });
-                        });
+                        tableFileRecruitment.rows.add(data).draw();
                     }
                 });
             }
@@ -879,45 +772,7 @@
                     type: 'GET',
                     success : function(response) {
                         var data = JSON.parse(response);
-                        console.log(data);
-                        var len = data.length;
-                        var content = '';
-                        for (var i = 0; i < len; i++){
-                            content +=' <tr>\n\
-                                            <td>' + (i + 1) + '</td>\n\
-                                            <td class="nameDokumen">' + data[i].nameDokumen + '</td>\n\
-                                            <td>\n\
-                                                <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                <a href="#"><span class="updateDetailFileNidn fa fa-pencil"></span></a>\n\
-                                            </td>\n\
-                                            <td>\n\
-                                                <a href="#"><span class="deleteDetailFileNidn fa fa-trash"></span></a>\n\
-                                            </td>\n\
-                                        </tr>';
-                            $('#tableBodyFileNidn').html(content);
-                        }
-                        
-                        $('.updateDetailFileNidn').click(function(){
-                            var nameDokumen = $(this).closest('tr').find('.nameDokumen').html();
-                            var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                            $('input[id=idDetailNidn]').val(idDetail);
-                            $('input[id=nidn]').val(nameDokumen);
-                        });
-                        
-                        $('.deleteDetailFileNidn').click(function(){
-                            var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                            $.ajax({
-                                url: "deleteDetailFile.htm",
-                                data: "idDetail=" + idDetail,
-                                type: 'GET',
-                                success : function(response){
-                                    $(function(){
-                                        $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                    });
-                                    reloadDetailFileNidn();
-                                }
-                            });
-                        });
+                        tableFileNidn.rows.add(data).draw();
                     }
                 });
             }
@@ -928,45 +783,7 @@
                     type: 'GET',
                     success : function(response) {
                         var data = JSON.parse(response);
-                        console.log(data);
-                        var len = data.length;
-                        var content = '';
-                        for (var i = 0; i < len; i++){
-                            content +=' <tr>\n\
-                                            <td>' + (i + 1) + '</td>\n\
-                                            <td class="nameDokumen">' + data[i].nameDokumen + '</td>\n\
-                                            <td>\n\
-                                                <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                <a href="#"><span class="updateDetailFileAssistant fa fa-pencil"></span></a>\n\
-                                            </td>\n\
-                                            <td>\n\
-                                                <a href="#"><span class="deleteDetailFileAssistant fa fa-trash"></span></a>\n\
-                                            </td>\n\
-                                        </tr>';
-                            $('#tableBodyFileAssistant').html(content);
-                        }
-                        
-                        $('.updateDetailFileAssistant').click(function(){
-                            var nameDokumen = $(this).closest('tr').find('.nameDokumen').html();
-                            var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                            $('input[id=idDetailAssistant]').val(idDetail);
-                            $('input[id=assistant]').val(nameDokumen);
-                        });
-                        
-                        $('.deleteDetailFileAssistant').click(function(){
-                            var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                            $.ajax({
-                                url: "deleteDetailFile.htm",
-                                data: "idDetail=" + idDetail,
-                                type: 'GET',
-                                success : function(response){
-                                    $(function(){
-                                        $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                    });
-                                    reloadDetailFileAssistant();
-                                }
-                            });
-                        });
+                        tableFileAssistant.rows.add(data).draw();
                     }
                 });
             }
@@ -977,45 +794,7 @@
                     type: 'GET',
                     success : function(response) {
                         var data = JSON.parse(response);
-                        console.log(data);
-                        var len = data.length;
-                        var content = '';
-                        for (var i = 0; i < len; i++){
-                            content +=' <tr>\n\
-                                            <td>' + (i + 1) + '</td>\n\
-                                            <td class="nameDokumen">' + data[i].nameDokumen + '</td>\n\
-                                            <td>\n\
-                                                <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                <a href="#"><span class="updateDetailFileLectors fa fa-pencil"></span></a>\n\
-                                            </td>\n\
-                                            <td>\n\
-                                                <a href="#"><span class="deleteDetailFileLectors fa fa-trash"></span></a>\n\
-                                            </td>\n\
-                                        </tr>';
-                            $('#tableBodyFileLectors').html(content);
-                        }
-                        
-                        $('.updateDetailFileLectors').click(function(){
-                            var nameDokumen = $(this).closest('tr').find('.nameDokumen').html();
-                            var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                            $('input[id=idDetailLectors]').val(idDetail);
-                            $('input[id=lectors]').val(nameDokumen);
-                        });
-                        
-                        $('.deleteDetailFileLectors').click(function(){
-                            var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                            $.ajax({
-                                url: "deleteDetailFile.htm",
-                                data: "idDetail=" + idDetail,
-                                type: 'GET',
-                                success : function(response){
-                                    $(function(){
-                                        $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                    });
-                                    reloadDetailFileLectors();
-                                }
-                            });
-                        });
+                        tableFileLectors.rows.add(data).draw();
                     }
                 });
             }
@@ -1026,45 +805,7 @@
                     type: 'GET',
                     success : function(response) {
                         var data = JSON.parse(response);
-                        console.log(data);
-                        var len = data.length;
-                        var content = '';
-                        for (var i = 0; i < len; i++){
-                            content +=' <tr>\n\
-                                            <td>' + (i + 1) + '</td>\n\
-                                            <td class="nameDokumen">' + data[i].nameDokumen + '</td>\n\
-                                            <td>\n\
-                                                <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                <a href="#"><span class="updateDetailFileHeadlectors fa fa-pencil"></span></a>\n\
-                                            </td>\n\
-                                            <td>\n\
-                                                <a href="#"><span class="deleteDetailFileHeadlectors fa fa-trash"></span></a>\n\
-                                            </td>\n\
-                                        </tr>';
-                            $('#tableBodyFileHeadlectors').html(content);
-                        }
-                        
-                        $('.updateDetailFileHeadlectors').click(function(){
-                            var nameDokumen = $(this).closest('tr').find('.nameDokumen').html();
-                            var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                            $('input[id=idDetailHeadlectors]').val(idDetail);
-                            $('input[id=headlectors]').val(nameDokumen);
-                        });
-                        
-                        $('.deleteDetailFileHeadlectors').click(function(){
-                            var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                            $.ajax({
-                                url: "deleteDetailFile.htm",
-                                data: "idDetail=" + idDetail,
-                                type: 'GET',
-                                success : function(response){
-                                    $(function(){
-                                        $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                    });
-                                    reloadDetailFileHeadlectors();
-                                }
-                            });
-                        });
+                        tableFileHeadlectors.rows.add(data).draw();
                     }
                 });
             }
@@ -1075,45 +816,7 @@
                     type: 'GET',
                     success : function(response) {
                         var data = JSON.parse(response);
-                        console.log(data);
-                        var len = data.length;
-                        var content = '';
-                        for (var i = 0; i < len; i++){
-                            content +=' <tr>\n\
-                                            <td>' + (i + 1) + '</td>\n\
-                                            <td class="nameDokumen">' + data[i].nameDokumen + '</td>\n\
-                                            <td>\n\
-                                                <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                <a href="#"><span class="updateDetailFileProfessor fa fa-pencil"></span></a>\n\
-                                            </td>\n\
-                                            <td>\n\
-                                                <a href="#"><span class="deleteDetailFileProfessor fa fa-trash"></span></a>\n\
-                                            </td>\n\
-                                        </tr>';
-                            $('#tableBodyFileProfessor').html(content);
-                        }
-                        
-                        $('.updateDetailFileProfessor').click(function(){
-                            var nameDokumen = $(this).closest('tr').find('.nameDokumen').html();
-                            var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                            $('input[id=idDetailProfessor]').val(idDetail);
-                            $('input[id=professor]').val(nameDokumen);
-                        });
-                        
-                        $('.deleteDetailFileProfessor').click(function(){
-                            var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                            $.ajax({
-                                url: "deleteDetailFile.htm",
-                                data: "idDetail=" + idDetail,
-                                type: 'GET',
-                                success : function(response){
-                                    $(function(){
-                                        $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                    });
-                                    reloadDetailFileProfessor();
-                                }
-                            });
-                        });
+                        tableFileProfessor.rows.add(data).draw();
                     }
                 });
             }
@@ -1124,19 +827,196 @@
                     type: 'GET',
                     success : function(response) {
                         var data = JSON.parse(response);
-                        console.log(data);
-                        var len = data.length;
-                        var content = '';
-                        for (var i = 0; i < len; i++){
-                            content +=' <tr>\n\
-                                            <td>' + (i + 1) + '</td>\n\
-                                            <td class="nameDokumen">' + data[i].nameDokumen + '</td>\n\
-                                        </tr>';
-                            $('#tableBodyFileSertification').html(content);
-                        }
+                        tableFileSertification.rows.add(data).draw();
                     }
                 });
             }
+            
+            tableFileRecruitment.on( 'order.dt search.dt', function () {
+                tableFileRecruitment.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+                } );
+            }).draw();
+            
+            tableFileNidn.on( 'order.dt search.dt', function () {
+                tableFileNidn.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+                } );
+            }).draw();
+            
+            tableFileAssistant.on( 'order.dt search.dt', function () {
+                tableFileAssistant.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+                } );
+            }).draw();
+            
+            tableFileLectors.on( 'order.dt search.dt', function () {
+                tableFileLectors.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+                } );
+            }).draw();
+            
+            tableFileHeadlectors.on( 'order.dt search.dt', function () {
+                tableFileHeadlectors.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+                } );
+            }).draw();
+            
+            tableFileProfessor.on( 'order.dt search.dt', function () {
+                tableFileProfessor.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+                } );
+            }).draw();
+            
+            tableFileSertification.on( 'order.dt search.dt', function () {
+                tableFileSertification.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+                } );
+            }).draw();
+            
+            $('#tableFileRecruitment tbody').on('click', 'button#update', function () {
+                var data = tableFileRecruitment.row(this.closest('tr')).data();
+                $('input[name=idDetailRecruitment]').val(data.idDetail);
+                $('input[id=recruitment]').val(data.nameDokumen);
+            });
+            
+            $('#tableFileNidn tbody').on('click', 'button#update', function () {
+                var data = tableFileNidn.row(this.closest('tr')).data();
+                $('input[name=idDetailNidn]').val(data.idDetail);
+                $('input[id=nidn]').val(data.nameDokumen);
+            });
+            
+            $('#tableFileAssistant tbody').on('click', 'button#update', function () {
+                var data = tableFileAssistant.row(this.closest('tr')).data();
+                $('input[name=idDetailAssistant]').val(data.idDetail);
+                $('input[id=assistant]').val(data.nameDokumen);
+            });
+            
+            $('#tableFileLectors tbody').on('click', 'button#update', function () {
+                var data = tableFileLectors.row(this.closest('tr')).data();
+                $('input[name=idDetailLectors]').val(data.idDetail);
+                $('input[id=lectors]').val(data.nameDokumen);
+            });
+            
+            $('#tableFileHeadlectors tbody').on('click', 'button#update', function () {
+                var data = tableFileHeadlectors.row(this.closest('tr')).data();
+                $('input[name=idDetailHeadlectors]').val(data.idDetail);
+                $('input[id=headlectors]').val(data.nameDokumen);
+            });
+            
+            $('#tableFileProfessor tbody').on('click', 'button#update', function () {
+                var data = tableFileProfessor.row(this.closest('tr')).data();
+                $('input[name=idDetailProfessor]').val(data.idDetail);
+                $('input[id=professor]').val(data.nameDokumen);
+            });
+            
+            $('#tableFileRecruitment tbody').on('click', 'button#delete', function () {
+                var data = tableFileRecruitment.row(this.closest('tr')).data();
+                $.ajax({
+                    url: "deleteDetailFile.htm",
+                    data: "idDetail=" + data.idDetail,
+                    daraType: "form-data",
+                    type: 'GET',
+                    success : function(response){
+                        $(function(){
+                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                        });
+                        $('#formDetailFileRecruitment').trigger('reset');
+                        tableFileRecruitment.clear().draw();
+                        reloadDetailFileRecruitment();
+                    }
+                });
+            });
+            
+            $('#tableFileNidn tbody').on('click', 'button#delete', function () {
+                var data = tableFileNidn.row(this.closest('tr')).data();
+                $.ajax({
+                    url: "deleteDetailFile.htm",
+                    data: "idDetail=" + data.idDetail,
+                    daraType: "form-data",
+                    type: 'GET',
+                    success : function(response){
+                        $(function(){
+                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                        });
+                        $('#formDetailFileNidn').trigger('reset');
+                        tableFileNidn.clear().draw();
+                        reloadDetailFileNidn();
+                    }
+                });
+            });
+            
+            $('#tableFileAssistant tbody').on('click', 'button#delete', function () {
+                var data = tableFileAssistant.row(this.closest('tr')).data();
+                $.ajax({
+                    url: "deleteDetailFile.htm",
+                    data: "idDetail=" + data.idDetail,
+                    daraType: "form-data",
+                    type: 'GET',
+                    success : function(response){
+                        $(function(){
+                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                        });
+                        $('#formDetailFileAssistant').trigger('reset');
+                        tableFileAssistant.clear().draw();
+                        reloadDetailFileAssistant();
+                    }
+                });
+            });
+            
+            $('#tableFileLectors tbody').on('click', 'button#delete', function () {
+                var data = tableFileLectors.row(this.closest('tr')).data();
+                $.ajax({
+                    url: "deleteDetailFile.htm",
+                    data: "idDetail=" + data.idDetail,
+                    daraType: "form-data",
+                    type: 'GET',
+                    success : function(response){
+                        $(function(){
+                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                        });
+                        $('#formDetailFileLectors').trigger('reset');
+                        tableFileLectors.clear().draw();
+                        reloadDetailFileLectors();
+                    }
+                });
+            });
+            
+            $('#tableFileHeadlectors tbody').on('click', 'button#delete', function () {
+                var data = tableFileHeadlectors.row(this.closest('tr')).data();
+                $.ajax({
+                    url: "deleteDetailFile.htm",
+                    data: "idDetail=" + data.idDetail,
+                    daraType: "form-data",
+                    type: 'GET',
+                    success : function(response){
+                        $(function(){
+                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                        });
+                        $('#formDetailFileHeadlectors').trigger('reset');
+                        tableFileHeadlectors.clear().draw();
+                        reloadDetailFileHeadlectors();
+                    }
+                });
+            });
+            
+            $('#tableFileProfessor tbody').on('click', 'button#delete', function () {
+                var data = tableFileProfessor.row(this.closest('tr')).data();
+                $.ajax({
+                    url: "deleteDetailFile.htm",
+                    data: "idDetail=" + data.idDetail,
+                    daraType: "form-data",
+                    type: 'GET',
+                    success : function(response){
+                        $(function(){
+                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                        });
+                        $('#formDetailFileProfessor').trigger('reset');
+                        tableFileProfessor.clear().draw();
+                        reloadDetailFileProfessor();
+                    }
+                });
+            });
             
             $('#formDetailFileRecruitment').submit(function(e){
                 e.preventDefault();
@@ -1148,6 +1028,7 @@
                         $(function(){
                             $.growl.notice({title: "Berhasil !", message: "Data berhasil ditambahkan !" });
                         });
+                        tableFileRecruitment.clear().draw();
                         reloadDetailFileRecruitment();
                     }
                 });
@@ -1163,6 +1044,7 @@
                         $(function(){
                             $.growl.notice({title: "Berhasil !", message: "Data berhasil ditambahkan !" });
                         });
+                        tableFileNidn.clear().draw();
                         reloadDetailFileNidn();
                     }
                 });
@@ -1178,6 +1060,7 @@
                         $(function(){
                             $.growl.notice({title: "Berhasil !", message: "Data berhasil ditambahkan !" });
                         });
+                        tableFileAssistant.clear().draw();
                         reloadDetailFileAssistant();
                     }
                 });
@@ -1193,6 +1076,7 @@
                         $(function(){
                             $.growl.notice({title: "Berhasil !", message: "Data berhasil ditambahkan !" });
                         });
+                        tableFileLectors.clear().draw();
                         reloadDetailFileLectors();
                     }
                 });
@@ -1208,6 +1092,7 @@
                         $(function(){
                             $.growl.notice({title: "Berhasil !", message: "Data berhasil ditambahkan !" });
                         });
+                        tableFileHeadlectors.clear().draw();
                         reloadDetailFileHeadlectors();
                     }
                 });
@@ -1223,406 +1108,8 @@
                         $(function(){
                             $.growl.notice({title: "Berhasil !", message: "Data berhasil ditambahkan !" });
                         });
+                        tableFileProfessor.clear().draw();
                         reloadDetailFileProfessor();
-                    }
-                });
-            });
-            
-            $('#searchRecruitment').click(function(){
-                var nameDokumen = $('input[name=nameSearchRecruitment]').val();
-                var idEvent = "1";
-                $.ajax({
-                    url: "searchDetailFile.htm",
-                    data: {nameDokumen: nameDokumen, idEvent: idEvent},
-                    type: 'GET',
-                    success: function(response){
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        if (len === 0){
-                            $(function(){
-                                $.growl.warning({title: "Maaf !", message: "Data tidak ada" });
-                            });
-                        } else {
-                            var content = '';
-                            for (var i = 0; i < len; i++){
-                                content +=' <tr>\n\
-                                                <td>' + (i + 1) + '</td>\n\
-                                                <td class="nameDokumen">' + data[i].nameDokumen + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateDetailFileRecruitment fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteDetailFileRecruitment fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                $('#tableBodyFileRecruitment').html(content);
-                            }
-
-                            $('.updateDetailFileRecruitment').click(function(){
-                                var nameDokumen = $(this).closest('tr').find('.nameDokumen').html();
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $('input[id=idDetailRecruitment]').val(idDetail);
-                                $('input[id=recruitment]').val(nameDokumen);
-                            });
-
-                            $('.deleteDetailFileRecruitment').click(function(){
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $.ajax({
-                                    url: "deleteDetailFile.htm",
-                                    data: "idDetail=" + idDetail,
-                                    type: 'GET',
-                                    success : function(response){
-                                        $(function(){
-                                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                        });
-                                        reloadDetailFileRecruitment();
-                                    }
-                                });
-                            });
-                        }
-                    }
-                });
-            });
-            
-            $('#searchNidn').click(function(){
-                var nameDokumen = $('input[name=nameSearchNidn]').val();
-                var idEvent = "6";
-                $.ajax({
-                    url: "searchDetailFile.htm",
-                    data: {nameDokumen: nameDokumen, idEvent: idEvent},
-                    type: 'GET',
-                    success: function(response){
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        if (len === 0){
-                            $(function(){
-                                $.growl.warning({title: "Maaf !", message: "Data tidak ada" });
-                            });
-                        } else {
-                            var content = '';
-                            for (var i = 0; i < len; i++){
-                                content +=' <tr>\n\
-                                                <td>' + (i + 1) + '</td>\n\
-                                                <td class="nameDokumen">' + data[i].nameDokumen + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateDetailFileNidn fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteDetailFileNidn fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                $('#tableBodyFileNidn').html(content);
-                            }
-
-                            $('.updateDetailFileNidn').click(function(){
-                                var nameDokumen = $(this).closest('tr').find('.nameDokumen').html();
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $('input[id=idDetailNidn]').val(idDetail);
-                                $('input[id=nidn]').val(nameDokumen);
-                            });
-
-                            $('.deleteDetailFileNidn').click(function(){
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $.ajax({
-                                    url: "deleteDetailFile.htm",
-                                    data: "idDetail=" + idDetail,
-                                    type: 'GET',
-                                    success : function(response){
-                                        $(function(){
-                                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                        });
-                                        reloadDetailFileNidn();
-                                    }
-                                });
-                            });
-                        }
-                    }
-                });
-            });
-            
-            $('#searchAssistant').click(function(){
-                var nameDokumen = $('input[name=nameSearchAssistant]').val();
-                var idEvent = "7";
-                $.ajax({
-                    url: "searchDetailFile.htm",
-                    data: {nameDokumen: nameDokumen, idEvent: idEvent},
-                    type: 'GET',
-                    success: function(response){
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        if (len === 0){
-                            $(function(){
-                                $.growl.warning({title: "Maaf !", message: "Data tidak ada" });
-                            });
-                        } else {
-                            var content = '';
-                            for (var i = 0; i < len; i++){
-                                content +=' <tr>\n\
-                                                <td>' + (i + 1) + '</td>\n\
-                                                <td class="nameDokumen">' + data[i].nameDokumen + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateDetailFileAssistant fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteDetailFileAssistant fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                $('#tableBodyFileAssistant').html(content);
-                            }
-
-                            $('.updateDetailFileAssistant').click(function(){
-                                var nameDokumen = $(this).closest('tr').find('.nameDokumen').html();
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $('input[id=idDetailAssistant]').val(idDetail);
-                                $('input[id=assistant]').val(nameDokumen);
-                            });
-
-                            $('.deleteDetailFileAssistant').click(function(){
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $.ajax({
-                                    url: "deleteDetailFile.htm",
-                                    data: "idDetail=" + idDetail,
-                                    type: 'GET',
-                                    success : function(response){
-                                        $(function(){
-                                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                        });
-                                        reloadDetailFileAssistant();
-                                    }
-                                });
-                            });
-                        }
-                    }
-                });
-            });
-            
-            $('#searchLectors').click(function(){
-                var nameDokumen = $('input[name=nameSearchLectors]').val();
-                var idEvent = "8";
-                $.ajax({
-                    url: "searchDetailFile.htm",
-                    data: {nameDokumen: nameDokumen, idEvent: idEvent},
-                    type: 'GET',
-                    success: function(response){
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        if (len === 0){
-                            $(function(){
-                                $.growl.warning({title: "Maaf !", message: "Data tidak ada" });
-                            });
-                        } else {
-                            var content = '';
-                            for (var i = 0; i < len; i++){
-                                content +=' <tr>\n\
-                                                <td>' + (i + 1) + '</td>\n\
-                                                <td class="nameDokumen">' + data[i].nameDokumen + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateDetailFileLectors fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteDetailFileLectors fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                $('#tableBodyFileLectors').html(content);
-                            }
-
-                            $('.updateDetailFileLectors').click(function(){
-                                var nameDokumen = $(this).closest('tr').find('.nameDokumen').html();
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $('input[id=idDetailLectors]').val(idDetail);
-                                $('input[id=assistant]').val(nameDokumen);
-                            });
-
-                            $('.deleteDetailFileLectors').click(function(){
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $.ajax({
-                                    url: "deleteDetailFile.htm",
-                                    data: "idDetail=" + idDetail,
-                                    type: 'GET',
-                                    success : function(response){
-                                        $(function(){
-                                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                        });
-                                        reloadDetailFileLectors();
-                                    }
-                                });
-                            });
-                        }
-                    }
-                });
-            });
-            
-            $('#searchHeadlectors').click(function(){
-                var nameDokumen = $('input[name=nameSearchHeadlectors]').val();
-                var idEvent = "9";
-                $.ajax({
-                    url: "searchDetailFile.htm",
-                    data: {nameDokumen: nameDokumen, idEvent: idEvent},
-                    type: 'GET',
-                    success: function(response){
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        if (len === 0){
-                            $(function(){
-                                $.growl.warning({title: "Maaf !", message: "Data tidak ada" });
-                            });
-                        } else {
-                            var content = '';
-                            for (var i = 0; i < len; i++){
-                                content +=' <tr>\n\
-                                                <td>' + (i + 1) + '</td>\n\
-                                                <td class="nameDokumen">' + data[i].nameDokumen + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateDetailFileHeadlectors fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteDetailFileHeadlectors fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                $('#tableBodyFileHeadlectors').html(content);
-                            }
-
-                            $('.updateDetailFileHeadlectors').click(function(){
-                                var nameDokumen = $(this).closest('tr').find('.nameDokumen').html();
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $('input[id=idDetailHeadlectors]').val(idDetail);
-                                $('input[id=assistant]').val(nameDokumen);
-                            });
-
-                            $('.deleteDetailFileHeadlectors').click(function(){
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $.ajax({
-                                    url: "deleteDetailFile.htm",
-                                    data: "idDetail=" + idDetail,
-                                    type: 'GET',
-                                    success : function(response){
-                                        $(function(){
-                                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                        });
-                                        reloadDetailFileHeadlectors();
-                                    }
-                                });
-                            });
-                        }
-                    }
-                });
-            });
-            
-            $('#searchProfessor').click(function(){
-                var nameDokumen = $('input[name=nameSearchProfessor]').val();
-                var idEvent = "10";
-                $.ajax({
-                    url: "searchDetailFile.htm",
-                    data: {nameDokumen: nameDokumen, idEvent: idEvent},
-                    type: 'GET',
-                    success: function(response){
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        if (len === 0){
-                            $(function(){
-                                $.growl.warning({title: "Maaf !", message: "Data tidak ada" });
-                            });
-                        } else {
-                            var content = '';
-                            for (var i = 0; i < len; i++){
-                                content +=' <tr>\n\
-                                                <td>' + (i + 1) + '</td>\n\
-                                                <td class="nameDokumen">' + data[i].nameDokumen + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateDetailFileProfessor fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteDetailFileProfessor fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                $('#tableBodyFileProfessor').html(content);
-                            }
-
-                            $('.updateDetailFileProfessor').click(function(){
-                                var nameDokumen = $(this).closest('tr').find('.nameDokumen').html();
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $('input[id=idDetailProfessor]').val(idDetail);
-                                $('input[id=assistant]').val(nameDokumen);
-                            });
-
-                            $('.deleteDetailFileProfessor').click(function(){
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $.ajax({
-                                    url: "deleteDetailFile.htm",
-                                    data: "idDetail=" + idDetail,
-                                    type: 'GET',
-                                    success : function(response){
-                                        $(function(){
-                                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                        });
-                                        reloadDetailFileProfessor();
-                                    }
-                                });
-                            });
-                        }
-                    }
-                });
-            });
-            
-            $('#searchSertification').click(function(){
-                var nameDokumen = $('input[name=nameSearchSertification]').val();
-                var idEvent = "0";
-                $.ajax({
-                    url: "searchDetailFile.htm",
-                    data: {nameDokumen: nameDokumen, idEvent: idEvent},
-                    type: 'GET',
-                    success: function(response){
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        if (len === 0){
-                            $(function(){
-                                $.growl.warning({title: "Maaf !", message: "Data tidak ada" });
-                            });
-                        } else {
-                            var content = '';
-                            for (var i = 0; i < len; i++){
-                                content +=' <tr>\n\
-                                                <td>' + (i + 1) + '</td>\n\
-                                                <td class="nameDokumen">' + data[i].nameDokumen + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="dataDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateDetailFileSertification fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteDetailFileSertification fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                $('#tableBodyFileSertification').html(content);
-                            }
-
-                            $('.updateDetailFileSertification').click(function(){
-                                var nameDokumen = $(this).closest('tr').find('.nameDokumen').html();
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $('input[id=idDetailSertification]').val(idDetail);
-                                $('input[id=assistant]').val(nameDokumen);
-                            });
-
-                            $('.deleteDetailFileSertification').click(function(){
-                                var idDetail = $(this).closest('tr').find('.dataDetail').val();
-                                $.ajax({
-                                    url: "deleteDetailFile.htm",
-                                    data: "idDetail=" + idDetail,
-                                    type: 'GET',
-                                    success : function(response){
-                                        $(function(){
-                                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                        });
-                                        reloadDetailFileSertification();
-                                    }
-                                });
-                            });
-                        }
                     }
                 });
             });

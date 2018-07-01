@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -89,18 +90,35 @@
 			 
 		});
 		</script>
-                <div class="portlet-grid-page" style="padding: 20px">  	
-                    <div class="portlet panel-success col-md-12" 
-                         style="border: solid 1px #65cea7"> 
-                        <div class="panel-heading">
-                            <h3 class="panel-title">PDDIKTI Resmi Umumkan Sertifikasi Dosen Tahun 2018</h3>
-                        </div> 
-                        <div class="panel-body">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam.
-                        </div> 
+                <c:forEach var="listData" 
+                        items="${data}">
+                    <c:url var="detil" 
+                        value="detilNewsAdmin.htm">
+                        <c:param name="idNews" 
+                            value="${listData.idNews}">
+                        </c:param>
+                    </c:url>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet-grid-page" style="padding: 20px">  	
+                                <div class="portlet panel-success col-md-12" 
+                                    style="border: solid 1px #65cea7"> 
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">
+                                            ${listData.updateDate}
+                                        </h3>
+                                    </div> 
+                                    <a href="${detil}">
+                                        <div class="panel-body">
+                                            ${listData.title}
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="clearfix"></div>    
+                    <br>
+                </c:forEach>   
             </div>
         </div>
         <div class="sidebar-menu">
@@ -142,7 +160,7 @@
                                 <a href="showReportComprehen.htm">Kelengkapan Portofolio</a>
                             </li>
                             <li id="menu-arquivos" >
-                                <a href="icons.html">Jenjang Karir</a>
+                                <a href="showDetailProgress.htm">Jenjang Karir</a>
                             </li>
                         </ul>
                     </li>

@@ -42,6 +42,7 @@
                     
                     <value>repository/dosen/models/MasterFunctional.hbm.xml</value>
                     <value>repository/dosen/models/MasterStudy.hbm.xml</value>
+                    <value>repository/dosen/models/MasterNews.hbm.xml</value>
                     <value>repository/dosen/models/TranFile.hbm.xml</value>
                     <value>repository/dosen/models/TranFunctionalHistory.hbm.xml</value>
                     <value>repository/dosen/models/TranLectureHistory.hbm.xml</value>
@@ -103,6 +104,9 @@
     <bean id="lectureService" class="repository.dosen.service.impl.LectureServiceImplement"/>
     <bean id="lectureDao" class="repository.dosen.dao.impl.LectureDaoImpl"/>
     
+    <bean id="newsService" class="repository.dosen.service.impl.NewsServiceImplement"/>
+    <bean id="newsDao" class="repository.dosen.dao.impl.NewsDaoImpl"/>
+    
     <bean id="detailFileService" class="repository.dosen.service.impl.DetailFileServiceImplement"/>
     <bean id="detailFileDao" class="repository.dosen.dao.impl.DetailFileDaoImpl"/>
     
@@ -129,5 +133,11 @@
     
     <bean id="functionalProgressHistoryService" class="repository.dosen.service.impl.FunctionalProgressHistoryServiceImplement"/>
     <bean id="functionalProgressHistoryDao" class="repository.dosen.dao.impl.FunctionalProgressHistoryDaoImpl"/>
+    
+    <bean id="tranProgressFunctionalService" class="repository.dosen.service.impl.TranProgressFunctionalServiceImplement"/>
+    <bean id="tranProgressFunctionalDao" class="repository.dosen.dao.impl.TranProgressFunctionalDaoImpl"/>
+    
+    <bean id="tranProgressLecturerService" class="repository.dosen.service.impl.TranProgressLecturerServiceImplement"/>
+    <bean id="tranProgressLecturerDao" class="repository.dosen.dao.impl.TranProgressLecturerDaoImpl"/>
     
 </beans>

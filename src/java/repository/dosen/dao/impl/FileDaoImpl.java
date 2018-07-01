@@ -65,4 +65,12 @@ public class FileDaoImpl extends HibernateUtil implements FileDao{
         Query query = createNativeQuery(sql);
         return query.list();
     }
+
+    @Override
+    public List<Object[]> getFileNidn(int idLecturer) {
+        String sql = "select * from TranFile where idLecturer = " + idLecturer + " and idDetail in ("
+                + "select idDetail from DetailFile where idEvent = 6) order by idDetail";
+        Query query = createNativeQuery(sql);
+        return query.list();
+    }
 }

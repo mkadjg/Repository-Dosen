@@ -15,4 +15,17 @@ public interface FunctionalProgressHistoryDao {
    public List<FunctionalProgressHistory> getAssistantProgressHistory();
    public List<FunctionalProgressHistory> getAssistantProgressHistoryByFaculty(String idFaculty);
    public List<FunctionalProgressHistory> getAssistantProgressHistoryByMajor(String idMajor);
+   
+   public List<FunctionalProgressHistory> getLectorsProgressHistory();
+   public List<FunctionalProgressHistory> getLectorsProgressHistoryByFaculty(String idFaculty);
+   public List<FunctionalProgressHistory> getLectorsProgressHistoryByMajor(String idMajor);
+   
+   public List<FunctionalProgressHistory> getHeadlectorsProgressHistory();
+   public List<FunctionalProgressHistory> getHeadlectorsProgressHistoryByFaculty(String idFaculty);
+   public List<FunctionalProgressHistory> getHeadlectorsProgressHistoryByMajor(String idMajor);
+   
+   public List<FunctionalProgressHistory> getProfessorProgressHistory();
+   public List<FunctionalProgressHistory> getProfessorProgressHistoryByFaculty(String idFaculty);
+   public List<FunctionalProgressHistory> getProfessorProgressHistoryByMajor(String idMajor);
+   
 }

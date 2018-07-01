@@ -33,7 +33,16 @@ public class Lecturer implements Serializable {
     String nameGender;
     int idReligion;
     String nameReligion;
+    int state;
 
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+    
     public String getNameGender() {
         return nameGender;
     }

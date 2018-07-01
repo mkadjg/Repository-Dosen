@@ -18,4 +18,5 @@ public interface FileService {
     public List<FileDto> getFile(int idLecturer);
     public List<FileDto> searchFile(String nameDokumen);
     public List<FileDto> getFileRecruitment(int idLecturer);
+    public List<FileDto> getFileNidn(int idLecturer);
 }

@@ -19,5 +19,6 @@ public interface FileDao {
     public TranFile getLastDataFile();
     public List<TranFile> getFile(int idLecturer);
     public List<Object[]> getFileRecruitment(int idLecturer);
+    public List<Object[]> getFileNidn(int idLecturer);
     public List<Object[]> searchFile(String nameDetail);
 }

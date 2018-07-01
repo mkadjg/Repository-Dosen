@@ -22,6 +22,11 @@
         <script src="resource/javascripts/jquery.growl.js" type="text/javascript"></script>
         <link href="resource/stylesheets/jquery.growl.css" rel="stylesheet" type="text/css" />
         
+        <!--datatable file library-->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <!--<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>-->
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        
     </head>
     <body>	
     <div class="page-container" style="overflow: scroll">	
@@ -161,43 +166,19 @@
                                         </form>
                                     </div>
                                 </div>
-                                <br>
-                                <br>
+                                <hr>
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-offset-8 col-md-3">
-                                                <input type="search"
-                                                       name="nameSearchFaculty"
-                                                           placeholder="Search..."
-                                                           class="form-control"
-                                                           required="">
-                                            </div>
-                                            <div class="col-md-1" align="left">
-                                                <button id="searchFaculty" 
-                                                    style="padding-top: 7px; border-radius:5px " >
-                                                    <span class="glyphicon glyphicon-search"></span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="table-responsive">
-                                            <table class="table table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Id Fakultas</th>
-                                                        <th>Nama Fakultas</th>
-                                                        <th colspan="2">Aksi</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="tableBodyFaculty">
-
-                                                </tbody>
-                                            </table>
-                                        </div>    
+                                    <div class="table-responsive">
+                                        <table class="table table-hover" id="tableFaculty">
+                                            <thead>
+                                                <th>No</th>
+                                                <th>Id Fakultas</th>
+                                                <th>Nama Fakultas</th>
+                                                <th>Aksi</th>
+                                            </thead>
+                                        </table>
                                     </div>
-                                </div>
+                                </div>    
                             </div>
                             <div class="tab-pane" 
                                  id="tab2">
@@ -273,40 +254,20 @@
                                         </form>
                                     </div>
                                 </div>
-                                <br>
-                                <br>
+                                <hr>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-offset-8 col-md-3">
-                                                <input type="search"
-                                                       name="nameSearchMajor"
-                                                           placeholder="Search..."
-                                                           class="form-control"
-                                                           required="">
-                                            </div>
-                                            <div class="col-md-1" align="left">
-                                                <button id="searchMajor" 
-                                                    style="padding-top: 7px; border-radius:5px " >
-                                                    <span class="glyphicon glyphicon-search"></span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <hr>
                                         <div class="table-responsive">
-                                            <table class="table table-hover">
+                                            <table class="table table-hover" id="tableMajor">
                                                 <thead>
                                                     <tr>
                                                         <th>No</th>
                                                         <th>Id Jurusan</th>
                                                         <th>Nama Jurusan</th>
                                                         <th>Nama Fakultas</th>
-                                                        <th colspan="3">Aksi</th>
+                                                        <th>Aksi</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody id="tableBodyMajor">
-                                                    
-                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -362,39 +323,17 @@
                                         </form>
                                     </div>
                                 </div>
-                                <br>
-                                <br>
+                                <hr>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-offset-8 col-md-3">
-                                                <input type="search"
-                                                       name="nameSearchLecture"
-                                                           placeholder="Search..."
-                                                           class="form-control"
-                                                           required="">
-                                            </div>
-                                            <div class="col-md-1" align="left">
-                                                <button id="searchLecture" 
-                                                    style="padding-top: 7px; border-radius:5px " >
-                                                    <span class="glyphicon glyphicon-search"></span>
-                                                </button>
-                                            </div>
-                                        </div>     
-                                        <hr>
                                         <div class="table-responsive">
-                                            <table class="table table-hover">
+                                            <table class="table table-hover" id="tableLecture">
                                                 <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Id Mata Kuliah</th>
-                                                        <th>Nama Mata Kuliah</th>
-                                                        <th colspan="3">Aksi</th>
-                                                    </tr>
+                                                    <th>No</th>
+                                                    <th>Id Mata Kuliah</th>
+                                                    <th>Nama Mata Kuliah</th>
+                                                    <th colspan="2">Aksi</th>
                                                 </thead>
-                                                <tbody id="tableBodyLecture">
-                                                    
-                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -503,6 +442,157 @@
             reloadDataFaculty();
             reloadDataMajor();
             reloadDataLecture();
+
+            var tableLecture = $('#tableLecture').DataTable({
+                columns: [
+                    { data: null, sortable: false},
+                    { data: 'idLecture'},
+                    { data: 'nameLecture'},
+                    { data: null, sortable: false,
+                      render : function(data, type, full) {
+                        return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
+                                <button id="delete"><span class="fa fa-trash"></span></button>';}
+                    }
+                ]
+            });
+            
+            var tableMajor = $('#tableMajor').DataTable({
+                columns: [
+                    { data: null, sortable: false},
+                    { data: 'idMajor'},
+                    { data: 'nameMajor'},
+                    { data: 'nameFaculty'},
+                    { data: null, sortable: false,
+                      render : function(data, type, full) {
+                        return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
+                                <button id="delete"><span class="fa fa-trash"></span></button>';}
+                    }
+                ]
+            });
+            
+            var tableFaculty = $('#tableFaculty').DataTable({
+                columns: [
+                    { data: null, sortable: false},
+                    { data: 'idFaculty'},
+                    { data: 'nameFaculty'},
+                    { data: null, sortable: false,
+                      render : function(data, type, full) {
+                        return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
+                                <button id="delete"><span class="fa fa-trash"></span></button>';}
+                    }
+                ]
+            });
+            
+            tableFaculty.on( 'order.dt search.dt', function () {
+                tableFaculty.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+                } );
+            }).draw();
+            
+            tableMajor.on( 'order.dt search.dt', function () {
+                tableMajor.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+                } );
+            }).draw();
+            
+            tableLecture.on( 'order.dt search.dt', function () {
+                tableLecture.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+                } );
+            }).draw();
+            
+            $('#tableFaculty tbody').on('click', 'button#update', function () {
+                var data = tableFaculty.row(this.closest('tr')).data();
+                $('input[name=idFaculty]').val(data.idFaculty);
+                $('input[name=nameFaculty]').val(data.nameFaculty);
+            });
+            
+            $('#tableMajor tbody').on('click', 'button#update', function () {
+                var data = tableMajor.row(this.closest('tr')).data();
+                $('input[name=idMajor]').val(data.idMajor);
+                $('input[name=nameMajor]').val(data.nameMajor);
+                $('input[name=idFaculty]').val(data.idFaculty);
+                $.ajax({
+                    url: "getDataFacultyByMajor.htm",
+                    data: "idMajor=" + data.idMajor,
+                    type: "GET",
+                    success: function(response){
+                        var res = JSON.parse(response);
+                        var idFaculty = res.idFaculty;
+                        $('select[name=idFaculty]').val(idFaculty);
+
+                    }
+                });
+            });
+            
+            $('#tableLecture tbody').on('click', 'button#update', function () {
+                var data = tableLecture.row(this.closest('tr')).data();
+                $('input[name=idLecture]').val(data.idLecture);
+                $('input[name=nameLecture]').val(data.nameLecture);
+            });
+                        
+            $('#tableFaculty tbody').on('click', 'button#delete', function () {
+                var data = tableFaculty.row(this.closest('tr')).data();
+                $.ajax({
+                    url: "deleteFaculty.htm",
+                    data: "idFaculty=" + data.idFaculty,
+                    daraType: "form-data",
+                    type: 'GET',
+                    success : function(response){
+                        $(function(){
+                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                        });
+                        $('#formFaculty').trigger('reset');
+                        tableFaculty.clear().draw();
+                        reloadDataFaculty();
+                    }
+                });
+            });
+            
+            $('#tableMajor tbody').on('click', 'button#delete', function () {
+                var data = tableMajor.row(this.closest('tr')).data();
+                $.ajax({
+                    url: "deleteMajor.htm",
+                    data: "idMajor=" + data.idMajor,
+                    daraType: "form-data",
+                    type: 'GET',
+                    success : function(response){
+                        $(function(){
+                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                        });
+                        tableMajor.clear().draw();
+                        reloadDataMajor();
+                    }
+                });
+            });
+            
+            $('#tableLecture tbody').on('click', 'button#delete', function () {
+                var data = tableLecture.row(this.closest('tr')).data();
+                $.ajax({
+                    url: "deleteLecture.htm",
+                    data: "idLecture=" + data.idLecture,
+                    daraType: "form-data",
+                    type: 'GET',
+                    success : function(response){
+                        $(function(){
+                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                        });
+                        tableLecture.clear().draw();
+                        reloadDataLecture();
+                    }
+                });
+            });
+            
+            function reloadDataFaculty(){
+                $.ajax({
+                    url : 'getFaculty.htm',
+                    type: 'GET',
+                    success : function(response) {
+                        var data = JSON.parse(response);
+                        tableFaculty.rows.add(data).draw();
+                    }
+                });
+            }
             
             function reloadDataMajor(){
                 $.ajax({
@@ -510,57 +600,7 @@
                     type: 'GET',
                     success : function(response) {
                         var data = JSON.parse(response);
-                        console.log(data);
-                        var len = data.length;
-                        var content = '';
-                        for (var i = 0; i < len; i++){
-                            content +=' <tr>\n\
-                                            <td>' + (i + 1) + '</td>\n\
-                                            <td class="idMajor">' + data[i].idMajor + '</td>\n\
-                                            <td class="nameMajor">' + data[i].nameMajor + '</td>\n\\n\
-                                            <td>' + data[i].nameFaculty + '</td>\n\
-                                            <td>\n\
-                                                <a href="#"><span class="updateMajor fa fa-pencil"></span></a>\n\
-                                            </td>\n\
-                                            <td>\n\
-                                                <a href="#"><span class="deleteMajor fa fa-trash"></span></a>\n\
-                                            </td>\n\
-                                        </tr>';
-                            $('#tableBodyMajor').html(content);
-                        }
-
-                        $('.updateMajor').click(function(){
-                            var idMajor = $(this).closest('tr').find('.idMajor').html();
-                            var nameMajor = $(this).closest('tr').find('.nameMajor').html();
-                            $('input[name=idMajor]').val(idMajor);
-                            $('input[name=nameMajor]').val(nameMajor);
-                            $.ajax({
-                                url: "getDataFacultyByMajor.htm",
-                                data: "idMajor=" + idMajor,
-                                type: "GET",
-                                success: function(response){
-                                    var data = JSON.parse(response);
-                                    var idFaculty = data.idFaculty;
-                                    $('select[name=idFaculty]').val(idFaculty);
-
-                                }
-                            });
-                        });
-
-                        $('.deleteMajor').click(function(){
-                            var idMajor = $(this).closest('tr').find('.idMajor').html();
-                            $.ajax({
-                                url: "deleteMajor.htm",
-                                data: "idMajor=" + idMajor,
-                                type: 'GET',
-                                success : function(response){
-                                    $(function(){
-                                        $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                    });
-                                    reloadDataMajor();
-                                }
-                            });
-                        });
+                        tableMajor.rows.add(data).draw();
                     }
                 });
             }
@@ -571,96 +611,7 @@
                     type: 'GET',
                     success : function(response) {
                         var data = JSON.parse(response);
-                        console.log(data);
-                        var len = data.length;
-                        var content = '';
-                        for (var i = 0; i < len; i++){
-                            content +=' <tr>\n\
-                                            <td>' + (i + 1) + '</td>\n\
-                                            <td class="idLecture">' + data[i].idLecture + '</td>\n\
-                                            <td class="nameLecture">' + data[i].nameLecture + '</td>\n\
-                                            <td>\n\
-                                                <a href="#"><span class="updateLecture fa fa-pencil"></span></a>\n\
-                                            </td>\n\
-                                            <td>\n\
-                                                <a href="#"><span class="deleteLecture fa fa-trash"></span></a>\n\
-                                            </td>\n\
-                                        </tr>';
-                            $('#tableBodyLecture').html(content);
-                        }
-
-                        $('.updateLecture').click(function(){
-                            var idLecture = $(this).closest('tr').find('.idLecture').html();
-                            var nameLecture = $(this).closest('tr').find('.nameLecture').html();
-                            $('input[name=idLecture]').val(idLecture);
-                            $('input[name=nameLecture]').val(nameLecture);
-                        });
-
-                        $('.deleteLecture').click(function(){
-                            var idLecture = $(this).closest('tr').find('.idLecture').html();
-                            $.ajax({
-                                url: "deleteLecture.htm",
-                                data: "idLecture=" + idLecture,
-                                daraType: "form-data",
-                                type: 'GET',
-                                success : function(response){
-                                    $(function(){
-                                        $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                    });
-                                    reloadDataLecture();
-                                }
-                            });
-                        });
-                    }
-                });
-            }
-            
-            function reloadDataFaculty(){
-                $.ajax({
-                    url : 'getFaculty.htm',
-                    type: 'GET',
-                    success : function(response) {
-                        var data = JSON.parse(response);
-                        console.log(data);
-                        var len = data.length;
-                        var content = '';
-                        for (var i = 0; i < len; i++){
-                            content +=' <tr>\n\
-                                            <td>' + (i + 1) + '</td>\n\
-                                            <td class="idFaculty">' + data[i].idFaculty + '</td>\n\
-                                            <td class="nameFaculty">' + data[i].nameFaculty + '</td>\n\
-                                            <td>\n\
-                                                <a href="#"><span class="updateFaculty fa fa-pencil"></span></a>\n\
-                                            </td>\n\
-                                            <td>\n\
-                                                <a href="#"><span class="deleteFaculty fa fa-trash"></span></a>\n\
-                                            </td>\n\
-                                        </tr>';
-                            $('#tableBodyFaculty').html(content);
-                        }
-
-                        $('.updateFaculty').click(function(){
-                            var idFaculty = $(this).closest('tr').find('.idFaculty').html();
-                            var nameFaculty = $(this).closest('tr').find('.nameFaculty').html();
-                            $('input[name=idFaculty]').val(idFaculty);
-                            $('input[name=nameFaculty]').val(nameFaculty);
-                        });
-
-                        $('.deleteFaculty').click(function(){
-                            var idFaculty = $(this).closest('tr').find('.idFaculty').html();
-                            $.ajax({
-                                url: "deleteFaculty.htm",
-                                data: "idFaculty=" + idFaculty,
-                                daraType: "form-data",
-                                type: 'GET',
-                                success : function(response){
-                                    $(function(){
-                                        $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                    });
-                                    reloadDataFaculty();
-                                }
-                            });
-                        });
+                        tableLecture.rows.add(data).draw();
                     }
                 });
             }
@@ -675,6 +626,8 @@
                         $(function(){
                             $.growl.notice({title: "Berhasil !", message: "Data berhasil ditambahkan !" });
                         });
+                        $('#formFaculty').trigger('reset');
+                        tableFaculty.clear().draw();
                         reloadDataFaculty();
                     }
                 });
@@ -690,6 +643,8 @@
                         $(function(){
                             $.growl.notice({title: "Berhasil !", message: "Data berhasil ditambahkan !" });
                         });
+                        $('#formMajor').trigger('reset');
+                        tableMajor.clear().draw();
                         reloadDataMajor();
                     }
                 });
@@ -705,188 +660,9 @@
                         $(function(){
                             $.growl.notice({title: "Berhasil !", message: "Data berhasil ditambahkan !" });
                         });
+                        $('#formLecture').trigger('reset');
+                        tableLecture.clear().draw();
                         reloadDataLecture();
-                    }
-                });
-            });
-            
-            $('#searchFaculty').click(function(){
-                var nameFaculty = $('input[name=nameSearchFaculty]').val().toString();
-                $.ajax({
-                    url : 'searchFaculty.htm',
-                    type: 'GET',
-                    data: "nameFaculty=" + nameFaculty,
-                    success : function(response) {
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        if (len === 0){
-                            $(function(){
-                                $.growl.warning({title: "Maaf !", message: "Data tidak ada" });
-                            });
-                        } else {
-                            var content = '';
-                            for (var i = 0; i < len; i++){
-                                content +=' <tr>\n\
-                                                <td>' + (i + 1) + '</td>\n\
-                                                <td class="idFaculty">' + data[i].idFaculty + '</td>\n\
-                                                <td class="nameFaculty">' + data[i].nameFaculty + '</td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="updateFaculty fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteFaculty fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                $('#tableBodyFaculty').html(content);
-                            }
-                        }
-                        
-
-                        $('.updateFaculty').click(function(){
-                            var idFaculty = $(this).closest('tr').find('.idFaculty').html();
-                            var nameFaculty = $(this).closest('tr').find('.nameFaculty').html();
-                            $('input[name=idFaculty]').val(idFaculty);
-                            $('input[name=nameFaculty]').val(nameFaculty);
-                        });
-
-                        $('.deleteFaculty').click(function(){
-                            var idFaculty = $(this).closest('tr').find('.idFaculty').html();
-                            $.ajax({
-                                url: "deleteFaculty.htm",
-                                data: "idFaculty=" + idFaculty,
-                                type: 'GET',
-                                success : function(response){
-                                    $(function(){
-                                        $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                    });
-                                    reloadDataFaculty();
-                                }
-                            });
-                        });
-                    }
-                });
-            });
-            
-            $('#searchLecture').click(function(){
-                var nameLecture = $('input[name=nameSearchLecture]').val().toString();
-                $.ajax({
-                    url : 'searchLecture.htm',
-                    type: 'GET',
-                    data: "nameLecture=" + nameLecture,
-                    success : function(response) {
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        if (len === 0){
-                            $(function(){
-                                $.growl.warning({title: "Maaf !", message: "Data tidak ada" });
-                            });
-                        } else {
-                            var content = '';
-                            for (var i = 0; i < len; i++){
-                                content +=' <tr>\n\
-                                                <td>' + (i + 1) + '</td>\n\
-                                                <td class="idLecture">' + data[i].idLecture + '</td>\n\
-                                                <td class="nameLecture">' + data[i].nameLecture + '</td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="updateLecture fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteLecture fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                $('#tableBodyLecture').html(content);
-                            }
-                        }
-                        
-
-                        $('.updateLecture').click(function(){
-                            var idLecture = $(this).closest('tr').find('.idLecture').html();
-                            var nameLecture = $(this).closest('tr').find('.nameLecture').html();
-                            $('input[name=idLecture]').val(idLecture);
-                            $('input[name=nameLecture]').val(nameLecture);
-                        });
-
-                        $('.deleteLecture').click(function(){
-                            var idLecture = $(this).closest('tr').find('.idLecture').html();
-                            $.ajax({
-                                url: "deleteLecture.htm",
-                                data: "idLecture=" + idLecture,
-                                type: 'GET',
-                                success : function(response){
-                                    $(function(){
-                                        $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                    });
-                                    reloadDataLecture();
-                                }
-                            });
-                        });
-                    }
-                });
-            });
-            
-            $('#searchMajor').click(function(){
-                var nameMajor = $('input[name=nameSearchMajor]').val().toString();
-                $.ajax({
-                    url : 'searchMajor.htm',
-                    type: 'GET',
-                    data: "nameMajor=" + nameMajor,
-                    success : function(response) {
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        if (len === 0){
-                            $(function(){
-                                $.growl.warning({title: "Maaf !", message: "Data tidak ada" });
-                            });
-                        } else {
-                            var content = '';
-                            for (var i = 0; i < len; i++){
-                                content +=' <tr>\n\
-                                                <td>' + (i + 1) + '</td>\n\
-                                                <td class="idMajor">' + data[i].idMajor + '</td>\n\
-                                                <td class="nameMajor">' + data[i].nameMajor + '</td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="updateMajor fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteMajor fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                $('#tableBodyMajor').html(content);
-                            }
-                        }
-
-                        $('.updateMajor').click(function(){
-                            var idMajor = $(this).closest('tr').find('.idMajor').html();
-                            var nameMajor = $(this).closest('tr').find('.nameMajor').html();
-                            $('input[name=idMajor]').val(idMajor);
-                            $('input[name=nameMajor]').val(nameMajor);
-                            $.ajax({
-                                url: "getDataFacultyByMajor.htm",
-                                data: "idMajor=" + idMajor,
-                                type: "GET",
-                                success: function(response){
-                                    var data = JSON.parse(response);
-                                    var idFaculty = data.idFaculty;
-                                    $('select[name=idFaculty]').val(idFaculty);
-
-                                }
-                            });
-                        });
-
-                        $('.deleteMajor').click(function(){
-                            var idMajor = $(this).closest('tr').find('.idMajor').html();
-                            $.ajax({
-                                url: "deleteMajor.htm",
-                                data: "idMajor=" + idMajor,
-                                type: 'GET',
-                                success : function(response){
-                                    $(function(){
-                                        $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                                    });
-                                    reloadDataMajor();
-                                }
-                            });
-                        });
                     }
                 });
             });

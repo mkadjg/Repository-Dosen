@@ -23,6 +23,11 @@
         <script src="resource/javascripts/jquery.growl.js" type="text/javascript"></script>
         <link href="resource/stylesheets/jquery.growl.css" rel="stylesheet" type="text/css" />
         
+        <!--datatable file library-->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <!--<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>-->
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        
     </head>
     <body>	
     <div class="page-container">	
@@ -121,19 +126,6 @@
                             </option>
                         </select>
                     </div>
-                    <div class="col-md-3">
-                        <input type="search"
-                               name="nameSearch"
-                                   placeholder="Search..."
-                                   class="form-control"
-                                   required="">
-                    </div>
-                    <div class="col-md-offset-0 col-md-1" align="left">
-                        <button id="search" 
-                            style="padding-top: 7px; border-radius:5px " >
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </div>
                     <div class="col-md-2
                          btn-effcts" align="rigth">
                         <a href="addLecturer.htm" 
@@ -150,21 +142,14 @@
                 <div class="row">
                     <div class="col-md-12" style="padding-left: 60px; padding-right: 50px">
                         <div class="table-responsive">
-                            <table class="table table-hover">
+                            <table class="table table-hover" id="tableLecturer">
                                 <thead>
-                                    <tr>
-                                        <th>NIDN</th>
-                                        <th>Nama</th>
-                                        <th>Jurusan</th>                                                                 
-                                        <th>Fakultas</th>
-                                        <th colspan="2">Aksi</th>
-                                    </tr>
+                                    <th>No</th>
+                                    <th>Nama</th>
+                                    <th>Jurusan</th>                                                                 
+                                    <th>Fakultas</th>
+                                    <th>Aksi</th>
                                 </thead>
-                                
-                                <tbody id="tableBody">
-                                    
-                                </tbody>
-                                
                             </table>
                         </div>
                     </div>
@@ -264,219 +249,99 @@
             toggle = !toggle;
         });
         
-            $(document).ready(function() {
+        $(document).ready(function() {
+            reloadDataLecturer();
+            
+            var tableLecturer = $('#tableLecturer').DataTable({
+                pageLength: 10,
+                lengthChange: false,
+                columns: [
+                    { data: null, sortable: false},
+                    { data: 'nameLecturer'},
+                    { data: 'nameFaculty'},
+                    { data: 'nameMajor'},
+                    { data: null, sortable: false,
+                      render : function(data, type, full) {
+                        return '<button id="portofolio"><span class="fa fa-book"></span></button> \n\
+                                <button id="delete"><span class="fa fa-trash"></span></button>';}
+                    }
+                ]
+            });
+            
+            $('#tableLecturer tbody').on('click', 'button#portofolio', function () {
+                var data = tableLecturer.row(this.closest('tr')).data();
+                window.location.assign('portofolio.htm?idLecturer=' + data.idLecturer);
+            });
+            
+            function reloadDataLecturer(){
                 $.ajax({
-                    url : 'getLecturer.htm',
+                    url : "getLecturer.htm",
+                    type: 'GET',
+                    success: function(response){
+                        var data = JSON.parse(response);
+                        tableLecturer.rows.add(data).draw();
+                    }
+                });
+            }
+            
+            tableLecturer.on( 'order.dt search.dt', function () {
+                tableLecturer.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+                } );
+            }).draw();
+            
+            $("#faculty").change(function(){
+                var idFaculty = $('select[name=idFaculty]').val().toString();
+                if (idFaculty === "0"){
+                    tableLecturer.clear().draw();
+                    reloadDataLecturer();
+                    var content = '<option value="0" name="idMajor">--Semua Jurusan--</option>';
+                    $('#major').html(content);
+                    $("#major").val('0');
+                } else {
+                    $.ajax({
+                        url : 'getDataMajorByFaculty.htm',
+                        data: "idFaculty=" + idFaculty,
+                        type: 'GET',
+                        success : function(response) {
+                            var data = JSON.parse(response);
+                            var len = data.length;
+                            var content = '<option value="0" name="idMajor">--Semua Jurusan--</option>';
+                            for (var i = 0; i < len; i++){
+                                content +='<option value="' + data[i].idMajor + '" name="idMajor">' + data[i].nameMajor + '</option>';
+                                $('#major').html(content);
+                            }
+                        }
+                    });
+                    $.ajax({
+                        url : 'getDataLecturerByMajor.htm',
+                        data: {idMajor: "0", idFaculty: idFaculty},
+                        type: 'GET',
+                        success : function(response) {
+                            var data = JSON.parse(response);
+                            tableLecturer.clear().draw();
+                            tableLecturer.rows.add(data).draw();
+                        }
+                    });
+                }
+            });
+            
+            $("#major").change(function(){
+                var idMajor = $('select[name=idMajor]').val().toString();
+                var idFaculty = $('select[name=idFaculty]').val().toString();
+
+                $.ajax({
+                    url : 'getDataLecturerByMajor.htm',
+                    data: {idMajor: idMajor, idFaculty: idFaculty},
                     type: 'GET',
                     success : function(response) {
                         var data = JSON.parse(response);
-                        console.log(data);
-                        var len = data.length;
-                        var content = '';
-                        for (var i = 0; i < len; i++){
-                            content +=' <tr>\n\
-                                            <td>' + (i + 1) + '</td>\n\
-                                            <td>' + data[i].nameLecturer + '</td>\n\
-                                            <td>' + data[i].nameMajor + '</td>\n\
-                                            <td>' + data[i].nameFaculty + '</td>\n\
-                                            <td>\n\
-                                                <a href="portofolio.htm?idLecturer=' + data[i].idLecturer + '">\n\
-                                                    <span class="fa fa-book nav_icon"></span>\n\
-                                                </a>\n\
-                                            </td>\n\
-                                            <td>\n\
-                                                <a href="deleteLecturer.htm?idLecturer="' + data[i].idLecturer + '">\n\
-                                                    <span class="fa fa-trash"></span>\n\
-                                                </a>\n\
-                                            </td>\n\
-                                        </tr>';
-                            $('#tableBody').html(content);
-                        }
-                        $("#major").val('0');
+                        tableLecturer.clear().draw();
+                        tableLecturer.rows.add(data).draw();
                     }
-                });
-                
-                $("#faculty").change(function(){
-                    var idFaculty = $('select[name=idFaculty]').val().toString();
-                    
-                    if (idFaculty === "0"){
-                        $.ajax({
-                            url : 'getLecturer.htm',
-                            type: 'GET',
-                            success : function(response) {
-                                var data = JSON.parse(response);
-                                console.log(data);
-                                var len = data.length;
-                                var content = '';
-                                var content2 = '';
-                                for (var i = 0; i < len; i++){
-                                    content +=' <tr>\n\
-                                                    <td>' + (i + 1) + '</td>\n\
-                                                    <td>' + data[i].nameLecturer + '</td>\n\
-                                                    <td>' + data[i].nameMajor + '</td>\n\
-                                                    <td>' + data[i].nameFaculty + '</td>\n\
-                                                    <td>\n\
-                                                        <a href="portofolio.htm?idLecturer="' + data[i].idLecturer + '">\n\
-                                                            <span class="fa fa-book nav_icon"></span>\n\
-                                                        </a>\n\
-                                                    </td>\n\
-                                                    <td>\n\
-                                                        <a href="deleteLecturer.htm?idLecturer="' + data[i].idLecturer + '">\n\
-                                                            <span class="fa fa-trash"></span>\n\
-                                                        </a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    $('#tableBody').html(content);
-                                }
-                                content2 +='<option value="0" name="idMajor">--Semua Jurusan--</option>';
-                                $('#major').html(content2);
-                            }
-                        });
-                        
-                        $("#major").val('0');
-                        
-                    } else {
-                        
-                        $.ajax({
-                            url : 'getDataMajorByFaculty.htm',
-                            data: "idFaculty=" + idFaculty,
-                            type: 'GET',
-                            success : function(response) {
-                                var data = JSON.parse(response);
-                                var len = data.length;
-                                var content = '<option value="0" name="idMajor">--Semua Jurusan--</option>';
-                                for (var i = 0; i < len; i++){
-                                    content +='<option value="' + data[i].idMajor + '" name="idMajor">' + data[i].nameMajor + '</option>';
-                                    $('#major').html(content);
-                                }
-                            }
-                        });
-                        
-                        $.ajax({
-                            url : 'getDataLecturerByMajor.htm',
-                            data: {idMajor: "0", idFaculty: idFaculty},
-                            type: 'GET',
-                            success : function(response) {
-                                var data = JSON.parse(response);
-                                console.log(data);
-                                var len = data.length;
-                                if (len === 0){
-                                    var content = '';
-                                    $('#tableBody').html(content);
-                                } else {
-                                    var content = '';
-                                    for (var i = 0; i < len; i++){
-                                        content +=' <tr>\n\
-                                                        <td>' + (i + 1) + '</td>\n\
-                                                        <td>' + data[i].nameLecturer + '</td>\n\
-                                                        <td>' + data[i].nameMajor + '</td>\n\
-                                                        <td>' + data[i].nameFaculty + '</td>\n\
-                                                        <td>\n\
-                                                            <a href="portofolio.htm?idLecturer="' + data[i].idLecturer + '">\n\
-                                                                <span class="fa fa-book nav_icon"></span>\n\
-                                                            </a>\n\
-                                                        </td>\n\
-                                                        <td>\n\
-                                                            <a href="deleteLecturer.htm?idLecturer="' + data[i].idLecturer + '">\n\
-                                                                <span class="fa fa-trash"></span>\n\
-                                                            </a>\n\
-                                                        </td>\n\
-                                                    </tr>';
-                                        $('#tableBody').html(content);
-                                    }
-                                }
-                            }
-                        });
-                    }
-                });
-            
-                $("#major").change(function(){
-                    var idMajor = $('select[name=idMajor]').val().toString();
-                    var idFaculty = $('select[name=idFaculty]').val().toString();
-                    
-                    $.ajax({
-                        url : 'getDataLecturerByMajor.htm',
-                        data: {idMajor: idMajor, idFaculty: idFaculty},
-                        type: 'GET',
-                        success : function(response) {
-                            var data = JSON.parse(response);
-                            console.log(data);
-                            var len = data.length;
-                            if (len === 0){
-                                var content = '';
-                                $('#tableBody').html(content);
-                            } else {
-                                var content = '';
-                                for (var i = 0; i < len; i++){
-                                    content +=' <tr>\n\
-                                                    <td>' + (i + 1) + '</td>\n\
-                                                    <td>' + data[i].nameLecturer + '</td>\n\
-                                                    <td>' + data[i].nameMajor + '</td>\n\
-                                                    <td>' + data[i].nameFaculty + '</td>\n\
-                                                    <td>\n\
-                                                        <a href="portofolio.htm?idLecturer="' + data[i].idLecturer + '">\n\
-                                                            <span class="fa fa-book nav_icon"></span>\n\
-                                                        </a>\n\
-                                                    </td>\n\
-                                                    <td>\n\
-                                                        <a href="deleteLecturer.htm?idLecturer="' + data[i].idLecturer + '">\n\
-                                                            <span class="fa fa-trash"></span>\n\
-                                                        </a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    $('#tableBody').html(content);
-                                }
-                            }
-                        }
-                    });
-                });
-                
-                $('#search').click(function(){
-                    var nameLecturer = $('input[name=nameSearch]').val().toString();
-                    var idFaculty = $('select[name=idFaculty]').val().toString();
-                    var idMajor = $('select[name=idMajor]').val().toString();
-                    $.ajax({
-                        url : 'getLecturerByNameLecturer.htm',
-                        type: 'GET',
-                        data: { nameLecturer: nameLecturer, idMajor: idMajor, idFaculty: idFaculty },
-                        success : function(response) {
-                            var data = JSON.parse(response);
-                            console.log(data);
-                            var len = data.length;
-                            if (len === 0){
-                                $(function(){
-                                    $.growl.warning({title: "Maaf !", message: "Data tidak ada" });
-                                });
-                            }
-                            var content = '';
-                            for (var i = 0; i < len; i++){
-                                content +=' <tr>\n\
-                                                <td>' + (i + 1) + '</td>\n\
-                                                <td>' + data[i].nameLecturer + '</td>\n\
-                                                <td>' + data[i].nameMajor + '</td>\n\
-                                                <td>' + data[i].nameFaculty + '</td>\n\
-                                                <td>\n\
-                                                    <a href="portofolio.htm?idLecturer="' + data[i].idLecturer + '">\n\
-                                                        <span class="fa fa-book nav_icon"></span>\n\
-                                                    </a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="deleteLecturer.htm?idLecturer="' + data[i].idLecturer + '">\n\
-                                                        <span class="fa fa-trash"></span>\n\
-                                                    </a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                $('#tableBody').html(content);
-                            }
-                        },
-                        error : function(response){                            
-                            $(function(){
-                                $.growl.warning({title: "Maaf !", message: "Data tidak ada" });
-                            });
-                        }
-                    });
                 });
             });
+        });
     </script>
     <script src="resource/js/jquery.nicescroll.js"></script>
     <script src="resource/js/scripts.js"></script>

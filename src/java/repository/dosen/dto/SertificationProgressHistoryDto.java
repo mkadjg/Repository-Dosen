@@ -11,13 +11,33 @@ package repository.dosen.dto;
  */
 public class SertificationProgressHistoryDto {
     int idProgressHistory;
-    String idLecturer;
+    int idLecturer;
+    String nameFaculty;
+    String nameMajor;
+    String nameLecturer;
+    int state;
 
-    public String getIdLecturer() {
+    public String getNameFaculty() {
+        return nameFaculty;
+    }
+
+    public void setNameFaculty(String nameFaculty) {
+        this.nameFaculty = nameFaculty;
+    }
+
+    public String getNameMajor() {
+        return nameMajor;
+    }
+
+    public void setNameMajor(String nameMajor) {
+        this.nameMajor = nameMajor;
+    }
+
+    public int getIdLecturer() {
         return idLecturer;
     }
 
-    public void setIdLecturer(String idLecturer) {
+    public void setIdLecturer(int idLecturer) {
         this.idLecturer = idLecturer;
     }
 
@@ -28,8 +48,6 @@ public class SertificationProgressHistoryDto {
     public void setNameLecturer(String nameLecturer) {
         this.nameLecturer = nameLecturer;
     }
-    String nameLecturer;
-    int state;
 
     public int getIdProgressHistory() {
         return idProgressHistory;

@@ -43,5 +43,17 @@ public class LecturerProgressHistoryDaoImpl extends HibernateUtil implements Lec
         Query query = createQuery(sql).setParameter("idm", idMajor);
         return query.list();
     }
+
+    @Override
+    public void saveLecturerProgressHistory(LecturerProgressHistory lecturerProgressHistory) {
+        getSession().saveOrUpdate(lecturerProgressHistory);
+    }
+
+    @Override
+    public LecturerProgressHistory getDataLecturerProgressHistory(int idLecturer) {
+        String sql = "select model from LecturerProgressHistory model where idLecturer=:ids";
+        Query query = createQuery(sql).setParameter("ids", idLecturer);
+        return (LecturerProgressHistory) query.uniqueResult();
+    }
     
 }

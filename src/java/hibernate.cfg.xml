@@ -18,6 +18,8 @@
     <mapping resource="repository/dosen/models/DetailProgress.hbm.xml"/>
     <mapping resource="repository/dosen/models/MasterFunctional.hbm.xml"/>
     <mapping resource="repository/dosen/models/MasterStudy.hbm.xml"/>
+    <mapping resource="repository/dosen/models/MasterNews.hbm.xml"/>
+    
     <mapping resource="repository/dosen/models/TranFile.hbm.xml"/>
     <mapping resource="repository/dosen/models/TranFunctionalHistory.hbm.xml"/>
     <mapping resource="repository/dosen/models/TranLectureHistory.hbm.xml"/>

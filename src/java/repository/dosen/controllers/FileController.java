@@ -239,9 +239,49 @@ public class FileController {
         }
     }
     
-    @RequestMapping(value = "/saveFileRecruitment", method = RequestMethod.POST)
+    @RequestMapping( value = "/uploadFileNidn", method = RequestMethod.POST)
     @ResponseBody
-    public String saveFileRecruitment(String idLecturer, String pathFile, String idDetail){
+    public String uploadFileNidn(@RequestParam("file") MultipartFile file){
+        try {
+            byte[] bytes = file.getBytes();
+            String rootPath = "C:\\Users\\Jaret\\Documents\\NetBeansProjects\\Repository-Dosen\\web\\assets\\PengajuanNidn";
+            double fileSize = file.getSize() / 1024;
+            String fileType = file.getContentType();
+            if (fileSize > 500) {
+                Map map = new HashMap<>();
+                map.put("message", "Ukuran file upload terlalu besar");
+                map.put("status", 0);
+                return new Gson().toJson(map);
+            } else if (!fileType.equals("application/pdf")) {
+                Map map = new HashMap<>();
+                map.put("message", "Ekstensi file upload salah");
+                map.put("status", 1);
+                return new Gson().toJson(map);
+            } else {
+                File dir = new File(rootPath);
+                if (!dir.exists()) 
+                        dir.mkdirs();
+
+                File serverFile = new File(dir.getAbsolutePath()
+                                + File.separator + file.getOriginalFilename());
+                BufferedOutputStream stream = new BufferedOutputStream(
+                                new FileOutputStream(serverFile));
+                stream.write(bytes);
+                stream.close();
+                String pathFile = "assets/PengajuanNidn/" + file.getOriginalFilename();        
+                Map map = new HashMap<>();
+                map.put("pathFile", pathFile);
+                map.put("status", 2);
+                return new Gson().toJson(map);
+            }
+        } catch (Exception e) {
+            return "gagal upload " + file.getName() + " => " + e.getMessage();
+        }
+    }
+    
+    @RequestMapping(value = "/saveFile", method = RequestMethod.POST)
+    @ResponseBody
+    public String saveFile(String idLecturer, String pathFile, String idDetail){
         FileDto fileDto = new FileDto();
         fileDto.setIdTranFile(0);
         fileDto.setIdLecturer(Integer.parseInt(idLecturer));
@@ -287,10 +327,20 @@ public class FileController {
         return "insert_file_recruitment";
     }
     
-    @RequestMapping( value = "/getFileRecruitment", method = RequestMethod.GET)
+    @RequestMapping( value = "/addFileNidn", method = RequestMethod.GET)
+    public String addFileNidn(ModelMap model, String idLecturer){
+        Lecturer lecturer = new Lecturer();
+        lecturer.setIdLecturer(Integer.parseInt(idLecturer));
+        List<DetailFileDto> listDetail = detailFileService.getDetailFileNidn();
+        model.addAttribute("fileNidn", listDetail);
+        model.addAttribute("dataLecturer", lecturer);
+        return "insert_file_nidn";
+    }
+    
+    @RequestMapping( value = "/getFileNidn", method = RequestMethod.GET)
     @ResponseBody
-    public String getFileRecruitment(int idLecturer){
-        List<FileDto> listFile = fileService.getFileRecruitment(idLecturer);
+    public String getFileNidn(int idLecturer){
+        List<FileDto> listFile = fileService.getFileNidn(idLecturer);
         return new Gson().toJson(listFile);
     }
 }

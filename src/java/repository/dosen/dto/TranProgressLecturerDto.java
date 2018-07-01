@@ -13,7 +13,7 @@ public class TranProgressLecturerDto {
     int idTranProgress;
     int state;
     int idDetail;
-    int idProgresshistory;
+    int idProgressHistory;
 
     public int getIdTranProgress() {
         return idTranProgress;
@@ -39,12 +39,12 @@ public class TranProgressLecturerDto {
         this.idDetail = idDetail;
     }
 
-    public int getIdProgresshistory() {
-        return idProgresshistory;
+    public int getIdProgressHistory() {
+        return idProgressHistory;
     }
 
-    public void setIdProgresshistory(int idProgresshistory) {
-        this.idProgresshistory = idProgresshistory;
+    public void setIdProgressHistory(int idProgressHistory) {
+        this.idProgressHistory = idProgressHistory;
     }
 
     public String getDescription() {
