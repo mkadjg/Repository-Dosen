@@ -137,6 +137,7 @@
                                     <th>Nama</th>
                                     <th>Jurusan</th>                                                                 
                                     <th>Fakultas</th>
+                                    <th>Status</th>
                                     <th>Aksi</th>
                                 </thead>
                             </table>
@@ -249,11 +250,33 @@
                     { data: 'nameLecturer'},
                     { data: 'nameFaculty'},
                     { data: 'nameMajor'},
-                    { data: null, sortable: false,
+                    { data: 'state', sortable: false,
                       render : function(data, type, full) {
-                        return '<button id="create"><span class="fa fa-pencil"></span></button>';}
+                          if (data === 1){
+                            return '<span class="glyphicon glyphicon-ok" style="color: green"></span>';
+                          } else {
+                            return '<span class="glyphicon glyphicon-remove" style="color: red"></span>';
+                          }
+                        }
+                    },
+                    { data: 'state', sortable: false,
+                      render : function(data, type, full) {
+                          if (data === 1){
+                            return '<button id="create"><span class="fa fa-pencil"></span></button>';
+                          } else {
+                            return '<button id="infoDetailFile"><span class="fa fa-info-circle"></span></button>';
+                          }
+                        }
                     }
                 ]
+            });
+            
+            $('#tableLecturer tbody').on('click', 'button#infoDetailFile', function () {
+                var data = tableLecturer.row(this.closest('tr')).data();
+                var dataConfirm = confirm('Dosen yang bersangkutan belum melengkapi persyaratan tambahan \nApakah anda ingin melengkapi persayaratan ?');
+                if (dataConfirm === true){
+                    window.location.assign("addFileLectors.htm?idLecturer=" + data.idLecturer);
+                }
             });
             
             function reloadDataLecturerNonAssistant(){
@@ -280,7 +303,7 @@
                 var idFaculty = $('select[name=idFaculty]').val().toString();
                 if (idFaculty === "0"){
                     tableLecturer.clear().draw();
-                    reloadDataLecturer();
+                    reloadDataLecturerNonAssistant()();
                     var content = '<option value="0" name="idMajor">--Semua Jurusan--</option>';
                     $('#major').html(content);
                     $("#major").val('0');

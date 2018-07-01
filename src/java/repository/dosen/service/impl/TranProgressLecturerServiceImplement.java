@@ -11,11 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import repository.dosen.dao.DetailProgressDao;
 import repository.dosen.dao.LecturerProgressHistoryDao;
 import repository.dosen.dao.TranProgressLecturerDao;
-import repository.dosen.dto.TranProgressFunctionalDto;
 import repository.dosen.dto.TranProgressLecturerDto;
 import repository.dosen.models.DetailProgress;
 import repository.dosen.models.LecturerProgressHistory;
-import repository.dosen.models.TranProgressFunctional;
 import repository.dosen.models.TranProgressLecturer;
 import repository.dosen.service.TranProgressLecturerService;
 
@@ -36,7 +34,7 @@ public class TranProgressLecturerServiceImplement implements TranProgressLecture
  
     @Override
     public List<TranProgressLecturerDto> getTranProgressNidn(int idLecturer) {
-        List<TranProgressLecturerDto> listProgressFunctional = new ArrayList<>();
+        List<TranProgressLecturerDto> listProgressNidn = new ArrayList<>();
         List<TranProgressLecturer> listModel = tranProgressLecturerDao.getTranProgressNidn(idLecturer);
         List<DetailProgress> listDetail = detailProgressDao.getDetailProgressNidn();
         LecturerProgressHistory lecturerProgressHistory = lecturerProgressHistoryDao.getDataLecturerProgressHistory(idLecturer);
@@ -56,10 +54,23 @@ public class TranProgressLecturerServiceImplement implements TranProgressLecture
             tranProgressLecturerDto.setIdProgressHistory(lecturerProgressHistory.getIdProgressHistory());
             tranProgressLecturerDto.setNumberRequirement(listDetail.get(i).getNumberRequirement());
             tranProgressLecturerDto.setDescription(listDetail.get(i).getDescription());
-            listProgressFunctional.add(tranProgressLecturerDto);
+            listProgressNidn.add(tranProgressLecturerDto);
         }
         
-        return listProgressFunctional;
+        return listProgressNidn;
+    }
+
+    @Override
+    public void saveTranProgressLecturer(TranProgressLecturerDto tranProgressLecturerDto) {
+        TranProgressLecturer tranProgressLecturer = new TranProgressLecturer();
+        tranProgressLecturer.setIdTranProgress(tranProgressLecturerDto.getIdTranProgress());
+        DetailProgress detailProgress = detailProgressDao.getDataDetailProgress(tranProgressLecturerDto.getIdDetail());
+        tranProgressLecturer.setDetail(detailProgress);
+        LecturerProgressHistory lecturerProgressHistory = lecturerProgressHistoryDao.getDataLecturerProgressHistoryById(tranProgressLecturerDto.getIdProgressHistory());
+        tranProgressLecturer.setProgressHistory(lecturerProgressHistory);
+        tranProgressLecturer.setState(1);
+        tranProgressLecturerDao.saveTranProgressLecturer(tranProgressLecturer);
+        
     }
     
 }

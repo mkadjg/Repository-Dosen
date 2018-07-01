@@ -91,5 +91,14 @@ public class LecturerProgressHistoryServiceImplement implements LecturerProgress
         lecturerProgressHistory.setState(0);
         lecturerProgressHistoryDao.saveLecturerProgressHistory(lecturerProgressHistory);
     }
+
+    @Override
+    public LecturerProgressHistoryDto getDataLecturerProgressHistory(int idProgressHistory) {
+        LecturerProgressHistory lecturerProgressHistory = lecturerProgressHistoryDao.getDataLecturerProgressHistoryById(idProgressHistory);
+        LecturerProgressHistoryDto lecturerProgressHistoryDto = new LecturerProgressHistoryDto();
+        lecturerProgressHistoryDto.setIdProgressHistory(lecturerProgressHistory.getIdProgressHistory());
+        lecturerProgressHistoryDto.setIdLecturer(lecturerProgressHistory.getLecturer().getIdLecturer());
+        return lecturerProgressHistoryDto;
+    }
     
 }

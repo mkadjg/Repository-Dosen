@@ -22,4 +22,5 @@ public interface DetailProgressDao {
     public void saveDetailProgress(DetailProgress detailProgress);
     public void deleteDetailProgress(DetailProgress detailProgress);
     public List<Object[]> searchDetailProgress(String description, int idEvent);
+    public DetailProgress getDataDetailProgress(int idDetail);
 }

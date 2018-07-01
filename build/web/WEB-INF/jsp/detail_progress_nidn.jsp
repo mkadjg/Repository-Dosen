@@ -154,7 +154,7 @@
                                 <c:if test="${dataProgress.state == 1}">
                                     <li class="active">
                                         ${dataProgress.numberRequirement}<br>
-                                        <span href="${saveDetailProgress}" class="glyphicon glyphicon-ok"></span>
+                                        <span class="glyphicon glyphicon-ok" style="color: green"></span>
                                         <br>
                                         ${dataProgress.description}
                                     </li>
@@ -162,14 +162,14 @@
                                 <c:if test="${dataProgress.state == 0}">
                                     <li>
                                         ${dataProgress.numberRequirement}<br>
-                                        <c:url var="saveDetailProgress" 
-                                               value="saveDetailProgressNidn.htm">
+                                        <c:url var="saveProgress" 
+                                               value="saveProgressNidn.htm">
                                             <c:param name="idDetail" 
                                                      value="${dataProgress.idDetail}"></c:param>
                                             <c:param name="idProgressHistory" 
                                                      value="${dataProgress.idProgressHistory}"></c:param>
                                         </c:url>
-                                        <a href="href=${saveDetailProgress}">
+                                        <a href="${saveProgress}">
                                             <span class="fa fa-pencil"></span>
                                         </a>
                                         <br>

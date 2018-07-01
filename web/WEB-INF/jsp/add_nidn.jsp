@@ -319,7 +319,7 @@
                 var idFaculty = $('select[name=idFaculty]').val().toString();
                 if (idFaculty === "0"){
                     tableLecturer.clear().draw();
-                    reloadDataLecturer();
+                    reloadNewLecturer();
                     var content = '<option value="0" name="idMajor">--Semua Jurusan--</option>';
                     $('#major').html(content);
                     $("#major").val('0');

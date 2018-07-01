@@ -644,9 +644,14 @@
                             },
                             { data: null, sortable: false,
                               render : function(data, type, full) {
-                                return '<button id="update"><span class="fa fa-book"></span></button>';}
+                                return '<button id="detail"><span class="fa fa-book"></span></button>';}
                             }
                         ]
+                    });
+                    
+                    $('#tableLecturerProgressHistory tbody').on('click', 'button#detail', function () {
+                        var data = tableLecturerProgressHistory.row(this.closest('tr')).data();
+                        window.location.assign('showProgressNidn.htm?idLecturer=' + data.idLecturer)
                     });
                     
                     var tableAssistantProgressHistory = $('#tableAssistantProgressHistory').DataTable({
@@ -671,6 +676,11 @@
                                 return '<button id="update"><span class="fa fa-book"></span></button>';}
                             }
                         ]
+                    });
+                    
+                    $('#tableAssistantProgressHistory tbody').on('click', 'button#detail', function () {
+                        var data = tableAssistantProgressHistory.row(this.closest('tr')).data();
+                        window.location.assign('showProgressAssistant.htm?idLecturer=' + data.idLecturer)
                     });
                     
                     var tableLectorsProgressHistory = $('#tableLectorsProgressHistory').DataTable({

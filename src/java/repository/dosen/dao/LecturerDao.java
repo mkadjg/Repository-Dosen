@@ -28,7 +28,7 @@ public interface LecturerDao {
     public List<Object[]> getNewLecturer(String idFaculty, String idMajor);
     public List<Object[]> getLecturerNidn(String idFaculty, String idMajor);
     public List<Object[]> getLecturerAssistant(String idFaculty, String idMajor);
-    public List<Object[]> getLecturerlectors(String idFaculty, String idMajor);
+    public List<Object[]> getLecturerLectors(String idFaculty, String idMajor);
     public List<Object[]> getLecturerHeadlectors(String idFaculty, String idMajor);
     public List<Object[]> getLecturerProfessor(String idFaculty, String idMajor);
     public List<Object[]> getLecturerSertification(String idFaculty, String idMajor);

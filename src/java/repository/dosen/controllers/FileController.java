@@ -279,6 +279,167 @@ public class FileController {
         }
     }
     
+    
+    @RequestMapping( value = "/uploadFileAssistant", method = RequestMethod.POST)
+    @ResponseBody
+    public String uploadFileAssistant(@RequestParam("file") MultipartFile file){
+        try {
+            byte[] bytes = file.getBytes();
+            String rootPath = "C:\\Users\\Jaret\\Documents\\NetBeansProjects\\Repository-Dosen\\web\\assets\\PengajuanAsistenAhli";
+            double fileSize = file.getSize() / 1024;
+            String fileType = file.getContentType();
+            if (fileSize > 500) {
+                Map map = new HashMap<>();
+                map.put("message", "Ukuran file upload terlalu besar");
+                map.put("status", 0);
+                return new Gson().toJson(map);
+            } else if (!fileType.equals("application/pdf")) {
+                Map map = new HashMap<>();
+                map.put("message", "Ekstensi file upload salah");
+                map.put("status", 1);
+                return new Gson().toJson(map);
+            } else {
+                File dir = new File(rootPath);
+                if (!dir.exists()) 
+                        dir.mkdirs();
+
+                File serverFile = new File(dir.getAbsolutePath()
+                                + File.separator + file.getOriginalFilename());
+                BufferedOutputStream stream = new BufferedOutputStream(
+                                new FileOutputStream(serverFile));
+                stream.write(bytes);
+                stream.close();
+                String pathFile = "assets/PengajuanAsistenAhli/" + file.getOriginalFilename();        
+                Map map = new HashMap<>();
+                map.put("pathFile", pathFile);
+                map.put("status", 2);
+                return new Gson().toJson(map);
+            }
+        } catch (Exception e) {
+            return "gagal upload " + file.getName() + " => " + e.getMessage();
+        }
+    }
+    
+    @RequestMapping( value = "/uploadFileLectors", method = RequestMethod.POST)
+    @ResponseBody
+    public String uploadFileLectors(@RequestParam("file") MultipartFile file){
+        try {
+            byte[] bytes = file.getBytes();
+            String rootPath = "C:\\Users\\Jaret\\Documents\\NetBeansProjects\\Repository-Dosen\\web\\assets\\PengajuanLektor";
+            double fileSize = file.getSize() / 1024;
+            String fileType = file.getContentType();
+            if (fileSize > 500) {
+                Map map = new HashMap<>();
+                map.put("message", "Ukuran file upload terlalu besar");
+                map.put("status", 0);
+                return new Gson().toJson(map);
+            } else if (!fileType.equals("application/pdf")) {
+                Map map = new HashMap<>();
+                map.put("message", "Ekstensi file upload salah");
+                map.put("status", 1);
+                return new Gson().toJson(map);
+            } else {
+                File dir = new File(rootPath);
+                if (!dir.exists()) 
+                        dir.mkdirs();
+
+                File serverFile = new File(dir.getAbsolutePath()
+                                + File.separator + file.getOriginalFilename());
+                BufferedOutputStream stream = new BufferedOutputStream(
+                                new FileOutputStream(serverFile));
+                stream.write(bytes);
+                stream.close();
+                String pathFile = "assets/PengajuanLektor/" + file.getOriginalFilename();        
+                Map map = new HashMap<>();
+                map.put("pathFile", pathFile);
+                map.put("status", 2);
+                return new Gson().toJson(map);
+            }
+        } catch (Exception e) {
+            return "gagal upload " + file.getName() + " => " + e.getMessage();
+        }
+    }
+    
+    @RequestMapping( value = "/uploadFileHeadlectors", method = RequestMethod.POST)
+    @ResponseBody
+    public String uploadFileHeadlectors(@RequestParam("file") MultipartFile file){
+        try {
+            byte[] bytes = file.getBytes();
+            String rootPath = "C:\\Users\\Jaret\\Documents\\NetBeansProjects\\Repository-Dosen\\web\\assets\\PengajuanLektorKepala";
+            double fileSize = file.getSize() / 1024;
+            String fileType = file.getContentType();
+            if (fileSize > 500) {
+                Map map = new HashMap<>();
+                map.put("message", "Ukuran file upload terlalu besar");
+                map.put("status", 0);
+                return new Gson().toJson(map);
+            } else if (!fileType.equals("application/pdf")) {
+                Map map = new HashMap<>();
+                map.put("message", "Ekstensi file upload salah");
+                map.put("status", 1);
+                return new Gson().toJson(map);
+            } else {
+                File dir = new File(rootPath);
+                if (!dir.exists()) 
+                        dir.mkdirs();
+
+                File serverFile = new File(dir.getAbsolutePath()
+                                + File.separator + file.getOriginalFilename());
+                BufferedOutputStream stream = new BufferedOutputStream(
+                                new FileOutputStream(serverFile));
+                stream.write(bytes);
+                stream.close();
+                String pathFile = "assets/PengajuanLektorKepala/" + file.getOriginalFilename();        
+                Map map = new HashMap<>();
+                map.put("pathFile", pathFile);
+                map.put("status", 2);
+                return new Gson().toJson(map);
+            }
+        } catch (Exception e) {
+            return "gagal upload " + file.getName() + " => " + e.getMessage();
+        }
+    }
+    
+    @RequestMapping( value = "/uploadFileProfessor", method = RequestMethod.POST)
+    @ResponseBody
+    public String uploadFileProfessor(@RequestParam("file") MultipartFile file){
+        try {
+            byte[] bytes = file.getBytes();
+            String rootPath = "C:\\Users\\Jaret\\Documents\\NetBeansProjects\\Repository-Dosen\\web\\assets\\PengajuanGuruBesar";
+            double fileSize = file.getSize() / 1024;
+            String fileType = file.getContentType();
+            if (fileSize > 500) {
+                Map map = new HashMap<>();
+                map.put("message", "Ukuran file upload terlalu besar");
+                map.put("status", 0);
+                return new Gson().toJson(map);
+            } else if (!fileType.equals("application/pdf")) {
+                Map map = new HashMap<>();
+                map.put("message", "Ekstensi file upload salah");
+                map.put("status", 1);
+                return new Gson().toJson(map);
+            } else {
+                File dir = new File(rootPath);
+                if (!dir.exists()) 
+                        dir.mkdirs();
+
+                File serverFile = new File(dir.getAbsolutePath()
+                                + File.separator + file.getOriginalFilename());
+                BufferedOutputStream stream = new BufferedOutputStream(
+                                new FileOutputStream(serverFile));
+                stream.write(bytes);
+                stream.close();
+                String pathFile = "assets/PengajuanGuruBesar/" + file.getOriginalFilename();        
+                Map map = new HashMap<>();
+                map.put("pathFile", pathFile);
+                map.put("status", 2);
+                return new Gson().toJson(map);
+            }
+        } catch (Exception e) {
+            return "gagal upload " + file.getName() + " => " + e.getMessage();
+        }
+    }
+    
     @RequestMapping(value = "/saveFile", method = RequestMethod.POST)
     @ResponseBody
     public String saveFile(String idLecturer, String pathFile, String idDetail){
@@ -337,10 +498,78 @@ public class FileController {
         return "insert_file_nidn";
     }
     
+    @RequestMapping( value = "/addFileAssistant", method = RequestMethod.GET)
+    public String addFileAssistant(ModelMap model, String idLecturer){
+        Lecturer lecturer = new Lecturer();
+        lecturer.setIdLecturer(Integer.parseInt(idLecturer));
+        List<DetailFileDto> listDetail = detailFileService.getDetailFileAssistant();
+        model.addAttribute("fileAssistant", listDetail);
+        model.addAttribute("dataLecturer", lecturer);
+        return "insert_file_assistant";
+    }
+    
+    @RequestMapping( value = "/addFileLectors", method = RequestMethod.GET)
+    public String addFileLectors(ModelMap model, String idLecturer){
+        Lecturer lecturer = new Lecturer();
+        lecturer.setIdLecturer(Integer.parseInt(idLecturer));
+        List<DetailFileDto> listDetail = detailFileService.getDetailFileLectors();
+        model.addAttribute("fileLectors", listDetail);
+        model.addAttribute("dataLecturer", lecturer);
+        return "insert_file_lectors";
+    }
+    
+    @RequestMapping( value = "/addFileHeadlectors", method = RequestMethod.GET)
+    public String addFileHeadlectors(ModelMap model, String idLecturer){
+        Lecturer lecturer = new Lecturer();
+        lecturer.setIdLecturer(Integer.parseInt(idLecturer));
+        List<DetailFileDto> listDetail = detailFileService.getDetailFileHeadlectors();
+        model.addAttribute("fileHeadlectors", listDetail);
+        model.addAttribute("dataLecturer", lecturer);
+        return "insert_file_headlectors";
+    }
+    
+    @RequestMapping( value = "/addFileProfessor", method = RequestMethod.GET)
+    public String addFileProfessor(ModelMap model, String idLecturer){
+        Lecturer lecturer = new Lecturer();
+        lecturer.setIdLecturer(Integer.parseInt(idLecturer));
+        List<DetailFileDto> listDetail = detailFileService.getDetailFileProfessor();
+        model.addAttribute("fileProfessor", listDetail);
+        model.addAttribute("dataLecturer", lecturer);
+        return "insert_file_professor";
+    }
+    
     @RequestMapping( value = "/getFileNidn", method = RequestMethod.GET)
     @ResponseBody
     public String getFileNidn(int idLecturer){
         List<FileDto> listFile = fileService.getFileNidn(idLecturer);
+        return new Gson().toJson(listFile);
+    }
+    
+    @RequestMapping( value = "/getFileAssistant", method = RequestMethod.GET)
+    @ResponseBody
+    public String getFileAssistant(int idLecturer){
+        List<FileDto> listFile = fileService.getFileAssistant(idLecturer);
+        return new Gson().toJson(listFile);
+    }
+    
+    @RequestMapping( value = "/getFileLectors", method = RequestMethod.GET)
+    @ResponseBody
+    public String getFileLectors(int idLecturer){
+        List<FileDto> listFile = fileService.getFileLectors(idLecturer);
+        return new Gson().toJson(listFile);
+    }
+    
+    @RequestMapping( value = "/getFileHeadlectors", method = RequestMethod.GET)
+    @ResponseBody
+    public String getFileHeadlectors(int idLecturer){
+        List<FileDto> listFile = fileService.getFileHeadlectors(idLecturer);
+        return new Gson().toJson(listFile);
+    }
+    
+    @RequestMapping( value = "/getFileProfessor", method = RequestMethod.GET)
+    @ResponseBody
+    public String getFileProfessor(int idLecturer){
+        List<FileDto> listFile = fileService.getFileProfessor(idLecturer);
         return new Gson().toJson(listFile);
     }
 }

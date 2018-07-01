@@ -76,5 +76,12 @@ public class DetailProgressDaoImpl extends HibernateUtil implements DetailProgre
         return query.list();
     }
 
+    @Override
+    public DetailProgress getDataDetailProgress(int idDetail) {
+        String sql = "select model from DetailProgress model where idDetail=:ids";
+        Query query = createQuery(sql).setParameter("ids", idDetail);
+        return (DetailProgress) query.uniqueResult();
+    }
+
     
 }

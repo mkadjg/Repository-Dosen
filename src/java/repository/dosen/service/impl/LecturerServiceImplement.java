@@ -217,30 +217,46 @@ public class LecturerServiceImplement implements LecturerService{
     
     @Override
     public List<Lecturer> getLecturerNIDN(String idFaculty, String idMajor) {
-        List<Lecturer> listLecturerNIDN = new ArrayList<>();
+        List<Lecturer> listLecturerNidn = new ArrayList<>();
         List<Object[]> listDetail = lecturerDao.getLecturerNidn(idFaculty, idMajor);
+        List<DetailFile> listDetailFile = detailFileDao.getDetailFileAssistant();
         for(Object[] object : listDetail){
             Lecturer lecturer = new Lecturer();
+            List<Object[]> listFile = fileDao.getFileAssistant(Integer.parseInt(object[0].toString()));
+            if (listDetailFile.size() == listFile.size()){
+                lecturer.setState(1);
+            } else {
+                lecturer.setState(0);
+            }
             lecturer.setIdLecturer(Integer.parseInt(object[0].toString()));
             lecturer.setNameLecturer(object[1].toString());
             MasterMajor major = majorDao.getDataMajor(object[11].toString());
             lecturer.setNameMajor(major.getNameMajor());
             lecturer.setNameFaculty(major.getFaculty().getNameFaculty());
-            listLecturerNIDN.add(lecturer);
+            listLecturerNidn.add(lecturer);
         }
-        return listLecturerNIDN;
+        return listLecturerNidn;
     }
 
     @Override
     public List<Lecturer> getLecturerAssistant(String idFaculty, String idMajor) {
         List<Lecturer> listLecturerAssistant = new ArrayList<>();
         List<Object[]> listDetail = lecturerDao.getLecturerAssistant(idFaculty, idMajor);
-        for(Object[] list : listDetail){
-            Lecturer Dto = new Lecturer();
-            Dto.setIdLecturer(Integer.parseInt(list[0].toString()));
-            Dto.setNameLecturer(list[1].toString());
-            Dto.setIdGender(Integer.parseInt(list[10].toString()));
-            listLecturerAssistant.add(Dto);
+        List<DetailFile> listDetailFile = detailFileDao.getDetailFileLectors();
+        for(Object[] object : listDetail){
+            Lecturer lecturer = new Lecturer();
+            List<Object[]> listFile = fileDao.getFileLectors(Integer.parseInt(object[0].toString()));
+            if (listDetailFile.size() == listFile.size()){
+                lecturer.setState(1);
+            } else {
+                lecturer.setState(0);
+            }
+            lecturer.setIdLecturer(Integer.parseInt(object[0].toString()));
+            lecturer.setNameLecturer(object[1].toString());
+            MasterMajor major = majorDao.getDataMajor(object[11].toString());
+            lecturer.setNameMajor(major.getNameMajor());
+            lecturer.setNameFaculty(major.getFaculty().getNameFaculty());
+            listLecturerAssistant.add(lecturer);
         }
         return listLecturerAssistant;
     }
@@ -248,13 +264,22 @@ public class LecturerServiceImplement implements LecturerService{
     @Override
     public List<Lecturer> getLecturerLectors(String idFaculty, String idMajor) {
         List<Lecturer> listLecturerLectors = new ArrayList<>();
-        List<Object[]> listDetail = lecturerDao.getLecturerlectors(idFaculty, idMajor);
-        for(Object[] list : listDetail){
-            Lecturer Dto = new Lecturer();
-            Dto.setIdLecturer(Integer.parseInt(list[0].toString()));
-            Dto.setNameLecturer(list[1].toString());
-            Dto.setIdGender(Integer.parseInt(list[10].toString()));
-            listLecturerLectors.add(Dto);
+        List<Object[]> listDetail = lecturerDao.getLecturerLectors(idFaculty, idMajor);
+        List<DetailFile> listDetailFile = detailFileDao.getDetailFileHeadlectors();
+        for(Object[] object : listDetail){
+            Lecturer lecturer = new Lecturer();
+            List<Object[]> listFile = fileDao.getFileHeadlectors(Integer.parseInt(object[0].toString()));
+            if (listDetailFile.size() == listFile.size()){
+                lecturer.setState(1);
+            } else {
+                lecturer.setState(0);
+            }
+            lecturer.setIdLecturer(Integer.parseInt(object[0].toString()));
+            lecturer.setNameLecturer(object[1].toString());
+            MasterMajor major = majorDao.getDataMajor(object[11].toString());
+            lecturer.setNameMajor(major.getNameMajor());
+            lecturer.setNameFaculty(major.getFaculty().getNameFaculty());
+            listLecturerLectors.add(lecturer);
         }
         return listLecturerLectors;
     }
@@ -263,12 +288,21 @@ public class LecturerServiceImplement implements LecturerService{
     public List<Lecturer> getLecturerHeadLectors(String idFaculty, String idMajor) {
         List<Lecturer> listLecturerHeadLectors = new ArrayList<>();
         List<Object[]> listDetail = lecturerDao.getLecturerHeadlectors(idFaculty, idMajor);
-        for(Object[] list : listDetail){
-            Lecturer Dto = new Lecturer();
-            Dto.setIdLecturer(Integer.parseInt(list[0].toString()));
-            Dto.setNameLecturer(list[1].toString());
-            Dto.setIdGender(Integer.parseInt(list[10].toString()));
-            listLecturerHeadLectors.add(Dto);
+        List<DetailFile> listDetailFile = detailFileDao.getDetailFileProfessor();
+        for(Object[] object : listDetail){
+            Lecturer lecturer = new Lecturer();
+            List<Object[]> listFile = fileDao.getFileProfessor(Integer.parseInt(object[0].toString()));
+            if (listDetailFile.size() == listFile.size()){
+                lecturer.setState(1);
+            } else {
+                lecturer.setState(0);
+            }
+            lecturer.setIdLecturer(Integer.parseInt(object[0].toString()));
+            lecturer.setNameLecturer(object[1].toString());
+            MasterMajor major = majorDao.getDataMajor(object[11].toString());
+            lecturer.setNameMajor(major.getNameMajor());
+            lecturer.setNameFaculty(major.getFaculty().getNameFaculty());
+            listLecturerHeadLectors.add(lecturer);
         }
         return listLecturerHeadLectors;
     }
@@ -305,6 +339,7 @@ public class LecturerServiceImplement implements LecturerService{
     public List<Lecturer> getNewLecturer(String idFaculty, String idMajor) {
         List<Lecturer> listNewLeturer = new ArrayList<>();
         List<Object[]> listDetail = lecturerDao.getNewLecturer(idFaculty, idMajor);
+        List<DetailFile> listDetailFile = detailFileDao.getDetailFileNidn();
         for(Object[] object : listDetail){
             Lecturer lecturer = new Lecturer();
             TranLectureHistory tranLectureHistoryMax = lectureHistoryDao.getMaxLectureHistory(Integer.parseInt(object[0].toString()));
@@ -313,7 +348,6 @@ public class LecturerServiceImplement implements LecturerService{
                 lecturer.setState(0);
             } else {
                 if ((tranLectureHistoryMax.getYear() - tranLectureHistoryMin.getYear()) >= 2){
-                    List<DetailFile> listDetailFile = detailFileDao.getDetailFileNidn();
                     List<Object[]> listFile = fileDao.getFileNidn(Integer.parseInt(object[0].toString()));
                     if (listFile == null) {
                         lecturer.setState(1);

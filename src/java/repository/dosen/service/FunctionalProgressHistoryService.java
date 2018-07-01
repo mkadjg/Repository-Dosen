@@ -7,12 +7,16 @@ package repository.dosen.service;
 
 import java.util.List;
 import repository.dosen.dto.FunctionalProgressHistoryDto;
+import repository.dosen.models.TranFunctionalHistory;
 
 /**
  *
  * @author Jaret
  */
 public interface FunctionalProgressHistoryService {
+    public FunctionalProgressHistoryDto getDataFunctionalHistory(int idProgressHistory);
+    public void saveFunctionalProgressHistory(FunctionalProgressHistoryDto functionalProgressHistoryDto); 
+    
     public List<FunctionalProgressHistoryDto> getAssistantProgressHistory();
     public List<FunctionalProgressHistoryDto> getAssistantProgressHistoryByFaculty(String idFaculty);
     public List<FunctionalProgressHistoryDto> getAssistantProgressHistoryByMajor(String idMajor);

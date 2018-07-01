@@ -12,6 +12,10 @@ import repository.dosen.models.FunctionalProgressHistory;
  * @author Jaret
  */
 public interface FunctionalProgressHistoryDao {
+   public void saveFunctionalProgressHistory(FunctionalProgressHistory functionalProgressHistory);
+   public FunctionalProgressHistory getDataFunctionalProgressHistory(int idProgressHistory);
+   public FunctionalProgressHistory getDataAssistantProgressHistory(int idLecturer);
+    
    public List<FunctionalProgressHistory> getAssistantProgressHistory();
    public List<FunctionalProgressHistory> getAssistantProgressHistoryByFaculty(String idFaculty);
    public List<FunctionalProgressHistory> getAssistantProgressHistoryByMajor(String idMajor);

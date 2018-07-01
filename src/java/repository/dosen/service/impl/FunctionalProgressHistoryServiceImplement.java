@@ -10,9 +10,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import repository.dosen.dao.FunctionalDao;
 import repository.dosen.dao.FunctionalProgressHistoryDao;
+import repository.dosen.dao.LecturerDao;
 import repository.dosen.dto.FunctionalProgressHistoryDto;
 import repository.dosen.models.FunctionalProgressHistory;
+import repository.dosen.models.MasterFunctional;
+import repository.dosen.models.MasterLecturer;
+import repository.dosen.models.TranFunctionalHistory;
 import repository.dosen.service.FunctionalProgressHistoryService;
 
 /**
@@ -22,6 +27,12 @@ import repository.dosen.service.FunctionalProgressHistoryService;
 @Transactional
 @Service
 public class FunctionalProgressHistoryServiceImplement implements FunctionalProgressHistoryService {
+    
+    @Autowired
+    LecturerDao lecturerDao;
+    
+    @Autowired
+    FunctionalDao functionalDao;
     
     @Autowired
     FunctionalProgressHistoryDao functionalProgressHistoryDao;
@@ -228,6 +239,26 @@ public class FunctionalProgressHistoryServiceImplement implements FunctionalProg
             listData.add(functionalProgressHistoryDto);
         }
         return listData;
+    }
+
+    @Override
+    public void saveFunctionalProgressHistory(FunctionalProgressHistoryDto functionalProgressHistoryDto) {
+        FunctionalProgressHistory functionalProgressHistory = new FunctionalProgressHistory();
+        functionalProgressHistory.setIdProgressHistory(functionalProgressHistory.getIdProgressHistory());
+        MasterLecturer lecturer = lecturerDao.getDataLecturer(functionalProgressHistoryDto.getIdLecturer());
+        functionalProgressHistory.setLecturer(lecturer);
+        MasterFunctional functional = functionalDao.getDataFunctional(functionalProgressHistoryDto.getIdFunctional());
+        functionalProgressHistory.setFunctional(functional);
+        functionalProgressHistoryDao.saveFunctionalProgressHistory(functionalProgressHistory);
+    }
+
+    @Override
+    public FunctionalProgressHistoryDto getDataFunctionalHistory(int idProgressHistory) {
+        FunctionalProgressHistoryDto functionalProgressHistoryDto = new FunctionalProgressHistoryDto();
+        FunctionalProgressHistory functionalProgressHistory = functionalProgressHistoryDao.getDataFunctionalProgressHistory(idProgressHistory);
+        functionalProgressHistoryDto.setIdProgressHistory(functionalProgressHistory.getIdProgressHistory());
+        functionalProgressHistoryDto.setIdLecturer(functionalProgressHistory.getLecturer().getIdLecturer());
+        return functionalProgressHistoryDto;
     }
     
 }

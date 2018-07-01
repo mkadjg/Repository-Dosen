@@ -23,5 +23,10 @@ public class TranProgressFunctionalDaoImpl extends HibernateUtil implements Tran
         Query query = createQuery(sql).setParameter("ids", idLecturer);
         return query.list();
     }
+
+    @Override
+    public void saveTranProgressFunctional(TranProgressFunctional tranProgressFunctional) {
+        getSession().saveOrUpdate(tranProgressFunctional);
+    }
     
 }

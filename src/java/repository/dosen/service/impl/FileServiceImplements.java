@@ -135,4 +135,100 @@ public class FileServiceImplements implements FileService {
         }
         return listFileNidn;
     }
+
+    @Override
+    public List<FileDto> getFileAssistant(int idLecturer) {
+        List<FileDto> listFileAssistant = new ArrayList<>();
+        List<DetailFile> listDetail = detailFileDao.getDetailFileAssistant();
+        List<Object[]> listFile = fileDao.getFileAssistant(idLecturer);
+        for (int i = 0; i < listDetail.size(); i++){
+            FileDto fileDto = new FileDto();
+            for (int x = 0; x < listFile.size(); x++){
+                if(listDetail.get(i).getIdDetail() == Integer.parseInt(listFile.get(x)[6].toString())){
+                    fileDto.setIdTranFile(Integer.parseInt(listFile.get(x)[0].toString()));
+                    fileDto.setState(Integer.parseInt(listFile.get(x)[1].toString()));
+                    break;
+                }else{
+                    fileDto.setIdTranFile(0);
+                    fileDto.setState(0);
+                }
+            }
+            fileDto.setIdDetail(listDetail.get(i).getIdDetail());
+            fileDto.setNameDokumen(listDetail.get(i).getNameDokumen());
+            listFileAssistant.add(fileDto);
+        }
+        return listFileAssistant;
+    }
+
+    @Override
+    public List<FileDto> getFileLectors(int idLecturer) {
+        List<FileDto> listFileLectors = new ArrayList<>();
+        List<DetailFile> listDetail = detailFileDao.getDetailFileLectors();
+        List<Object[]> listFile = fileDao.getFileLectors(idLecturer);
+        for (int i = 0; i < listDetail.size(); i++){
+            FileDto fileDto = new FileDto();
+            for (int x = 0; x < listFile.size(); x++){
+                if(listDetail.get(i).getIdDetail() == Integer.parseInt(listFile.get(x)[6].toString())){
+                    fileDto.setIdTranFile(Integer.parseInt(listFile.get(x)[0].toString()));
+                    fileDto.setState(Integer.parseInt(listFile.get(x)[1].toString()));
+                    break;
+                }else{
+                    fileDto.setIdTranFile(0);
+                    fileDto.setState(0);
+                }
+            }
+            fileDto.setIdDetail(listDetail.get(i).getIdDetail());
+            fileDto.setNameDokumen(listDetail.get(i).getNameDokumen());
+            listFileLectors.add(fileDto);
+        }
+        return listFileLectors;
+    }
+
+    @Override
+    public List<FileDto> getFileHeadlectors(int idLecturer) {
+        List<FileDto> listFileHeadlectors = new ArrayList<>();
+        List<DetailFile> listDetail = detailFileDao.getDetailFileHeadlectors();
+        List<Object[]> listFile = fileDao.getFileHeadlectors(idLecturer);
+        for (int i = 0; i < listDetail.size(); i++){
+            FileDto fileDto = new FileDto();
+            for (int x = 0; x < listFile.size(); x++){
+                if(listDetail.get(i).getIdDetail() == Integer.parseInt(listFile.get(x)[6].toString())){
+                    fileDto.setIdTranFile(Integer.parseInt(listFile.get(x)[0].toString()));
+                    fileDto.setState(Integer.parseInt(listFile.get(x)[1].toString()));
+                    break;
+                }else{
+                    fileDto.setIdTranFile(0);
+                    fileDto.setState(0);
+                }
+            }
+            fileDto.setIdDetail(listDetail.get(i).getIdDetail());
+            fileDto.setNameDokumen(listDetail.get(i).getNameDokumen());
+            listFileHeadlectors.add(fileDto);
+        }
+        return listFileHeadlectors;
+    }
+
+    @Override
+    public List<FileDto> getFileProfessor(int idLecturer) {
+        List<FileDto> listFileProfessor = new ArrayList<>();
+        List<DetailFile> listDetail = detailFileDao.getDetailFileProfessor();
+        List<Object[]> listFile = fileDao.getFileProfessor(idLecturer);
+        for (int i = 0; i < listDetail.size(); i++){
+            FileDto fileDto = new FileDto();
+            for (int x = 0; x < listFile.size(); x++){
+                if(listDetail.get(i).getIdDetail() == Integer.parseInt(listFile.get(x)[6].toString())){
+                    fileDto.setIdTranFile(Integer.parseInt(listFile.get(x)[0].toString()));
+                    fileDto.setState(Integer.parseInt(listFile.get(x)[1].toString()));
+                    break;
+                }else{
+                    fileDto.setIdTranFile(0);
+                    fileDto.setState(0);
+                }
+            }
+            fileDto.setIdDetail(listDetail.get(i).getIdDetail());
+            fileDto.setNameDokumen(listDetail.get(i).getNameDokumen());
+            listFileProfessor.add(fileDto);
+        }
+        return listFileProfessor;
+    }
 }

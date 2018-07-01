@@ -122,7 +122,7 @@ public class LecturerDaoImpl extends HibernateUtil implements LecturerDao{
             if (idMajor.equals("0")){
                 sql += "AND idMajor IN (" 
                         + "SELECT idMajor FROM MasterMajor WHERE "
-                        + "idFaculty =" + idFaculty + ")";
+                        + "idFaculty ='" + idFaculty + "')";
             } else {
                 sql += "AND idMajor ='" + idMajor + "'";
             }
@@ -133,7 +133,7 @@ public class LecturerDaoImpl extends HibernateUtil implements LecturerDao{
     }
 
     @Override
-    public List<Object[]> getLecturerlectors(String idFaculty, String idMajor) {
+    public List<Object[]> getLecturerLectors(String idFaculty, String idMajor) {
         String sql = "select * from MasterLecturer where "
                     + "idLecturer in ("
                     + "select idLecturer from FunctionalProgressHistory where idFunctional = 2 and state = 1 and "
@@ -143,7 +143,7 @@ public class LecturerDaoImpl extends HibernateUtil implements LecturerDao{
             if (idMajor.equals("0")){
                 sql += "AND idMajor IN (" 
                         + "SELECT idMajor FROM MasterMajor WHERE "
-                        + "idFaculty =" + idFaculty + ")";
+                        + "idFaculty ='" + idFaculty + "')";
             } else {
                 sql += "AND idMajor ='" + idMajor + "'";
             }
@@ -164,7 +164,7 @@ public class LecturerDaoImpl extends HibernateUtil implements LecturerDao{
             if (idMajor.equals("0")){
                 sql += " AND idMajor IN (" 
                         + "SELECT idMajor FROM MasterMajor WHERE "
-                        + "idFaculty =" + idFaculty + ")";
+                        + "idFaculty ='" + idFaculty + "')";
             } else {
                 sql += " AND idMajor ='" + idMajor + "'";
             }
@@ -183,7 +183,7 @@ public class LecturerDaoImpl extends HibernateUtil implements LecturerDao{
             if (idMajor.equals("0")){
                 sql += " AND idMajor IN (" 
                         + "SELECT idMajor FROM MasterMajor WHERE "
-                        + "idFaculty =" + idFaculty + ")";
+                        + "idFaculty ='" + idFaculty + "')";
             } else {
                 sql += " AND idMajor ='" + idMajor + "'";
             }
@@ -213,7 +213,9 @@ public class LecturerDaoImpl extends HibernateUtil implements LecturerDao{
     public List<Object[]> getNewLecturer(String idFaculty, String idMajor) {
         String sql = "select * from MasterLecturer where "
                     + "idLecturer not in ("
-                    + "select idLecturer from FunctionalProgressHistory where idFunctional = 1 )";
+                    + "select idLecturer from FunctionalProgressHistory where idFunctional in (1,2,3,4))"
+                    + " and idLecturer not in ("
+                    + "select idLecturer from LecturerProgressHistory)";
         if (!(idFaculty.equals("0"))) {
             if (idMajor.equals("0")){
                 sql += " AND idMajor IN (" 

@@ -15,12 +15,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import repository.dosen.dto.DetailProgressDto;
 import repository.dosen.dto.Faculty;
+import repository.dosen.dto.FunctionalProgressHistoryDto;
 import repository.dosen.dto.Lecturer;
 import repository.dosen.dto.LecturerProgressHistoryDto;
 import repository.dosen.dto.TranProgressFunctionalDto;
 import repository.dosen.dto.TranProgressLecturerDto;
 import repository.dosen.service.DetailProgressService;
 import repository.dosen.service.FacultyService;
+import repository.dosen.service.FunctionalProgressHistoryService;
 import repository.dosen.service.LecturerProgressHistoryService;
 import repository.dosen.service.LecturerService;
 import repository.dosen.service.TranProgressFunctionalService;
@@ -45,7 +47,10 @@ public class ProgressController {
     @Autowired
     LecturerProgressHistoryService lecturerProgressHistoryService;
     
-     @Autowired
+    @Autowired
+    FunctionalProgressHistoryService functionalProgressHistoryService;
+    
+    @Autowired
     TranProgressLecturerService tranProgressLecturerService;
     
     @Autowired
@@ -128,15 +133,28 @@ public class ProgressController {
         return new Gson().toJson(listLecturerNonHeadlectors);
     }
     
-    @RequestMapping(value = "/showDetailProgress", method = RequestMethod.GET)
-    public String onShowDetailProgress(ModelMap model){
-        List<DetailProgressDto> listDetailProgress = detailProgressService.getDetailProgressAssistant();
-        model.addAttribute("dataProgress", listDetailProgress);
+    @RequestMapping(value = "/showProgressAssistant", method = RequestMethod.GET)
+    public String showProgressAssistant(String idLecturer, ModelMap model){
+        List<TranProgressFunctionalDto> listProgressAssistant = tranProgressFunctionalService.getTranProgressAssistant(Integer.parseInt(idLecturer));
+        model.addAttribute("detailProgress", listProgressAssistant);
         return "detail_progress_assistant";
+    }
+    
+    @RequestMapping(value = "/showProgressNidn", method = RequestMethod.GET)
+    public String showProgressNidn(String idLecturer, ModelMap model){
+        List<TranProgressLecturerDto> listProgressNidn = tranProgressLecturerService.getTranProgressNidn(Integer.parseInt(idLecturer));
+        model.addAttribute("detailProgress", listProgressNidn);
+        return "detail_progress_nidn";
     }
     
     @RequestMapping(value = "/getProgressAssistant", method = RequestMethod.GET)
     public String getProgressAssistant(String idLecturer, ModelMap model){
+        FunctionalProgressHistoryDto functionalProgressHistoryDto = new FunctionalProgressHistoryDto();
+        functionalProgressHistoryDto.setIdProgressHistory(0);
+        functionalProgressHistoryDto.setIdFunctional(1);
+        functionalProgressHistoryDto.setIdLecturer(Integer.parseInt(idLecturer));
+        functionalProgressHistoryDto.setState(0);
+        functionalProgressHistoryService.saveFunctionalProgressHistory(functionalProgressHistoryDto);
         List<TranProgressFunctionalDto> listProgressAssistant = tranProgressFunctionalService.getTranProgressAssistant(Integer.parseInt(idLecturer));
         model.addAttribute("detailProgress", listProgressAssistant);
         return "detail_progress_assistant";
@@ -151,5 +169,31 @@ public class ProgressController {
         List<TranProgressLecturerDto> listProgressNidn = tranProgressLecturerService.getTranProgressNidn(Integer.parseInt(idLecturer));
         model.addAttribute("detailProgress", listProgressNidn);
         return "detail_progress_nidn";
+    }
+    
+    @RequestMapping(value = "/saveProgressNidn", method = RequestMethod.GET)
+    public String saveProgressNidn(int idDetail, int idProgressHistory, ModelMap model){
+        TranProgressLecturerDto tranProgressLecturerDto = new TranProgressLecturerDto();
+        tranProgressLecturerDto.setIdProgressHistory(idProgressHistory);
+        tranProgressLecturerDto.setIdDetail(idDetail);
+        tranProgressLecturerDto.setIdTranProgress(0);
+        tranProgressLecturerService.saveTranProgressLecturer(tranProgressLecturerDto);
+        LecturerProgressHistoryDto lecturerProgressHistoryDto = lecturerProgressHistoryService.getDataLecturerProgressHistory(idProgressHistory);
+        List<TranProgressLecturerDto> listProgressNidn = tranProgressLecturerService.getTranProgressNidn(lecturerProgressHistoryDto.getIdLecturer());
+        model.addAttribute("detailProgress", listProgressNidn);
+        return "detail_progress_nidn";
+    }
+    
+    @RequestMapping(value = "/saveProgressAssistant", method = RequestMethod.GET)
+    public String saveProgressAssistant(int idDetail, int idProgressHistory, ModelMap model){
+        TranProgressFunctionalDto tranProgressFunctionalDto = new TranProgressFunctionalDto();
+        tranProgressFunctionalDto.setIdProgressHistory(idProgressHistory);
+        tranProgressFunctionalDto.setIdDetail(idDetail);
+        tranProgressFunctionalDto.setIdTranProgress(0);
+        tranProgressFunctionalService.saveTranProgressFunctional(tranProgressFunctionalDto);
+        FunctionalProgressHistoryDto functionalProgressHistoryDto = functionalProgressHistoryService.getDataFunctionalHistory(idProgressHistory);
+        List<TranProgressFunctionalDto> listProgressAssistant = tranProgressFunctionalService.getTranProgressAssistant(functionalProgressHistoryDto.getIdLecturer());
+        model.addAttribute("detailProgress", listProgressAssistant);
+        return "detail_progress_assistant";
     }
 }

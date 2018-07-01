@@ -73,4 +73,36 @@ public class FileDaoImpl extends HibernateUtil implements FileDao{
         Query query = createNativeQuery(sql);
         return query.list();
     }
+
+    @Override
+    public List<Object[]> getFileAssistant(int idLecturer) {
+        String sql = "select * from TranFile where idLecturer = " + idLecturer + " and idDetail in ("
+                + "select idDetail from DetailFile where idEvent = 7) order by idDetail";
+        Query query = createNativeQuery(sql);
+        return query.list();
+    }
+
+    @Override
+    public List<Object[]> getFileLectors(int idLecturer) {
+        String sql = "select * from TranFile where idLecturer = " + idLecturer + " and idDetail in ("
+                + "select idDetail from DetailFile where idEvent = 8) order by idDetail";
+        Query query = createNativeQuery(sql);
+        return query.list();
+    }
+
+    @Override
+    public List<Object[]> getFileHeadlectors(int idLecturer) {
+        String sql = "select * from TranFile where idLecturer = " + idLecturer + " and idDetail in ("
+                + "select idDetail from DetailFile where idEvent = 9) order by idDetail";
+        Query query = createNativeQuery(sql);
+        return query.list();
+    }
+
+    @Override
+    public List<Object[]> getFileProfessor(int idLecturer) {
+        String sql = "select * from TranFile where idLecturer = " + idLecturer + " and idDetail in ("
+                + "select idDetail from DetailFile where idEvent = 10) order by idDetail";
+        Query query = createNativeQuery(sql);
+        return query.list();
+    }
 }

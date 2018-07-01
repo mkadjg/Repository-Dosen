@@ -20,5 +20,9 @@ public interface FileDao {
     public List<TranFile> getFile(int idLecturer);
     public List<Object[]> getFileRecruitment(int idLecturer);
     public List<Object[]> getFileNidn(int idLecturer);
+    public List<Object[]> getFileAssistant(int idLecturer);
+    public List<Object[]> getFileLectors(int idLecturer);
+    public List<Object[]> getFileHeadlectors(int idLecturer);
+    public List<Object[]> getFileProfessor(int idLecturer);
     public List<Object[]> searchFile(String nameDetail);
 }

@@ -15,6 +15,7 @@ import repository.dosen.models.LecturerProgressHistory;
 public interface LecturerProgressHistoryDao {
    public List<LecturerProgressHistory> getLecturerProgressHistory();
    public LecturerProgressHistory getDataLecturerProgressHistory(int idLecturer);
+   public LecturerProgressHistory getDataLecturerProgressHistoryById(int idProgressHistory);
    public List<LecturerProgressHistory> getLecturerProgressHistoryByFaculty(String idFaculty);
    public List<LecturerProgressHistory> getLecturerProgressHistoryByMajor(String idMajor);
    public void saveLecturerProgressHistory (LecturerProgressHistory lecturerProgressHistory);
