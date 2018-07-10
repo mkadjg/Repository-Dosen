@@ -15,6 +15,7 @@ import repository.dosen.models.TranSertificationHistory;
 public interface SertificationHistoryDao {
     public void saveSertificationHistory(TranSertificationHistory tranSertificationHistory);
     public void deleteSertificationHistory(TranSertificationHistory tranSertificationHistory);
+    public void deleteAllSertificationHistory(int idLecturer);
     public List<TranSertificationHistory> getSertificationHistory(int idLecturer);
     public List<Object[]> serachSertificationHistory(String nameSertification);
 }

@@ -28,5 +28,36 @@ public class TranProgressFunctionalDaoImpl extends HibernateUtil implements Tran
     public void saveTranProgressFunctional(TranProgressFunctional tranProgressFunctional) {
         getSession().saveOrUpdate(tranProgressFunctional);
     }
+
+    @Override
+    public List<TranProgressFunctional> getTranProgressLectors(int idLecturer) {
+        String sql = "select model from TranProgressFunctional model where idProgressHistory in ("
+                + "select idProgressHistory from FunctionalProgressHistory where idLecturer=:ids and idFunctional = 2)";
+        Query query = createQuery(sql).setParameter("ids", idLecturer);
+        return query.list();
+    }
+
+    @Override
+    public List<TranProgressFunctional> getTranProgressHeadlectors(int idLecturer) {
+        String sql = "select model from TranProgressFunctional model where idProgressHistory in ("
+                + "select idProgressHistory from FunctionalProgressHistory where idLecturer=:ids and idFunctional = 3)";
+        Query query = createQuery(sql).setParameter("ids", idLecturer);
+        return query.list();
+    }
+
+    @Override
+    public List<TranProgressFunctional> getTranProgressProfessor(int idLecturer) {
+        String sql = "select model from TranProgressFunctional model where idProgressHistory in ("
+                + "select idProgressHistory from FunctionalProgressHistory where idLecturer=:ids and idFunctional = 4)";
+        Query query = createQuery(sql).setParameter("ids", idLecturer);
+        return query.list();
+    }
+
+    @Override
+    public void deleteTranProgressFunctional(int idLecturer) {
+        String sql = "delete from TranProgressFunctional where idLecturer=:ids";
+        Query query = createQuery(sql).setParameter("ids", idLecturer);
+        query.executeUpdate();
+    }
     
 }

@@ -15,6 +15,7 @@ import repository.dosen.dto.StudyHistory;
 public interface StudyHistoryService {
     public void saveStudyHistory(StudyHistory studyHistory);
     public void deleteStudyHistory(int idStudyHistory);
+    public void deleteAllStudyHistory(int idLecturer);
     public List<StudyHistory> getStudyHistory(int idLecturer);
     public List<StudyHistory> searchStudyHistory(String nameStudy);
 }

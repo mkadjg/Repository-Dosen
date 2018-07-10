@@ -231,4 +231,9 @@ public class FileServiceImplements implements FileService {
         }
         return listFileProfessor;
     }
+
+    @Override
+    public void deleteAllFile(int idLecturer) {
+        
+    }
 }

@@ -22,7 +22,8 @@ public interface LecturerService {
     public List<Lecturer> getLecturerByMajor(String nameLecturer, String idMajor);
     public List<Lecturer> getLecturerByFaculty(String nameLecturer, String idFaculty);
     public int saveLecturer(Lecturer lecturer);
-    
+    public void editLecturer(Lecturer lecturer);
+    public void deleteLecturer(int idLecturer);
     public List<Lecturer> getNewLecturer(String idFaculty, String idMajor);
     public List<Lecturer> getLecturerNIDN(String idFaculty, String idMajor);
     public List<Lecturer> getLecturerAssistant(String idFaculty, String idMajor);

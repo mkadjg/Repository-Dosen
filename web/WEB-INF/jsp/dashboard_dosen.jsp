@@ -142,7 +142,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="showProgress.htm">
+                        <a href="showProgressDosen.htm?idLecturer=${sessionScope.idLecturer}">
                         <i class="fa fa-bar-chart"></i>
                         <span>Progress</span>
                         </a>

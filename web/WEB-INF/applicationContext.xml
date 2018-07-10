@@ -140,4 +140,7 @@
     <bean id="tranProgressLecturerService" class="repository.dosen.service.impl.TranProgressLecturerServiceImplement"/>
     <bean id="tranProgressLecturerDao" class="repository.dosen.dao.impl.TranProgressLecturerDaoImpl"/>
     
+    <bean id="tranProgressSertificationService" class="repository.dosen.service.impl.TranProgressSertificationServiceImplement"/>
+    <bean id="tranProgressSertificationDao" class="repository.dosen.dao.impl.TranProgressSertificationDaoImpl"/>
+    
 </beans>

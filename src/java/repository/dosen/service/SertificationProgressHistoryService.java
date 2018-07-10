@@ -16,4 +16,8 @@ public interface SertificationProgressHistoryService {
     public List<SertificationProgressHistoryDto> getSertificationProgressHistory();
     public List<SertificationProgressHistoryDto> getSertificationProgressHistoryByFaculty(String idFaculty);
     public List<SertificationProgressHistoryDto> getSertificationProgressHistoryByMajor(String idMajor);
+    public void saveSertificationProgressHistory(SertificationProgressHistoryDto sertificationProgressHistoryDto);
+    public SertificationProgressHistoryDto getDataSertificationProgressHistoryById(int idProgressHistory);
+    public void updateSertificationProgressHistory(int idProgressHistory);
+    public void deleteSertificationProgressHistory(int idLecturer);
 }

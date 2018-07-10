@@ -15,6 +15,7 @@ import repository.dosen.dto.SertificationHistory;
 public interface SertificationHistoryService {
     public void saveSertificationHistory(SertificationHistory lectureHistory);
     public void deleteSertificationHistory(int idSertificationHistory);
+    public void deleteAllSertificationHistory(int idLecturer);
     public List<SertificationHistory> getSertificationHistory(int idLecturer);
     public List<SertificationHistory> searchSertificationHistory(String nameSertification);
 }

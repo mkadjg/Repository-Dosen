@@ -56,5 +56,12 @@ public class LectureHistoryDaoImpl extends HibernateUtil implements LectureHisto
         Query query = createQuery(sql).setParameter("ids", idLecturer);
         return (TranLectureHistory) query.uniqueResult();
     }
+
+    @Override
+    public void deleteAllLectureHistory(int idLecturer) {
+        String sql = "delete from TranLectureHistory where idLecturer=:ids";
+        Query query = createQuery(sql).setParameter("ids", idLecturer);
+        query.executeUpdate();
+    }
     
 }

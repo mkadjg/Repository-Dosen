@@ -28,5 +28,12 @@ public class TranProgressLecturerDaoImpl extends HibernateUtil implements TranPr
     public void saveTranProgressLecturer(TranProgressLecturer tranProgressLecturer) {
         getSession().saveOrUpdate(tranProgressLecturer);
     }
+
+    @Override
+    public void deleteTranProgresslecturer(int idLecturer) {
+        String sql = "delete from TranProgressLecturer where idlecturer=:ids";
+        Query query = createQuery(sql).setParameter("ids", idLecturer);
+        query.executeUpdate();
+    }
     
 }

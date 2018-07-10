@@ -15,6 +15,7 @@ import repository.dosen.dto.LectureHistory;
 public interface LectureHistoryService {
     public void saveLectureHistory(LectureHistory lectureHistory);
     public void deleteLectureHistory(int idLectureHistory);
+    public void deleteAllLectureHistory(int idLecturer);
     public List<LectureHistory> getLectureHistory(int idLecturer);
     public List<LectureHistory> searchLectureHistory(String nameLecture);
 }

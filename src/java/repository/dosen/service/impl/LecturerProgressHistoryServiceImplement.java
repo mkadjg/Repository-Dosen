@@ -100,5 +100,14 @@ public class LecturerProgressHistoryServiceImplement implements LecturerProgress
         lecturerProgressHistoryDto.setIdLecturer(lecturerProgressHistory.getLecturer().getIdLecturer());
         return lecturerProgressHistoryDto;
     }
+
+    @Override
+    public void deleteLecturerProgressHistory(int idLecturer) {
+        LecturerProgressHistory lecturerProgressHistory = lecturerProgressHistoryDao.getDataLecturerProgressHistory(idLecturer);
+        if (lecturerProgressHistory != null){
+            lecturerProgressHistoryDao.deleteLecturerProgressHistory(lecturerProgressHistory);
+        }
+        
+    }
     
 }

@@ -42,5 +42,12 @@ public class StudyHistoryDaoImpl extends HibernateUtil implements StudyHistoryDa
         Query query = createNativeQuery(sql);
         return query.list();
     }
+
+    @Override
+    public void deleteAllStudyHistory(int idLecturer) {
+        String sql = "delete from TranStudyHistory where idLecturer=:ids";
+        Query query = createQuery(sql).setParameter("ids", idLecturer);
+        query.executeUpdate();
+    }
     
 }

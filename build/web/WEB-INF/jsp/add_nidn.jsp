@@ -290,7 +290,7 @@
             
             $('#tableLecturer tbody').on('click', 'button#create', function () {
                 var data = tableLecturer.row(this.closest('tr')).data();
-                window.location.assign("getProgressNidn.htm?idLecturer=" + data.idLecturer);
+                window.location.assign("createProgressNidn.htm?idLecturer=" + data.idLecturer);
             });
             
             $('#tableLecturer tbody').on('click', 'button#infoLectureHistory', function () {

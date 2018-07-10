@@ -295,7 +295,7 @@
             
             $('#tableLecturer tbody').on('click', 'button#create', function () {
                 var data = tableLecturer.row(this.closest('tr')).data();
-                window.location.assign("getProgressAssistant.htm?idLecturer=" + data.idLecturer);
+                window.location.assign("createProgressAssistant.htm?idLecturer=" + data.idLecturer);
             });
             
             tableLecturer.on( 'order.dt search.dt', function () {

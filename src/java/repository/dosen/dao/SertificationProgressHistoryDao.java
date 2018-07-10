@@ -16,4 +16,8 @@ public interface SertificationProgressHistoryDao {
    public List<SertificationProgressHistory> getSertificationProgressHistory();
    public List<SertificationProgressHistory> getSertificationProgressHistoryByFaculty(String idFaculty);
    public List<SertificationProgressHistory> getSertificationProgressHistoryByMajor(String idMajor);
+   public void saveSertificationProgressHistory(SertificationProgressHistory sertificationProgressHistory);
+   public void deleteSertificationProgressHistory(SertificationProgressHistory sertificationProgressHistory);
+   public SertificationProgressHistory getDataSertificationProgressHistory(int idLecturer);
+   public SertificationProgressHistory getDataSertificationProgressHistoryById(int idProgressHistory);
 }

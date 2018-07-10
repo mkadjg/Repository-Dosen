@@ -106,5 +106,10 @@ public class LectureHistoryServiceImplement implements LectureHistoryService{
         }
         return listLectureHistory;
     }
+
+    @Override
+    public void deleteAllLectureHistory(int idLecturer) {
+        lectureHistoryDao.deleteAllLectureHistory(idLecturer);
+    }
     
 }

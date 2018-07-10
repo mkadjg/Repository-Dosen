@@ -651,7 +651,7 @@
                     
                     $('#tableLecturerProgressHistory tbody').on('click', 'button#detail', function () {
                         var data = tableLecturerProgressHistory.row(this.closest('tr')).data();
-                        window.location.assign('showProgressNidn.htm?idLecturer=' + data.idLecturer)
+                        window.location.assign('showProgressNidn.htm?idLecturer=' + data.idLecturer);
                     });
                     
                     var tableAssistantProgressHistory = $('#tableAssistantProgressHistory').DataTable({
@@ -673,14 +673,14 @@
                             },
                             { data: null, sortable: false,
                               render : function(data, type, full) {
-                                return '<button id="update"><span class="fa fa-book"></span></button>';}
+                                return '<button id="detail"><span class="fa fa-book"></span></button>';}
                             }
                         ]
                     });
                     
                     $('#tableAssistantProgressHistory tbody').on('click', 'button#detail', function () {
                         var data = tableAssistantProgressHistory.row(this.closest('tr')).data();
-                        window.location.assign('showProgressAssistant.htm?idLecturer=' + data.idLecturer)
+                        window.location.assign('showProgressAssistant.htm?idLecturer=' + data.idLecturer);
                     });
                     
                     var tableLectorsProgressHistory = $('#tableLectorsProgressHistory').DataTable({
@@ -702,9 +702,14 @@
                             },
                             { data: null, sortable: false,
                               render : function(data, type, full) {
-                                return '<button id="update"><span class="fa fa-book"></span></button>';}
+                                return '<button id="detail"><span class="fa fa-book"></span></button>';}
                             }
                         ]
+                    });
+                    
+                    $('#tableLectorsProgressHistory tbody').on('click', 'button#detail', function () {
+                        var data = tableLectorsProgressHistory.row(this.closest('tr')).data();
+                        window.location.assign('showProgressLectors.htm?idLecturer=' + data.idLecturer);
                     });
                     
                     var tableHeadlectorsProgressHistory = $('#tableHeadlectorsProgressHistory').DataTable({
@@ -726,9 +731,14 @@
                             },
                             { data: null, sortable: false,
                               render : function(data, type, full) {
-                                return '<button id="update"><span class="fa fa-book"></span></button>';}
+                                return '<button id="detail"><span class="fa fa-book"></span></button>';}
                             }
                         ]
+                    });
+                    
+                    $('#tableHeadlectorsProgressHistory tbody').on('click', 'button#detail', function () {
+                        var data = tableHeadlectorsProgressHistory.row(this.closest('tr')).data();
+                        window.location.assign('showProgressHeadlectors.htm?idLecturer=' + data.idLecturer);
                     });
                     
                     var tableProfessorProgressHistory = $('#tableProfessorProgressHistory').DataTable({
@@ -750,9 +760,14 @@
                             },
                             { data: null, sortable: false,
                               render : function(data, type, full) {
-                                return '<button id="update"><span class="fa fa-book"></span></button>';}
+                                return '<button id="detail"><span class="fa fa-book"></span></button>';}
                             }
                         ]
+                    });
+                    
+                    $('#tableProfessorProgressHistory tbody').on('click', 'button#detail', function () {
+                        var data = tableProfessorProgressHistory.row(this.closest('tr')).data();
+                        window.location.assign('showProgressProfessor.htm?idLecturer=' + data.idLecturer);
                     });
                     
                     var tableSertificationProgressHistory = $('#tableSertificationProgressHistory').DataTable({
@@ -774,9 +789,14 @@
                             },
                             { data: null, sortable: false,
                               render : function(data, type, full) {
-                                return '<button id="update"><span class="fa fa-book"></span></button>';}
+                                return '<button id="detail"><span class="fa fa-book"></span></button>';}
                             }
                         ]
+                    });
+                    
+                    $('#tableSertificationProgressHistory tbody').on('click', 'button#detail', function () {
+                        var data = tableSertificationProgressHistory.row(this.closest('tr')).data();
+                        window.location.assign('showProgressSertification.htm?idLecturer=' + data.idLecturer);
                     });
                     
                     tableLecturerProgressHistory.on( 'order.dt search.dt', function () {

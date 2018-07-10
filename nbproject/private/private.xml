@@ -3,22 +3,48 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/service/impl/LecturerServiceImplement.java</file>
-            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/impl/LecturerDaoImpl.java</file>
-            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/web/WEB-INF/jsp/insert_file_lectors.jsp</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/controllers/LectureHistoryController.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/impl/LectureHistoryDaoImpl.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/service/impl/FunctionalProgressHistoryServiceImplement.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/TranProgressFunctionalDao.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/service/LecturerProgressHistoryService.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/LecturerProgressHistoryDao.java</file>
             <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/controllers/ProgressController.java</file>
-            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/web/WEB-INF/jsp/add_professor.jsp</file>
-            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/LecturerDao.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/service/impl/TranProgressFunctionalServiceImplement.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/impl/TranProgressLecturerDaoImpl.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/StudyHistoryDao.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/impl/StudyHistoryDaoImpl.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/SertificationProgressHistoryDao.java</file>
             <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/FileDao.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/impl/FunctionalHistoryDaoImpl.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/service/TranProgressLecturerService.java</file>
             <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/service/FileService.java</file>
-            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/web/WEB-INF/jsp/add_assistant.jsp</file>
-            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/web/WEB-INF/jsp/progress_page.jsp</file>
-            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/web/WEB-INF/jsp/add_lectors.jsp</file>
-            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/controllers/FileController.java</file>
-            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/web/WEB-INF/jsp/add_headlectors.jsp</file>
-            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/web/WEB-INF/jsp/insert_file_headlectors.jsp</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/SertificationHistoryDao.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/impl/LecturerProgressHistoryDaoImpl.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/FunctionalHistoryDao.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/impl/TranProgressSertificationDaoImpl.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/web/WEB-INF/jsp/dashboard_dosen.jsp</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/service/FunctionalProgressHistoryService.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/service/SertificationProgressHistoryService.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/service/impl/SertificationProgressHistoryServiceImplement.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/FunctionalProgressHistoryDao.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/web/WEB-INF/jsp/progress_page_dosen.jsp</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/service/TranProgressSertificationService.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/LectureHistoryDao.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/service/impl/TranProgressSertificationServiceImplement.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/impl/FileDaoImpl.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/web/WEB-INF/jsp/detail_progress_nidn.jsp</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/impl/TranProgressFunctionalDaoImpl.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/TranProgressLecturerDao.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/service/TranProgressFunctionalService.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/service/impl/TranProgressLecturerServiceImplement.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/controllers/LecturerController.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/impl/SertificationHistoryDaoImpl.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/TranProgressSertificationDao.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/impl/SertificationProgressHistoryDaoImpl.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/dao/impl/FunctionalProgressHistoryDaoImpl.java</file>
+            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/service/impl/LecturerProgressHistoryServiceImplement.java</file>
             <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/src/java/repository/dosen/service/impl/FileServiceImplements.java</file>
-            <file>file:/C:/Users/Jaret/Documents/NetBeansProjects/Repository-Dosen/web/WEB-INF/jsp/insert_file_professor.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -9,7 +9,6 @@ import java.util.List;
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 import repository.dosen.dao.SertificationProgressHistoryDao;
-import repository.dosen.models.LecturerProgressHistory;
 import repository.dosen.models.SertificationProgressHistory;
 
 /**
@@ -43,6 +42,30 @@ public class SertificationProgressHistoryDaoImpl extends HibernateUtil implement
                 + "select idMajor from MasterMajor where idMajor =:idm))";
         Query query = createQuery(sql).setParameter("idm", idMajor);
         return query.list();
+    }
+
+    @Override
+    public void saveSertificationProgressHistory(SertificationProgressHistory sertificationProgressHistory) {
+        getSession().saveOrUpdate(sertificationProgressHistory);
+    }
+
+    @Override
+    public SertificationProgressHistory getDataSertificationProgressHistory(int idLecturer) {
+        String sql = "select model from SertificationProgressHistory model where idLecturer=:ids";
+        Query query = createQuery(sql).setParameter("ids", idLecturer);
+        return (SertificationProgressHistory) query.uniqueResult();
+    }
+
+    @Override
+    public SertificationProgressHistory getDataSertificationProgressHistoryById(int idProgressHistory) {
+        String sql = "select model from SertificationProgressHistory model where idProgressHistory=:ids";
+        Query query = createQuery(sql).setParameter("ids", idProgressHistory);
+        return (SertificationProgressHistory) query.uniqueResult();
+    }
+
+    @Override
+    public void deleteSertificationProgressHistory(SertificationProgressHistory sertificationProgressHistory) {
+        getSession().delete(sertificationProgressHistory);
     }
     
 }

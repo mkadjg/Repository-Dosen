@@ -41,5 +41,12 @@ public class SertificationHistoryDaoImpl extends HibernateUtil implements Sertif
         Query query = createNativeQuery(sql);
         return query.list();
     }
+
+    @Override
+    public void deleteAllSertificationHistory(int idLecturer) {
+        String sql = "delete from TranSertificationHistory where idLecturer=:ids";
+        Query query = createQuery(sql).setParameter("ids", idLecturer);
+        query.executeUpdate();
+    }
     
 }

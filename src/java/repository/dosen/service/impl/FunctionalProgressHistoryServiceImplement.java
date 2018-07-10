@@ -17,7 +17,6 @@ import repository.dosen.dto.FunctionalProgressHistoryDto;
 import repository.dosen.models.FunctionalProgressHistory;
 import repository.dosen.models.MasterFunctional;
 import repository.dosen.models.MasterLecturer;
-import repository.dosen.models.TranFunctionalHistory;
 import repository.dosen.service.FunctionalProgressHistoryService;
 
 /**
@@ -259,6 +258,34 @@ public class FunctionalProgressHistoryServiceImplement implements FunctionalProg
         functionalProgressHistoryDto.setIdProgressHistory(functionalProgressHistory.getIdProgressHistory());
         functionalProgressHistoryDto.setIdLecturer(functionalProgressHistory.getLecturer().getIdLecturer());
         return functionalProgressHistoryDto;
+    }
+
+    @Override
+    public void updateFunctionalProgressHistory(int idProgressHistory) {
+        FunctionalProgressHistory functionalProgressHistory = functionalProgressHistoryDao.getDataFunctionalProgressHistory(idProgressHistory);
+        functionalProgressHistory.setState(1);
+        functionalProgressHistoryDao.saveFunctionalProgressHistory(functionalProgressHistory);
+    }
+
+    @Override
+    public void deleteFunctionalProgressHistory(int idLecturer) {
+        FunctionalProgressHistory assistantProgressHistory = functionalProgressHistoryDao.getDataAssistantProgressHistory(idLecturer);
+        FunctionalProgressHistory lectorsProgressHistory = functionalProgressHistoryDao.getDataAssistantProgressHistory(idLecturer);
+        FunctionalProgressHistory headlectorsProgressHistory = functionalProgressHistoryDao.getDataAssistantProgressHistory(idLecturer);
+        FunctionalProgressHistory professorProgressHistory = functionalProgressHistoryDao.getDataAssistantProgressHistory(idLecturer);
+        if (assistantProgressHistory != null){
+            functionalProgressHistoryDao.deleteFunctionalProgressHistory(assistantProgressHistory);
+        }
+        if (lectorsProgressHistory != null){
+            functionalProgressHistoryDao.deleteFunctionalProgressHistory(lectorsProgressHistory);
+        }
+        if (headlectorsProgressHistory != null){
+            functionalProgressHistoryDao.deleteFunctionalProgressHistory(headlectorsProgressHistory);
+        }
+        if (professorProgressHistory != null){
+            functionalProgressHistoryDao.deleteFunctionalProgressHistory(professorProgressHistory);
+        }
+        
     }
     
 }

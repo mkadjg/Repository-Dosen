@@ -15,6 +15,7 @@ import repository.dosen.dto.FunctionalHistory;
 public interface FunctionalHistoryService {
     public void saveFunctionalHistory(FunctionalHistory functionalHistory);
     public void deleteFunctionalHistory(int idFunctionalHistory);
+    public void deleteAllFunctionalHistory(int idLecturer);
     public List<FunctionalHistory> getFunctionalHistory(int idLecturer);
     public List<FunctionalHistory> searchFunctionalHistory(String nameFunctional);
 }

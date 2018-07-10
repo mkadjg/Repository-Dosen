@@ -107,6 +107,7 @@
                                         <div class="user-name">
                                             <p>${sessionScope.name}</p>
                                             <span>${sessionScope.role}</span>
+                                            <input type="hidden" name="idLecturer" value="${lecturer.idLecturer}"/>
                                         </div>
                                         <i class="fa fa-angle-down lnr"></i>
                                         <i class="fa fa-angle-up lnr"></i>
@@ -148,44 +149,12 @@
 			 });
 		});
 		</script>
-                    <div class="container">
-                        <ul class="progressbar">
-                            <c:forEach var="dataProgress" items="${detailProgress}">
-                                <c:if test="${dataProgress.state == 1}">
-                                    <li class="active">
-                                        ${dataProgress.numberRequirement}<br>
-                                        <span class="glyphicon glyphicon-ok" style="color: green"></span>
-                                        <br>
-                                        ${dataProgress.description}
-                                    </li>
-                                </c:if>
-                                <c:if test="${dataProgress.state == 0}">
-                                    <li>
-                                        ${dataProgress.numberRequirement}<br>
-                                        <c:url var="saveProgress" 
-                                               value="saveProgressNidn.htm">
-                                            <c:param name="idDetail" 
-                                                     value="${dataProgress.idDetail}"></c:param>
-                                            <c:param name="idProgressHistory" 
-                                                     value="${dataProgress.idProgressHistory}"></c:param>
-                                        </c:url>
-                                        <a href="${saveProgress}">
-                                            <span class="fa fa-pencil"></span>
-                                        </a>
-                                        <br>
-                                        ${dataProgress.description}
-                                    </li>
-                                </c:if>
-                                <c:if test="${dataProgress.numberRequirement%4 ==0}">
-                                    </ul>
-                                    </div>
-                                    <div class="container">
-                                    <ul class="progressbar">
-                                </c:if>
-                            </c:forEach>        
-                        </ul>
-                    </div>      
-                </div>
+                <div class="row">
+                    <div class="col-md-12" 
+                         id="progressNidn">
+                        
+                    </div>
+                </div> 
             </div>
         </div>
         <div class="sidebar-menu">
@@ -282,7 +251,76 @@
             });
             
             $(document).ready(function(){
+                reloadProgressNidn();
                 
+                function reloadProgressNidn(){
+                    var idLecturer = $('input[name=idLecturer]').val();
+                    $.ajax({
+                        url: "getProgressNidn.htm",
+                        data: 'idLecturer=' + idLecturer,
+                        type: 'GET',
+                        success: function(response){
+                            var data = JSON.parse(response);
+                            var len = data.length;
+                            if (len === 0){
+                                content =   '<br><br>\
+                                            <div class="row">\n\
+                                                <div class="col-md-12" style="text-align: center">\n\
+                                                    <span><i>Anda belum memiliki progress di kegiatan ini.</span>\n\
+                                                    <span><i>Silahkan lengkapi persyaratan dengan mengklik <a>Lengkapi Persyaratan</a>\n\
+                                                </div>\n\
+                                            </div>';
+
+                            } else {
+                                var content = '<div class="container">\n\
+                                            <ul class="progressbar">';
+                                var sumState = 0;
+                                for (var i =0; i < len; i++){
+                                    if (data[i].state === 1){
+                                        content +='<li class="active">\n\
+                                                ' + data[i].numberRequirement + '<br>\n\
+                                                <span class="glyphicon glyphicon-ok" style="color: green"></span>\n\
+                                                <br>\n\
+                                                ' + data[i].description + '\n\
+                                              </li>';
+                                        if (data[i].numberRequirement%4 === 0){
+                                            content += '</ul>\n\
+                                                        </div>\n\
+                                                        <div class="container">\n\
+                                                        <ul class="progressbar">';
+                                        }
+                                    } else {
+                                        sumState++;
+                                        content +='<li>\n\
+                                                ' + data[i].numberRequirement + '<br>\n\
+                                                <a href="saveProgressNidn.htm?idDetail=' + data[i].idDetail + '&idProgressHistory=' + data[i].idProgressHistory + '">\n\
+                                                    <span class="fa fa-pencil"></span>\n\
+                                                </a>\n\
+                                                <br>\n\
+                                                ' + data[i].description + '\n\
+                                              </li>';
+                                        if (data[i].numberRequirement%4 === 0){
+                                            content += '</ul>\n\
+                                                        </div>\n\
+                                                        <div class="container">\n\
+                                                        <ul class="progressbar">';
+                                        }
+                                    }
+                                }
+                                if (sumState === 0){
+                                    content += '<div class="row">\n\
+                                                    <div class="col-md-3" style="padding-left: 50px; padding-right: 50px">\n\
+                                                        <button class="form-control-submit">Selesai</button>\n\
+                                                    </div>\n\
+                                                </div>';
+                                }
+                                content+='</ul>\n\
+                                            </div>';
+                            }
+                            $('#progressNidn').html(content);
+                        }
+                    });    
+                }
             });
     </script>
     <script src="resource/js/jquery.nicescroll.js"></script>

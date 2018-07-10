@@ -21,11 +21,25 @@ import repository.dosen.dto.Gender;
 import repository.dosen.dto.Lecturer;
 import repository.dosen.dto.Major;
 import repository.dosen.dto.Religion;
+import repository.dosen.models.TranProgressFunctional;
+import repository.dosen.models.TranProgressLecturer;
+import repository.dosen.models.TranProgressSertification;
 import repository.dosen.service.FacultyService;
+import repository.dosen.service.FileService;
+import repository.dosen.service.FunctionalHistoryService;
+import repository.dosen.service.FunctionalProgressHistoryService;
 import repository.dosen.service.GenderService;
+import repository.dosen.service.LectureHistoryService;
+import repository.dosen.service.LecturerProgressHistoryService;
 import repository.dosen.service.LecturerService;
 import repository.dosen.service.MajorService;
 import repository.dosen.service.ReligionService;
+import repository.dosen.service.SertificationHistoryService;
+import repository.dosen.service.SertificationProgressHistoryService;
+import repository.dosen.service.StudyHistoryService;
+import repository.dosen.service.TranProgressFunctionalService;
+import repository.dosen.service.TranProgressLecturerService;
+import repository.dosen.service.TranProgressSertificationService;
 
 /**
  *
@@ -48,6 +62,39 @@ public class LecturerController {
     
     @Autowired
     FacultyService facultyService;
+    
+    @Autowired
+    FileService fileService;
+    
+    @Autowired
+    StudyHistoryService studyHistoryService;
+    
+    @Autowired
+    LectureHistoryService lectureHistoryService;
+    
+    @Autowired
+    FunctionalHistoryService functionalHistoryService;
+    
+    @Autowired
+    SertificationHistoryService sertificationHistoryService;
+    
+    @Autowired
+    TranProgressLecturerService tranProgressLecturerService;
+    
+    @Autowired
+    TranProgressFunctionalService tranProgressFunctionalService;
+    
+    @Autowired
+    TranProgressSertificationService tranProgressSertificationService;
+    
+    @Autowired
+    LecturerProgressHistoryService lecturerProgressHistoryService;
+    
+    @Autowired
+    FunctionalProgressHistoryService functionalProgressHistoryService;
+    
+    @Autowired
+    SertificationProgressHistoryService sertificationProgressHistoryService;
     
     @RequestMapping(value = "/lecturer", method = RequestMethod.GET)
     public String onShowLecturer(ModelMap model){
@@ -123,6 +170,17 @@ public class LecturerController {
         }
     }
     
+    @RequestMapping(value = "/onEditLecturer", method = RequestMethod.POST)
+    @ResponseBody
+    public String onEditLecturer(Lecturer lecturer){
+        lecturerService.editLecturer(lecturer);
+        Map map = new HashMap();
+        map.put("status", 1);
+        map.put("message", "Berhasil execute data");
+        map.put("idLecturer", lecturer.getIdLecturer());
+        return new Gson().toJson(map);
+    }
+    
     @RequestMapping(value = "/cekLecturer", method = RequestMethod.GET)
     @ResponseBody
     public String cekLecturer(String username, String oldPassword){
@@ -152,6 +210,39 @@ public class LecturerController {
         map.put("message", "Data berhasil diupdate");
         map.put("status", 1);
         return new Gson().toJson(map);
+    }
+    
+    @RequestMapping(value = "/editLecturer", method = RequestMethod.GET)
+    public String editLecturer(String idLecturer, ModelMap model){
+        Lecturer lecturer = lecturerService.getDataLecturer(Integer.parseInt(idLecturer));
+        List<Gender> listGender = genderService.getGender();
+        List<Religion> listReligion = religionService.getReligion();
+        List<Faculty> listFaculty = facultyService.getFaculty();
+        List<Major> listMajor = majorService.getMajor();
+        model.addAttribute("lecturer", lecturer);
+        model.addAttribute("dataFaculty", listFaculty);
+        model.addAttribute("dataMajor", listMajor);
+        model.addAttribute("dataGender", listGender);
+        model.addAttribute("dataReligion", listReligion);
+        return "update_lecturer_page";
+    } 
+    
+    @RequestMapping(value = "/deleteLecturer", method = RequestMethod.GET)
+    @ResponseBody
+    public String deleteLecturer(String idLecturer){
+        sertificationHistoryService.deleteAllSertificationHistory(Integer.parseInt(idLecturer));
+        functionalHistoryService.deleteAllFunctionalHistory(Integer.parseInt(idLecturer));
+        lectureHistoryService.deleteAllLectureHistory(Integer.parseInt(idLecturer));
+        studyHistoryService.deleteAllStudyHistory(Integer.parseInt(idLecturer));
+        fileService.deleteAllFile(Integer.parseInt(idLecturer));
+        lecturerProgressHistoryService.deleteLecturerProgressHistory(Integer.parseInt(idLecturer));
+        functionalProgressHistoryService.deleteFunctionalProgressHistory(Integer.parseInt(idLecturer));
+        sertificationProgressHistoryService.deleteSertificationProgressHistory(Integer.parseInt(idLecturer));
+        tranProgressLecturerService.deleteTranProgressLecturer(Integer.parseInt(idLecturer));
+        tranProgressFunctionalService.deleteTranProgressFunctional(Integer.parseInt(idLecturer));
+        tranProgressSertificationService.deleteTranProgressSertification(Integer.parseInt(idLecturer));
+        lecturerService.deleteLecturer(Integer.parseInt(idLecturer));
+        return "lecturer_page";
     }
     
 }

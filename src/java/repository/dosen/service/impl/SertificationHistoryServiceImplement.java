@@ -101,5 +101,10 @@ public class SertificationHistoryServiceImplement implements SertificationHistor
         }
         return listSertificationHistory;
     }
+
+    @Override
+    public void deleteAllSertificationHistory(int idLecturer) {
+        sertificationHistoryDao.deleteAllSertificationHistory(idLecturer);
+    }
     
 }

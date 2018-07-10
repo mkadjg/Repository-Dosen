@@ -13,8 +13,13 @@ import repository.dosen.models.FunctionalProgressHistory;
  */
 public interface FunctionalProgressHistoryDao {
    public void saveFunctionalProgressHistory(FunctionalProgressHistory functionalProgressHistory);
+   public void deleteFunctionalProgressHistory(FunctionalProgressHistory functionalProgressHistory);
    public FunctionalProgressHistory getDataFunctionalProgressHistory(int idProgressHistory);
+   
    public FunctionalProgressHistory getDataAssistantProgressHistory(int idLecturer);
+   public FunctionalProgressHistory getDataLectorsProgressHistory(int idLecturer);
+   public FunctionalProgressHistory getDataHeadlectorsProgressHistory(int idLecturer);
+   public FunctionalProgressHistory getDataProfessorProgressHistory(int idLecturer);
     
    public List<FunctionalProgressHistory> getAssistantProgressHistory();
    public List<FunctionalProgressHistory> getAssistantProgressHistoryByFaculty(String idFaculty);

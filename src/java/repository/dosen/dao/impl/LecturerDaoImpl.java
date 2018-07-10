@@ -229,4 +229,9 @@ public class LecturerDaoImpl extends HibernateUtil implements LecturerDao{
         List<Object[]> listResult = query.list();
         return listResult;
     }
+
+    @Override
+    public void deleteLecturer(MasterLecturer masterLecturer) {
+        getSession().delete(masterLecturer);
+    }
 }

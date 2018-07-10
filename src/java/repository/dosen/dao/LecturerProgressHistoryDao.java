@@ -19,4 +19,5 @@ public interface LecturerProgressHistoryDao {
    public List<LecturerProgressHistory> getLecturerProgressHistoryByFaculty(String idFaculty);
    public List<LecturerProgressHistory> getLecturerProgressHistoryByMajor(String idMajor);
    public void saveLecturerProgressHistory (LecturerProgressHistory lecturerProgressHistory);
+   public void deleteLecturerProgressHistory (LecturerProgressHistory lecturerProgressHistory);
 }

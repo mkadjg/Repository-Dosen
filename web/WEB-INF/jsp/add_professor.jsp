@@ -279,6 +279,11 @@
                 }
             });
             
+            $('#tableLecturer tbody').on('click', 'button#create', function () {
+                var data = tableLecturer.row(this.closest('tr')).data();
+                window.location.assign("createProgressProfessor.htm?idLecturer=" + data.idLecturer);
+            });
+            
             function reloadDataLecturerNonProfessor(){
                 var idMajor = $('select[name=idMajor]').val().toString();
                 var idFaculty = $('select[name=idFaculty]').val().toString();

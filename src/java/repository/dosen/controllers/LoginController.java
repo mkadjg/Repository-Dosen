@@ -43,24 +43,17 @@ public class LoginController {
     @RequestMapping( value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public String login(UserDto userDto, ModelMap model, HttpServletRequest request, HttpServletResponse response){
-        if (userDto.getRole() == 1){
-            UserDto user = userService.getDataUser(userDto.getUsername(), userDto.getPassword());
-            if (user != null){
-                HttpSession session = request.getSession(true);
-                session.setAttribute("name", user.getUsername());
-                session.setAttribute("role", "Administrator");
-                session.setAttribute("idUser", user.getIdUser());
-                Map map = new HashMap<>();
-                map.put("message", "Berhasil login");
-                map.put("status", 1);
-                map.put("role", 1);
-                return new Gson().toJson(map);
-            } else {
-                Map map = new HashMap<>();
-                map.put("message", "Username atau Password Salah !!!");
-                map.put("status", 0);
-                return new Gson().toJson(map);
-            }
+        UserDto user = userService.getDataUser(userDto.getUsername(), userDto.getPassword());
+        if (user != null){
+            HttpSession session = request.getSession(true);
+            session.setAttribute("name", user.getUsername());
+            session.setAttribute("role", "Administrator");
+            session.setAttribute("idUser", user.getIdUser());
+            Map map = new HashMap<>();
+            map.put("message", "Berhasil login");
+            map.put("status", 1);
+            map.put("role", 1);
+            return new Gson().toJson(map);
         } else {
             Lecturer lecturer = lecturerService.getDataLecturerForLogin(userDto.getUsername(), userDto.getPassword());
             if (lecturer != null){
@@ -78,11 +71,10 @@ public class LoginController {
                 Map map = new HashMap<>();
                 map.put("message", "Username atau Password Salah !!!");
                 map.put("status", 0);
-                return new Gson().toJson(map);
+                return new Gson().toJson(map);    
             }
         }
-           
-    }
+    }    
     
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(ModelMap model, HttpServletRequest request, HttpServletResponse response){

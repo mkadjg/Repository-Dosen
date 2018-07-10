@@ -271,6 +271,11 @@
                 ]
             });
             
+            $('#tableLecturer tbody').on('click', 'button#create', function () {
+                var data = tableLecturer.row(this.closest('tr')).data();
+                window.location.assign("createProgressHeadlectors.htm?idLecturer=" + data.idLecturer);
+            });
+            
             $('#tableLecturer tbody').on('click', 'button#infoDetailFile', function () {
                 var data = tableLecturer.row(this.closest('tr')).data();
                 var dataConfirm = confirm('Dosen yang bersangkutan belum melengkapi persyaratan tambahan \nApakah anda ingin melengkapi persayaratan ?');

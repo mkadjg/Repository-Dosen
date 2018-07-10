@@ -138,5 +138,31 @@ public class FunctionalProgressHistoryDaoImpl extends HibernateUtil implements F
         Query query = createQuery(sql).setParameter("ids", idProgressHistory);
         return (FunctionalProgressHistory) query.uniqueResult();
     }
+
+    @Override
+    public FunctionalProgressHistory getDataLectorsProgressHistory(int idLecturer) {
+        String sql = "select model from FunctionalProgressHistory model where idFunctional = 2 and idLecturer=:ids";
+        Query query = createQuery(sql).setParameter("ids", idLecturer);
+        return (FunctionalProgressHistory) query.uniqueResult();
+    }
+
+    @Override
+    public FunctionalProgressHistory getDataHeadlectorsProgressHistory(int idLecturer) {
+        String sql = "select model from FunctionalProgressHistory model where idFunctional = 3 and idLecturer=:ids";
+        Query query = createQuery(sql).setParameter("ids", idLecturer);
+        return (FunctionalProgressHistory) query.uniqueResult();
+    }
+
+    @Override
+    public FunctionalProgressHistory getDataProfessorProgressHistory(int idLecturer) {
+        String sql = "select model from FunctionalProgressHistory model where idFunctional = 4 and idLecturer=:ids";
+        Query query = createQuery(sql).setParameter("ids", idLecturer);
+        return (FunctionalProgressHistory) query.uniqueResult();
+    }
+
+    @Override
+    public void deleteFunctionalProgressHistory(FunctionalProgressHistory functionalProgressHistory) {
+        getSession().delete(functionalProgressHistory);
+    }
     
 }

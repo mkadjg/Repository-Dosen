@@ -15,6 +15,7 @@ import repository.dosen.models.TranStudyHistory;
 public interface StudyHistoryDao {
     public void saveStudyHistory(TranStudyHistory tranStudyHistory);
     public void deleteStudyHistory(TranStudyHistory tranStudyHistory);
+    public void deleteAllStudyHistory(int idLecturer);
     public List<TranStudyHistory> getStudyHistory(int idLecturer);
     public List<Object[]> serachStudyHistory(String nameStudy);
 }

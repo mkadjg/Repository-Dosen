@@ -23,7 +23,6 @@ import repository.dosen.models.MasterGender;
 import repository.dosen.models.MasterLecturer;
 import repository.dosen.models.MasterMajor;
 import repository.dosen.models.MasterReligion;
-import repository.dosen.models.TranFile;
 import repository.dosen.models.TranLectureHistory;
 import repository.dosen.service.LecturerService;
 
@@ -370,6 +369,33 @@ public class LecturerServiceImplement implements LecturerService{
             listNewLeturer.add(lecturer);
         }
         return listNewLeturer;
+    }
+
+    @Override
+    public void editLecturer(Lecturer lecturer) {
+        MasterLecturer masterLecturer = lecturerDao.getDataLecturer(lecturer.getIdLecturer());
+        MasterMajor masterMajor = majorDao.getDataMajor(lecturer.getIdMajor());
+        MasterReligion masterReligion = religionDao.getDataReligion(lecturer.getIdReligion());
+        MasterGender masterGender = genderDao.getDataGender(lecturer.getIdGender());
+        masterLecturer.setIdLecturer(lecturer.getIdLecturer());
+        masterLecturer.setNameLecturer(lecturer.getNameLecturer());
+        masterLecturer.setAddress(lecturer.getAddress());
+        masterLecturer.setBirthdate(lecturer.getBirthdate());
+        masterLecturer.setBirthplace(lecturer.getBirthplace());
+        masterLecturer.setEmail(lecturer.getEmail());
+        masterLecturer.setNumberPhone(lecturer.getNumberPhone());
+        masterLecturer.setNidn(lecturer.getNidn());
+        masterLecturer.setGender(masterGender);
+        masterLecturer.setReligion(masterReligion);
+        masterLecturer.setMajor(masterMajor);
+        lecturerDao.saveLecturer(masterLecturer);
+    }
+
+    @Override
+    public void deleteLecturer(int idLecturer) {
+        MasterLecturer masterLecturer = new MasterLecturer();
+        masterLecturer.setIdLecturer(idLecturer);
+        lecturerDao.deleteLecturer(masterLecturer);
     }
     
 }

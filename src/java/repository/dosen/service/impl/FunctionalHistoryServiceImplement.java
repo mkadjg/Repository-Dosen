@@ -106,5 +106,10 @@ public class FunctionalHistoryServiceImplement implements FunctionalHistoryServi
         }
         return listFunctionalHistory;
     }
+
+    @Override
+    public void deleteAllFunctionalHistory(int idLecturer) {
+        functionalHistoryDao.deleteAllFuntionalHistory(idLecturer);
+    }
     
 }

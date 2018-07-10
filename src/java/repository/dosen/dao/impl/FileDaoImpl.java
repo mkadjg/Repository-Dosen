@@ -105,4 +105,11 @@ public class FileDaoImpl extends HibernateUtil implements FileDao{
         Query query = createNativeQuery(sql);
         return query.list();
     }
+
+    @Override
+    public void deleteAllFile(int idLecturer) {
+        String sql = "delete from TranFile where idLecturer=:ids";
+        Query query = createQuery(sql).setParameter("ids", idLecturer);
+        query.executeUpdate();
+    }
 }

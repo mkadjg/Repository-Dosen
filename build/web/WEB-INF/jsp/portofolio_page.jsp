@@ -152,9 +152,14 @@
                             <div class="tab-pane" 
                                  id="tab1">
                                 <br>
-                                <br>
                                 <div class="row">
                                     <div class="col-md-offset-1 col-md-7">
+                                        <div class="row">
+                                            <div class="col-md-3" align="center">
+                                                <button id="editBiodata" class="form-control-submit">Edit Biodata</button>
+                                            </div>
+                                        </div>
+                                        <br>
                                         <div class="row">
                                             <div class="col-md-3">
                                                 NIDN
@@ -263,59 +268,42 @@
                                             </div>
                                         </div>
                                         <br>
+                                    </div>
+                                    <div class="col-md-4">
                                         <div class="row">
-                                            <div class="col-md-3">
+                                            <div class="col-md-12">
+                                                <img src="resource/images/pasim.jpg" style="width: 140px; height: 180px" />
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                Homebase Dosen
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-4">
                                                 Prodi / Jurusan
                                             </div>
                                             <div class="col-md-1">
                                                 :
                                             </div>
-                                            <div class="col-md-7">
-                                                pendidikan
+                                            <div class="col-md-6">
+                                                ${listBiodata.nameMajor}
                                             </div>
                                         </div>
                                         <br>
                                         <div class="row">
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 Fakultas
                                             </div>
                                             <div class="col-md-1">
                                                 :
                                             </div>
-                                            <div class="col-md-7">
-                                                gelar
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <img src="resource/images/pasim.jpg" style="width: 120px; height: 180px" />
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <br>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                Fakultas
-                                            </div>
-                                            <div class="col-md-1">
-                                                :
-                                            </div>
-                                            <div class="col-md-7">
-                                                gelar
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                Fakultas
-                                            </div>
-                                            <div class="col-md-1">
-                                                :
-                                            </div>
-                                            <div class="col-md-7">
-                                                gelar
+                                            <div class="col-md-6">
+                                                ${listBiodata.nameFaculty}
                                             </div>
                                         </div>
                                     </div>
@@ -323,26 +311,8 @@
                             </div>
                             <div class="tab-pane" 
                                  id="tab2">
-                                <br>
-                                <br>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-offset-8 col-md-3">
-                                                <input type="search"
-                                                       name="nameSearchFile"
-                                                           placeholder="Search..."
-                                                           class="form-control"
-                                                           required="">
-                                            </div>
-                                            <div class="col-md-1" align="left">
-                                                <button id="searchFile" 
-                                                    style="padding-top: 7px; border-radius:5px " >
-                                                    <span class="glyphicon glyphicon-search"></span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <hr>
                                         <div class="table-responsive">
                                             <table class="table table-hover" id="tableFile">
                                                 <thead>
@@ -357,7 +327,6 @@
                             </div>
                             <div class="tab-pane" 
                                  id="tab3">
-                                <br>
                                 <div class="row">
                                     <form action="saveLectureHistory.htm"
                                                id="formLectureHistory"
@@ -1706,6 +1675,12 @@
                 var id = parseInt(event.target.value);
                 $('select[id=idDetailFunctionalHistory]').val(id + 7);
             });
+            
+            $('#editBiodata').click(function(){
+                var idLecturer = $('input[name=idLecturer]').val();
+                window.location.assign('editLecturer.htm?idLecturer=' + idLecturer);
+            });
+            
         });
     </script>
     <script src="resource/js/jquery.nicescroll.js"></script>

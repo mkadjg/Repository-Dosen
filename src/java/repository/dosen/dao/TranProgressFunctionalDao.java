@@ -14,5 +14,9 @@ import repository.dosen.models.TranProgressFunctional;
  */
 public interface TranProgressFunctionalDao {
     public List<TranProgressFunctional> getTranProgressAssistant(int idLecturer);
+    public List<TranProgressFunctional> getTranProgressLectors(int idLecturer);
+    public List<TranProgressFunctional> getTranProgressHeadlectors(int idLecturer);
+    public List<TranProgressFunctional> getTranProgressProfessor(int idLecturer);
     public void saveTranProgressFunctional(TranProgressFunctional tranProgressFunctional);
+    public void deleteTranProgressFunctional(int idLecturer); 
 }

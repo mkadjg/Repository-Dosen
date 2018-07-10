@@ -150,16 +150,19 @@
 		</script>
                     <div class="container">
                         <ul class="progressbar">
+                            <c:set var="index" value="0"/>
                             <c:forEach var="dataProgress" items="${detailProgress}">
+                                <c:set var="idProgressHistory" value="${dataProgress.idProgressHistory}"/>
                                 <c:if test="${dataProgress.state == 1}">
                                     <li class="active">
                                         ${dataProgress.numberRequirement}<br>
-                                        <span class="glyphicon glyphicon-ok"></span>
+                                        <span class="glyphicon glyphicon-ok" style="color: green"></span>
                                         <br>
                                         ${dataProgress.description}
                                     </li>
                                 </c:if>
                                 <c:if test="${dataProgress.state == 0}">
+                                    <c:set var="index" value="${index+1}"/>
                                     <li>
                                         ${dataProgress.numberRequirement}<br>
                                         <c:url var="saveProgress" 
@@ -182,7 +185,15 @@
                                     <div class="container">
                                     <ul class="progressbar">
                                 </c:if>
-                            </c:forEach>        
+                            </c:forEach>
+                            <c:if test="${index==0}">
+                                <div class="row">
+                                    <div class="col-md-3" style="padding-left: 50px; padding-right: 50px">
+                                        <input type="hidden" name="idProgressHistory" value="${idProgressHistory}"/>
+                                        <button id="selesai" class="form-control-submit">Selesai</button>
+                                    </div>
+                                </div>
+                            </c:if>
                         </ul>
                     </div>    
                 </div>
@@ -282,7 +293,21 @@
             });
             
             $(document).ready(function(){
-                
+                $('#selesai').click(function(){
+                    var idProgressHistory = $('input[name=idProgressHistory]').val();
+                    $.ajax({
+                        url: 'updateProgressHistoryAssistant.htm',
+                        data : 'idProgressHistory=' + idProgressHistory,
+                        type: 'GET',
+                        success: function (response) {
+                            var data = JSON.parse(response);
+                            var dataConfirm = confirm('Apakah anda ingin menginputkan SK Historis Jabatan Fungsional Asisten Ahli ?');
+                            if (dataConfirm === true){
+                                window.location.assign("portofolio.htm?idLecturer=" + data.idLecturer);
+                            }
+                        }
+                    });
+                });
             });
     </script>
     <script src="resource/js/jquery.nicescroll.js"></script>

@@ -113,5 +113,10 @@ public class StudyHistoryServiceImplement implements StudyHistoryService{
         }
         return listStudyHistory;
     }
+
+    @Override
+    public void deleteAllStudyHistory(int idLecturer) {
+        studyHistoryDao.deleteAllStudyHistory(idLecturer);
+    }
     
 }

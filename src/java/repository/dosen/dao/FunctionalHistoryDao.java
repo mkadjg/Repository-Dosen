@@ -15,6 +15,7 @@ import repository.dosen.models.TranFunctionalHistory;
 public interface FunctionalHistoryDao {
     public void saveFunctionalHistory(TranFunctionalHistory tranFunctionalHistory);
     public void deleteFunctionalHistory(TranFunctionalHistory tranFunctionalHistory);
+    public void deleteAllFuntionalHistory(int idLecturer);
     public List<TranFunctionalHistory> getFunctionalHistory(int idLecturer);
     public List<Object[]> serachFunctionalHistory(String nameFunctional);
 }

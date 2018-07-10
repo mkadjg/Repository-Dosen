@@ -15,6 +15,7 @@ import repository.dosen.models.TranLectureHistory;
 public interface LectureHistoryDao {
     public void saveLectureHistory(TranLectureHistory tranLectureHistory);
     public void deleteLectureHistory(TranLectureHistory tranLectureHistory);
+    public void deleteAllLectureHistory(int idLecturer);
     public List<TranLectureHistory> getLectureHistory(int idLecturer);
     public List<Object[]> serachLectureHistory(String nameLecture);
     public TranLectureHistory getMaxLectureHistory(int idLecturer);

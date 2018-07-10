@@ -15,6 +15,7 @@ import repository.dosen.models.TranFile;
 public interface FileDao {
     public void saveFile(TranFile tranFile);
     public void deleteFile(TranFile tranFile);
+    public void deleteAllFile(int idLecturer);
     public TranFile getDataFile(int idTranFile);
     public TranFile getLastDataFile();
     public List<TranFile> getFile(int idLecturer);

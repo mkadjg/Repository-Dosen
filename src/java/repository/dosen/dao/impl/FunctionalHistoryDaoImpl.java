@@ -42,5 +42,12 @@ public class FunctionalHistoryDaoImpl extends HibernateUtil implements Functiona
         Query query = createNativeQuery(sql);
         return query.list();
     }
+
+    @Override
+    public void deleteAllFuntionalHistory(int idLecturer) {
+        String sql = "delete from TranFunctionalHistory where idLecturer=:ids";
+        Query query = createQuery(sql).setParameter("ids", idLecturer);
+        query.executeUpdate();
+    }
     
 }

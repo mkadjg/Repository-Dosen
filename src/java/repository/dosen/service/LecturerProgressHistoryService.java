@@ -18,4 +18,5 @@ public interface LecturerProgressHistoryService {
     public List<LecturerProgressHistoryDto> getLecturerProgressHistoryByFaculty(String idFaculty);
     public List<LecturerProgressHistoryDto> getLecturerProgressHistoryByMajor(String idMajor);
     public void saveLecturerProgressHistory(LecturerProgressHistoryDto lecturerProgressHistoryDto);
+    public void deleteLecturerProgressHistory(int idLecturer);
 }
