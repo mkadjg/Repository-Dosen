@@ -200,6 +200,37 @@ public class LecturerServiceImplement implements LecturerService{
         lecturer.setNameLecturer(masterLecturer.getNameLecturer());
         lecturer.setAddress(masterLecturer.getAddress());
         lecturer.setBirthdate(masterLecturer.getBirthdate());
+        String day = masterLecturer.getBirthdate().substring(8,10);
+        String month = masterLecturer.getBirthdate().substring(5, 7);
+        String year = masterLecturer.getBirthdate().substring(0,4);
+        String newDate = "";
+            switch (month) {
+                case "01" :  newDate = day + " Januari " + year;
+                             break;
+                case "02" :  newDate = day + " Februari " + year;
+                             break;
+                case "03" :  newDate = day + " Maret " + year;
+                             break;
+                case "04" :  newDate = day + " April " + year;
+                             break;
+                case "05" :  newDate = day + " Mei " + year;
+                             break;
+                case "06" :  newDate = day + " Juni " + year;
+                             break;
+                case "07" :  newDate = day + " Juli " + year;
+                             break;
+                case "08" :  newDate = day + " Agustus " + year;
+                             break;
+                case "09" :  newDate = day + " September " + year;
+                             break;
+                case "10" :  newDate = day + " Oktober " + year;
+                             break;
+                case "11" :  newDate = day + " November " + year;
+                             break;
+                case "12" :  newDate = day + " Desember " + year;
+                             break;
+            }
+        lecturer.setCustomDate(newDate);
         lecturer.setBirthplace(masterLecturer.getBirthplace());
         lecturer.setEmail(masterLecturer.getEmail());
         lecturer.setNumberPhone(masterLecturer.getNumberPhone());

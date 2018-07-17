@@ -974,110 +974,128 @@
                 
                 $('#tableProgressNidn tbody').on('click', 'button#delete', function () {
                     var data = tableProgressNidn.row(this.closest('tr')).data();
-                    $.ajax({
-                        url: "deleteDetailProgress.htm",
-                        data: "idDetail=" + data.idDetail,
-                        daraType: "form-data",
-                        type: 'GET',
-                        success : function(response){
-                            $(function(){
-                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                            });
-                            $('#formDetailProgressNidn').trigger('reset');
-                            tableProgressNidn.clear().draw();
-                            reloadDetailProgressNidn();
-                        }
-                    });
+                    var dataConfirm = confirm('Apakah anda yakin ingin menghapus data tersebut ?');
+                    if (dataConfirm === true){
+                        $.ajax({
+                            url: "deleteDetailProgress.htm",
+                            data: "idDetail=" + data.idDetail,
+                            daraType: "form-data",
+                            type: 'GET',
+                            success : function(response){
+                                $(function(){
+                                    $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                                });
+                                $('#formDetailProgressNidn').trigger('reset');
+                                tableProgressNidn.clear().draw();
+                                reloadDetailProgressNidn();
+                            }
+                        });
+                    }
                 });
                 
                 $('#tableProgressAssistant tbody').on('click', 'button#delete', function () {
                     var data = tableProgressAssistant.row(this.closest('tr')).data();
-                    $.ajax({
-                        url: "deleteDetailProgress.htm",
-                        data: "idDetail=" + data.idDetail,
-                        daraType: "form-data",
-                        type: 'GET',
-                        success : function(response){
-                            $(function(){
-                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                            });
-                            $('#formDetailProgressAssistant').trigger('reset');
-                            tableProgressAssistant.clear().draw();
-                            reloadDetailProgressAssistant();
-                        }
-                    });
+                    var dataConfirm = confirm('Apakah anda yakin ingin menghapus data tersebut ?');
+                    if (dataConfirm === true){
+                        $.ajax({
+                            url: "deleteDetailProgress.htm",
+                            data: "idDetail=" + data.idDetail,
+                            daraType: "form-data",
+                            type: 'GET',
+                            success : function(response){
+                                $(function(){
+                                    $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                                });
+                                $('#formDetailProgressAssistant').trigger('reset');
+                                tableProgressAssistant.clear().draw();
+                                reloadDetailProgressAssistant();
+                            }
+                        });
+                    }
                 });
                 
                 $('#tableProgressLectors tbody').on('click', 'button#delete', function () {
                     var data = tableProgressLectors.row(this.closest('tr')).data();
-                    $.ajax({
-                        url: "deleteDetailProgress.htm",
-                        data: "idDetail=" + data.idDetail,
-                        daraType: "form-data",
-                        type: 'GET',
-                        success : function(response){
-                            $(function(){
-                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                            });
-                            $('#formDetailProgressLectors').trigger('reset');
-                            tableProgressLectors.clear().draw();
-                            reloadDetailProgressLectors();
-                        }
-                    });
+                    var dataConfirm = confirm('Apakah anda yakin ingin menghapus data tersebut ?');
+                    if (dataConfirm === true){
+                        $.ajax({
+                            url: "deleteDetailProgress.htm",
+                            data: "idDetail=" + data.idDetail,
+                            daraType: "form-data",
+                            type: 'GET',
+                            success : function(response){
+                                $(function(){
+                                    $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                                });
+                                $('#formDetailProgressLectors').trigger('reset');
+                                tableProgressLectors.clear().draw();
+                                reloadDetailProgressLectors();
+                            }
+                        });
+                    }
                 });
                 
                 $('#tableProgressHeadlectors tbody').on('click', 'button#delete', function () {
                     var data = tableProgressHeadlectors.row(this.closest('tr')).data();
-                    $.ajax({
-                        url: "deleteDetailProgress.htm",
-                        data: "idDetail=" + data.idDetail,
-                        daraType: "form-data",
-                        type: 'GET',
-                        success : function(response){
-                            $(function(){
-                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                            });
-                            $('#formDetailProgressHeadlectors').trigger('reset');
-                            tableProgressHeadlectors.clear().draw();
-                            reloadDetailProgressHeadlectors();
-                        }
-                    });
+                    var dataConfirm = confirm('Apakah anda yakin ingin menghapus data tersebut ?');
+                    if (dataConfirm === true){
+                        $.ajax({
+                            url: "deleteDetailProgress.htm",
+                            data: "idDetail=" + data.idDetail,
+                            daraType: "form-data",
+                            type: 'GET',
+                            success : function(response){
+                                $(function(){
+                                    $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                                });
+                                $('#formDetailProgressHeadlectors').trigger('reset');
+                                tableProgressHeadlectors.clear().draw();
+                                reloadDetailProgressHeadlectors();
+                            }
+                        });
+                    }    
                 });
                 
                 $('#tableProgressProfessor tbody').on('click', 'button#delete', function () {
                     var data = tableProgressProfessor.row(this.closest('tr')).data();
-                    $.ajax({
-                        url: "deleteDetailProgress.htm",
-                        data: "idDetail=" + data.idDetail,
-                        daraType: "form-data",
-                        type: 'GET',
-                        success : function(response){
-                            $(function(){
-                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                            });
-                            $('#formDetailProgressProfessor').trigger('reset');
-                            tableProgressProfessor.clear().draw();
-                            reloadDetailProgressProfessor();
-                        }
-                    });
+                    var dataConfirm = confirm('Apakah anda yakin ingin menghapus data tersebut ?');
+                    if (dataConfirm === true){
+                        $.ajax({
+                            url: "deleteDetailProgress.htm",
+                            data: "idDetail=" + data.idDetail,
+                            daraType: "form-data",
+                            type: 'GET',
+                            success : function(response){
+                                $(function(){
+                                    $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                                });
+                                $('#formDetailProgressProfessor').trigger('reset');
+                                tableProgressProfessor.clear().draw();
+                                reloadDetailProgressProfessor();
+                            }
+                        });
+                    }
                 });
                 
                 $('#tableProgressSertification tbody').on('click', 'button#delete', function () {
                     var data = tableProgressSertification.row(this.closest('tr')).data();
-                    $.ajax({
-                        url: "deleteDetailProgress.htm",
-                        data: "idDetail=" + data.idDetail,
-                        daraType: "form-data",
-                        type: 'GET',
-                        success : function(response){
-                            $(function(){
-                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                            });
-                            $('#formDetailProgressSertification').trigger('reset');
-                            tableProgressSertification.clear().draw();
-                            reloadDetailProgressSertification();
-                        }
-                    });
+                    var dataConfirm = confirm('Apakah anda yakin ingin menghapus data tersebut ?');
+                    if (dataConfirm === true){    
+                        $.ajax({
+                            url: "deleteDetailProgress.htm",
+                            data: "idDetail=" + data.idDetail,
+                            daraType: "form-data",
+                            type: 'GET',
+                            success : function(response){
+                                $(function(){
+                                    $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                                });
+                                $('#formDetailProgressSertification').trigger('reset');
+                                tableProgressSertification.clear().draw();
+                                reloadDetailProgressSertification();
+                            }
+                        });
+                    }
                 });
                 
                 $('#formDetailProgressNidn').submit(function(e){

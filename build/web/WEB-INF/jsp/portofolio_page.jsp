@@ -204,7 +204,7 @@
                                                 :
                                             </div>
                                             <div class="col-md-7">
-                                                ${listBiodata.birthdate}
+                                                ${listBiodata.customDate}
                                             </div>
                                         </div>
                                         <br>
@@ -272,7 +272,7 @@
                                     <div class="col-md-4">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <img src="resource/images/pasim.jpg" style="width: 140px; height: 180px" />
+                                                <img src="${file.nameFile}" style="width: 160px; height: 180px" />
                                             </div>
                                         </div>
                                         <br>

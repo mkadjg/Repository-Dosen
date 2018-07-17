@@ -372,7 +372,7 @@
             <div class="menu">
                 <ul id="menu" >
                     <li id="menu-home" >
-                        <a href="index.html">
+                        <a href="index.htm">
                             <i class="fa fa-home"></i>
                             <span>Beranda</span>
                         </a>

@@ -273,6 +273,21 @@
                 window.location.assign('portofolio.htm?idLecturer=' + data.idLecturer);
             });
             
+            $('#tableLecturer tbody').on('click', 'button#delete', function () {
+                var dataConfirm = confirm('Apakah anda yakin akan menghapus data tersebut ?');
+                if (dataConfirm === true){
+                    var data = tableLecturer.row(this.closest('tr')).data();
+                    $.ajax({
+                        url : "deleteLecturer.htm",
+                        data: "idLecturer=" + data.idLecturer,
+                        type: 'GET',
+                        success: function(response){
+                            $.growl().notice('Berhasil', 'Data berhasil dihapus')
+                        }
+                    });
+                }
+            });
+            
             function reloadDataLecturer(){
                 $.ajax({
                     url : "getLecturer.htm",

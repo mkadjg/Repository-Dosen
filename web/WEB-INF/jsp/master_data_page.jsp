@@ -533,7 +533,9 @@
                         
             $('#tableFaculty tbody').on('click', 'button#delete', function () {
                 var data = tableFaculty.row(this.closest('tr')).data();
-                $.ajax({
+                var dataConfirm = confirm('Apakah anda yakin ingin menghapus data tersebut ?');
+                if (dataConfirm === true){
+                    $.ajax({
                     url: "deleteFaculty.htm",
                     data: "idFaculty=" + data.idFaculty,
                     daraType: "form-data",
@@ -547,40 +549,47 @@
                         reloadDataFaculty();
                     }
                 });
+                }
             });
             
             $('#tableMajor tbody').on('click', 'button#delete', function () {
                 var data = tableMajor.row(this.closest('tr')).data();
-                $.ajax({
-                    url: "deleteMajor.htm",
-                    data: "idMajor=" + data.idMajor,
-                    daraType: "form-data",
-                    type: 'GET',
-                    success : function(response){
-                        $(function(){
-                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                        });
-                        tableMajor.clear().draw();
-                        reloadDataMajor();
-                    }
-                });
+                var dataConfirm = confirm('Apakah anda yakin ingin menghapus data tersebut ?');
+                if (dataConfirm === true){
+                    $.ajax({
+                        url: "deleteMajor.htm",
+                        data: "idMajor=" + data.idMajor,
+                        daraType: "form-data",
+                        type: 'GET',
+                        success : function(response){
+                            $(function(){
+                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                            });
+                            tableMajor.clear().draw();
+                            reloadDataMajor();
+                        }
+                    });
+                }
             });
             
             $('#tableLecture tbody').on('click', 'button#delete', function () {
                 var data = tableLecture.row(this.closest('tr')).data();
-                $.ajax({
-                    url: "deleteLecture.htm",
-                    data: "idLecture=" + data.idLecture,
-                    daraType: "form-data",
-                    type: 'GET',
-                    success : function(response){
-                        $(function(){
-                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                        });
-                        tableLecture.clear().draw();
-                        reloadDataLecture();
-                    }
-                });
+                var dataConfirm = confirm('Apakah anda yakin ingin menghapus data tersebut ?');
+                if (dataConfirm === true){
+                    $.ajax({
+                        url: "deleteLecture.htm",
+                        data: "idLecture=" + data.idLecture,
+                        daraType: "form-data",
+                        type: 'GET',
+                        success : function(response){
+                            $(function(){
+                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                            });
+                            tableLecture.clear().draw();
+                            reloadDataLecture();
+                        }
+                    });
+                }
             });
             
             function reloadDataFaculty(){

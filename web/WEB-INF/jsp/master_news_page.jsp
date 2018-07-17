@@ -96,49 +96,35 @@
 			 
 		});
 		</script>
-                <div class="inner-block">
-                    <div class="chit-chat-layer1">
-                        <div class="col-md- chit-chat-layer1-left">
-                            <div class="work-progres">
-                                <div class="chit-chat-heading">
-                                    <div class="row">
-                                        <div class="col-md-10" align="center">
-                                            <strong>KELOLA BERITA</strong>
-                                        </div>
-                                        <div>
-                                            <div class="col-md-2 
-                                                 btn-effcts" 
-                                                 style="margin-top: 0.5px">
-                                                <a href="addNews.htm" 
-                                                   class="hvr-bounce-to-right" >
-                                                    <button class="btn btn-1 btn-success">
-                                                        <span class="glyphicon glyphicon-plus"></span> 
-                                                        Tambah
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>     
-                                </div>
-                                <hr>
-                                <div class="table-responsive">
-                                     <table class="table table-hover" id="tableBodyFileNews">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Tanggal</th>
-                                                <th>Judul Berita</th>
-                                                <th>Aksi</th>
-                                            </tr>
-                                        </thead>
-                                   </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clearfix"> </div>
+                <div class="row" style="padding-left: 50px; padding-right: 50px; padding-top: 30px">
+                    <div class="col-md-2" 
+                         style="margin-top: 0.5px">
+                        <a href="addNews.htm" 
+                           class="hvr-bounce-to-right" >
+                            <button class="btn btn-1 btn-success">
+                                <span class="glyphicon glyphicon-plus"></span> 
+                                Tambah
+                            </button>
+                        </a>
                     </div>
                 </div>
-                <div class="clearfix"></div>    
+                <div class="row" style="padding-left: 50px; padding-right: 50px; padding-top: 30px">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table id="tableBodyFileNews">
+                               <thead>
+                                   <tr>
+                                       <th>No</th>
+                                       <th>Tanggal</th>
+                                       <th>Judul Berita</th>
+                                       <th>Aksi</th>
+                                   </tr>
+                               </thead>
+                          </table>
+                       </div>
+                    </div>
+                </div>
+                    
             </div>
         </div>
         <div class="sidebar-menu">
@@ -238,7 +224,7 @@
             reloadFileNews();
             
             var tableBodyFileNews = $('#tableBodyFileNews').DataTable({
-                pageLength: 6,
+                pageLength: 5,
                 lengthChange: false,
                 columns: [
                     { data: null, sortable: false},
@@ -260,7 +246,7 @@
             
             function reloadFileNews(){
                 $.ajax({
-                    url : 'getFileNewsAdmin.htm',
+                    url : 'getNewsAdmin.htm',
                     type: 'GET',
                     success : function(response) {
                         var data = JSON.parse(response);

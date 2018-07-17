@@ -16,6 +16,7 @@ public interface FileService {
     public void saveFile(FileDto fileDto);
     public void deleteFile(int idTranFile);
     public void deleteAllFile(int idLecturer);
+    public FileDto getPathPhoto(int idLecturer);
     public List<FileDto> getFile(int idLecturer);
     public List<FileDto> searchFile(String nameDokumen);
     public List<FileDto> getFileRecruitment(int idLecturer);

@@ -17,6 +17,7 @@ public interface FileDao {
     public void deleteFile(TranFile tranFile);
     public void deleteAllFile(int idLecturer);
     public TranFile getDataFile(int idTranFile);
+    public TranFile getPathPhoto(int idLecturer);
     public TranFile getLastDataFile();
     public List<TranFile> getFile(int idLecturer);
     public List<Object[]> getFileRecruitment(int idLecturer);

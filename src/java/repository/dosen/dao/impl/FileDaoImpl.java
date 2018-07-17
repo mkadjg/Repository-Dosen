@@ -112,4 +112,11 @@ public class FileDaoImpl extends HibernateUtil implements FileDao{
         Query query = createQuery(sql).setParameter("ids", idLecturer);
         query.executeUpdate();
     }
+
+    @Override
+    public TranFile getPathPhoto(int idLecturer) {
+        String sql = "select model from TranFile model where idLecturer=:ids and idDetail=2";
+        Query query = createQuery(sql).setParameter("ids", idLecturer);
+        return (TranFile) query.uniqueResult();
+    }
 }

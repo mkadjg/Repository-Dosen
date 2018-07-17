@@ -912,110 +912,128 @@
             
             $('#tableFileRecruitment tbody').on('click', 'button#delete', function () {
                 var data = tableFileRecruitment.row(this.closest('tr')).data();
-                $.ajax({
-                    url: "deleteDetailFile.htm",
-                    data: "idDetail=" + data.idDetail,
-                    daraType: "form-data",
-                    type: 'GET',
-                    success : function(response){
-                        $(function(){
-                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                        });
-                        $('#formDetailFileRecruitment').trigger('reset');
-                        tableFileRecruitment.clear().draw();
-                        reloadDetailFileRecruitment();
-                    }
-                });
+                var dataConfirm = confirm('Apakah anda yakin ingin menghapus data tersebut ?');
+                if (dataConfirm === true){
+                    $.ajax({
+                        url: "deleteDetailFile.htm",
+                        data: "idDetail=" + data.idDetail,
+                        daraType: "form-data",
+                        type: 'GET',
+                        success : function(response){
+                            $(function(){
+                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                            });
+                            $('#formDetailFileRecruitment').trigger('reset');
+                            tableFileRecruitment.clear().draw();
+                            reloadDetailFileRecruitment();
+                        }
+                    });
+                }
             });
             
             $('#tableFileNidn tbody').on('click', 'button#delete', function () {
                 var data = tableFileNidn.row(this.closest('tr')).data();
-                $.ajax({
-                    url: "deleteDetailFile.htm",
-                    data: "idDetail=" + data.idDetail,
-                    daraType: "form-data",
-                    type: 'GET',
-                    success : function(response){
-                        $(function(){
-                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                        });
-                        $('#formDetailFileNidn').trigger('reset');
-                        tableFileNidn.clear().draw();
-                        reloadDetailFileNidn();
-                    }
-                });
+                var dataConfirm = confirm('Apakah anda yakin ingin menghapus data tersebut ?');
+                if (dataConfirm === true){
+                    $.ajax({
+                        url: "deleteDetailFile.htm",
+                        data: "idDetail=" + data.idDetail,
+                        daraType: "form-data",
+                        type: 'GET',
+                        success : function(response){
+                            $(function(){
+                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                            });
+                            $('#formDetailFileNidn').trigger('reset');
+                            tableFileNidn.clear().draw();
+                            reloadDetailFileNidn();
+                        }
+                    });
+                }
             });
             
             $('#tableFileAssistant tbody').on('click', 'button#delete', function () {
                 var data = tableFileAssistant.row(this.closest('tr')).data();
-                $.ajax({
-                    url: "deleteDetailFile.htm",
-                    data: "idDetail=" + data.idDetail,
-                    daraType: "form-data",
-                    type: 'GET',
-                    success : function(response){
-                        $(function(){
-                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                        });
-                        $('#formDetailFileAssistant').trigger('reset');
-                        tableFileAssistant.clear().draw();
-                        reloadDetailFileAssistant();
-                    }
-                });
+                var dataConfirm = confirm('Apakah anda yakin ingin menghapus data tersebut ?');
+                if (dataConfirm === true){
+                    $.ajax({
+                        url: "deleteDetailFile.htm",
+                        data: "idDetail=" + data.idDetail,
+                        daraType: "form-data",
+                        type: 'GET',
+                        success : function(response){
+                            $(function(){
+                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                            });
+                            $('#formDetailFileAssistant').trigger('reset');
+                            tableFileAssistant.clear().draw();
+                            reloadDetailFileAssistant();
+                        }
+                    });
+                }
             });
             
             $('#tableFileLectors tbody').on('click', 'button#delete', function () {
                 var data = tableFileLectors.row(this.closest('tr')).data();
-                $.ajax({
-                    url: "deleteDetailFile.htm",
-                    data: "idDetail=" + data.idDetail,
-                    daraType: "form-data",
-                    type: 'GET',
-                    success : function(response){
-                        $(function(){
-                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                        });
-                        $('#formDetailFileLectors').trigger('reset');
-                        tableFileLectors.clear().draw();
-                        reloadDetailFileLectors();
-                    }
-                });
+                var dataConfirm = confirm('Apakah anda yakin ingin menghapus data tersebut ?');
+                if (dataConfirm === true){
+                    $.ajax({
+                        url: "deleteDetailFile.htm",
+                        data: "idDetail=" + data.idDetail,
+                        daraType: "form-data",
+                        type: 'GET',
+                        success : function(response){
+                            $(function(){
+                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                            });
+                            $('#formDetailFileLectors').trigger('reset');
+                            tableFileLectors.clear().draw();
+                            reloadDetailFileLectors();
+                        }
+                    });
+                }
             });
             
             $('#tableFileHeadlectors tbody').on('click', 'button#delete', function () {
                 var data = tableFileHeadlectors.row(this.closest('tr')).data();
-                $.ajax({
-                    url: "deleteDetailFile.htm",
-                    data: "idDetail=" + data.idDetail,
-                    daraType: "form-data",
-                    type: 'GET',
-                    success : function(response){
-                        $(function(){
-                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                        });
-                        $('#formDetailFileHeadlectors').trigger('reset');
-                        tableFileHeadlectors.clear().draw();
-                        reloadDetailFileHeadlectors();
-                    }
-                });
+                var dataConfirm = confirm('Apakah anda yakin ingin menghapus data tersebut ?');
+                if (dataConfirm === true){
+                    $.ajax({
+                        url: "deleteDetailFile.htm",
+                        data: "idDetail=" + data.idDetail,
+                        daraType: "form-data",
+                        type: 'GET',
+                        success : function(response){
+                            $(function(){
+                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                            });
+                            $('#formDetailFileHeadlectors').trigger('reset');
+                            tableFileHeadlectors.clear().draw();
+                            reloadDetailFileHeadlectors();
+                        }
+                    });
+                }
             });
             
             $('#tableFileProfessor tbody').on('click', 'button#delete', function () {
                 var data = tableFileProfessor.row(this.closest('tr')).data();
-                $.ajax({
-                    url: "deleteDetailFile.htm",
-                    data: "idDetail=" + data.idDetail,
-                    daraType: "form-data",
-                    type: 'GET',
-                    success : function(response){
-                        $(function(){
-                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
-                        });
-                        $('#formDetailFileProfessor').trigger('reset');
-                        tableFileProfessor.clear().draw();
-                        reloadDetailFileProfessor();
-                    }
-                });
+                var dataConfirm = confirm('Apakah anda yakin ingin menghapus data tersebut ?');
+                if (dataConfirm === true){
+                    $.ajax({
+                        url: "deleteDetailFile.htm",
+                        data: "idDetail=" + data.idDetail,
+                        daraType: "form-data",
+                        type: 'GET',
+                        success : function(response){
+                            $(function(){
+                                $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                            });
+                            $('#formDetailFileProfessor').trigger('reset');
+                            tableFileProfessor.clear().draw();
+                            reloadDetailFileProfessor();
+                        }
+                    });
+                }
             });
             
             $('#formDetailFileRecruitment').submit(function(e){

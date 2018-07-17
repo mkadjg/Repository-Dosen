@@ -21,7 +21,7 @@ public class Lecturer implements Serializable {
     String numberPhone;
     String birthdate;
     String birthplace;
-    
+    String customDate;
     String username;
     String password;
     
@@ -34,6 +34,14 @@ public class Lecturer implements Serializable {
     int idReligion;
     String nameReligion;
     int state;
+
+    public String getCustomDate() {
+        return customDate;
+    }
+
+    public void setCustomDate(String customDate) {
+        this.customDate = customDate;
+    }
 
     public int getState() {
         return state;

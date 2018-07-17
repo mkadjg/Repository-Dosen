@@ -23,6 +23,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="resource/javascripts/jquery.growl.js" type="text/javascript"></script>
         <link href="resource/stylesheets/jquery.growl.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> 
+        <script type="text/javascript">
+        //<![CDATA[
+                bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+          //]]>
+        </script>
     </head>
     <body>	
     <div class="page-container" style="overflow: scroll">	
@@ -31,7 +37,7 @@
 		<div class="header-main">
                     <div class="header-left col-md-6">
                         <center>
-                            <h3 style="margin-top: 13px;">BERANDA</h3>
+                            <h3 style="margin-top: 13px;">KELOLA MASTER BERITA</h3>
                         </center>							
                         <div class="clearfix"> </div>
                     </div>
@@ -91,84 +97,65 @@
 			 
 		});
 		</script>
-                <div class="inner-block">
-                <div class="chit-chat-layer1">
-                    <div class="col-md- chit-chat-layer1-left">
-                        <div class="work-progres">
-                            <div class="chit-chat-heading">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                            FORM TAMBAH BERITA
-                                    </div>
-                                </div>     
+                <div class="row" style="padding-left: 50px; padding-right: 50px; padding-top: 30px">
+                    <div class="col-md-12">
+                        <form action="saveNews.htm" modelAttribute="data" method="POST">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <input type="hidden" 
+                                           class="form-control" 
+                                           name="idNews"
+                                           value="0"/>
+                                </div>
                             </div>
-                            <hr>
-                            <div class="chit-chat-body" align="center">
-                                <form:form action="saveNews.htm" modelAttribute="data" method="POST">
-                                    <div class="row">
-                                        <div class="col-md-3" style="margin-top: 7px; text-align: right">
-                                            Id Berita
-                                        </div>
-                                        <div class="col-md-5">
-                                            <form:input type="text" 
-                                                   class="form-control-input" 
-                                                   path="idNews"
-                                                   placeholder="Id Berita" 
-                                                   required="" readonly="true"/>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3" style="margin-top: 7px; text-align: right">
-                                            Judul Berita
-                                        </div>
-                                        <div class="col-md-5">
-                                            <form:input type="text" 
-                                                   class="form-control" 
-                                                   path="title" 
-                                                   placeholder="Judul Berita"
-                                                   required=""/>
-                                        </div>
-                                    </div>
-                                        <br>
-                                    <div class="row">
-                                        <div class="col-md-3" style="margin-top: 7px; text-align: right">
-                                            Deskripsi Berita
-                                        </div>
-                                        <div class="col-md-5">
-                                            <form:textarea 
-                                                   class="form-control" 
-                                                   path="description" 
-                                                   placeholder="Deskripsi Berita"
-                                                   required=""/>
-                                        </div>
-                                    </div>
-                                        <br>
-                                    <div class="row">
-                                        <div class="col-md-3" style="margin-top: 7px; text-align: right">
-                                            Tanggal Berita
-                                        </div>
-                                        <div class="col-md-5">
-                                            <form:input type="date" 
-                                                   class="form-control" 
-                                                   path="updateDate" 
-                                                   placeholder="Tanggal Update"
-                                                   required=""/>
-                                        </div>
-                                    </div>
-                                        <br>
-                                    <div class="row">
-                                        <div class="col-lg-offset-3 col-md-2">
-                                            <input type="submit" class="form-control-submit" value="Simpan"/>
-                                        </div>
-                                    </div>   
-                                </form:form>
+                            <div class="row">
+                                <div class="col-md-2" style="margin-top: 7px; text-align: right">
+                                    Judul Berita
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="title" 
+                                           placeholder="Judul Berita"
+                                           required=""/>
+                                </div>
                             </div>
-                        </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-2" style="margin-top: 7px; text-align: right">
+                                    Tanggal Berita
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="date" 
+                                           class="form-control" 
+                                           name="updateDate" 
+                                           placeholder="Tanggal Update"
+                                           required=""/>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-2" style="margin-top: 7px; text-align: right">
+                                    Deskripsi Berita
+                                </div>
+                                <div class="col-md-10" >
+                                    <textarea style="width: 100%; height: 330px; overflow: scroll"
+                                           class="form-control" 
+                                           name="description" 
+                                           placeholder="Deskripsi Berita"
+                                           required="">
+                                    </textarea>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-lg-offset-2 col-md-2">
+                                    <input type="submit" class="form-control-submit" value="Simpan"/>
+                                </div>
+                            </div>   
+                        </form>
                     </div>
-                    <div class="clearfix"> </div>
                 </div>
-            </div>
-                <div class="clearfix"></div>    
             </div>
         </div>
         <div class="sidebar-menu">
@@ -237,6 +224,10 @@
                             </li>
                             <li id="menu-academico-boletim">
                                 <a href="showMasterProgress.htm">Detail Progress
+                                </a>
+                            </li>
+                            <li id="menu-academico-boletim">
+                                <a href="showMasterNews.htm">Master Berita
                                 </a>
                             </li>
                         </ul>

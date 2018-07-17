@@ -107,6 +107,7 @@
                                         <div class="user-name">
                                             <p>${sessionScope.name}</p>
                                             <span>${sessionScope.role}</span>
+                                            <input type="hidden" name="idLecturer" value="${lecturer.idLecturer}"/>
                                         </div>
                                         <i class="fa fa-angle-down lnr"></i>
                                         <i class="fa fa-angle-up lnr"></i>
@@ -148,54 +149,11 @@
 			 });
 		});
 		</script>
-                    <div class="container">
-                        <ul class="progressbar">
-                            <c:set var="index" value="0"/>
-                            <c:forEach var="dataProgress" items="${detailProgress}">
-                                <c:set var="idProgressHistory" value="${dataProgress.idProgressHistory}"/>
-                                <c:if test="${dataProgress.state == 1}">
-                                    <li class="active">
-                                        ${dataProgress.numberRequirement}<br>
-                                        <span class="glyphicon glyphicon-ok" style="color: green"></span>
-                                        <br>
-                                        ${dataProgress.description}
-                                    </li>
-                                </c:if>
-                                <c:if test="${dataProgress.state == 0}">
-                                    <c:set var="index" value="${index+1}"/>
-                                    <li>
-                                        ${dataProgress.numberRequirement}<br>
-                                        <c:url var="saveProgress" 
-                                               value="saveProgressHeadlectors.htm">
-                                            <c:param name="idDetail" 
-                                                     value="${dataProgress.idDetail}"></c:param>
-                                            <c:param name="idProgressHistory" 
-                                                     value="${dataProgress.idProgressHistory}"></c:param>
-                                        </c:url>
-                                        <a href="${saveProgress}">
-                                            <span class="fa fa-pencil"></span>
-                                        </a>
-                                        <br>
-                                        ${dataProgress.description}
-                                    </li>
-                                </c:if>
-                                <c:if test="${dataProgress.numberRequirement%4 ==0}">
-                                    </ul>
-                                    </div>
-                                    <div class="container">
-                                    <ul class="progressbar">
-                                </c:if>
-                            </c:forEach>
-                            <c:if test="${index==0}">
-                                <div class="row">
-                                    <div class="col-md-3" style="padding-left: 50px; padding-right: 50px">
-                                        <input type="hidden" name="idProgressHistory" value="${idProgressHistory}"/>
-                                        <button id="selesai" class="form-control-submit">Selesai</button>
-                                    </div>
-                                </div>
-                            </c:if>       
-                        </ul>
-                    </div>    
+                <div class="row">
+                    <div class="col-md-12" 
+                         id="progressHeadlectors">
+                        
+                    </div>
                 </div>
             </div>
         </div>
@@ -293,21 +251,92 @@
             });
             
             $(document).ready(function(){
-                $('#selesai').click(function(){
-                    var idProgressHistory = $('input[name=idProgressHistory]').val();
+                reloadProgressHeadlectors();
+        
+                function reloadProgressHeadlectors(){
+                    var idLecturer = $('input[name=idLecturer]').val();
                     $.ajax({
-                        url: 'updateProgressHistoryHeadlectors.htm',
-                        data : 'idProgressHistory=' + idProgressHistory,
+                        url: "getProgressHeadlectors.htm",
+                        data: 'idLecturer=' + idLecturer,
                         type: 'GET',
-                        success: function (response) {
+                        success: function(response){
                             var data = JSON.parse(response);
-                            var dataConfirm = confirm('Apakah anda ingin menginputkan SK Historis Jabatan Fungsional Lektor Kepala ?');
-                            if (dataConfirm === true){
-                                window.location.assign("portofolio.htm?idLecturer=" + data.idLecturer);
+                            var len = data.length;
+                            var idProgressHistory = data[0].idProgressHistory;
+                            if (len === 0){
+                                content =   '<br><br>\
+                                            <div class="row">\n\
+                                                <div class="col-md-12" style="text-align: center">\n\
+                                                    <span><i>Anda belum memiliki progress di kegiatan ini.</span>\n\
+                                                    <span><i>Silahkan lengkapi persyaratan dengan mengklik <a>Lengkapi Persyaratan</a>\n\
+                                                </div>\n\
+                                            </div>';
+
+                            } else {
+                                var content = '<div class="container">\n\
+                                            <ul class="progressbar">';
+                                var sumState = 0;
+                                for (var i =0; i < len; i++){
+                                    if (data[i].state === 1){
+                                        content +='<li class="active">\n\
+                                                ' + data[i].numberRequirement + '<br>\n\
+                                                <span class="glyphicon glyphicon-ok" style="color: green"></span>\n\
+                                                <br>\n\
+                                                ' + data[i].description + '\n\
+                                              </li>';
+                                        if (data[i].numberRequirement%4 === 0){
+                                            content += '</ul>\n\
+                                                        </div>\n\
+                                                        <div class="container">\n\
+                                                        <ul class="progressbar">';
+                                        }
+                                    } else {
+                                        sumState++;
+                                        content +='<li>\n\
+                                                ' + data[i].numberRequirement + '<br>\n\
+                                                <a href="saveProgressHeadlectors.htm?idDetail=' + data[i].idDetail + '&idProgressHistory=' + data[i].idProgressHistory + '">\n\
+                                                    <span class="fa fa-pencil"></span>\n\
+                                                </a>\n\
+                                                <br>\n\
+                                                ' + data[i].description + '\n\
+                                              </li>';
+                                        if (data[i].numberRequirement%4 === 0){
+                                            content += '</ul>\n\
+                                                        </div>\n\
+                                                        <div class="container">\n\
+                                                        <ul class="progressbar">';
+                                        }
+                                    }
+                                }
+                                if (sumState === 0){
+                                    content += '<div class="row">\n\
+                                                    <div class="col-md-3" style="padding-left: 50px; padding-right: 50px">\n\
+                                                        <button class="form-control-submit" id="selesai">Selesai</button>\n\
+                                                    </div>\n\
+                                                </div>';
+                                }
+                                content+='</ul>\n\
+                                            </div>';
                             }
+                            $('#progressHeadlectors').html(content);
+                            
+                            $('#selesai').click(function(){
+                                $.ajax({
+                                    url: 'updateProgressHistoryHeadlectors.htm',
+                                    data : 'idProgressHistory=' + idProgressHistory,
+                                    type: 'GET',
+                                    success: function (response) {
+                                        var data = JSON.parse(response);
+                                        var dataConfirm = confirm('Apakah anda ingin menginputkan SK Historis Jabatan Fungsional Lektor Kepala ?');
+                                        if (dataConfirm === true){
+                                            window.location.assign("portofolio.htm?idLecturer=" + data.idLecturer);
+                                        }
+                                    }
+                                });
+                            });
                         }
-                    });
-                });
+                    });    
+                }
             });
     </script>
     <script src="resource/js/jquery.nicescroll.js"></script>

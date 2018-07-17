@@ -234,6 +234,15 @@ public class FileServiceImplements implements FileService {
 
     @Override
     public void deleteAllFile(int idLecturer) {
-        
+        fileDao.deleteAllFile(idLecturer);
+    }
+
+    @Override
+    public FileDto getPathPhoto(int idLecturer) {
+        TranFile tranFile = fileDao.getPathPhoto(idLecturer);
+        FileDto fileDto = new FileDto();
+        fileDto.setNameFile(tranFile.getNameFile());
+        fileDto.setIdTranFile(tranFile.getIdTranFile());
+        return fileDto;
     }
 }

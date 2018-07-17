@@ -30,7 +30,7 @@
 		<div class="header-main">
                     <div class="header-left col-md-6">
                         <center>
-                            <h3 style="margin-top: 13px;">BERANDA</h3>
+                            <h3 style="margin-top: 13px;">PORTOFOLIO</h3>
                         </center>							
                         <div class="clearfix"> </div>
                     </div>
@@ -324,7 +324,7 @@
                             var idDetail = $('select[name=idDetail]').val();
                             var pathFile = data.pathFile;
                             $.post({
-                                url : "saveFileRecruitment.htm",
+                                url : "saveFile.htm",
                                 data: {idLecturer: idLecturer, pathFile: pathFile, idDetail: idDetail},
                                 dataType: "form-data",
                                 error: function(e){

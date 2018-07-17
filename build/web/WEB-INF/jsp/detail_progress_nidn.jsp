@@ -310,7 +310,7 @@
                                 if (sumState === 0){
                                     content += '<div class="row">\n\
                                                     <div class="col-md-3" style="padding-left: 50px; padding-right: 50px">\n\
-                                                        <button class="form-control-submit">Selesai</button>\n\
+                                                        <button id="selesai" class="form-control-submit">Selesai</button>\n\
                                                     </div>\n\
                                                 </div>';
                                 }
@@ -318,6 +318,10 @@
                                             </div>';
                             }
                             $('#progressNidn').html(content);
+                            
+                            $('#selesai').click(function(){
+                                window.location.assign("editLecturer.htm?idLecturer=" + idLecturer);
+                            });
                         }
                     });    
                 }

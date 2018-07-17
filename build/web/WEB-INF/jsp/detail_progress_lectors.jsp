@@ -107,7 +107,7 @@
                                         <div class="user-name">
                                             <p>${sessionScope.name}</p>
                                             <span>${sessionScope.role}</span>
-                                            <input type="hidden" name="idLecturer" value="${lecturer.idLecturer}"
+                                            <input type="hidden" name="idLecturer" value="${lecturer.idLecturer}"/>
                                         </div>
                                         <i class="fa fa-angle-down lnr"></i>
                                         <i class="fa fa-angle-up lnr"></i>

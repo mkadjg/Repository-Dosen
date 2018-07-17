@@ -35,47 +35,39 @@
                         <div class="clearfix"> </div>
                     </div>
                     <div class="profile_details">		
-                        <ul>
-                            <li class="dropdown profile_details_drop">
-                                <a href="#" 
-                                   class="dropdown-toggle" 
-                                   data-toggle="dropdown" 
-                                   aria-expanded="false">
-                                    <div class="profile_img">	
-                                        <span class="prfil-img">
-                                            <img src="images/p1.png" alt=""> 
-                                        </span> 
-                                        <div class="user-name">
-                                            <p>${sessionScope.name}</p>
-                                            <span>${sessionScope.role}</span>
-                                            <input type="hidden" 
-                                                   value="${dataLecturer.idLecturer}" 
-                                                   name="idLecturer"/>
-                                        </div>
-                                        <i class="fa fa-angle-down lnr"></i>
-                                        <i class="fa fa-angle-up lnr"></i>
-                                        <div class="clearfix"></div>	
-                                    </div>	
-                                 </a>
-                                <ul class="dropdown-menu drp-mnu">
-                                    <li> 
-                                        <a href="add_admin.htm">
-                                            <i class="fa fa-user-plus"></i> Tambah Admin
-                                        </a> 
-                                    </li>
-                                    <li> 
-                                        <a href="setting_admin.htm">
-                                            <i class="fa fa-cog"></i> Pengaturan
-                                        </a> 
-                                    </li> 
-                                    <li> 
-                                        <a href="logout.htm">
-                                            <i class="fa fa-sign-out"></i> Keluar
-                                        </a> 
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                    <ul>
+                        <li class="dropdown profile_details_drop">
+                            <a href="#" 
+                               class="dropdown-toggle" 
+                               data-toggle="dropdown" 
+                               aria-expanded="false">
+                                <div class="profile_img">	
+                                    <span class="prfil-img">
+                                        <img src="images/p1.png" alt=""> 
+                                    </span> 
+                                    <div class="user-name">
+                                        <p>${sessionScope.nameLecturer}</p>
+                                        <span>${sessionScope.role}</span>
+                                    </div>
+                                    <i class="fa fa-angle-down lnr"></i>
+                                    <i class="fa fa-angle-up lnr"></i>
+                                    <div class="clearfix"></div>	
+                                </div>	
+                             </a>
+                            <ul class="dropdown-menu drp-mnu">
+                                <li> 
+                                    <a href="setting_dosen.htm">
+                                        <i class="fa fa-cog"></i> Settings
+                                    </a> 
+                                </li>
+                                <li> 
+                                    <a href="logout.htm">
+                                        <i class="fa fa-sign-out"></i> Logout
+                                    </a> 
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                     </div>
                     <div class="clearfix"> </div>					
 		</div>
@@ -185,61 +177,22 @@
             <div class="menu">
                 <ul id="menu" >
                     <li id="menu-home" >
-                        <a href="dashboard.htm">
+                        <a href="dashboard_dosen.htm">
                             <i class="fa fa-home"></i>
                             <span>Beranda</span>
                         </a>
                     </li>
                     <li>
-                        <a href="lecturer.htm">
+                        <a href="portofolio_dosen.htm?idLecturer=${sessionScope.idLecturer}">
                             <i class="fa fa-book nav_icon"></i>
-                            <span>Dosen Tetap</span>
+                            <span>Portofolio</span>
                         </a>
-                    </li>
-                    <li id="menu-comunicacao" >
-                        <a href="#">
-                            <i class="fa fa-file-text"></i>
-                            <span>Laporan</span>
-                            <span class="fa fa-angle-right" style="float: right"></span>
-                        </a>
-                        <ul id="menu-comunicacao-sub" >
-                            <li id="menu-arquivos" >
-                                <a href="showReportResume.htm">Resume Dosen Tetap</a>		              
-                            </li>
-                            <li id="menu-arquivos" >
-                                <a href="showReportComprehen.htm">Kelengkapan Portofolio</a>
-                            </li>
-                            <li id="menu-arquivos" >
-                                <a href="icons.html">Jenjang Karir</a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
-                        <a href="showProgress.htm">
+                        <a href="showProgressDosen.htm?idLecturer=${sessionScope.idLecturer}">
                         <i class="fa fa-bar-chart"></i>
                         <span>Progress</span>
                         </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-cog"></i>
-                            <span>Kelola Master</span>
-                            <span class="fa fa-angle-right" style="float: right"></span>
-                        </a>
-                        <ul id="menu-academico-sub" >
-                            <li id="menu-academico-boletim">
-                                <a href="showMasterData.htm">Master Data
-                                </a>
-                            </li>
-                            <li id="menu-academico-boletim">
-                                <a href="showMasterFile.htm">Detail Persyaratan
-                                </a>
-                            </li>
-                            <li id="menu-academico-boletim">
-                                <a href="showMasterProgress.htm">Detail Progress
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </div>

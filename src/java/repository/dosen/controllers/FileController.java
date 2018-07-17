@@ -212,7 +212,7 @@ public class FileController {
                 map.put("message", "Ukuran file upload terlalu besar");
                 map.put("status", 0);
                 return new Gson().toJson(map);
-            } else if (!fileType.equals("application/pdf")) {
+            } else if (!fileType.equals("application/pdf") && !fileType.equals("image/png") && !fileType.equals("image/jpeg") && !fileType.equals("image/jpg")) {
                 Map map = new HashMap<>();
                 map.put("message", "Ekstensi file upload salah");
                 map.put("status", 1);
@@ -536,6 +536,56 @@ public class FileController {
         model.addAttribute("fileProfessor", listDetail);
         model.addAttribute("dataLecturer", lecturer);
         return "insert_file_professor";
+    }
+    
+    @RequestMapping( value = "/addFileNidnDosen", method = RequestMethod.GET)
+    public String addFileNidnDosen(ModelMap model, String idLecturer){
+        Lecturer lecturer = new Lecturer();
+        lecturer.setIdLecturer(Integer.parseInt(idLecturer));
+        List<DetailFileDto> listDetail = detailFileService.getDetailFileNidn();
+        model.addAttribute("fileNidn", listDetail);
+        model.addAttribute("dataLecturer", lecturer);
+        return "insert_file_nidn_dosen";
+    }
+    
+    @RequestMapping( value = "/addFileAssistantDosen", method = RequestMethod.GET)
+    public String addFileAssistantDosen(ModelMap model, String idLecturer){
+        Lecturer lecturer = new Lecturer();
+        lecturer.setIdLecturer(Integer.parseInt(idLecturer));
+        List<DetailFileDto> listDetail = detailFileService.getDetailFileAssistant();
+        model.addAttribute("fileAssistant", listDetail);
+        model.addAttribute("dataLecturer", lecturer);
+        return "insert_file_assistant_dosen";
+    }
+    
+    @RequestMapping( value = "/addFileLectorsDosen", method = RequestMethod.GET)
+    public String addFileLectorsDosen(ModelMap model, String idLecturer){
+        Lecturer lecturer = new Lecturer();
+        lecturer.setIdLecturer(Integer.parseInt(idLecturer));
+        List<DetailFileDto> listDetail = detailFileService.getDetailFileLectors();
+        model.addAttribute("fileLectors", listDetail);
+        model.addAttribute("dataLecturer", lecturer);
+        return "insert_file_lectors_dosen";
+    }
+    
+    @RequestMapping( value = "/addFileHeadlectorsDosen", method = RequestMethod.GET)
+    public String addFileHeadlectorsDosen(ModelMap model, String idLecturer){
+        Lecturer lecturer = new Lecturer();
+        lecturer.setIdLecturer(Integer.parseInt(idLecturer));
+        List<DetailFileDto> listDetail = detailFileService.getDetailFileHeadlectors();
+        model.addAttribute("fileHeadlectors", listDetail);
+        model.addAttribute("dataLecturer", lecturer);
+        return "insert_file_headlectors_dosen";
+    }
+    
+    @RequestMapping( value = "/addFileProfessorDosen", method = RequestMethod.GET)
+    public String addFileProfessorDosen(ModelMap model, String idLecturer){
+        Lecturer lecturer = new Lecturer();
+        lecturer.setIdLecturer(Integer.parseInt(idLecturer));
+        List<DetailFileDto> listDetail = detailFileService.getDetailFileProfessor();
+        model.addAttribute("fileProfessor", listDetail);
+        model.addAttribute("dataLecturer", lecturer);
+        return "insert_file_professor_dosen";
     }
     
     @RequestMapping( value = "/getFileNidn", method = RequestMethod.GET)
