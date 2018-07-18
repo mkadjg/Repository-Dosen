@@ -218,6 +218,10 @@
                                 <a href="showMasterProgress.htm">Detail Progress
                                 </a>
                             </li>
+                            <li id="menu-academico-boletim">
+                                <a href="showMasterNews.htm">Master Berita
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>

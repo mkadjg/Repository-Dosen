@@ -96,55 +96,19 @@
 			 
 		});
 		</script>
-                <div class="inner-block">
-                    <div class="chit-chat-layer1">
-                        <div class="col-md- chit-chat-layer1-left">
-                            <div class="work-progres">
-                                <div class="chit-chat-heading">
-                                    <div class="row">
-                                        <div class="col-md-12" align="center">
-                                            <strong>TIMELINE BERITA</strong>
-                                        </div>
-                                    </div>     
-                                </div>
-                                <hr>
-                                <div class="table-responsive">
-                                    <table>
-                                        <tr>
-                                            <td>Tanggal</td>
-                                            <td> &nbsp: &nbsp&nbsp</td>
-                                            <td>${data.updateDate}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <hr>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Judul</td>
-                                            <td> : </td>
-                                            <td><strong>${data.title}</strong></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <hr>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Detil</td>
-                                            <td> : </td>
-                                            <td>
-                                                <p>${data.description}</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clearfix"> </div>
+                <div class="row" style="padding-left: 50px; padding-right: 50px; padding-top: 30px">
+                    <div class="col-md-2">
+                        <p>${data.updateDate}</p>
+                    </div>
+                    <div class="col-md-8" align="center">
+                        <p style="font-weight: bold">${data.title}</p>
                     </div>
                 </div>
-                <div class="clearfix"></div>    
+                <div style="padding-left: 50px; padding-right: 50px; padding-top: 30px">
+                    <div class="col-md-12" style="">
+                        <p align="justify" style="line-height: 1.8; font-size: 16px; border: 1px">${data.description}</p>
+                    </div>
+                </div>   
             </div>
         </div>
         <div class="sidebar-menu">

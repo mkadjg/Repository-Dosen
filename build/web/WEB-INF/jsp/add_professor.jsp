@@ -214,6 +214,10 @@
                                 <a href="showMasterProgress.htm">Detail Progress
                                 </a>
                             </li>
+                            <li id="menu-academico-boletim">
+                                <a href="showMasterNews.htm">Master Berita
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -243,7 +247,7 @@
             reloadDataLecturerNonProfessor();
             
             var tableLecturer = $('#tableLecturer').DataTable({
-                pageLength: 10,
+                pageLength: 5,
                 lengthChange: false,
                 columns: [
                     { data: null, sortable: false},

@@ -36,7 +36,7 @@
 		<div class="header-main">
                     <div class="header-left col-md-6">
                         <center>
-                            <h3 style="margin-top: 13px;">KELOLA DETAIL PERSYARATAN</h3>
+                            <h3 style="margin-top: 13px;">KELOLA DETAIL PROGRESS</h3>
                         </center>							
                         <div class="clearfix"> </div>
                     </div>
@@ -698,6 +698,10 @@
                                 <a href="showMasterProgress.htm">Detail Progress
                                 </a>
                             </li>
+                            <li id="menu-academico-boletim">
+                                <a href="showMasterNews.htm">Master Berita
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -739,6 +743,8 @@
                 reloadDetailProgressSertification();
                 
                 var tableProgressNidn = $('#tableProgressNidn').DataTable({
+                    pageLength: 5,
+                    lengthChange: false,
                     columns: [
                         { data: 'numberRequirement', sortable: false},
                         { data: 'description'},
@@ -756,6 +762,8 @@
                 });
                 
                 var tableProgressAssistant = $('#tableProgressAssistant').DataTable({
+                    pageLength: 5,
+                    lengthChange: false,
                     columns: [
                         { data: 'numberRequirement', sortable: false},
                         { data: 'description'},
@@ -773,6 +781,8 @@
                 });
                 
                 var tableProgressLectors = $('#tableProgressLectors').DataTable({
+                    pageLength: 5,
+                    lengthChange: false,
                     columns: [
                         { data: 'numberRequirement', sortable: false},
                         { data: 'description'},
@@ -790,6 +800,8 @@
                 });
                 
                 var tableProgressHeadlectors = $('#tableProgressHeadlectors').DataTable({
+                    pageLength: 5,
+                    lengthChange: false,
                     columns: [
                         { data: 'numberRequirement', sortable: false},
                         { data: 'description'},
@@ -807,6 +819,8 @@
                 });
                 
                 var tableProgressProfessor = $('#tableProgressProfessor').DataTable({
+                    pageLength: 5,
+                    lengthChange: false,        
                     columns: [
                         { data: 'numberRequirement', sortable: false},
                         { data: 'description'},
@@ -824,6 +838,8 @@
                 });
                 
                 var tableProgressSertification = $('#tableProgressSertification').DataTable({
+                    pageLength: 5,
+                    lengthChange: false,
                     columns: [
                         { data: 'numberRequirement', sortable: false},
                         { data: 'description'},

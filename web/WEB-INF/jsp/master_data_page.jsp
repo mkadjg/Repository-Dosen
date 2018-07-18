@@ -118,7 +118,6 @@
                         <div class="tab-content">
                             <div class="tab-pane" 
                                  id="tab1">
-                                <br>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <form action="saveFaculty.htm"
@@ -160,6 +159,7 @@
                                                 <div class="col-md-2">
                                                     <input type="reset"
                                                            value="Reset"
+                                                           id="resetFaculty"
                                                            class="form-control-submit"/>
                                                 </div>
                                             </div>
@@ -182,7 +182,6 @@
                             </div>
                             <div class="tab-pane" 
                                  id="tab2">
-                                <br>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <form action="saveMajor.htm"
@@ -223,18 +222,6 @@
                                                     <select name="idFaculty"
                                                         id="faculty"
                                                         class="form-control">
-                                                        <option value="0" 
-                                                                selected="true"
-                                                                class="form-control">
-                                                            --Semua Fakultas--
-                                                        </option>
-                                                        <c:forEach var="dataFaculty" 
-                                                                   items="${dataFaculty}">
-                                                            <option value="${dataFaculty.idFaculty}" 
-                                                                    class="form-control">
-                                                                        ${dataFaculty.nameFaculty}
-                                                            </option>
-                                                        </c:forEach>
                                                     </select>
                                                 </div>
                                             </div>
@@ -247,6 +234,7 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <input type="reset"
+                                                           id="resetMajor"
                                                            value="Reset"
                                                            class="form-control-submit"/>
                                                 </div>
@@ -275,7 +263,6 @@
                             </div>
                             <div class="tab-pane" 
                                  id="tab3">
-                                <br>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <form action="saveLecture.htm"
@@ -316,6 +303,7 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <input type="reset"
+                                                           id="resetLecture"
                                                            value="Reset"
                                                            class="form-control-submit"/>
                                                 </div>
@@ -413,6 +401,10 @@
                                 <a href="showMasterProgress.htm">Detail Progress
                                 </a>
                             </li>
+                            <li id="menu-academico-boletim">
+                                <a href="showMasterNews.htm">Master Berita
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -442,11 +434,14 @@
             reloadDataFaculty();
             reloadDataMajor();
             reloadDataLecture();
+            reloadDropDownFaculty();
 
             var tableLecture = $('#tableLecture').DataTable({
+                pageLength: 5,
+                lengthChange: false,
                 columns: [
                     { data: null, sortable: false},
-                    { data: 'idLecture'},
+                    { data: 'idLecture', searchable: false},
                     { data: 'nameLecture'},
                     { data: null, sortable: false,
                       render : function(data, type, full) {
@@ -457,11 +452,13 @@
             });
             
             var tableMajor = $('#tableMajor').DataTable({
+                pageLength: 5,
+                lengthChange: false,
                 columns: [
                     { data: null, sortable: false},
-                    { data: 'idMajor'},
+                    { data: 'idMajor', searchable: false},
                     { data: 'nameMajor'},
-                    { data: 'nameFaculty'},
+                    { data: 'nameFaculty', searchable: false},
                     { data: null, sortable: false,
                       render : function(data, type, full) {
                         return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
@@ -471,9 +468,11 @@
             });
             
             var tableFaculty = $('#tableFaculty').DataTable({
+                pageLength: 5,
+                lengthChange: false,
                 columns: [
                     { data: null, sortable: false},
-                    { data: 'idFaculty'},
+                    { data: 'idFaculty', searchable: false},
                     { data: 'nameFaculty'},
                     { data: null, sortable: false,
                       render : function(data, type, full) {
@@ -504,12 +503,14 @@
             $('#tableFaculty tbody').on('click', 'button#update', function () {
                 var data = tableFaculty.row(this.closest('tr')).data();
                 $('input[name=idFaculty]').val(data.idFaculty);
+                $('input[name=idFaculty]').prop('readonly', true);
                 $('input[name=nameFaculty]').val(data.nameFaculty);
             });
             
             $('#tableMajor tbody').on('click', 'button#update', function () {
                 var data = tableMajor.row(this.closest('tr')).data();
                 $('input[name=idMajor]').val(data.idMajor);
+                $('input[name=idMajor]').prop('readonly', true);
                 $('input[name=nameMajor]').val(data.nameMajor);
                 $('input[name=idFaculty]').val(data.idFaculty);
                 $.ajax({
@@ -520,7 +521,6 @@
                         var res = JSON.parse(response);
                         var idFaculty = res.idFaculty;
                         $('select[name=idFaculty]').val(idFaculty);
-
                     }
                 });
             });
@@ -528,6 +528,7 @@
             $('#tableLecture tbody').on('click', 'button#update', function () {
                 var data = tableLecture.row(this.closest('tr')).data();
                 $('input[name=idLecture]').val(data.idLecture);
+                $('input[name=idLecture]').prop('readonly', true);
                 $('input[name=nameLecture]').val(data.nameLecture);
             });
                         
@@ -546,6 +547,7 @@
                         });
                         $('#formFaculty').trigger('reset');
                         tableFaculty.clear().draw();
+                        reloadDropDownFaculty();
                         reloadDataFaculty();
                     }
                 });
@@ -603,6 +605,22 @@
                 });
             }
             
+            function reloadDropDownFaculty(){
+                $.ajax({
+                    url : 'getFaculty.htm',
+                    type: 'GET',
+                    success : function(response) {
+                        var data = JSON.parse(response);
+                        var len = data.length;
+                        var content = '';
+                        for (var i = 0; i < len; i++){
+                            content +='<option value="' + data[i].idFaculty + '" name="idFaculty">' + data[i].nameFaculty + '</option>';
+                            $('#faculty').html(content);
+                        }
+                    }
+                });
+            }
+            
             function reloadDataMajor(){
                 $.ajax({
                     url : 'getMajor.htm',
@@ -637,6 +655,7 @@
                         });
                         $('#formFaculty').trigger('reset');
                         tableFaculty.clear().draw();
+                        reloadDropDownFaculty();
                         reloadDataFaculty();
                     }
                 });
@@ -674,6 +693,18 @@
                         reloadDataLecture();
                     }
                 });
+            });
+            
+            $('#resetFaculty').click(function(){
+                $('input[name=idFaculty]').prop('readonly', false);
+            });
+            
+            $('#resetMajor').click(function(){
+                $('input[name=idMajor]').prop('readonly', false);
+            });
+            
+            $('#resetLecture').click(function(){
+                $('input[name=idLecture]').prop('readonly', false);
             });
         });
     </script>

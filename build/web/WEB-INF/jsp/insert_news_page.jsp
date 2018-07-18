@@ -99,7 +99,10 @@
 		</script>
                 <div class="row" style="padding-left: 50px; padding-right: 50px; padding-top: 30px">
                     <div class="col-md-12">
-                        <form action="saveNews.htm" modelAttribute="data" method="POST">
+                        <form action="saveNews.htm" 
+                              modelAttribute="data"
+                              id="formNews"
+                              method="POST">
                             <div class="row">
                                 <div class="col-md-5">
                                     <input type="hidden" 
@@ -230,6 +233,10 @@
                                 <a href="showMasterNews.htm">Master Berita
                                 </a>
                             </li>
+                            <li id="menu-academico-boletim">
+                                <a href="showMasterNews.htm">Master Berita
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -253,6 +260,21 @@
                 }, 400);
             }               
                 toggle = !toggle;
+            });
+            
+            $(document).ready(function(){
+                $('#formNews').submit(function(e){
+                    e.preventDefault();
+                    $.post({
+                        url : 'saveNews.htm',
+                        dataType: "form-data",
+                        data : $('#formNews').serialize(),
+                        error: function(){
+                            $.growl.notice({title: "Berhasil", message: "Data berhasil ditambahkan" });
+                            $('formNews').reset();
+                        }
+                    });
+                });
             });
     </script>
     <script src="resource/js/jquery.nicescroll.js"></script>

@@ -151,7 +151,6 @@
                         <div class="tab-content">
                             <div class="tab-pane" 
                              id="tab1">
-                            <br>
                             <div class="row">
                                 <div class="col-md-12">
                                     <form action="saveDetailFileRecruitment.htm"
@@ -218,7 +217,6 @@
                         </div>
                         <div class="tab-pane" 
                              id="tab2">
-                            <br>
                             <div class="row">
                                 <div class="col-md-12">
                                     <form action="saveDetailFileNidn.htm"
@@ -285,7 +283,6 @@
                         </div>
                         <div class="tab-pane" 
                              id="tab3">
-                            <br>
                             <div class="row">
                                 <div class="col-md-12">
                                     <form action="saveDetailFileAssistant.htm"
@@ -352,7 +349,6 @@
                         </div>
                         <div class="tab-pane" 
                              id="tab4">
-                            <br>
                             <div class="row">
                                 <div class="col-md-12">
                                     <form action="saveDetailFileLectors.htm"
@@ -419,7 +415,6 @@
                         </div>
                         <div class="tab-pane" 
                              id="tab5">
-                            <br>
                             <div class="row">
                                 <div class="col-md-12">
                                     <form action="saveDetailFileHeadlectors.htm"
@@ -486,7 +481,6 @@
                         </div>
                         <div class="tab-pane" 
                              id="tab6">
-                            <br>
                             <div class="row">
                                 <div class="col-md-12">
                                     <form action="saveDetailFileProfessor.htm"
@@ -641,6 +635,10 @@
                                 <a href="showMasterProgress.htm">Detail Progress
                                 </a>
                             </li>
+                            <li id="menu-academico-boletim">
+                                <a href="showMasterNews.htm">Master Berita
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -677,6 +675,8 @@
             
             
             var tableFileRecruitment = $('#tableFileRecruitment').DataTable({
+                pageLength: 5,
+                lengthChange: false,
                 columns: [
                     { data: null, sortable: false},
                     { data: 'nameDokumen'},
@@ -689,6 +689,8 @@
             });
             
             var tableFileNidn = $('#tableFileNidn').DataTable({
+                pageLength: 5,
+                lengthChange: false,
                 columns: [
                     { data: null, sortable: false},
                     { data: 'nameDokumen'},
@@ -701,6 +703,8 @@
             });
             
             var tableFileAssistant = $('#tableFileAssistant').DataTable({
+                pageLength: 5,
+                lengthChange: false,
                 columns: [
                     { data: null, sortable: false},
                     { data: 'nameDokumen'},
@@ -713,6 +717,8 @@
             });
             
             var tableFileLectors = $('#tableFileLectors').DataTable({
+                pageLength: 5,
+                lengthChange: false,
                 columns: [
                     { data: null, sortable: false},
                     { data: 'nameDokumen'},
@@ -725,6 +731,8 @@
             });
             
             var tableFileHeadlectors = $('#tableFileHeadlectors').DataTable({
+                pageLength: 5,
+                lengthChange: false,
                 columns: [
                     { data: null, sortable: false},
                     { data: 'nameDokumen'},
@@ -737,6 +745,8 @@
             });
             
             var tableFileProfessor = $('#tableFileProfessor').DataTable({
+                pageLength: 5,
+                lengthChange: false,
                 columns: [
                     { data: null, sortable: false},
                     { data: 'nameDokumen'},
@@ -749,6 +759,8 @@
             });
             
             var tableFileSertification = $('#tableFileSertification').DataTable({
+                pageLength: 5,
+                lengthChange: false,
                 columns: [
                     { data: null, sortable: false},
                     { data: 'nameDokumen'}
@@ -876,37 +888,37 @@
             
             $('#tableFileRecruitment tbody').on('click', 'button#update', function () {
                 var data = tableFileRecruitment.row(this.closest('tr')).data();
-                $('input[name=idDetailRecruitment]').val(data.idDetail);
+                $('input[id=idDetailRecruitment]').val(data.idDetail);
                 $('input[id=recruitment]').val(data.nameDokumen);
             });
             
             $('#tableFileNidn tbody').on('click', 'button#update', function () {
                 var data = tableFileNidn.row(this.closest('tr')).data();
-                $('input[name=idDetailNidn]').val(data.idDetail);
+                $('input[id=idDetailNidn]').val(data.idDetail);
                 $('input[id=nidn]').val(data.nameDokumen);
             });
             
             $('#tableFileAssistant tbody').on('click', 'button#update', function () {
                 var data = tableFileAssistant.row(this.closest('tr')).data();
-                $('input[name=idDetailAssistant]').val(data.idDetail);
+                $('input[id=idDetailAssistant]').val(data.idDetail);
                 $('input[id=assistant]').val(data.nameDokumen);
             });
             
             $('#tableFileLectors tbody').on('click', 'button#update', function () {
                 var data = tableFileLectors.row(this.closest('tr')).data();
-                $('input[name=idDetailLectors]').val(data.idDetail);
+                $('input[id=idDetailLectors]').val(data.idDetail);
                 $('input[id=lectors]').val(data.nameDokumen);
             });
             
             $('#tableFileHeadlectors tbody').on('click', 'button#update', function () {
                 var data = tableFileHeadlectors.row(this.closest('tr')).data();
-                $('input[name=idDetailHeadlectors]').val(data.idDetail);
+                $('input[id=idDetailHeadlectors]').val(data.idDetail);
                 $('input[id=headlectors]').val(data.nameDokumen);
             });
             
             $('#tableFileProfessor tbody').on('click', 'button#update', function () {
                 var data = tableFileProfessor.row(this.closest('tr')).data();
-                $('input[name=idDetailProfessor]').val(data.idDetail);
+                $('input[id=idDetailProfessor]').val(data.idDetail);
                 $('input[id=professor]').val(data.nameDokumen);
             });
             

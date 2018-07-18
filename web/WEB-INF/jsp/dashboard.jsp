@@ -90,35 +90,27 @@
 			 
 		});
 		</script>
-                <c:forEach var="listData" 
-                        items="${data}">
-                    <c:url var="detil" 
-                        value="detilNewsAdmin.htm">
-                        <c:param name="idNews" 
-                            value="${listData.idNews}">
-                        </c:param>
-                    </c:url>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="portlet-grid-page" style="padding: 20px">  	
-                                <div class="portlet panel-success col-md-12" 
-                                    style="border: solid 1px #65cea7"> 
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">
-                                            ${listData.updateDate}
-                                        </h3>
-                                    </div> 
-                                    <a href="${detil}">
-                                        <div class="panel-body">
-                                            ${listData.title}
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                <div class="row" style="padding-left: 50px; padding-right: 50px; padding-top: 30px">
+                    <div class="col-md-12">
+                        <p style="color: red; font-size: 20px; font-weight: bold">Timeline Berita : </p>
+                    </div>
+                </div>
+                <c:forEach var="newsData" items="${data}">
+                    <div class="row" style="padding-left: 50px; padding-right: 50px; padding-top: 25px">
+                        <div class="col-md-2">
+                            <p style="font-size: 16px;">${newsData.updateDate}</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p style="font-size: 16px; font-weight: bold">${newsData.title}</p>
+                        </div>
+                        <div class="col-md-1">
+                            <c:url var="detilNews" value="detilNewsAdmin.htm">
+                                <c:param name="idNews" value="${newsData.idNews}"/>
+                            </c:url>
+                            <p style="font-size: 16px;"><a href="${detilNews}"><i>Selengkapnya...</i></a></p>
                         </div>
                     </div>
-                    <br>
-                </c:forEach>   
+                </c:forEach>
             </div>
         </div>
         <div class="sidebar-menu">

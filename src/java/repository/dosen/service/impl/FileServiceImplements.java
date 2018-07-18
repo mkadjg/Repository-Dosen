@@ -241,8 +241,12 @@ public class FileServiceImplements implements FileService {
     public FileDto getPathPhoto(int idLecturer) {
         TranFile tranFile = fileDao.getPathPhoto(idLecturer);
         FileDto fileDto = new FileDto();
-        fileDto.setNameFile(tranFile.getNameFile());
-        fileDto.setIdTranFile(tranFile.getIdTranFile());
+        if (tranFile == null){
+            fileDto.setNameFile("");
+        } else {
+            fileDto.setNameFile(tranFile.getNameFile());
+            fileDto.setIdTranFile(tranFile.getIdTranFile());
+        }
         return fileDto;
     }
 }

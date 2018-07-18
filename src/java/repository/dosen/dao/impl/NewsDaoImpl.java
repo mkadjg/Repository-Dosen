@@ -35,7 +35,7 @@ public class NewsDaoImpl extends HibernateUtil implements NewsDao{
 
     @Override
     public void saveNews(MasterNews masterNews) {
-        getSession().save(masterNews);
+        getSession().saveOrUpdate(masterNews);
     }
 
     @Override

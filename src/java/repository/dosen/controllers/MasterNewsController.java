@@ -30,7 +30,7 @@ public class MasterNewsController {
     public String detilNews(int idNews, ModelMap model){
         News news = newsService.getDataNews(idNews);
         model.addAttribute("data", news);
-        return "detil_news";
+        return "detil_news_admin";
     }
     
     @RequestMapping( value = "/getNewsAdmin", method = RequestMethod.GET)
