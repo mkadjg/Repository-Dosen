@@ -588,6 +588,13 @@ public class FileController {
         return "insert_file_professor_dosen";
     }
     
+    @RequestMapping( value = "/getFileRecruitment", method = RequestMethod.GET)
+    @ResponseBody
+    public String getFileRecruitment(int idLecturer){
+        List<FileDto> listFile = fileService.getFileRecruitment(idLecturer);
+        return new Gson().toJson(listFile);
+    }
+    
     @RequestMapping( value = "/getFileNidn", method = RequestMethod.GET)
     @ResponseBody
     public String getFileNidn(int idLecturer){
