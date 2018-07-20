@@ -143,4 +143,6 @@
     <bean id="tranProgressSertificationService" class="repository.dosen.service.impl.TranProgressSertificationServiceImplement"/>
     <bean id="tranProgressSertificationDao" class="repository.dosen.dao.impl.TranProgressSertificationDaoImpl"/>
     
+    <bean id="reportService" class="repository.dosen.service.impl.ReportServiceImplement"/>
+    
 </beans>

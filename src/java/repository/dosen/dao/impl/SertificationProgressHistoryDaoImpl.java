@@ -67,5 +67,24 @@ public class SertificationProgressHistoryDaoImpl extends HibernateUtil implement
     public void deleteSertificationProgressHistory(SertificationProgressHistory sertificationProgressHistory) {
         getSession().delete(sertificationProgressHistory);
     }
+
+    @Override
+    public List<Object[]> getSertificationProgressHistory(String idFaculty, String idMajor) {
+        String sql = "select * from SertificationProgressHistory where state = 1 ";
+        if (!(idFaculty.equals("0"))) {
+            if (idMajor.equals("0")){
+                sql += "and idLecturer in ("
+                + "select idLecturer from MasterLecturer where idMajor in ("
+                + "select idMajor from MasterMajor where idFaculty in ("
+                + "select idFaculty from MasterFaculty where idFaculty ='"+ idFaculty +"')))";
+            } else {
+                sql += "and idLecturer in ("
+                + "select idLecturer from MasterLecturer where idMajor in ("
+                + "select idMajor from MasterMajor where idMajor ='" + idMajor + "'))";
+            }
+        }
+        Query query = createNativeQuery(sql);
+        return query.list();
+    }
     
 }

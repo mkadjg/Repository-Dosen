@@ -36,7 +36,7 @@
 		<div class="header-main">
                     <div class="header-left col-md-6">
                         <center>
-                            <h3 style="margin-top: 13px;">DETIL KELENGKAPAN PORTOFOLIO DOSEN TETAP</h3>
+                            <h3 style="margin-top: 13px;">LAPORAN JENJANG KARIR</h3>
                         </center>							
                         <div class="clearfix"> </div>
                     </div>
@@ -102,62 +102,50 @@
                                 <a href="#tab1" 
                                    data-toggle="tab" 
                                    aria-expanded="true">
-                                    NIDN
+                                    Pengajuan Nidn
                                 </a>
                             </li>
                             <li class="">
                                 <a href="#tab2" 
                                    data-toggle="tab" 
                                    aria-expanded="false">
-                                    Asisten Ahli
+                                    Pengajuan Asisten Ahli
                                 </a>
                             </li>
                             <li class="">
                                 <a href="#tab3" 
                                    data-toggle="tab" 
                                    aria-expanded="false">
-                                    Lektor
+                                    Pengajuan Lektor
                                 </a>
                             </li>
                             <li class="">
                                 <a href="#tab4" 
                                    data-toggle="tab" 
                                    aria-expanded="false">
-                                    Lektor Kepala
+                                    Pengajuan Lektor Kepala
                                 </a>
                             </li>
                             <li class="">
                                 <a href="#tab5" 
                                    data-toggle="tab" 
                                    aria-expanded="false">
-                                    Guru Besar
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="#tab6" 
-                                   data-toggle="tab" 
-                                   aria-expanded="false">
-                                    Sertifikasi Dosen
+                                    Pengajuan Guru Besar
                                 </a>
                             </li>
                         </ul>
-                        <br>
-                        <div class="row" align="center">
-                            <p><strong>Nama Dosen : ${data.nameLecturer}</strong></p>
-                            <input type="hidden" name="idLecturer" value="${data.idLecturer}"/>
-                        </div>
                         <div class="tab-content">
                             <div class="tab-pane" 
                              id="tab1">
                                 <div class="row">
-                                    <div class="col-md-12" style="padding-left: 60px; padding-right: 50px">     
-                                <hr>
+                                    <div class="col-md-12" style="padding-left: 50px; padding-right: 50px">     
                                         <div class="table-responsive">
-                                            <table class="table table-hover" id="tableBodyFileNidn">
+                                            <table class="table table-hover" id="tableNidn">
                                                 <thead>
-                                                        <th>NO</th>
-                                                        <th>Nama Dokumen</th>
-                                                        <th>Status</th>
+                                                    <th>No</th>
+                                                    <th>Nama</th>
+                                                    <th>Jurusan</th>                                                                 
+                                                    <th>Fakultas</th>
                                                 </thead>
                                             </table>
                                         </div>
@@ -167,14 +155,14 @@
                         <div class="tab-pane" 
                              id="tab2">
                             <div class="row">
-                                    <div class="col-md-12" style="padding-left: 60px; padding-right: 50px">     
-                                <hr>
+                                    <div class="col-md-12" style="padding-left: 50px; padding-right: 50px">     
                                         <div class="table-responsive">
-                                            <table class="table table-hover" id="tableBodyFileAssistant">
+                                            <table class="table table-hover" id="tableAssistant">
                                                 <thead>
-                                                        <th>NO</th>
-                                                        <th>Nama Dokumen</th>
-                                                        <th>Status</th>
+                                                    <th>No</th>
+                                                    <th>Nama</th>
+                                                    <th>Jurusan</th>                                                                 
+                                                    <th>Fakultas</th>
                                                 </thead>
                                             </table>
                                         </div>
@@ -184,14 +172,14 @@
                         <div class="tab-pane" 
                              id="tab3">
                             <div class="row">
-                                    <div class="col-md-12" style="padding-left: 60px; padding-right: 50px">     
-                                <hr>
+                                    <div class="col-md-12" style="padding-left: 50px; padding-right: 50px">     
                                         <div class="table-responsive">
-                                            <table class="table table-hover" id="tableBodyFileLectors">
+                                            <table class="table table-hover" id="tableLectors">
                                                 <thead>
-                                                        <th>NO</th>
-                                                        <th>Nama Dokumen</th>
-                                                        <th>Status</th>
+                                                    <th>No</th>
+                                                    <th>Nama</th>
+                                                    <th>Jurusan</th>                                                                 
+                                                    <th>Fakultas</th>
                                                 </thead>
                                             </table>
                                         </div>
@@ -201,14 +189,14 @@
                         <div class="tab-pane" 
                              id="tab4">
                             <div class="row">
-                                    <div class="col-md-12" style="padding-left: 60px; padding-right: 50px">     
-                                <hr>
+                                    <div class="col-md-12" style="padding-left: 50px; padding-right: 50px">     
                                         <div class="table-responsive">
-                                            <table class="table table-hover" id="tableBodyFileHeadlectors">
+                                            <table class="table table-hover" id="tableHeadlectors">
                                                 <thead>
-                                                        <th>NO</th>
-                                                        <th>Nama Dokumen</th>
-                                                        <th>Status</th>
+                                                    <th>No</th>
+                                                    <th>Nama</th>
+                                                    <th>Jurusan</th>                                                                 
+                                                    <th>Fakultas</th>
                                                 </thead>
                                             </table>
                                         </div>
@@ -218,34 +206,17 @@
                         <div class="tab-pane" 
                              id="tab5">
                             <div class="row">
-                                    <div class="col-md-12" style="padding-left: 60px; padding-right: 50px">     
-                                <hr>
+                                    <div class="col-md-12" style="padding-left: 50px; padding-right: 50px">     
                                         <div class="table-responsive">
-                                            <table class="table table-hover" id="tableBodyFileProfessor">
+                                            <table class="table table-hover" id="tableProfessor">
                                                 <thead>
-                                                        <th>NO</th>
-                                                        <th>Nama Dokumen</th>
-                                                        <th>Status</th>
+                                                    <th>No</th>
+                                                    <th>Nama</th>
+                                                    <th>Jurusan</th>                                                                 
+                                                    <th>Fakultas</th>
                                                 </thead>
                                             </table>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                        <div class="tab-pane" 
-                             id="tab6">
-                            <div class="row">
-                                    <div class="col-md-12" style="padding-left: 60px; padding-right: 50px">     
-                                <hr>
-                                        <div class="table-responsive">
-                                            <table class="table table-hover" id="tableBodyFileSertification">
-                                                <thead>
-                                                        <th>NO</th>
-                                                        <th>Nama Dokumen</th>
-                                                        <th>Status</th>
-                                                </thead>
-                                            </table>
-                                        </div>
+                                        </div>          
                                     </div>
                                 </div>
                         </div>
@@ -291,10 +262,10 @@
                                 <a href="showReportResume.htm">Resume Dosen Tetap</a>		              
                             </li>
                             <li id="menu-arquivos" >
-                                <a href="showReportComprehen.htm">Kelengkapan Portofolio</a>
+                                <a href="showReportComprehensif.htm">Kelengkapan Portofolio</a>
                             </li>
                             <li id="menu-arquivos" >
-                                <a href="icons.html">Jenjang Karir</a>
+                                <a href="showReportCareer.htm">Jenjang Karir</a>
                             </li>
                         </ul>
                     </li>
@@ -307,7 +278,7 @@
                     <li>
                         <a href="#">
                             <i class="fa fa-cog"></i>
-                            <span>Pengaturan</span>
+                            <span>Kelola Master</span>
                             <span class="fa fa-angle-right" style="float: right"></span>
                         </a>
                         <ul id="menu-academico-sub" >
@@ -353,234 +324,165 @@
         });
         
         $(document).ready(function(){
-            reloadDetailFileNidn();
-            reloadDetailFileAssistant();
-            reloadDetailFileLectors();
-            reloadDetailFileHeadlectors();
-            reloadDetailFileProfessor();
-            reloadDetailFileSertification();
+            reloadDataNidn();
+            reloadDataLecturerNonNidn();
+            reloadDataLecturerNonAssistant();
+            reloadDataLecturerNonLectors();
+            reloadDataLecturerNonHeadlectors();
             
-            var tableBodyFileNidn = $('#tableBodyFileNidn').DataTable({
-                pageLength: 6,                
-                lengthChange: false,                
+            var tableNidn = $('#tableNidn').DataTable({
+                pageLength: 5,
+                lengthChange: false,
                 columns: [
                     { data: null, sortable: false},
-                    { data: 'nameDokumen'},
-                    { data: null, sortable: false,
-                      render : function(data, type, full) {
-                          if(data.state < 1){
-                              return '<span class="glyphicon glyphicon-remove" style="color:red"></span>\n';
-                          } else {
-                              return '<span class="glyphicon glyphicon-ok" style="color:green"></span>\n';
-                          }
-                        }
-                    }
+                    { data: 'nameLecturer'},
+                    { data: 'nameFaculty'},
+                    { data: 'nameMajor'}
                 ]
             });
             
-            tableBodyFileNidn.on( 'order.dt search.dt', function () {
-                tableBodyFileNidn.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            tableNidn.on( 'order.dt search.dt', function () {
+                tableNidn.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
                 cell.innerHTML = i+1;
                 } );
             }).draw();
             
-            function reloadDetailFileNidn(){
-                var idLecturer = $('input[name=idLecturer]').val();
+            function reloadDataNidn(){
                 $.ajax({
-                    url : 'getFileNIDN.htm',
+                    url : "getNewLecturer.htm",
+                    data: {idFaculty: '0', idMajor: '0'},
                     type: 'GET',
-                    data: 'idLecturer=' + idLecturer,
-                    success : function(response) {
+                    success: function(response){
                         var data = JSON.parse(response);
-                        tableBodyFileNidn.rows.add(data).draw();
+                        console.log(data);
+                        tableNidn.rows.add(data).draw();
                     }
                 });
             }
             
-            var tableBodyFileAssistant = $('#tableBodyFileAssistant').DataTable({
-                pageLength: 6,                
-                lengthChange: false,                
+            //========================
+            
+            var tableAssistant = $('#tableAssistant').DataTable({
+                pageLength: 5,
+                lengthChange: false,
                 columns: [
                     { data: null, sortable: false},
-                    { data: 'nameDokumen'},
-                    { data: null, sortable: false,
-                      render : function(data, type, full) {
-                          if(data.state < 1){
-                              return '<span class="glyphicon glyphicon-remove" style="color:red"></span>\n';
-                          } else {
-                              return '<span class="glyphicon glyphicon-ok" style="color:green"></span>\n';
-                          }
-                        }
-                    }
+                    { data: 'nameLecturer'},
+                    { data: 'nameFaculty'},
+                    { data: 'nameMajor'}
                 ]
             });
             
-            tableBodyFileAssistant.on( 'order.dt search.dt', function () {
-                tableBodyFileAssistant.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            tableAssistant.on( 'order.dt search.dt', function () {
+                tableAssistant.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
                 cell.innerHTML = i+1;
                 } );
             }).draw();
             
-            function reloadDetailFileAssistant(){
-                var idLecturer = $('input[name=idLecturer]').val();
+            function reloadDataLecturerNonNidn(){
                 $.ajax({
-                    url : 'getFileAssistant.htm',
+                    url : "getLecturerNonNidn.htm",
+                    data: {idFaculty: '0', idMajor: '0'},
                     type: 'GET',
-                    data: 'idLecturer=' + idLecturer,
-                    success : function(response) {
+                    success: function(response){
                         var data = JSON.parse(response);
-                        tableBodyFileAssistant.rows.add(data).draw();
+                        tableAssistant.rows.add(data).draw();
                     }
                 });
             }
             
-            var tableBodyFileLectors = $('#tableBodyFileLectors').DataTable({
-                pageLength: 6,                
-                lengthChange: false,                
+            //===============================================================
+            
+            var tableLectors = $('#tableLectors').DataTable({
+                pageLength: 5,
+                lengthChange: false,
                 columns: [
                     { data: null, sortable: false},
-                    { data: 'nameDokumen'},
-                    { data: null, sortable: false,
-                      render : function(data, type, full) {
-                          if(data.state < 1){
-                              return '<span class="glyphicon glyphicon-remove" style="color:red"></span>\n';
-                          } else {
-                              return '<span class="glyphicon glyphicon-ok" style="color:green"></span>\n';
-                          }
-                        }
-                    }
+                    { data: 'nameLecturer'},
+                    { data: 'nameFaculty'},
+                    { data: 'nameMajor'}
                 ]
             });
             
-            tableBodyFileLectors.on( 'order.dt search.dt', function () {
-                tableBodyFileLectors.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            function reloadDataLecturerNonAssistant(){
+                $.ajax({
+                    url : "getLecturerNonAssistant.htm",
+                    data: {idFaculty: '0', idMajor: '0'},
+                    type: 'GET',
+                    success: function(response){
+                        var data = JSON.parse(response);
+                        tableLectors.rows.add(data).draw();
+                    }
+                });
+            }
+            
+            tableLectors.on( 'order.dt search.dt', function () {
+                tableLectors.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
                 cell.innerHTML = i+1;
                 } );
             }).draw();
             
-            function reloadDetailFileLectors(){
-                var idLecturer = $('input[name=idLecturer]').val();
+            //=======================================================================
+            
+            var tableHeadlectors = $('#tableHeadlectors').DataTable({
+                pageLength: 5,
+                lengthChange: false,
+                columns: [
+                    { data: null, sortable: false},
+                    { data: 'nameLecturer'},
+                    { data: 'nameFaculty'},
+                    { data: 'nameMajor'}
+                ]
+            });
+            
+            function reloadDataLecturerNonLectors(){
                 $.ajax({
-                    url : 'getFileLectors.htm',
+                    url : "getLecturerNonLectors.htm",
+                    data: {idFaculty: '0', idMajor: '0'},
                     type: 'GET',
-                    data: 'idLecturer=' + idLecturer,
-                    success : function(response) {
+                    success: function(response){
                         var data = JSON.parse(response);
-                        tableBodyFileLectors.rows.add(data).draw();
+                        tableHeadlectors.rows.add(data).draw();
                     }
                 });
             }
             
-            var tableBodyFileHeadlectors = $('#tableBodyFileHeadlectors').DataTable({
-                pageLength: 6,                
-                lengthChange: false,                
-                columns: [
-                    { data: null, sortable: false},
-                    { data: 'nameDokumen'},
-                    { data: null, sortable: false,
-                      render : function(data, type, full) {
-                          if(data.state < 1){
-                              return '<span class="glyphicon glyphicon-remove" style="color:red"></span>\n';
-                          } else {
-                              return '<span class="glyphicon glyphicon-ok" style="color:green"></span>\n';
-                          }
-                        }
-                    }
-                ]
-            });
-            
-            tableBodyFileHeadlectors.on( 'order.dt search.dt', function () {
-                tableBodyFileHeadlectors.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            tableHeadlectors.on( 'order.dt search.dt', function () {
+                tableHeadlectors.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
                 cell.innerHTML = i+1;
                 } );
             }).draw();
             
-            function reloadDetailFileHeadlectors(){
-                var idLecturer = $('input[name=idLecturer]').val();
-                $.ajax({
-                    url : 'getFileHeadLectors.htm',
-                    type: 'GET',
-                    data: 'idLecturer=' + idLecturer,
-                    success : function(response) {
-                        var data = JSON.parse(response);
-                        tableBodyFileHeadlectors.rows.add(data).draw();
-                    }
-                });
-            }
+            //========================================================================
             
-            var tableBodyFileProfessor = $('#tableBodyFileProfessor').DataTable({
-                pageLength: 6,                
-                lengthChange: false,                
+            var tableProfessor = $('#tableProfessor').DataTable({
+                pageLength: 5,
+                lengthChange: false,
                 columns: [
                     { data: null, sortable: false},
-                    { data: 'nameDokumen'},
-                    { data: null, sortable: false,
-                      render : function(data, type, full) {
-                          if(data.state < 1){
-                              return '<span class="glyphicon glyphicon-remove" style="color:red"></span>\n';
-                          } else {
-                              return '<span class="glyphicon glyphicon-ok" style="color:green"></span>\n';
-                          }
-                        }
-                    }
+                    { data: 'nameLecturer'},
+                    { data: 'nameFaculty'},
+                    { data: 'nameMajor'}
                 ]
             });
             
-            tableBodyFileProfessor.on( 'order.dt search.dt', function () {
-                tableBodyFileProfessor.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
-                cell.innerHTML = i+1;
-                } );
-            }).draw();
-            
-            function reloadDetailFileProfessor(){
-                var idLecturer = $('input[name=idLecturer]').val();
+            function reloadDataLecturerNonHeadlectors(){
                 $.ajax({
-                    url : 'getFileProfessor.htm',
+                    url : "getLecturerNonHeadlectors.htm",
+                    data: {idFaculty: '0', idMajor: '0'},
                     type: 'GET',
-                    data: 'idLecturer=' + idLecturer,
-                    success : function(response) {
+                    success: function(response){
                         var data = JSON.parse(response);
-                        tableBodyFileProfessor.rows.add(data).draw();
+                        tableProfessor.rows.add(data).draw();
                     }
                 });
             }
             
-            var tableBodyFileSertification = $('#tableBodyFileSertification').DataTable({
-                pageLength: 6,                
-                lengthChange: false,                
-                columns: [
-                    { data: null, sortable: false},
-                    { data: 'nameDokumen'},
-                    { data: null, sortable: false,
-                      render : function(data, type, full) {
-                          if(data.state < 1){
-                              return '<span class="glyphicon glyphicon-remove" style="color:red"></span>\n';
-                          } else {
-                              return '<span class="glyphicon glyphicon-ok" style="color:green"></span>\n';
-                          }
-                        }
-                    }
-                ]
-            });
-            
-            tableBodyFileSertification.on( 'order.dt search.dt', function () {
-                tableBodyFileSertification.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            tableProfessor.on( 'order.dt search.dt', function () {
+                tableProfessor.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
                 cell.innerHTML = i+1;
                 } );
             }).draw();
-            
-            function reloadDetailFileSertification(){
-                var idLecturer = $('input[name=idLecturer]').val();
-                $.ajax({
-                    url : 'getFileSertification.htm',
-                    type: 'GET',
-                    data: 'idLecturer=' + idLecturer,
-                    success : function(response) {
-                        var data = JSON.parse(response);
-                        tableBodyFileSertification.rows.add(data).draw();
-                    }
-                });
-            }
         });
     </script>
     <script src="resource/js/jquery.nicescroll.js"></script>

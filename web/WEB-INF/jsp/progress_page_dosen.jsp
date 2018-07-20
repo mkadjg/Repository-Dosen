@@ -316,6 +316,7 @@
                     
                     function reloadProgressNidn(){
                         var idLecturer = $('input[name=idLecturer]').val();
+                        console.log(idLecturer);
                         $.ajax({
                             url: "getProgressNidn.htm",
                             data: 'idLecturer=' + idLecturer,
@@ -352,7 +353,7 @@
                                             }
                                         } else {
                                             sumState++;
-                                            content +='<li class="active">\n\
+                                            content +='<li>\n\
                                                     ' + data[i].numberRequirement + '<br>\n\
                                                     <span class="glyphicon glyphicon-remove" style="color: red"></span>\n\
                                                     <br>\n\
@@ -365,13 +366,6 @@
                                                             <ul class="progressbar">';
                                             }
                                         }
-                                    }
-                                    if (sumState === 0){
-                                        content += '<div class="row">\n\
-                                                        <div class="col-md-3" style="padding-left: 50px; padding-right: 50px">\n\
-                                                            <button class="form-control-submit">Selesai</button>\n\
-                                                        </div>\n\
-                                                    </div>';
                                     }
                                     content+='</ul>\n\
                                                 </div>';
@@ -433,13 +427,6 @@
                                             }
                                         }
                                     }
-                                    if (sumState === 0){
-                                        content += '<div class="row">\n\
-                                                        <div class="col-md-3" style="padding-left: 50px; padding-right: 50px">\n\
-                                                            <button class="form-control-submit">Selesai</button>\n\
-                                                        </div>\n\
-                                                    </div>';
-                                    }
                                     content+='</ul>\n\
                                                 </div>';
                                 }
@@ -486,7 +473,7 @@
                                             }
                                         } else {
                                             sumState++;
-                                            content +='<li class="active">\n\
+                                            content +='<li>\n\
                                                     ' + data[i].numberRequirement + '<br>\n\
                                                     <span class="glyphicon glyphicon-remove" style="color: red"></span>\n\
                                                     <br>\n\
@@ -499,13 +486,6 @@
                                                             <ul class="progressbar">';
                                             }
                                         }
-                                    }
-                                    if (sumState === 0){
-                                        content += '<div class="row">\n\
-                                                        <div class="col-md-3" style="padding-left: 50px; padding-right: 50px">\n\
-                                                            <button class="form-control-submit">Selesai</button>\n\
-                                                        </div>\n\
-                                                    </div>';
                                     }
                                     content+='</ul>\n\
                                                 </div>';
@@ -553,7 +533,7 @@
                                             }
                                         } else {
                                             sumState++;
-                                            content +='<li class="active">\n\
+                                            content +='<li>\n\
                                                     ' + data[i].numberRequirement + '<br>\n\
                                                     <span class="glyphicon glyphicon-remove" style="color: red"></span>\n\
                                                     <br>\n\
@@ -566,13 +546,6 @@
                                                             <ul class="progressbar">';
                                             }
                                         }
-                                    }
-                                    if (sumState === 0){
-                                        content += '<div class="row">\n\
-                                                        <div class="col-md-3" style="padding-left: 50px; padding-right: 50px">\n\
-                                                            <button class="form-control-submit">Selesai</button>\n\
-                                                        </div>\n\
-                                                    </div>';
                                     }
                                     content+='</ul>\n\
                                                 </div>';
@@ -620,7 +593,7 @@
                                             }
                                         } else {
                                             sumState++;
-                                            content +='<li class="active">\n\
+                                            content +='<li>\n\
                                                     ' + data[i].numberRequirement + '<br>\n\
                                                     <span class="glyphicon glyphicon-remove" style="color: red"></span>\n\
                                                     <br>\n\
@@ -633,13 +606,6 @@
                                                             <ul class="progressbar">';
                                             }
                                         }
-                                    }
-                                    if (sumState === 0){
-                                        content += '<div class="row">\n\
-                                                        <div class="col-md-3" style="padding-left: 50px; padding-right: 50px">\n\
-                                                            <button class="form-control-submit">Selesai</button>\n\
-                                                        </div>\n\
-                                                    </div>';
                                     }
                                     content+='</ul>\n\
                                                 </div>';
@@ -663,7 +629,6 @@
                                                 <div class="row">\n\
                                                     <div class="col-md-12" style="text-align: center">\n\
                                                         <span><i>Anda belum memiliki progress di kegiatan ini.</span>\n\
-                                                        <span><i>Silahkan lengkapi persyaratan dengan mengklik <a href="addFileSertificationDosen.htm?idLecturer=' + idLecturer + '">Lengkapi Persyaratan</a></i></span>\n\
                                                     </div>\n\
                                                 </div>';
                                     
@@ -687,7 +652,7 @@
                                             }
                                         } else {
                                             sumState++;
-                                            content +='<li class="active">\n\
+                                            content +='<li>\n\
                                                     ' + data[i].numberRequirement + '<br>\n\
                                                     <span class="glyphicon glyphicon-remove" style="color: red"></span>\n\
                                                     <br>\n\
@@ -700,13 +665,6 @@
                                                             <ul class="progressbar">';
                                             }
                                         }
-                                    }
-                                    if (sumState === 0){
-                                        content += '<div class="row">\n\
-                                                        <div class="col-md-3" style="padding-left: 50px; padding-right: 50px">\n\
-                                                            <button class="form-control-submit">Selesai</button>\n\
-                                                        </div>\n\
-                                                    </div>';
                                     }
                                     content+='</ul>\n\
                                                 </div>';

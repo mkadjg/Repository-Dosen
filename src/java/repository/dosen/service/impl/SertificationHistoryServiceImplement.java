@@ -69,6 +69,7 @@ public class SertificationHistoryServiceImplement implements SertificationHistor
             sertificationHistory.setIdLecturer(tranSertificationHistory.getLecturer().getIdLecturer());
             sertificationHistory.setIdTranFile(tranSertificationHistory.getTranFile().getIdTranFile());
             sertificationHistory.setIdDetail(tranSertificationHistory.getTranFile().getDetail().getIdDetail());
+            sertificationHistory.setNameDokumen(tranSertificationHistory.getTranFile().getDetail().getNameDokumen());
             listSertificationHistory.add(sertificationHistory);
         }
         return listSertificationHistory;

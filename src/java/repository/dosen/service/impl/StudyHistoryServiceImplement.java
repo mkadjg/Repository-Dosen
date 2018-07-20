@@ -73,6 +73,7 @@ public class StudyHistoryServiceImplement implements StudyHistoryService{
             studyHistory.setIdLecturer(tranStudyHistory.getLecturer().getIdLecturer());
             studyHistory.setIdTranFile(tranStudyHistory.getTranFile().getIdTranFile());
             studyHistory.setIdDetail(tranStudyHistory.getTranFile().getDetail().getIdDetail());
+            studyHistory.setNameDokumen(tranStudyHistory.getTranFile().getDetail().getNameDokumen());
             studyHistory.setIdStudy(tranStudyHistory.getStudy().getIdStudy());
             studyHistory.setNameUniversity(tranStudyHistory.getNameUniversity());
             studyHistory.setDegree(tranStudyHistory.getDegree());

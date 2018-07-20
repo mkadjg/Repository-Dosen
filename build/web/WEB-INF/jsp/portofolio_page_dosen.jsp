@@ -25,12 +25,17 @@
         <script src="resource/javascripts/jquery.growl.js" type="text/javascript"></script>
         <link href="resource/stylesheets/jquery.growl.css" rel="stylesheet" type="text/css" />
         
+        <!--datatable file library-->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <!--<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>-->
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        
         <!--autocomplete file library-->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/resources/demos/style.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        
+       
     </head>
     <body>	
     <div class="page-container" style="overflow: scroll">	
@@ -39,7 +44,7 @@
 		<div class="header-main">
                     <div class="header-left col-md-6">
                         <center>
-                            <h3 style="margin-top: 13px;">PORTOFOLIO</h3>
+                            <h3 style="margin-top: 13px;">BERANDA</h3>
                         </center>							
                         <div class="clearfix"> </div>
                     </div>
@@ -142,9 +147,14 @@
                             <div class="tab-pane" 
                                  id="tab1">
                                 <br>
-                                <br>
                                 <div class="row">
                                     <div class="col-md-offset-1 col-md-7">
+                                        <div class="row">
+                                            <div class="col-md-3" align="center">
+                                                <button id="editBiodata" class="form-control-submit">Edit Biodata</button>
+                                            </div>
+                                        </div>
+                                        <br>
                                         <div class="row">
                                             <div class="col-md-3">
                                                 NIDN
@@ -253,59 +263,42 @@
                                             </div>
                                         </div>
                                         <br>
+                                    </div>
+                                    <div class="col-md-4">
                                         <div class="row">
-                                            <div class="col-md-3">
+                                            <div class="col-md-12">
+                                                <img src="${file.nameFile}" style="width: 160px; height: 180px" />
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                Homebase Dosen
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-4">
                                                 Prodi / Jurusan
                                             </div>
                                             <div class="col-md-1">
                                                 :
                                             </div>
-                                            <div class="col-md-7">
-                                                pendidikan
+                                            <div class="col-md-6">
+                                                ${listBiodata.nameMajor}
                                             </div>
                                         </div>
                                         <br>
                                         <div class="row">
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 Fakultas
                                             </div>
                                             <div class="col-md-1">
                                                 :
                                             </div>
-                                            <div class="col-md-7">
-                                                gelar
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <img src="${file.nameFile}" style="width: 120px; height: 180px" />
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <br>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                Fakultas
-                                            </div>
-                                            <div class="col-md-1">
-                                                :
-                                            </div>
-                                            <div class="col-md-7">
-                                                gelar
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                Fakultas
-                                            </div>
-                                            <div class="col-md-1">
-                                                :
-                                            </div>
-                                            <div class="col-md-7">
-                                                gelar
+                                            <div class="col-md-6">
+                                                ${listBiodata.nameFaculty}
                                             </div>
                                         </div>
                                     </div>
@@ -313,38 +306,15 @@
                             </div>
                             <div class="tab-pane" 
                                  id="tab2">
-                                <br>
-                                <br>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-offset-8 col-md-3">
-                                                <input type="search"
-                                                       name="nameSearchFile"
-                                                           placeholder="Search..."
-                                                           class="form-control"
-                                                           required="">
-                                            </div>
-                                            <div class="col-md-1" align="left">
-                                                <button id="searchFile" 
-                                                    style="padding-top: 7px; border-radius:5px " >
-                                                    <span class="glyphicon glyphicon-search"></span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <hr>
                                         <div class="table-responsive">
-                                            <table class="table table-hover">
+                                            <table class="table table-hover" id="tableFile">
                                                 <thead>
-                                                    <tr>
-                                                        <th>Nomor</th>
-                                                        <th>Nama Dokumen / File</th>
-                                                        <th>Aksi</th>
-                                                    </tr>
+                                                    <th>Nomor</th>
+                                                    <th>Nama Dokumen / File</th>
+                                                    <th>Aksi</th>
                                                 </thead>
-                                                <tbody id="tableBodyFile">
-                                                    
-                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -352,7 +322,6 @@
                             </div>
                             <div class="tab-pane" 
                                  id="tab3">
-                                <br>
                                 <div class="row">
                                     <form action="saveLectureHistory.htm"
                                                id="formLectureHistory"
@@ -502,39 +471,19 @@
                                         </div>                   
                                     </div>
                                     </form> 
-                                </div>                             
+                                </div>
+                                <hr>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-offset-8 col-md-3">
-                                                <input type="search"
-                                                       name="nameSearchLectureHistory"
-                                                           placeholder="Search..."
-                                                           class="form-control"
-                                                           required="">
-                                            </div>
-                                            <div class="col-md-1" align="left">
-                                                <button id="searchLectureHistory" 
-                                                    style="padding-top: 7px; border-radius:5px " >
-                                                    <span class="glyphicon glyphicon-search"></span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <hr>
                                         <div class="table-responsive">
-                                            <table class="table table-hover">
+                                            <table class="table table-hover" id="tableLectureHistory">
                                                 <thead>
-                                                    <tr>
-                                                        <th>Nomor</th>
-                                                        <th>Mata Kuliah</th>
-                                                        <th>Semester</th>
-                                                        <th>Tahun</th>
-                                                        <th colspan="2">Aksi</th>
-                                                    </tr>
+                                                    <th>Nomor</th>
+                                                    <th>Mata Kuliah</th>
+                                                    <th>Semester</th>
+                                                    <th>Tahun</th>
+                                                    <th colspan="2">Aksi</th>
                                                 </thead>
-                                                <tbody id="tableBodyLectureHistory">
-                                                    
-                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -731,39 +680,19 @@
                                         </div>            
                                     </form>
                                 </div>
+                                <hr>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-offset-8 col-md-3">
-                                                <input type="search"
-                                                       name="nameSearchStudyHistory"
-                                                           placeholder="Search..."
-                                                           class="form-control"
-                                                           required="">
-                                            </div>
-                                            <div class="col-md-1" align="left">
-                                                <button id="searchStudyHistory" 
-                                                    style="padding-top: 7px; border-radius:5px " >
-                                                    <span class="glyphicon glyphicon-search"></span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <hr>
                                         <div class="table-responsive">
-                                            <table class="table table-hover">
+                                            <table class="table table-hover" id="tableStudyHistory">
                                                 <thead>
-                                                    <tr>
-                                                        <th>Nomor</th>
-                                                        <th>Perguruan Tinggi</th>
-                                                        <th>Jenjang</th>
-                                                        <th>Gelar</th>
-                                                        <th>Tahun Lulus</th>
-                                                        <th colspan="2">Aksi</th>
-                                                    </tr>
+                                                    <th>Nomor</th>
+                                                    <th>Perguruan Tinggi</th>
+                                                    <th>Jenjang</th>
+                                                    <th>Gelar</th>
+                                                    <th>Tahun Lulus</th>
+                                                    <th>Aksi</th>
                                                 </thead>
-                                                <tbody id="tableBodyStudyHistory">
-
-                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -918,41 +847,21 @@
                                             </div>
                                         </form> 
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                                <div class="col-md-offset-8 col-md-3">
-                                                    <input type="search"
-                                                           name="nameSearchFunctionalHistory"
-                                                               placeholder="Search..."
-                                                               class="form-control"
-                                                               required="">
-                                                </div>
-                                                <div class="col-md-1" align="left">
-                                                    <button id="searchFunctionalHistory" 
-                                                        style="padding-top: 7px; border-radius:5px " >
-                                                        <span class="glyphicon glyphicon-search"></span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="table-responsive">
-                                        <table class="table table-hover">
-                                            <thead>
-                                                <tr>
+                                </div>                    
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover" id="tableFunctionalHistory">
+                                                <thead>
                                                     <th>Nomor</th>
                                                     <th>Jabatan</th>
                                                     <th>No. SK</th>
                                                     <th>TMT SK</th>
-                                                    <th colspan="2">Aksi</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="tableBodyFunctionalHistory">
-                                                
-                                            </tbody>
-                                        </table>
+                                                    <th>Aksi</th>
+                                                </thead>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1109,44 +1018,24 @@
                                         </form> 
                                     </div>
                                 </div>
+                                <hr>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-offset-8 col-md-3">
-                                                <input type="search"
-                                                       name="nameSearchSertificationHistory"
-                                                           placeholder="Search..."
-                                                           class="form-control"
-                                                           required="">
-                                            </div>
-                                            <div class="col-md-1" align="left">
-                                                <button id="searchSertificationHistory" 
-                                                    style="padding-top: 7px; border-radius:5px " >
-                                                    <span class="glyphicon glyphicon-search"></span>
-                                                </button>
-                                            </div>
+                                        <div class="table-responsive">
+                                            <table class="table table-hover" id="tableSertificationHistory">
+                                                <thead>
+                                                    <th>Nomor</th>
+                                                    <th>Jenis Sertifikasi</th>
+                                                    <th>Bidang Studi</th>
+                                                    <th>No. PTPS / Lembaga Penilai</th>
+                                                    <th>No. Registrasi (SERDIK)
+                                                    <th>Aksi</th>
+                                                </thead>
+                                            </table>
                                         </div>
                                     </div>
-                                </div>                    
-                                <hr>
-                                <div class="table-responsive">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>Nomor</th>
-                                                <th>Jenis Sertifikasi</th>
-                                                <th>Bidang Studi</th>
-                                                <th>No. PTPS / Lembaga Penilai</th>
-                                                <th>No. Registrasi (SERDIK)
-                                                <th colspan="2">Aksi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tableBodySertificationHistory">
-                                            
-                                        </tbody>
-                                    </table>
                                 </div>
-                            </div>
+                            </div>    
                         </div>
                     </div>
                     <div class="clearfix"> </div>
@@ -1179,7 +1068,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="showProgress.htm">
+                        <a href="showProgressDosen.htm?idLecturer=${sessionScope.idLecturer}">
                         <i class="fa fa-bar-chart"></i>
                         <span>Progress</span>
                         </a>
@@ -1215,349 +1104,6 @@
             reloadFunctionalHistory();
             reloadSertificationHistory();
             
-            function reloadLectureHistory(){
-                var idLecturer = $('input[name=idLecturer]').val();
-                $.ajax({
-                    url : "getLectureHistory.htm",
-                    data : "idLecturer=" + idLecturer,
-                    type: 'GET',
-                    success: function(response){
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        if (len === 0){
-                            var content = '';
-                            $('#tableBodyLectureHistory').html(content);
-                        } else {
-                            var content = '';
-                            for (var i =0; i < len; i++){
-                                content +=' <tr>\n\
-                                                <td>' + (i + 1) + '</td>\n\
-                                                <td class="nameLecture">' + data[i].nameLecture + '</td>\n\
-                                                <td class="semester">' + data[i].semester + '</td>\n\
-                                                <td class="year">' + data[i].year + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="idLectureHistory" value="' + data[i].idLectureHistory + '"/>\n\
-                                                    <input type="hidden" class="idTranFile" value="' + data[i].idTranFile + '"/>\n\
-                                                    <input type="hidden" class="idDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateLectureHistory fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteLectureHistory fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                $('#tableBodyLectureHistory').html(content);
-                            }
-                        }
-                        
-                        $('.updateLectureHistory').click(function(){
-                            var nameLecture = $(this).closest('tr').find('.nameLecture').html();
-                            var semester = $(this).closest('tr').find('.semester').html();
-                            var year = $(this).closest('tr').find('.year').html();
-                            var idLectureHistory = $(this).closest('tr').find('.idLectureHistory').val();
-                            var idTranFile = $(this).closest('tr').find('.idTranFile').val();
-                            var idDetail = $(this).closest('tr').find('.idDetail').val();
-                            $('input[id=idTranFileLectureHistory]').val(idTranFile);
-                            $('input[name=idLectureHistory]').val(idLectureHistory);
-                            $('input[name=year]').val(year);
-                            $('select[name=semester]').val(semester);
-                            $('input[name=nameLecture]').val(nameLecture);
-                            $('select[id=idDetailLectureHistory]').val(idDetail);
-                        });
-                        
-                        $('.deleteLectureHistory').click(function(){
-                            var idLectureHistory = $(this).closest('tr').find('.idLectureHistory').val();
-                            var idTranFile = $(this).closest('tr').find('.idTranFile').val();
-                            $.ajax({
-                                url : "deleteLectureHistory.htm",
-                                data : {idTranFile: idTranFile, idLectureHistory: idLectureHistory},
-                                type: 'GET',
-                                success: function(response){
-                                    $(function(){
-                                        $.growl.notice({title: "Berhasil", message: "Data berhasil dihapus !"});
-                                    });
-                                    reloadDataFile();
-                                    reloadLectureHistory();
-                                }
-                            });
-                        });
-                        
-                        $('#resetLectureHistory').click(function(){
-                            $('input[id=idTranFileLectureHistory]').val(0);
-                            $('input[name=idLectureHistory]').val(0);
-                        });
-                    }
-                });
-            }
-            
-            function reloadStudyHistory(){
-                var idLecturer = $('input[name=idLecturer]').val();
-                $.ajax({
-                    url : "getStudyHistory.htm",
-                    data : "idLecturer=" + idLecturer,
-                    type: 'GET',
-                    success: function(response){
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        if (len === 0){
-                            var content = '';
-                            $('#tableBodyStudyHistory').html(content);
-                        } else {
-                            var content = '';
-                            for (var i =0; i < len; i++){
-                                var content = '';
-                                for (var i =0; i < len; i++){
-                                    content +=' <tr>\n\
-                                                    <td>' + (i + 1) + '</td>\n\
-                                                    <td class="nameUniversity">' + data[i].nameUniversity + '</td>\n\
-                                                    <td class="studyDescription">' + data[i].studyDescription + '</td>\n\
-                                                    <td class="degree">' + data[i].degree + '</td>\n\
-                                                    <td class="graduateYear">' + data[i].graduateYear + '</td>\n\
-                                                    <td>\n\
-                                                        <input type="hidden" class="idStudyHistory" value="' + data[i].idStudyHistory + '"/>\n\
-                                                        <input type="hidden" class="idTranFile" value="' + data[i].idTranFile + '"/>\n\
-                                                        <input type="hidden" class="idStudy" value="' + data[i].idStudy + '"/>\n\
-                                                        <input type="hidden" class="idDetail" value="' + data[i].idDetail + '"/>\n\
-                                                        <input type="hidden" class="joinYear" value="' + data[i].joinYear + '"/>\n\
-                                                        <input type="hidden" class="studyProgram" value="' + data[i].studyProgram + '"/>\n\
-                                                        <a href="#"><span class="updateStudyHistory fa fa-pencil"></span></a>\n\
-                                                    </td>\n\
-                                                    <td>\n\
-                                                        <a href="#"><span class="deleteStudyHistory fa fa-trash"></span></a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    $('#tableBodyStudyHistory').html(content);
-                                }
-                            }
-                        }
-                        
-                        $('.updateStudyHistory').click(function(){
-                            var nameUniversity = $(this).closest('tr').find('.nameUniversity').html();
-                            var degree = $(this).closest('tr').find('.degree').html();
-                            var graduateYear = $(this).closest('tr').find('.graduateYear').html();
-                            var joinYear = $(this).closest('tr').find('.joinYear').val();
-                            var studyProgram = $(this).closest('tr').find('.studyProgram').val();
-                            var idStudyHistory = $(this).closest('tr').find('.idStudyHistory').val();
-                            var idTranFile = $(this).closest('tr').find('.idTranFile').val();
-                            var idDetail = $(this).closest('tr').find('.idDetail').val();
-                            var idStudy = $(this).closest('tr').find('.idStudy').val();
-                            $('input[id=idTranFileStudyHistory]').val(idTranFile);
-                            $('input[name=idStudyHistory]').val(idStudyHistory);
-                            $('input[name=nameUniversity]').val(nameUniversity);
-                            $('input[name=degree]').val(degree);
-                            $('input[name=graduateYear]').val(graduateYear);
-                            $('input[name=joinYear]').val(joinYear);
-                            $('input[name=studyProgram]').val(studyProgram);
-                            $('select[name=idStudy]').val(idStudy);
-                            $('select[id=idDetailStudyHistory]').val(idDetail);
-                        });
-                        
-                        $('.deleteStudyHistory').click(function(){
-                            var idStudyHistory = $(this).closest('tr').find('.idStudyHistory').val();
-                            var idTranFile = $(this).closest('tr').find('.idTranFile').val();
-                            $.ajax({
-                                url : "deleteStudyHistory.htm",
-                                data : {idTranFile: idTranFile, idStudyHistory: idStudyHistory},
-                                type: 'GET',
-                                success: function(response){
-                                    $(function(){
-                                        $.growl.notice({title: "Berhasil", message: "Data berhasil dihapus !"});
-                                    });
-                                    reloadDataFile();
-                                    reloadStudyHistory();
-                                }
-                            });
-                        });
-                        
-                        $('#resetStudyHistory').click(function(){
-                            $('input[id=idTranFileStudyHistory]').val(0);
-                            $('input[name=idStudyHistory]').val(0);
-                        });
-                    }
-                });
-            }
-            
-            function reloadFunctionalHistory(){
-                var idLecturer = $('input[name=idLecturer]').val();
-                $.ajax({
-                    url : "getFunctionalHistory.htm",
-                    data : "idLecturer=" + idLecturer,
-                    type: 'GET',
-                    success: function(response){
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        if (len === 0){
-                            var content = '';
-                            $('#tableBodyFunctionalHistory').html(content);
-                        } else {
-                            var content = '';
-                            for (var i =0; i < len; i++){
-                                var content = '';
-                                for (var i =0; i < len; i++){
-                                    content +=' <tr>\n\
-                                                    <td>' + (i + 1) + '</td>\n\
-                                                    <td class="nameFunctional">' + data[i].nameFunctional + '</td>\n\
-                                                    <td class="skNumber">' + data[i].skNumber + '</td>\n\
-                                                    <td class="skDate">' + data[i].skDate + '</td>\n\
-                                                    <td>\n\
-                                                        <input type="hidden" class="idFunctionalHistory" value="' + data[i].idFunctionalHistory + '"/>\n\
-                                                        <input type="hidden" class="idTranFile" value="' + data[i].idTranFile + '"/>\n\
-                                                        <input type="hidden" class="idFunctional" value="' + data[i].idFunctional + '"/>\n\
-                                                        <input type="hidden" class="idDetail" value="' + data[i].idDetail + '"/>\n\
-                                                        <a href="#"><span class="updateFunctionalHistory fa fa-pencil"></span></a>\n\
-                                                    </td>\n\
-                                                    <td>\n\
-                                                        <a href="#"><span class="deleteFunctionalHistory fa fa-trash"></span></a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    $('#tableBodyFunctionalHistory').html(content);
-                                }
-                            }
-
-                            $('.updateFunctionalHistory').click(function(){
-                                var skNumber = $(this).closest('tr').find('.skNumber').html();
-                                var skDate = $(this).closest('tr').find('.skDate').html();
-                                var idFunctionalHistory = $(this).closest('tr').find('.idFunctionalHistory').val();
-                                var idTranFile = $(this).closest('tr').find('.idTranFile').val();
-                                var idDetail = $(this).closest('tr').find('.idDetail').val();
-                                var idFunctional = $(this).closest('tr').find('.idFunctional').val();
-                                $('input[id=idTranFileStudyHistory]').val(idTranFile);
-                                $('input[name=idFunctionalHistory]').val(idFunctionalHistory);
-                                $('input[name=skNumber]').val(skNumber);
-                                $('input[name=skDate]').val(skDate);
-                                $('select[name=idFunctional]').val(idFunctional);
-                                $('select[id=idDetailFunctionalHistory]').val(idDetail);
-                            });
-
-                            $('.deleteFunctionalHistory').click(function(){
-                                var idFunctionalHistory = $(this).closest('tr').find('.idFunctionalHistory').val();
-                                var idTranFile = $(this).closest('tr').find('.idTranFile').val();
-                                $.ajax({
-                                    url : "deleteFunctionalHistory.htm",
-                                    data : {idTranFile: idTranFile, idFunctionalHistory: idFunctionalHistory},
-                                    type: 'GET',
-                                    success: function(response){
-                                        $(function(){
-                                            $.growl.warning({title: "Berhasil", message: "Data berhasil dihapus !"});
-                                        });
-                                        reloadDataFile();
-                                        reloadFunctionalHistory();
-                                    }
-                                });
-                            });
-
-                            $('#resetFunctionalHistory').click(function(){
-                                $('input[id=idTranFileFunctionalHistory]').val(0);
-                                $('input[name=idFunctionalHistory]').val(0);
-                            });
-                        }
-                    }
-                });
-            }
-            
-            function reloadSertificationHistory(){
-                var idLecturer = $('input[name=idLecturer]').val();
-                $.ajax({
-                    url : "getSertificationHistory.htm",
-                    data : "idLecturer=" + idLecturer,
-                    type: 'GET',
-                    success: function(response){
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        if (len === 0){
-                            var content = '';
-                            $('#tableBodySertificationHistory').html(content);
-                        } else {
-                            var content = '';
-                            for (var i =0; i < len; i++){
-                                var content = '';
-                                for (var i =0; i < len; i++){
-                                    content +=' <tr>\n\
-                                                    <td>' + (i + 1) + '</td>\n\
-                                                    <td class="sertificationPart">' + data[i].sertificationPart + '</td>\n\
-                                                    <td class="studyPart">' + data[i].studyPart + '</td>\n\
-                                                    <td class="ptpsNumber">' + data[i].ptpsNumber + '</td>\n\
-                                                    <td class="registrationNumber">' + data[i].registrationNumber + '</td>\n\
-                                                    <td>\n\
-                                                        <input type="hidden" class="idSertificationHistory" value="' + data[i].idSertificationHistory + '"/>\n\
-                                                        <input type="hidden" class="idTranFile" value="' + data[i].idTranFile + '"/>\n\
-                                                        <input type="hidden" class="idDetail" value="' + data[i].idDetail + '"/>\n\
-                                                        <a href="#"><span class="updateSertificationHistory fa fa-pencil"></span></a>\n\
-                                                    </td>\n\
-                                                    <td>\n\
-                                                        <a href="#"><span class="deleteSertificationHistory fa fa-trash"></span></a>\n\
-                                                    </td>\n\
-                                                </tr>';
-                                    $('#tableBodySertificationHistory').html(content);
-                                }
-                            }
-
-                            $('.updateSertificationHistory').click(function(){
-                                var sertificationPart = $(this).closest('tr').find('.sertificationPart').html();
-                                var studyPart = $(this).closest('tr').find('.studyPart').html();
-                                var ptpsNumber = $(this).closest('tr').find('.ptpsNumber').html();
-                                var registrationNumber = $(this).closest('tr').find('.registrationNumber').html();
-                                var idFunctionalHistory = $(this).closest('tr').find('.idFunctionalHistory').val();
-                                var idTranFile = $(this).closest('tr').find('.idTranFile').val();
-                                var idDetail = $(this).closest('tr').find('.idDetail').val();
-                                $('input[id=idTranFileStudyHistory]').val(idTranFile);
-                                $('input[name=idFunctionalHistory]').val(idFunctionalHistory);
-                                $('input[name=sertificationPart]').val(sertificationPart);
-                                $('input[name=studyPart]').val(studyPart);
-                                $('input[name=ptpsNumber]').val(ptpsNumber);
-                                $('input[name=registrationNumber]').val(registrationNumber);
-                                $('select[id=idDetailSertificationHistory]').val(idDetail);
-                            });
-
-                            $('.deleteSertificationHistory').click(function(){
-                                var idSertificationHistory = $(this).closest('tr').find('.idSertificationHistory').val();
-                                var idTranFile = $(this).closest('tr').find('.idTranFile').val();
-                                $.ajax({
-                                    url : "deleteSertificationHistory.htm",
-                                    data : {idTranFile: idTranFile, idSertificationHistory: idSertificationHistory},
-                                    type: 'GET',
-                                    success: function(response){
-                                        $(function(){
-                                            $.growl.warning({title: "Berhasil", message: "Data berhasil dihapus !"});
-                                        });
-                                        reloadDataFile();
-                                        reloadSertificationHistory();
-                                    }
-                                });
-                            });
-
-                            $('#resetSertificationHistory').click(function(){
-                                $('input[id=idTranFileSertificationHistory]').val(0);
-                                $('input[name=idSertificationHistory]').val(0);
-                            });
-                        }
-                    }
-                });
-            }
-            
-            function reloadDataFile(){
-                var idLecturer = $('input[name=idLecturer]').val();
-                $.ajax({
-                    url : "getFile.htm",
-                    data : "idLecturer=" + idLecturer,
-                    type: 'GET',
-                    success: function(response){
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        var content = '';
-                        for (var i =0; i < len; i++){
-                            content +=' <tr>\n\
-                                            <td>' + (i + 1) + '</td>\n\
-                                            <td class="nameDokumen">' + data[i].nameDokumen + '</td>\n\
-                                            <td>\n\
-                                                <a href="#"><span class="fa fa-search"></span></a>\n\
-                                            </td>\n\
-                                        </tr>';
-                            $('#tableBodyFile').html(content);
-                        }
-                    } 
-                });
-            }
-            
             function reloadAutocomplete(){
                 jAuto = jQuery.noConflict(true);
                 $.ajax({
@@ -1575,8 +1121,310 @@
                         });
                     }
                 });
-            }            
+            }
             
+            var tableFile = $('#tableFile').DataTable({
+                pageLength: 8,
+                lengthChange: false,
+                columns: [
+                    { data: null, sortable: false},
+                    { data: 'nameDokumen'},
+                    { data: null, sortable: false,
+                      render : function(data, type, full) {
+                        return '<button id="detail"><span class="fa fa-search"></span></button>';}
+                    }
+                ]
+            });
+            
+            var tableLectureHistory = $('#tableLectureHistory').DataTable({
+                pageLength: 5,
+                lengthChange: false,
+                columns: [
+                    { data: null, sortable: false},
+                    { data: 'nameLecture'},
+                    { data: 'semester'},
+                    { data: 'year'},
+                    { data: null, sortable: false,
+                      render : function(data, type, full) {
+                        return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
+                                <button id="delete"><span class="fa fa-trash"></span></button>';}
+                    }
+                ]
+            });
+            
+            var tableStudyHistory = $('#tableStudyHistory').DataTable({
+                pageLength: 5,
+                lengthChange: false,
+                columns: [
+                    { data: null, sortable: false},
+                    { data: 'nameUniversity'},
+                    { data: 'studyDescription'},
+                    { data: 'degree'},
+                    { data: 'graduateYear'},
+                    { data: null, sortable: false,
+                      render : function(data, type, full) {
+                        return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
+                                <button id="delete"><span class="fa fa-trash"></span></button>';}
+                    }
+                ]
+            });
+            
+            var tableFunctionalHistory = $('#tableFunctionalHistory').DataTable({
+                pageLength: 5,
+                lengthChange: false,
+                columns: [
+                    { data: null, sortable: false},
+                    { data: 'nameFunctional'},
+                    { data: 'skNumber'},
+                    { data: 'skDate'},
+                    { data: null, sortable: false,
+                      render : function(data, type, full) {
+                        return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
+                                <button id="delete"><span class="fa fa-trash"></span></button>';}
+                    }
+                ]
+            });
+            
+            var tableSertificationHistory = $('#tableSertificationHistory').DataTable({
+                pageLength: 5,
+                lengthChange: false,
+                columns: [
+                    { data: null, sortable: false},
+                    { data: 'sertificationPart'},
+                    { data: 'studyPart'},
+                    { data: 'ptpsNumber'},
+                    { data: 'registrationNumber'},
+                    { data: null, sortable: false,
+                      render : function(data, type, full) {
+                        return '<button id="update"><span class="fa fa-pencil"></span></button> \n\
+                                <button id="delete"><span class="fa fa-trash"></span></button>';}
+                    }
+                ]
+            });
+            
+            function reloadDataFile(){
+                var idLecturer = $('input[name=idLecturer]').val();
+                $.ajax({
+                    url : "getFile.htm",
+                    data : "idLecturer=" + idLecturer,
+                    type: 'GET',
+                    success: function(response){
+                        var data = JSON.parse(response);
+                        tableFile.rows.add(data).draw();
+                    }
+                });
+            }
+            
+            function reloadLectureHistory(){
+                var idLecturer = $('input[name=idLecturer]').val();
+                $.ajax({
+                    url : "getLectureHistory.htm",
+                    data : "idLecturer=" + idLecturer,
+                    type: 'GET',
+                    success: function(response){
+                        var data = JSON.parse(response);
+                        tableLectureHistory.rows.add(data).draw();
+                    }
+                });
+            }
+            
+            function reloadStudyHistory(){
+                var idLecturer = $('input[name=idLecturer]').val();
+                $.ajax({
+                    url : "getStudyHistory.htm",
+                    data : "idLecturer=" + idLecturer,
+                    type: 'GET',
+                    success: function(response){
+                        var data = JSON.parse(response);
+                        tableStudyHistory.rows.add(data).draw();
+                    }
+                });
+            }
+            
+            function reloadFunctionalHistory(){
+                var idLecturer = $('input[name=idLecturer]').val();
+                $.ajax({
+                    url : "getFunctionalHistory.htm",
+                    data : "idLecturer=" + idLecturer,
+                    type: 'GET',
+                    success: function(response){
+                        var data = JSON.parse(response);
+                        tableFunctionalHistory.rows.add(data).draw();
+                    }
+                });
+            }
+            
+            function reloadSertificationHistory(){
+                var idLecturer = $('input[name=idLecturer]').val();
+                $.ajax({
+                    url : "getSertificationHistory.htm",
+                    data : "idLecturer=" + idLecturer,
+                    type: 'GET',
+                    success: function(response){
+                        var data = JSON.parse(response);
+                        tableSertificationHistory.rows.add(data).draw();
+                    }
+                });
+            }
+            
+            tableFile.on( 'order.dt search.dt', function () {
+                tableFile.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+                } );
+            }).draw();
+            
+            tableLectureHistory.on( 'order.dt search.dt', function () {
+                tableLectureHistory.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+                } );
+            }).draw();
+            
+            tableStudyHistory.on( 'order.dt search.dt', function () {
+                tableStudyHistory.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+                } );
+            }).draw();
+            
+            tableFunctionalHistory.on( 'order.dt search.dt', function () {
+                tableFunctionalHistory.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+                } );
+            }).draw();
+            
+            tableSertificationHistory.on( 'order.dt search.dt', function () {
+                tableSertificationHistory.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+                } );
+            }).draw();
+            
+            $('#tableFile tbody').on('click', 'button#detail', function () {
+                var data = tableFile.row(this.closest('tr')).data();
+                window.location.assign('showFile.htm?nameFile=' + data.nameFile)
+            });
+            
+            $('#tableLectureHistory tbody').on('click', 'button#update', function () {
+                var data = tableLectureHistory.row(this.closest('tr')).data();
+                $('input[id=idTranFileLectureHistory]').val(data.idTranFile);
+                $('input[name=idLectureHistory]').val(data.idLectureHistory);
+                $('input[name=year]').val(data.year);
+                $('select[name=semester]').val(data.semester);
+                $('input[name=nameLecture]').val(data.nameLecture);
+                $('select[id=idDetailLectureHistory]').val(data.idDetail);
+            });
+            
+            $('#tableStudyHistory tbody').on('click', 'button#update', function () {
+                var data = tableStudyHistory.row(this.closest('tr')).data();
+                $('input[id=idTranFileStudyHistory]').val(data.idTranFile);
+                $('input[name=idStudyHistory]').val(data.idStudyHistory);
+                $('input[name=nameUniversity]').val(data.nameUniversity);
+                $('input[name=degree]').val(data.degree);
+                $('input[name=graduateYear]').val(data.graduateYear);
+                $('input[name=joinYear]').val(data.joinYear);
+                $('input[name=studyProgram]').val(data.studyProgram);
+                $('select[name=idStudy]').val(data.idStudy);
+                $('select[id=idDetailStudyHistory]').val(data.idDetail);
+            });
+            
+            $('#tableFunctionalHistory tbody').on('click', 'button#update', function () {
+                var data = tableFunctionalHistory.row(this.closest('tr')).data();
+                $('input[id=idTranFileStudyHistory]').val(data.idTranFile);
+                $('input[name=idFunctionalHistory]').val(data.idFunctionalHistory);
+                $('input[name=skNumber]').val(data.skNumber);
+                $('input[name=skDate]').val(data.skDate);
+                $('select[name=idFunctional]').val(data.idFunctional);
+                $('select[id=idDetailFunctionalHistory]').val(data.idDetail);
+            });
+            
+            $('#tableSertificationHistory tbody').on('click', 'button#update', function () {
+                var data = tableSertificationHistory.row(this.closest('tr')).data();
+                $('input[id=idTranFileSertificationHistory]').val(data.idTranFile);
+                $('input[name=idSertificationHistory]').val(data.idSertificationHistory);
+                $('input[name=sertificationPart]').val(data.sertificationPart);
+                $('input[name=studyPart]').val(data.studyPart);
+                $('input[name=ptpsNumber]').val(data.ptpsNumber);
+                $('input[name=registrationNumber]').val(data.registrationNumber);
+                $('select[id=idDetailSertificationHistory]').val(data.idDetail);
+            });
+            
+            $('#tableLectureHistory tbody').on('click', 'button#delete', function () {
+                var data = tableLectureHistory.row(this.closest('tr')).data();
+                $.ajax({
+                    url: "deleteLectureHistory.htm",
+                    data: {idTranFile: data.idTranFile, idLectureHistory: data.idLectureHistory},
+                    daraType: "form-data",
+                    type: 'GET',
+                    success : function(response){
+                        $(function(){
+                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                        });
+                        $('#formLectureHistory').trigger('reset');
+                        tableLectureHistory.clear().draw();
+                        tableFile.clear().draw();
+                        reloadLectureHistory();
+                        reloadDataFile();
+                    }
+                });
+            });
+            
+            $('#tableStudyHistory tbody').on('click', 'button#delete', function () {
+                var data = tableStudyHistory.row(this.closest('tr')).data();
+                $.ajax({
+                    url: "deleteStudyHistory.htm",
+                    data: {idTranFile: data.idTranFile, idStudyHistory: data.idStudyHistory},
+                    daraType: "form-data",
+                    type: 'GET',
+                    success : function(response){
+                        $(function(){
+                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                        });
+                        $('#formStudyHistory').trigger('reset');
+                        tableStudyHistory.clear().draw();
+                        tableFile.clear().draw();
+                        reloadDataFile();
+                        reloadStudyHistory();
+                    }
+                });
+            });
+            
+            $('#tableFunctionalHistory tbody').on('click', 'button#delete', function () {
+                var data = tableFunctionalHistory.row(this.closest('tr')).data();
+                $.ajax({
+                    url: "deleteFunctionalHistory.htm",
+                    data: {idTranFile: data.idTranFile, idFunctionalHistory: data.idFunctionalHistory},
+                    daraType: "form-data",
+                    type: 'GET',
+                    success : function(response){
+                        $(function(){
+                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                        });
+                        $('#formFunctionalHistory').trigger('reset');
+                        tableFunctionalHistory.clear().draw();
+                        tableFile.clear().draw();
+                        reloadDataFile();
+                        reloadFunctionalHistory();
+                    }
+                });
+            });
+            
+            $('#tableSertificationHistory tbody').on('click', 'button#delete', function () {
+                var data = tableSertificationHistory.row(this.closest('tr')).data();
+                $.ajax({
+                    url: "deleteSertificationHistory.htm",
+                    data: {idTranFile: data.idTranFile, idSertificationHistory: data.idSertificationHistory},
+                    daraType: "form-data",
+                    type: 'GET',
+                    success : function(response){
+                        $(function(){
+                            $.growl.notice({title: "Berhasil !", message: "Data berhasil dihapus !" });
+                        });
+                        $('#formSertificationHistory').trigger('reset');
+                        tableSertificationHistory.clear().draw();
+                        tableFile.clear().draw();
+                        reloadDataFile();
+                        reloadSertificationHistory();
+                    }
+                });
+            });
             
             $('#formLectureHistory').submit(function(e){
                 e.preventDefault();
@@ -1608,6 +1456,8 @@
                                     $(function(){
                                         $.growl.notice({title: "Berhasil", message: "Data berhasil ditambahkan !" });
                                     });
+                                    tableFile.clear().draw();
+                                    tableLectureHistory.clear().draw();
                                     reloadDataFile();
                                     reloadLectureHistory();
                                     $('#formLectureHistory').trigger('reset');
@@ -1650,6 +1500,8 @@
                                     $(function(){
                                         $.growl.notice({title: "Berhasil", message: "Data berhasil ditambahkan !" });
                                     });
+                                    tableFile.clear().draw();
+                                    tableStudyHistory.clear().draw();
                                     reloadDataFile();
                                     reloadStudyHistory();
                                     $('#formStudyHistory').trigger('reset');
@@ -1692,6 +1544,8 @@
                                     $(function(){
                                         $.growl.notice({title: "Berhasil", message: "Data berhasil ditambahkan !" });
                                     });
+                                    tableFile.clear().draw();
+                                    tableFunctionalHistory.clear().draw();
                                     reloadDataFile();
                                     reloadFunctionalHistory();
                                     $('#formFunctionalHistory').trigger('reset');
@@ -1734,6 +1588,8 @@
                                     $(function(){
                                         $.growl.notice({title: "Berhasil", message: "Data berhasil ditambahkan !" });
                                     });
+                                    tableFile.clear().draw();
+                                    tableSertificationHistory.clear().draw();
                                     reloadDataFile();
                                     reloadSertificationHistory();
                                     $('#formSertificationHistory').trigger('reset');
@@ -1746,349 +1602,24 @@
                 });
             });
             
-            $('#searchLectureHistory').click(function(){
-                var nameLecture = $('input[name=nameSearchLectureHistory]').val();
-                $.ajax({
-                    url : "searchLectureHistory.htm",
-                    data : "nameLecture=" + nameLecture,
-                    type: 'GET',
-                    success : function(response){
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        if (len === 0){
-                            $(function(){
-                                $.growl.warning({title: "Maaf", message: "Data tidak ada !" });
-                            });
-                        } else {
-                            var content = '';
-                            for (var i =0; i < len; i++){
-                                content +=' <tr>\n\
-                                                <td>' + (i + 1) + '</td>\n\
-                                                <td class="nameLecture">' + data[i].nameLecture + '</td>\n\
-                                                <td class="semester">' + data[i].semester + '</td>\n\
-                                                <td class="year">' + data[i].year + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="idLectureHistory" value="' + data[i].idLectureHistory + '"/>\n\
-                                                    <input type="hidden" class="idTranFile" value="' + data[i].idTranFile + '"/>\n\
-                                                    <input type="hidden" class="idDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateLectureHistory fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteLectureHistory fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                $('#tableBodyLectureHistory').html(content);
-                            }
-                        }
-                        
-                        $('.updateLectureHistory').click(function(){
-                            var nameLecture = $(this).closest('tr').find('.nameLecture').html();
-                            var semester = $(this).closest('tr').find('.semester').html();
-                            var year = $(this).closest('tr').find('.year').html();
-                            var idLectureHistory = $(this).closest('tr').find('.idLectureHistory').val();
-                            var idTranFile = $(this).closest('tr').find('.idTranFile').val();
-                            var idDetail = $(this).closest('tr').find('.idDetail').val();
-                            $('input[id=idTranFileLectureHistory]').val(idTranFile);
-                            $('input[name=idLectureHistory]').val(idLectureHistory);
-                            $('input[name=year]').val(year);
-                            $('select[name=semester]').val(semester);
-                            $('input[name=nameLecture]').val(nameLecture);
-                            $('select[id=idDetailLectureHistory]').val(idDetail);
-                        });
-                        
-                        $('.deleteLectureHistory').click(function(){
-                            var idLectureHistory = $(this).closest('tr').find('.idLectureHistory').val();
-                            var idTranFile = $(this).closest('tr').find('.idTranFile').val();
-                            $.ajax({
-                                url : "deleteLectureHistory.htm",
-                                data : {idTranFile: idTranFile, idLectureHistory: idLectureHistory},
-                                type: 'GET',
-                                success: function(response){
-                                    $(function(){
-                                        $.growl.notice({title: "Berhasil", message: "Data berhasil dihapus !"});
-                                    });
-                                    reloadDataFile();
-                                    reloadLectureHistory();
-                                }
-                            });
-                        });
-                        
-                        $('#resetLectureHistory').click(function(){
-                            $('input[id=idTranFileLectureHistory]').val(0);
-                            $('input[name=idLectureHistory]').val(0);
-                        });
-                    }
-                });            
+            $('#resetLectureHistory').click(function(){
+                $('input[id=idTranFileLectureHistory]').val(0);
+                $('input[name=idLectureHistory]').val(0);
             });
             
-            $('#searchStudyHistory').click(function(){
-                var nameStudy = $('input[name=nameSearchStudyHistory]').val();
-                $.ajax({
-                    url : "searchStudyHistory.htm",
-                    data : "nameStudy=" + nameStudy,
-                    type: 'GET',
-                    success : function(response){
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        if (len === 0){
-                            $(function(){
-                                $.growl.warning({title: "Maaf", message: "Data tidak ada !" });
-                            });
-                        } else {
-                            var content = '';
-                            for (var i =0; i < len; i++){
-                                content +=' <tr>\n\
-                                                <td>' + (i + 1) + '</td>\n\
-                                                <td class="nameUniversity">' + data[i].nameUniversity + '</td>\n\
-                                                <td class="studyDescription">' + data[i].studyDescription + '</td>\n\
-                                                <td class="degree">' + data[i].degree + '</td>\n\
-                                                <td class="graduateYear">' + data[i].graduateYear + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="idStudyHistory" value="' + data[i].idStudyHistory + '"/>\n\
-                                                    <input type="hidden" class="idTranFile" value="' + data[i].idTranFile + '"/>\n\
-                                                    <input type="hidden" class="idStudy" value="' + data[i].idStudy + '"/>\n\
-                                                    <input type="hidden" class="idDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <input type="hidden" class="joinYear" value="' + data[i].joinYear + '"/>\n\
-                                                    <input type="hidden" class="studyProgram" value="' + data[i].studyProgram + '"/>\n\
-                                                    <a href="#"><span class="updateStudyHistory fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteStudyHistory fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                $('#tableBodyStudyHistory').html(content);
-                            }
-                        }
-                        
-                        $('.updateStudyHistory').click(function(){
-                            var nameUniversity = $(this).closest('tr').find('.nameUniversity').html();
-                            var degree = $(this).closest('tr').find('.degree').html();
-                            var graduateYear = $(this).closest('tr').find('.graduateYear').html();
-                            var joinYear = $(this).closest('tr').find('.joinYear').val();
-                            var studyProgram = $(this).closest('tr').find('.studyProgram').val();
-                            var idStudyHistory = $(this).closest('tr').find('.idStudyHistory').val();
-                            var idTranFile = $(this).closest('tr').find('.idTranFile').val();
-                            var idDetail = $(this).closest('tr').find('.idDetail').val();
-                            var idStudy = $(this).closest('tr').find('.idStudy').val();
-                            $('input[id=idTranFileStudyHistory]').val(idTranFile);
-                            $('input[name=idStudyHistory]').val(idStudyHistory);
-                            $('input[name=nameUniversity]').val(nameUniversity);
-                            $('input[name=degree]').val(degree);
-                            $('input[name=graduateYear]').val(graduateYear);
-                            $('input[name=joinYear]').val(joinYear);
-                            $('input[name=studyProgram]').val(studyProgram);
-                            $('select[name=idStudy]').val(idStudy);
-                            $('select[id=idDetailStudyHistory]').val(idDetail);
-                        });
-                        
-                        $('.deleteStudyHistory').click(function(){
-                            var idStudyHistory = $(this).closest('tr').find('.idStudyHistory').val();
-                            var idTranFile = $(this).closest('tr').find('.idTranFile').val();
-                            $.ajax({
-                                url : "deleteStudyHistory.htm",
-                                data : {idTranFile: idTranFile, idStudyHistory: idStudyHistory},
-                                type: 'GET',
-                                success: function(response){
-                                    $(function(){
-                                        $.growl.notice({title: "Berhasil", message: "Data berhasil dihapus !"});
-                                    });
-                                    reloadDataFile();
-                                    reloadStudyHistory();
-                                }
-                            });
-                        });
-                        
-                        $('#resetStudyHistory').click(function(){
-                            $('input[id=idTranFileStudyHistory]').val(0);
-                            $('input[name=idStudyHistory]').val(0);
-                        });
-                    }
-                });            
+            $('#resetStudyHistory').click(function(){
+                $('input[id=idTranFileStudyHistory]').val(0);
+                $('input[name=idStudyHistory]').val(0);
             });
             
-            $('#searchFunctionalHistory').click(function(){
-                var nameFunctional = $('input[name=nameSearchFunctionalHistory]').val();
-                $.ajax({
-                    url : "searchFunctionalHistory.htm",
-                    data : "nameFunctional=" + nameFunctional,
-                    type: 'GET',
-                    success : function(response){
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        if (len === 0){
-                            $(function(){
-                                $.growl.warning({title: "Maaf", message: "Data tidak ada !" });
-                            });
-                        } else {
-                            var content = '';
-                            for (var i =0; i < len; i++){
-                                content +=' <tr>\n\
-                                                <td>' + (i + 1) + '</td>\n\
-                                                <td class="nameFunctional">' + data[i].nameFunctional + '</td>\n\
-                                                <td class="skNumber">' + data[i].skNumber + '</td>\n\
-                                                <td class="skDate">' + data[i].skDate + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="idFunctionalHistory" value="' + data[i].idFunctionalHistory + '"/>\n\
-                                                    <input type="hidden" class="idTranFile" value="' + data[i].idTranFile + '"/>\n\
-                                                    <input type="hidden" class="idFunctional" value="' + data[i].idFunctional + '"/>\n\
-                                                    <input type="hidden" class="idDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateFunctionalHistory fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteFunctionalHistory fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                $('#tableBodyFunctionalHistory').html(content);
-                            }
-
-                            $('.updateFunctionalHistory').click(function(){
-                                var skNumber = $(this).closest('tr').find('.skNumber').html();
-                                var skDate = $(this).closest('tr').find('.skDate').html();
-                                var idFunctionalHistory = $(this).closest('tr').find('.idFunctionalHistory').val();
-                                var idTranFile = $(this).closest('tr').find('.idTranFile').val();
-                                var idDetail = $(this).closest('tr').find('.idDetail').val();
-                                var idFunctional = $(this).closest('tr').find('.idFunctional').val();
-                                $('input[id=idTranFileStudyHistory]').val(idTranFile);
-                                $('input[name=idFunctionalHistory]').val(idFunctionalHistory);
-                                $('input[name=skNumber]').val(skNumber);
-                                $('input[name=skDate]').val(skDate);
-                                $('select[name=idFunctional]').val(idFunctional);
-                                $('select[id=idDetailFunctionalHistory]').val(idDetail);
-                            });
-
-                            $('.deleteFunctionalHistory').click(function(){
-                                var idFunctionalHistory = $(this).closest('tr').find('.idFunctionalHistory').val();
-                                var idTranFile = $(this).closest('tr').find('.idTranFile').val();
-                                $.ajax({
-                                    url : "deleteFunctionalHistory.htm",
-                                    data : {idTranFile: idTranFile, idFunctionalHistory: idFunctionalHistory},
-                                    type: 'GET',
-                                    success: function(response){
-                                        $(function(){
-                                            $.growl.notice({title: "Berhasil", message: "Data berhasil dihapus !"});
-                                        });
-                                        reloadDataFile();
-                                        reloadFunctionalHistory();
-                                    }
-                                });
-                            });
-
-                            $('#resetFunctionalHistory').click(function(){
-                                $('input[id=idTranFileFunctionalHistory]').val(0);
-                                $('input[name=idFunctionalHistory]').val(0);
-                            });
-                        }
-                    }
-                });            
+            $('#resetFunctionalHistory').click(function(){
+                $('input[id=idTranFileFunctionalHistory]').val(0);
+                $('input[name=idFunctionalHistory]').val(0);
             });
             
-            $('#searchSertificationHistory').click(function(){
-                var sertificationPart = $('input[name=nameSearchSertificationHistory]').val();
-                $.ajax({
-                    url : "searchSertificationHistory.htm",
-                    data : "sertificationPart=" + sertificationPart,
-                    type: 'GET',
-                    success : function(response){
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        if (len === 0){
-                            $(function(){
-                                $.growl.warning({title: "Maaf", message: "Data tidak ada !" });
-                            });
-                        } else {
-                            var content = '';
-                            for (var i =0; i < len; i++){
-                                content +=' <tr>\n\
-                                                <td>' + (i + 1) + '</td>\n\
-                                                <td class="sertificationPart">' + data[i].sertificationPart + '</td>\n\
-                                                <td class="studyPart">' + data[i].studyPart + '</td>\n\
-                                                <td class="ptpsNumber">' + data[i].ptpsNumber + '</td>\n\
-                                                <td class="registrationNumber">' + data[i].registrationNumber + '</td>\n\
-                                                <td>\n\
-                                                    <input type="hidden" class="idSertificationHistory" value="' + data[i].idSertificationHistory + '"/>\n\
-                                                    <input type="hidden" class="idTranFile" value="' + data[i].idTranFile + '"/>\n\
-                                                    <input type="hidden" class="idDetail" value="' + data[i].idDetail + '"/>\n\
-                                                    <a href="#"><span class="updateSertificationHistory fa fa-pencil"></span></a>\n\
-                                                </td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="deleteSertificationHistory fa fa-trash"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                $('#tableBodySertificationHistory').html(content);
-                            }
-
-
-                            $('.updateSertificationHistory').click(function(){
-                                var sertificationPart = $(this).closest('tr').find('.sertificationPart').html();
-                                var studyPart = $(this).closest('tr').find('.studyPart').html();
-                                var ptpsNumber = $(this).closest('tr').find('.ptpsNumber').html();
-                                var registrationNumber = $(this).closest('tr').find('.registrationNumber').html();
-                                var idFunctionalHistory = $(this).closest('tr').find('.idFunctionalHistory').val();
-                                var idTranFile = $(this).closest('tr').find('.idTranFile').val();
-                                var idDetail = $(this).closest('tr').find('.idDetail').val();
-                                $('input[id=idTranFileStudyHistory]').val(idTranFile);
-                                $('input[name=idFunctionalHistory]').val(idFunctionalHistory);
-                                $('input[name=sertificationPart]').val(sertificationPart);
-                                $('input[name=studyPart]').val(studyPart);
-                                $('input[name=ptpsNumber]').val(ptpsNumber);
-                                $('input[name=registrationNumber]').val(registrationNumber);
-                                $('select[id=idDetailSertificationHistory]').val(idDetail);
-                            });
-
-                            $('.deleteSertificationHistory').click(function(){
-                                var idSertificationHistory = $(this).closest('tr').find('.idSertificationHistory').val();
-                                var idTranFile = $(this).closest('tr').find('.idTranFile').val();
-                                $.ajax({
-                                    url : "deleteSertificationHistory.htm",
-                                    data : {idTranFile: idTranFile, idSertificationHistory: idSertificationHistory},
-                                    type: 'GET',
-                                    success: function(response){
-                                        $(function(){
-                                            $.growl.notice({title: "Berhasil", message: "Data berhasil dihapus !"});
-                                        });
-                                        reloadDataFile();
-                                        reloadSertificationHistory();
-                                    }
-                                });
-                            });
-
-                            $('#resetSertificationHistory').click(function(){
-                                $('input[id=idTranFileSertificationHistory]').val(0);
-                                $('input[name=idSertificationHistory]').val(0);
-                            });
-                        }
-                    }
-                });            
-            });
-            
-            $('#searchFile').click(function(){
-                var nameDokumen = $('input[name=nameSearchFile]').val();
-                $.ajax({
-                    url : "searchFile.htm",
-                    data : "nameDokumen=" + nameDokumen,
-                    type: 'GET',
-                    success : function(response){
-                        var data = JSON.parse(response);
-                        var len = data.length;
-                        if (len === 0){
-                            $(function(){
-                                $.growl.warning({title: "Maaf", message: "Data tidak ada !" });
-                            });
-                        } else {
-                            var content = '';
-                            for (var i =0; i < len; i++){
-                                content +=' <tr>\n\
-                                                <td>' + (i + 1) + '</td>\n\
-                                                <td class="nameDokumen">' + data[i].nameDokumen + '</td>\n\
-                                                <td>\n\
-                                                    <a href="#"><span class="fa fa-search"></span></a>\n\
-                                                </td>\n\
-                                            </tr>';
-                                $('#tableBodyFile').html(content);
-                            }
-                        }
-                    }
-                });
+            $('#resetSertificationHistory').click(function(){
+                $('input[id=idTranFileSertificationHistory]').val(0);
+                $('input[name=idSertificationHistory]').val(0);
             });
             
             $('select[name=idStudy]').change(function(event){
@@ -2100,6 +1631,12 @@
                 var id = parseInt(event.target.value);
                 $('select[id=idDetailFunctionalHistory]').val(id + 7);
             });
+            
+            $('#editBiodata').click(function(){
+                var idLecturer = $('input[name=idLecturer]').val();
+                window.location.assign('editLecturer.htm?idLecturer=' + idLecturer);
+            });
+            
         });
     </script>
     <script src="resource/js/jquery.nicescroll.js"></script>

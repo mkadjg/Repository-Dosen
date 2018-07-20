@@ -22,6 +22,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="resource/javascripts/jquery.growl.js" type="text/javascript"></script>
         <link href="resource/stylesheets/jquery.growl.css" rel="stylesheet" type="text/css" />
+        
+        <!--datatable file library-->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <!--<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>-->
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     </head>
     <body>	
     <div class="page-container" style="overflow: scroll">	
@@ -48,6 +53,9 @@
                                     <div class="user-name">
                                         <p>${sessionScope.nameLecturer}</p>
                                         <span>${sessionScope.role}</span>
+                                        <input type="hidden" 
+                                                   value="${dataLecturer.idLecturer}" 
+                                                   name="idLecturer"/>
                                     </div>
                                     <i class="fa fa-angle-down lnr"></i>
                                     <i class="fa fa-angle-up lnr"></i>
@@ -147,18 +155,13 @@
                 <br>
                 <br>
                 <div class="table-responsive" style="padding-left: 50px; padding-right: 50px">
-                    <table class="table table-hover">
+                    <table class="table table-hover" id="tableFileRecruitment">
                         <thead>
-                            <tr>
-                                <th>Nomor</th>
-                                <th>Nama Dokumen / File</th>
-                                <th>Status</th>
-                                <th>Aksi</th>
-                            </tr>
+                            <th>Nomor</th>
+                            <th>Nama Dokumen / File</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
                         </thead>
-                        <tbody id="tableBodyFile">
-
-                        </tbody>
                     </table>
                 </div>                            
             </div>
@@ -220,10 +223,36 @@
             $(document).ready(function(){
                 reloadDataFile();
                 
+                var tableFileRecruitment = $('#tableFileRecruitment').DataTable({
+                    pageLength: 6,
+                    lengthChange: false,
+                    columns: [
+                        { data: null, sortable: false},
+                        { data: 'nameDokumen'},
+                        { data: 'state', sortable: false,
+                            render : function(data, type, full) {
+                                if (data === 1){
+                                    return '<span class="glyphicon glyphicon-ok" style="color: green"></span>';
+                                } else {
+                                    return '<span class="glyphicon glyphicon-remove" style="color: red"></span>';
+                                }
+                            }    
+                        },
+                        { data: null, sortable: false,
+                            render : function(data, type, full) {
+                                return '<button id="delete"><span class="fa fa-trash"></span></button>';
+                            }    
+                        }
+                    ]
+                });
+                
+                tableFileRecruitment.on( 'order.dt search.dt', function () {
+                    tableFileRecruitment.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                    cell.innerHTML = i+1;
+                    } );
+                }).draw();
+                
                 function reloadDataFile(){
-                    $(function(){
-                        $.growl.notice({title: "Berhasil !", message: "Data berhasil ditambahkan !" });
-                    });
                     var idLecturer = $('input[name=idLecturer]').val();
                     $.ajax({
                         url : "getFileRecruitment.htm",
@@ -231,23 +260,7 @@
                         type: 'GET',
                         success: function(response){
                             var data = JSON.parse(response);
-                            var len = data.length;
-                            var content = '';
-                            for (var i =0; i < len; i++){
-                                content +='<tr>\n\
-                                                <td>' + (i + 1) + '</td>\n\
-                                                <td class="nameDokumen">' + data[i].nameDokumen + '</td>';
-                                if (data[i].state === 1){
-                                    content+='<td><span class="glyphicon glyphicon-ok" style="color: green"></span></td>';
-                                } else {
-                                    content+='<td><span class="glyphicon glyphicon-remove" style="color: red"></span></td>';
-                                }
-                                content+='<td>\n\
-                                                <a href="#"><span class="deleteFileRecruitment fa fa-trash"></span></a>\n\
-                                          </td>\n\
-                                         </tr>';
-                                $('#tableBodyFile').html(content);
-                            }
+                            tableFileRecruitment.rows.add(data).draw();
                         } 
                     });
                 }

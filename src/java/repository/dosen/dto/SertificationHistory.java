@@ -21,7 +21,16 @@ public class SertificationHistory {
     int idLecturer;
     int idTranFile;
     int idDetail;
+    String nameDokumen;
 
+    public String getNameDokumen() {
+        return nameDokumen;
+    }
+
+    public void setNameDokumen(String nameDokumen) {
+        this.nameDokumen = nameDokumen;
+    }
+    
     public String getPathFile() {
         return pathFile;
     }

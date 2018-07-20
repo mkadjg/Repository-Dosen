@@ -178,7 +178,7 @@ public class LecturerDaoImpl extends HibernateUtil implements LecturerDao{
     public List<Object[]> getLecturerProfessor(String idFaculty, String idMajor) {
         String sql = "select * from MasterLecturer where "
                     + "idLecturer in ("
-                    + "select idLecturer from FunctionalProgressHistory where idFunctional = 2 and state = 1";
+                    + "select idLecturer from FunctionalProgressHistory where idFunctional = 4 and state = 1)";
         if (!(idFaculty.equals("0"))) {
             if (idMajor.equals("0")){
                 sql += " AND idMajor IN (" 

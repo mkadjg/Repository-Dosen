@@ -23,6 +23,7 @@ public interface LecturerService {
     public List<Lecturer> getLecturerByFaculty(String nameLecturer, String idFaculty);
     public int saveLecturer(Lecturer lecturer);
     public void editLecturer(Lecturer lecturer);
+    public void updateLoginLecturer(Lecturer lecturer);
     public void deleteLecturer(int idLecturer);
     public List<Lecturer> getNewLecturer(String idFaculty, String idMajor);
     public List<Lecturer> getLecturerNIDN(String idFaculty, String idMajor);
@@ -32,4 +33,10 @@ public interface LecturerService {
     public List<Lecturer> getLecturerProfessor(String idFaculty, String idMajor);
     public List<Lecturer> getLecturerSertification(String idFaculty, String idMajor);
     
+    public List<Lecturer> getLecturerHasNidn(String idFaculty, String idMajor);
+    public List<Lecturer> getLecturerHasAssistant(String idFaculty, String idMajor);
+    public List<Lecturer> getLecturerHasLectors(String idFaculty, String idMajor);
+    public List<Lecturer> getLecturerHasHeadlectors(String idFaculty, String idMajor);
+    public List<Lecturer> getLecturerHasProfessor(String idFaculty, String idMajor);
+    public List<Lecturer> getLecturerHasSertification(String idFaculty, String idMajor);
 }

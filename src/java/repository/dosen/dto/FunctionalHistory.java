@@ -18,8 +18,17 @@ public class FunctionalHistory {
     String nameFunctional;
     int idTranFile;
     int idDetail;
+    String nameDokumen;
     String pathFile;
 
+    public String getNameDokumen() {
+        return nameDokumen;
+    }
+
+    public void setNameDokumen(String nameDokumen) {
+        this.nameDokumen = nameDokumen;
+    }
+    
     public String getPathFile() {
         return pathFile;
     }

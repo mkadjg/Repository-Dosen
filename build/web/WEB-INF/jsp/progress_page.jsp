@@ -568,7 +568,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="addFileRecruitment.htm?idLecturer=15">
+                            <a href="showProgress.htm">
                             <i class="fa fa-bar-chart"></i>
                             <span>Progress</span>
                             </a>

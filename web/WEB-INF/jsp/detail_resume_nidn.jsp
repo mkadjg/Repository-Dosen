@@ -36,7 +36,7 @@
 		<div class="header-main">
                     <div class="header-left col-md-6">
                         <center>
-                            <h3 style="margin-top: 13px;">DETIL RESUME DOSEN TETAP</h3>
+                            <h3 style="margin-top: 13px;">DETAIL RESUME</h3>
                         </center>							
                         <div class="clearfix"> </div>
                     </div>
@@ -54,6 +54,8 @@
                                     <div class="user-name">
                                         <p>${sessionScope.name}</p>
                                         <span>${sessionScope.role}</span>
+                                        <input type="hidden" name="idFaculty" value="${faculty.idFaculty}"/>
+                                        <input type="hidden" name="idMajor" value="${major.idMajor}"/>
                                     </div>
                                     <i class="fa fa-angle-down lnr"></i>
                                     <i class="fa fa-angle-up lnr"></i>
@@ -94,27 +96,36 @@
 			 });	 
                     });
 		</script>
+                <div class="row" style="padding-left: 50px; padding-top: 30px">
+                    <div class="col-md-12">
+                        Berikut adalah data Dosen Tetap yang sudah memiliki <span style="font-weight: bold">Nomor Induk Dosen Nasional</span>
+                    </div>
+                </div>
+                <div class="row" style="padding-left: 50px; padding-top: 20px">
+                    <div class="col-md-12">
+                        Filter Berdasarkan Fakultas <span style="font-weight: bold">${faculty.nameFaculty}</span> dan Jurusan <span style="font-weight: bold">${major.nameMajor}</span>
+                    </div>
+                </div>
                 <br>
-                <div class="row" align="center">
-                    <p><strong>Data Dosen Yang Sudah ${data.nameLecturer}</strong></p>
-                            <input type="hidden" name="idLecturer" value="${data.idLecturer}"/>
-                            <input type="hidden" name="idFaculty" value="${data.username}"/>
-                            <input type="hidden" name="idMajor" value="${data.password}"/>
-                    <div class="col-md-12" style="padding-left: 60px; padding-right: 50px">
+                <div class="row" style="padding-left: 50px; padding-right: 50px">
+                    <div class="col-md-12">
                         <div class="table-responsive">
                             <table class="table table-hover" id="tableBody">
                                 <thead>
-                                        <th>NO</th>
-                                        <th>Nama</th>
-                                        <th>Jenis Kelamin</th>
+                                    <th>No</th>
+                                    <th>NIDN</th>
+                                    <th>Nama</th>
+                                    <th>Jurusan</th>                                                                 
+                                    <th>Fakultas</th>
                                 </thead>
                             </table>
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
-            <div class="sidebar-menu">
+        <div class="sidebar-menu">
             <div class="logo"> 
                 <a href="#" 
                    class="sidebar-icon"> 
@@ -150,10 +161,10 @@
                                 <a href="showReportResume.htm">Resume Dosen Tetap</a>		              
                             </li>
                             <li id="menu-arquivos" >
-                                <a href="showReportComprehen.htm">Kelengkapan Portofolio</a>
+                                <a href="showReportComprehensif.htm">Kelengkapan Portofolio</a>
                             </li>
                             <li id="menu-arquivos" >
-                                <a href="icons.html">Jenjang Karir</a>
+                                <a href="showReportCareer.htm">Jenjang Karir</a>
                             </li>
                         </ul>
                     </li>
@@ -166,7 +177,7 @@
                     <li>
                         <a href="#">
                             <i class="fa fa-cog"></i>
-                            <span>Pengaturan</span>
+                            <span>Kelola Master</span>
                             <span class="fa fa-angle-right" style="float: right"></span>
                         </a>
                         <ul id="menu-academico-sub" >
@@ -212,27 +223,17 @@
         });
         
         $(document).ready(function() {
-            reloadDataLecturer();
+            reloadData();
             
             var tableBody = $('#tableBody').DataTable({
                 pageLength: 10,
                 lengthChange: false,
                 columns: [
                     { data: null, sortable: false},
+                    { data: 'nidn'},
                     { data: 'nameLecturer'},
-                    { data: null, sortable: false,
-                      render : function(data, type, full) {
-                          console.log('gender: ' + data.idGender);
-                          if(data.idGender == 1){
-                              return 'L\n';
-                          }else if(data.idGender == 2){
-                              return 'P\n';
-                          }else{
-                              return '\n';
-                          }
-                      }
-                          
-                    }
+                    { data: 'nameFaculty'},
+                    { data: 'nameMajor'}
                 ]
             });
             
@@ -242,20 +243,15 @@
                 } );
             }).draw();
             
-            function reloadDataLecturer(){
+            function reloadData(){
                 var idFaculty = $('input[name=idFaculty]').val();
                 var idMajor = $('input[name=idMajor]').val();
-                var idLecturer = $('input[name=idLecturer]').val();
-                console.log(idFaculty);
-                console.log(idMajor);
-                console.log(idLecturer);
                 $.ajax({
-                    url : 'getDetailLecturerResume.htm',
+                    url : 'getDetailReportResumeNidn.htm',
                     type: 'GET',
                     data:{
-                        idLecturer: idLecturer,
                         idFaculty: idFaculty,
-                        idMajor: idMajor,
+                        idMajor: idMajor
                     },
                     success : function(response) {
                         var data = JSON.parse(response);

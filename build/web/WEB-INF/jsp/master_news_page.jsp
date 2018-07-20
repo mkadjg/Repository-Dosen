@@ -36,7 +36,7 @@
 		<div class="header-main">
                     <div class="header-left col-md-6">
                         <center>
-                            <h3 style="margin-top: 13px;">KELOLA MASTER</h3>
+                            <h3 style="margin-top: 13px;">KELOLA MASTER BERITA</h3>
                         </center>							
                         <div class="clearfix"> </div>
                     </div>

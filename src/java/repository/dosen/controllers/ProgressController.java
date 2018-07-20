@@ -388,6 +388,18 @@ public class ProgressController {
         return "detail_progress_sertification";
     }
     
+    @RequestMapping(value = "/updateProgressHistoryNidn", method = RequestMethod.GET)
+    @ResponseBody
+    public String updateProgressHistoryNidn(String idProgressHistory){
+        lecturerProgressHistoryService.updateLecturerProgressHistory(Integer.parseInt(idProgressHistory));
+        LecturerProgressHistoryDto lecturerProgressHistoryDto = lecturerProgressHistoryService.getDataLecturerProgressHistory(Integer.parseInt(idProgressHistory));
+        Map map = new HashMap<>();
+        map.put("status", "1");
+        map.put("idLecturer", lecturerProgressHistoryDto.getIdLecturer());
+        map.put("message", "Berhasil update data");
+        return new Gson().toJson(map);
+    }
+    
     @RequestMapping(value = "/updateProgressHistoryAssistant", method = RequestMethod.GET)
     @ResponseBody
     public String updateProgressHistoryAssistant(String idProgressHistory){
@@ -450,7 +462,8 @@ public class ProgressController {
     
     @RequestMapping(value = "/showProgressDosen", method = RequestMethod.GET)
     public String showProgressDosen(String idLecturer, ModelMap model){
-        Lecturer lecturer = lecturerService.getDataLecturer(Integer.parseInt(idLecturer));
+        Lecturer lecturer = new Lecturer();
+        lecturer.setIdLecturer(Integer.parseInt(idLecturer));
         model.addAttribute("lecturer", lecturer);
         return "progress_page_dosen";
     }; 

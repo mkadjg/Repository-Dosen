@@ -98,18 +98,6 @@
 			 });	 
                     });
 		</script>
-                
-                <!--Judul-->
-<!--                <div class="row">
-                    <div class="col-md-12" align="center">
-                        <label style="padding-top: 30px; font-size: 18px; font-family: calibri">
-                            FORM PENGISIAN PROFIL DOSEN TETAP
-                        </label>
-                    </div>
-                </div>-->
-                <!--End Judul-->
-                
-<!--                <hr>-->
                 <br>
                 <br>
                 <!--Isi-->
@@ -372,7 +360,7 @@
             <div class="menu">
                 <ul id="menu" >
                     <li id="menu-home" >
-                        <a href="index.htm">
+                        <a href="dashboard.htm">
                             <i class="fa fa-home"></i>
                             <span>Beranda</span>
                         </a>
@@ -394,10 +382,10 @@
                                 <a href="showReportResume.htm">Resume Dosen Tetap</a>		              
                             </li>
                             <li id="menu-arquivos" >
-                                <a href="showReportComprehen.htm">Kelengkapan Portofolio</a>
+                                <a href="showReportComprehensif.htm">Kelengkapan Portofolio</a>
                             </li>
                             <li id="menu-arquivos" >
-                                <a href="icons.html">Jenjang Karir</a>
+                                <a href="showReportCareer.htm">Jenjang Karir</a>
                             </li>
                         </ul>
                     </li>
@@ -410,7 +398,7 @@
                     <li>
                         <a href="#">
                             <i class="fa fa-cog"></i>
-                            <span>Pengaturan</span>
+                            <span>Kelola Master</span>
                             <span class="fa fa-angle-right" style="float: right"></span>
                         </a>
                         <ul id="menu-academico-sub" >

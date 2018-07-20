@@ -233,10 +233,6 @@
                                 <a href="showMasterNews.htm">Master Berita
                                 </a>
                             </li>
-                            <li id="menu-academico-boletim">
-                                <a href="showMasterNews.htm">Master Berita
-                                </a>
-                            </li>
                         </ul>
                     </li>
                 </ul>

@@ -147,10 +147,10 @@
                                 <a href="showReportResume.htm">Resume Dosen Tetap</a>		              
                             </li>
                             <li id="menu-arquivos" >
-                                <a href="showReportComprehen.htm">Kelengkapan Portofolio</a>
+                                <a href="showReportComprehensif.htm">Kelengkapan Portofolio</a>
                             </li>
                             <li id="menu-arquivos" >
-                                <a href="icons.htm">Jenjang Karir</a>
+                                <a href="showReportCareer.htm">Jenjang Karir</a>
                             </li>
                         </ul>
                     </li>
@@ -180,7 +180,7 @@
                                 </a>
                             </li>
                             <li id="menu-academico-boletim">
-                                <a href="showMasterNews.htm">Berita
+                                <a href="showMasterNews.htm">Master Berita
                                 </a>
                             </li>
                         </ul>

@@ -21,9 +21,18 @@ public class StudyHistory {
     int idStudy;
     String studyDescription;
     int idDetail;
+    String nameDokumen;
     int idTranFile;
     String pathFile;
 
+    public String getNameDokumen() {
+        return nameDokumen;
+    }
+
+    public void setNameDokumen(String nameDokumen) {
+        this.nameDokumen = nameDokumen;
+    }
+    
     public String getPathFile() {
         return pathFile;
     }

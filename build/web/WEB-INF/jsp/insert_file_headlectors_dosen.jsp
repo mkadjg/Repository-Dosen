@@ -53,6 +53,9 @@
                                     <div class="user-name">
                                         <p>${sessionScope.nameLecturer}</p>
                                         <span>${sessionScope.role}</span>
+                                        <input type="hidden" 
+                                                   value="${dataLecturer.idLecturer}" 
+                                                   name="idLecturer"/>
                                     </div>
                                     <i class="fa fa-angle-down lnr"></i>
                                     <i class="fa fa-angle-up lnr"></i>

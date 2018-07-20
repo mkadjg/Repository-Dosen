@@ -57,7 +57,7 @@ public class NewsDaoImpl extends HibernateUtil implements NewsDao{
 
     @Override
     public List<Object[]> getNewsDosen() {
-        String sql = "SELECT * FROM MasterNews WHERE updateDate BETWEEN DATE_ADD(DATE(NOW()), INTERVAL-7 DAY) AND DATE(NOW()) ORDER BY updateDate DESC";
+        String sql = "SELECT * FROM MasterNews WHERE updateDate BETWEEN DATE_ADD(DATE(NOW()), INTERVAL-1 MONTH) AND DATE(NOW()) ORDER BY updateDate DESC";
         Query query = createNativeQuery(sql);
         return query.list();
     }

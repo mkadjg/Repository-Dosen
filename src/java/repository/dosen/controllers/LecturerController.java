@@ -202,7 +202,7 @@ public class LecturerController {
         lecturer.setIdLecturer(Integer.parseInt(idLecturer));
         lecturer.setUsername(username);
         lecturer.setPassword(password);
-        lecturerService.saveLecturer(lecturer);
+        lecturerService.updateLoginLecturer(lecturer);
         Map map = new HashMap<>();
         map.put("message", "Data berhasil diupdate");
         map.put("status", 1);

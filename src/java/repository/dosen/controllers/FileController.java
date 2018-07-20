@@ -629,4 +629,14 @@ public class FileController {
         List<FileDto> listFile = fileService.getFileProfessor(idLecturer);
         return new Gson().toJson(listFile);
     }
+    
+    @RequestMapping(value = "/deleteFile", method = RequestMethod.GET)
+    @ResponseBody
+    public String deleteFile(String idTranFile){
+        fileService.deleteFile(Integer.parseInt(idTranFile));
+        Map map = new HashMap<>();
+        map.put("message", "Data berhasil dihapus");
+        map.put("status", 1);
+        return new Gson().toJson(map);
+    }
 }

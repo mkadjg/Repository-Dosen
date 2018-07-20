@@ -164,5 +164,81 @@ public class FunctionalProgressHistoryDaoImpl extends HibernateUtil implements F
     public void deleteFunctionalProgressHistory(FunctionalProgressHistory functionalProgressHistory) {
         getSession().delete(functionalProgressHistory);
     }
+
+    @Override
+    public List<Object[]> getAssistantProgressHistory(String idFaculty, String idMajor) {
+        String sql = "select * from FunctionalProgressHistory where idFunctional = 1 and state =1 ";
+        if (!(idFaculty.equals("0"))) {
+            if (idMajor.equals("0")){
+                sql += "and idLecturer in ("
+                + "select idLecturer from MasterLecturer where idMajor in ("
+                + "select idMajor from MasterMajor where idFaculty in ("
+                + "select idFaculty from MasterFaculty where idFaculty ='"+ idFaculty +"')))";
+            } else {
+                sql += "and idLecturer in ("
+                + "select idLecturer from MasterLecturer where idMajor in ("
+                + "select idMajor from MasterMajor where idMajor ='" + idMajor + "'))";
+            }
+        }
+        Query query = createNativeQuery(sql);
+        return query.list();
+    }
+
+    @Override
+    public List<Object[]> getLectorsProgressHistory(String idFaculty, String idMajor) {
+        String sql = "select * from FunctionalProgressHistory where idFunctional = 2 and state =1 ";
+        if (!(idFaculty.equals("0"))) {
+            if (idMajor.equals("0")){
+                sql += "and idLecturer in ("
+                + "select idLecturer from MasterLecturer where idMajor in ("
+                + "select idMajor from MasterMajor where idFaculty in ("
+                + "select idFaculty from MasterFaculty where idFaculty ='"+ idFaculty +"')))";
+            } else {
+                sql += "and idLecturer in ("
+                + "select idLecturer from MasterLecturer where idMajor in ("
+                + "select idMajor from MasterMajor where idMajor ='" + idMajor + "'))";
+            }
+        }
+        Query query = createNativeQuery(sql);
+        return query.list();
+    }
+
+    @Override
+    public List<Object[]> getHeadlectorsProgressHistory(String idFaculty, String idMajor) {
+        String sql = "select * from FunctionalProgressHistory where idFunctional = 3 and state =1 ";
+        if (!(idFaculty.equals("0"))) {
+            if (idMajor.equals("0")){
+                sql += "and idLecturer in ("
+                + "select idLecturer from MasterLecturer where idMajor in ("
+                + "select idMajor from MasterMajor where idFaculty in ("
+                + "select idFaculty from MasterFaculty where idFaculty ='"+ idFaculty +"')))";
+            } else {
+                sql += "and idLecturer in ("
+                + "select idLecturer from MasterLecturer where idMajor in ("
+                + "select idMajor from MasterMajor where idMajor ='" + idMajor + "'))";
+            }
+        }
+        Query query = createNativeQuery(sql);
+        return query.list();
+    }
+
+    @Override
+    public List<Object[]> getProfessorProgressHistory(String idFaculty, String idMajor) {
+        String sql = "select * from FunctionalProgressHistory where idFunctional = 4 and state =1 ";
+        if (!(idFaculty.equals("0"))) {
+            if (idMajor.equals("0")){
+                sql += "and idLecturer in ("
+                + "select idLecturer from MasterLecturer where idMajor in ("
+                + "select idMajor from MasterMajor where idFaculty in ("
+                + "select idFaculty from MasterFaculty where idFaculty ='"+ idFaculty +"')))";
+            } else {
+                sql += "and idLecturer in ("
+                + "select idLecturer from MasterLecturer where idMajor in ("
+                + "select idMajor from MasterMajor where idMajor ='" + idMajor + "'))";
+            }
+        }
+        Query query = createNativeQuery(sql);
+        return query.list();
+    }
     
 }

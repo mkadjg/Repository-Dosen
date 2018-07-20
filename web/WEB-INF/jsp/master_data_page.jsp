@@ -369,10 +369,10 @@
                                 <a href="showReportResume.htm">Resume Dosen Tetap</a>		              
                             </li>
                             <li id="menu-arquivos" >
-                                <a href="showReportComprehen.htm">Kelengkapan Portofolio</a>
+                                <a href="showReportComprehensif.htm">Kelengkapan Portofolio</a>
                             </li>
                             <li id="menu-arquivos" >
-                                <a href="icons.html">Jenjang Karir</a>
+                                <a href="showReportCareer.htm">Jenjang Karir</a>
                             </li>
                         </ul>
                     </li>
@@ -385,7 +385,7 @@
                     <li>
                         <a href="#">
                             <i class="fa fa-cog"></i>
-                            <span>Pengaturan</span>
+                            <span>Kelola Master</span>
                             <span class="fa fa-angle-right" style="float: right"></span>
                         </a>
                         <ul id="menu-academico-sub" >

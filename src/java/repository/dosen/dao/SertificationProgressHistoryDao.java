@@ -14,6 +14,7 @@ import repository.dosen.models.SertificationProgressHistory;
  */
 public interface SertificationProgressHistoryDao {
    public List<SertificationProgressHistory> getSertificationProgressHistory();
+   public List<Object[]> getSertificationProgressHistory(String idFaculty, String idMajor);
    public List<SertificationProgressHistory> getSertificationProgressHistoryByFaculty(String idFaculty);
    public List<SertificationProgressHistory> getSertificationProgressHistoryByMajor(String idMajor);
    public void saveSertificationProgressHistory(SertificationProgressHistory sertificationProgressHistory);

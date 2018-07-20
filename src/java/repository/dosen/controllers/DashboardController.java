@@ -26,14 +26,14 @@ public class DashboardController {
     
     @RequestMapping( value="/dashboard", method = RequestMethod.GET)
     public String showDashboard(ModelMap model){
-        List<News> listNews = newsService.getNews();
+        List<News> listNews = newsService.getNewsDosen();
         model.addAttribute("data", listNews);
         return "dashboard";
     }
     
     @RequestMapping(value = "/dashboard_dosen", method = RequestMethod.GET)
     public String onShowDashboradDosen(ModelMap model){
-        List<News> listNews = newsService.getNews();
+        List<News> listNews = newsService.getNewsDosen();
         model.addAttribute("data", listNews);
         return "dashboard_dosen";
     }

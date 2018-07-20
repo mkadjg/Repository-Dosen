@@ -109,5 +109,12 @@ public class LecturerProgressHistoryServiceImplement implements LecturerProgress
         }
         
     }
+
+    @Override
+    public void updateLecturerProgressHistory(int idProgressHistory) {
+        LecturerProgressHistory lecturerProgressHistory = lecturerProgressHistoryDao.getDataLecturerProgressHistoryById(idProgressHistory);
+        lecturerProgressHistory.setState(1);
+        lecturerProgressHistoryDao.saveLecturerProgressHistory(lecturerProgressHistory);
+    }
     
 }

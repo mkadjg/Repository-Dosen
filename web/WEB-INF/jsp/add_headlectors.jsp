@@ -146,7 +146,7 @@
                 </div>
             </div>
         </div>
-            <div class="sidebar-menu">
+        <div class="sidebar-menu">
             <div class="logo"> 
                 <a href="#" 
                    class="sidebar-icon"> 
@@ -182,10 +182,10 @@
                                 <a href="showReportResume.htm">Resume Dosen Tetap</a>		              
                             </li>
                             <li id="menu-arquivos" >
-                                <a href="showReportComprehen.htm">Kelengkapan Portofolio</a>
+                                <a href="showReportComprehensif.htm">Kelengkapan Portofolio</a>
                             </li>
                             <li id="menu-arquivos" >
-                                <a href="icons.html">Jenjang Karir</a>
+                                <a href="showReportCareer.htm">Jenjang Karir</a>
                             </li>
                         </ul>
                     </li>
@@ -198,7 +198,7 @@
                     <li>
                         <a href="#">
                             <i class="fa fa-cog"></i>
-                            <span>Pengaturan</span>
+                            <span>Kelola Master</span>
                             <span class="fa fa-angle-right" style="float: right"></span>
                         </a>
                         <ul id="menu-academico-sub" >
@@ -275,19 +275,6 @@
                 ]
             });
             
-            $('#tableLecturer tbody').on('click', 'button#create', function () {
-                var data = tableLecturer.row(this.closest('tr')).data();
-                window.location.assign("createProgressHeadlectors.htm?idLecturer=" + data.idLecturer);
-            });
-            
-            $('#tableLecturer tbody').on('click', 'button#infoDetailFile', function () {
-                var data = tableLecturer.row(this.closest('tr')).data();
-                var dataConfirm = confirm('Dosen yang bersangkutan belum melengkapi persyaratan tambahan \nApakah anda ingin melengkapi persayaratan ?');
-                if (dataConfirm === true){
-                    window.location.assign("addFileHeadlectors.htm?idLecturer=" + data.idLecturer);
-                }
-            });
-            
             function reloadDataLecturerNonLectors(){
                 var idMajor = $('select[name=idMajor]').val().toString();
                 var idFaculty = $('select[name=idFaculty]').val().toString();
@@ -307,6 +294,19 @@
                 cell.innerHTML = i+1;
                 } );
             }).draw();
+            
+            $('#tableLecturer tbody').on('click', 'button#create', function () {
+                var data = tableLecturer.row(this.closest('tr')).data();
+                window.location.assign("createProgressHeadlectors.htm?idLecturer=" + data.idLecturer);
+            });
+            
+            $('#tableLecturer tbody').on('click', 'button#infoDetailFile', function () {
+                var data = tableLecturer.row(this.closest('tr')).data();
+                var dataConfirm = confirm('Dosen yang bersangkutan belum melengkapi persyaratan tambahan \nApakah anda ingin melengkapi persayaratan ?');
+                if (dataConfirm === true){
+                    window.location.assign("addFileHeadlectors.htm?idLecturer=" + data.idLecturer);
+                }
+            });
             
             $("#faculty").change(function(){
                 var idFaculty = $('select[name=idFaculty]').val().toString();

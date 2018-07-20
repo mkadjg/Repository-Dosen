@@ -12,11 +12,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import repository.dosen.dao.DetailFileDao;
 import repository.dosen.dao.FileDao;
+import repository.dosen.dao.FunctionalProgressHistoryDao;
 import repository.dosen.dao.GenderDao;
 import repository.dosen.dao.LectureHistoryDao;
 import repository.dosen.dao.LecturerDao;
+import repository.dosen.dao.LecturerProgressHistoryDao;
 import repository.dosen.dao.MajorDao;
 import repository.dosen.dao.ReligionDao;
+import repository.dosen.dao.SertificationProgressHistoryDao;
 import repository.dosen.dto.Lecturer;
 import repository.dosen.models.DetailFile;
 import repository.dosen.models.MasterGender;
@@ -48,6 +51,15 @@ public class LecturerServiceImplement implements LecturerService{
     
     @Autowired
     LectureHistoryDao lectureHistoryDao;
+    
+    @Autowired
+    LecturerProgressHistoryDao lecturerProgressHistoryDao;
+    
+    @Autowired
+    FunctionalProgressHistoryDao functionalProgressHistoryDao;
+    
+    @Autowired
+    SertificationProgressHistoryDao sertificationProgressHistoryDao;
     
     @Autowired
     FileDao fileDao;
@@ -197,6 +209,7 @@ public class LecturerServiceImplement implements LecturerService{
         Lecturer lecturer = new Lecturer();
         MasterLecturer masterLecturer = lecturerDao.getDataLecturer(idLecturer);
         lecturer.setIdLecturer(masterLecturer.getIdLecturer());
+        lecturer.setNidn(masterLecturer.getNidn());
         lecturer.setNameLecturer(masterLecturer.getNameLecturer());
         lecturer.setAddress(masterLecturer.getAddress());
         lecturer.setBirthdate(masterLecturer.getBirthdate());
@@ -427,6 +440,115 @@ public class LecturerServiceImplement implements LecturerService{
         MasterLecturer masterLecturer = new MasterLecturer();
         masterLecturer.setIdLecturer(idLecturer);
         lecturerDao.deleteLecturer(masterLecturer);
+    }
+
+    @Override
+    public List<Lecturer> getLecturerHasNidn(String idFaculty, String idMajor) {
+        List<Lecturer> listLecturer = new ArrayList<>();
+        List<Object[]> listLecturerNidn = lecturerProgressHistoryDao.getLecturerProgressHistory(idFaculty, idMajor);
+        for (Object[] object : listLecturerNidn){
+            Lecturer lecturer = new Lecturer();
+            MasterLecturer masterLecturer = lecturerDao.getDataLecturer(Integer.parseInt(object[1].toString()));
+            lecturer.setIdLecturer(masterLecturer.getIdLecturer());
+            lecturer.setNidn(masterLecturer.getNidn());
+            lecturer.setNameLecturer(masterLecturer.getNameLecturer());
+            lecturer.setNameMajor(masterLecturer.getMajor().getNameMajor());
+            lecturer.setNameFaculty(masterLecturer.getMajor().getFaculty().getNameFaculty());
+            listLecturer.add(lecturer);
+        }
+        return listLecturer;
+    }
+
+    @Override
+    public List<Lecturer> getLecturerHasAssistant(String idFaculty, String idMajor) {
+        List<Lecturer> listLecturer = new ArrayList<>();
+        List<Object[]> listLecturerAssistant = functionalProgressHistoryDao.getAssistantProgressHistory(idFaculty, idMajor);
+        for (Object[] object : listLecturerAssistant){
+            Lecturer lecturer = new Lecturer();
+            MasterLecturer masterLecturer = lecturerDao.getDataLecturer(Integer.parseInt(object[1].toString()));
+            lecturer.setIdLecturer(masterLecturer.getIdLecturer());
+            lecturer.setNidn(masterLecturer.getNidn());
+            lecturer.setNameLecturer(masterLecturer.getNameLecturer());
+            lecturer.setNameMajor(masterLecturer.getMajor().getNameMajor());
+            lecturer.setNameFaculty(masterLecturer.getMajor().getFaculty().getNameFaculty());
+            listLecturer.add(lecturer);
+        }
+        return listLecturer;
+    }
+
+    @Override
+    public List<Lecturer> getLecturerHasLectors(String idFaculty, String idMajor) {
+        List<Lecturer> listLecturer = new ArrayList<>();
+        List<Object[]> listLecturerLectors = functionalProgressHistoryDao.getLectorsProgressHistory(idFaculty, idMajor);
+        for (Object[] object : listLecturerLectors){
+            Lecturer lecturer = new Lecturer();
+            MasterLecturer masterLecturer = lecturerDao.getDataLecturer(Integer.parseInt(object[1].toString()));
+            lecturer.setIdLecturer(masterLecturer.getIdLecturer());
+            lecturer.setNidn(masterLecturer.getNidn());
+            lecturer.setNameLecturer(masterLecturer.getNameLecturer());
+            lecturer.setNameMajor(masterLecturer.getMajor().getNameMajor());
+            lecturer.setNameFaculty(masterLecturer.getMajor().getFaculty().getNameFaculty());
+            listLecturer.add(lecturer);
+        }
+        return listLecturer;
+    }
+
+    @Override
+    public List<Lecturer> getLecturerHasHeadlectors(String idFaculty, String idMajor) {
+        List<Lecturer> listLecturer = new ArrayList<>();
+        List<Object[]> listLecturerHeadlectors = functionalProgressHistoryDao.getHeadlectorsProgressHistory(idFaculty, idMajor);
+        for (Object[] object : listLecturerHeadlectors){
+            Lecturer lecturer = new Lecturer();
+            MasterLecturer masterLecturer = lecturerDao.getDataLecturer(Integer.parseInt(object[1].toString()));
+            lecturer.setIdLecturer(masterLecturer.getIdLecturer());
+            lecturer.setNidn(masterLecturer.getNidn());
+            lecturer.setNameLecturer(masterLecturer.getNameLecturer());
+            lecturer.setNameMajor(masterLecturer.getMajor().getNameMajor());
+            lecturer.setNameFaculty(masterLecturer.getMajor().getFaculty().getNameFaculty());
+            listLecturer.add(lecturer);
+        }
+        return listLecturer;
+    }
+
+    @Override
+    public List<Lecturer> getLecturerHasProfessor(String idFaculty, String idMajor) {
+        List<Lecturer> listLecturer = new ArrayList<>();
+        List<Object[]> listLecturerProfessor = functionalProgressHistoryDao.getProfessorProgressHistory(idFaculty, idMajor);
+        for (Object[] object : listLecturerProfessor){
+            Lecturer lecturer = new Lecturer();
+            MasterLecturer masterLecturer = lecturerDao.getDataLecturer(Integer.parseInt(object[1].toString()));
+            lecturer.setIdLecturer(masterLecturer.getIdLecturer());
+            lecturer.setNidn(masterLecturer.getNidn());
+            lecturer.setNameLecturer(masterLecturer.getNameLecturer());
+            lecturer.setNameMajor(masterLecturer.getMajor().getNameMajor());
+            lecturer.setNameFaculty(masterLecturer.getMajor().getFaculty().getNameFaculty());
+            listLecturer.add(lecturer);
+        }
+        return listLecturer;
+    }
+
+    @Override
+    public List<Lecturer> getLecturerHasSertification(String idFaculty, String idMajor) {
+        List<Lecturer> listLecturer = new ArrayList<>();
+        List<Object[]> listLecturerSertification = sertificationProgressHistoryDao.getSertificationProgressHistory(idFaculty, idMajor);
+        for (Object[] object : listLecturerSertification){
+            Lecturer lecturer = new Lecturer();
+            MasterLecturer masterLecturer = lecturerDao.getDataLecturer(Integer.parseInt(object[1].toString()));
+            lecturer.setIdLecturer(masterLecturer.getIdLecturer());
+            lecturer.setNidn(masterLecturer.getNidn());
+            lecturer.setNameLecturer(masterLecturer.getNameLecturer());
+            lecturer.setNameMajor(masterLecturer.getMajor().getNameMajor());
+            lecturer.setNameFaculty(masterLecturer.getMajor().getFaculty().getNameFaculty());
+            listLecturer.add(lecturer);
+        }
+        return listLecturer;
+    }
+
+    @Override
+    public void updateLoginLecturer(Lecturer lecturer) {
+        MasterLecturer masterLecturer = lecturerDao.getDataLecturer(lecturer.getIdLecturer());
+        masterLecturer.setPassword(lecturer.getPassword());
+        lecturerDao.saveLecturer(masterLecturer);
     }
     
 }

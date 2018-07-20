@@ -77,6 +77,7 @@ public class FunctionalHistoryServiceImplement implements FunctionalHistoryServi
             functionalHistory.setIdLecturer(tranFunctionalHistory.getLecturer().getIdLecturer());
             functionalHistory.setIdTranFile(tranFunctionalHistory.getTranFile().getIdTranFile());
             functionalHistory.setIdDetail(tranFunctionalHistory.getTranFile().getDetail().getIdDetail());
+            functionalHistory.setNameDokumen(tranFunctionalHistory.getTranFile().getDetail().getNameDokumen());
             functionalHistory.setSkDate(tranFunctionalHistory.getSkDate());
             functionalHistory.setSkNumber(tranFunctionalHistory.getSkNumber());
             functionalHistory.setIdFunctional(tranFunctionalHistory.getFunctional().getIdFunctional());

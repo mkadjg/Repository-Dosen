@@ -69,6 +69,7 @@ public class LectureHistoryServiceImplement implements LectureHistoryService{
             lectureHistory.setIdLectureHistory(tranLectureHistory.getIdLectureHistory());
             lectureHistory.setIdTranFile(tranLectureHistory.getTranFile().getIdTranFile());
             lectureHistory.setIdDetail(tranLectureHistory.getTranFile().getDetail().getIdDetail());
+            lectureHistory.setNameDokumen(tranLectureHistory.getTranFile().getDetail().getNameDokumen());
             lectureHistory.setNameLecture(tranLectureHistory.getLecture().getNameLecture());
             lectureHistory.setIdLecturer(tranLectureHistory.getLecturer().getIdLecturer());
             lectureHistory.setPathFile(tranLectureHistory.getTranFile().getNameFile());
