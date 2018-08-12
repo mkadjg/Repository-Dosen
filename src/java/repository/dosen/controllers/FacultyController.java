@@ -16,7 +16,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import repository.dosen.dto.Faculty;
+import repository.dosen.dto.Lecturer;
+import repository.dosen.dto.Major;
 import repository.dosen.service.FacultyService;
+import repository.dosen.service.FileService;
+import repository.dosen.service.FunctionalHistoryService;
+import repository.dosen.service.FunctionalProgressHistoryService;
+import repository.dosen.service.LectureHistoryService;
+import repository.dosen.service.LecturerProgressHistoryService;
+import repository.dosen.service.LecturerService;
+import repository.dosen.service.MajorService;
+import repository.dosen.service.SertificationHistoryService;
+import repository.dosen.service.SertificationProgressHistoryService;
+import repository.dosen.service.StudyHistoryService;
+import repository.dosen.service.TranProgressFunctionalService;
+import repository.dosen.service.TranProgressLecturerService;
+import repository.dosen.service.TranProgressSertificationService;
 
 /**
  *
@@ -27,6 +42,46 @@ public class FacultyController {
     
     @Autowired
     FacultyService facultyService;
+    
+    @Autowired
+    LecturerService lecturerService;
+    
+    @Autowired
+    FileService fileService;
+    
+    @Autowired
+    MajorService majorService;
+    
+    @Autowired
+    StudyHistoryService studyHistoryService;
+    
+    @Autowired
+    LectureHistoryService lectureHistoryService;
+    
+    @Autowired
+    FunctionalHistoryService functionalHistoryService;
+    
+    @Autowired
+    SertificationHistoryService sertificationHistoryService;
+    
+    @Autowired
+    TranProgressLecturerService tranProgressLecturerService;
+    
+    @Autowired
+    TranProgressFunctionalService tranProgressFunctionalService;
+    
+    @Autowired
+    TranProgressSertificationService tranProgressSertificationService;
+    
+    @Autowired
+    LecturerProgressHistoryService lecturerProgressHistoryService;
+    
+    @Autowired
+    FunctionalProgressHistoryService functionalProgressHistoryService;
+    
+    @Autowired
+    SertificationProgressHistoryService sertificationProgressHistoryService;
+    
     
     @RequestMapping(value = "/getFaculty", method = RequestMethod.GET)
     @ResponseBody
@@ -55,6 +110,25 @@ public class FacultyController {
     @RequestMapping(value = "/deleteFaculty", method = RequestMethod.GET)
     @ResponseBody
     public String deleteFaculty(String idFaculty){
+        List<Lecturer> listLecturer = lecturerService.getLecturerByFaculty(idFaculty);
+        for (Lecturer lecturer : listLecturer){
+            sertificationHistoryService.deleteAllSertificationHistory(lecturer.getIdLecturer());
+            functionalHistoryService.deleteAllFunctionalHistory(lecturer.getIdLecturer());
+            lectureHistoryService.deleteAllLectureHistory(lecturer.getIdLecturer());
+            studyHistoryService.deleteAllStudyHistory(lecturer.getIdLecturer());
+            fileService.deleteAllFile(lecturer.getIdLecturer());
+
+            tranProgressLecturerService.deleteTranProgressLecturer(lecturer.getIdLecturer());
+            tranProgressFunctionalService.deleteTranProgressFunctional(lecturer.getIdLecturer()); 
+            lecturerProgressHistoryService.deleteLecturerProgressHistory(lecturer.getIdLecturer());
+            functionalProgressHistoryService.deleteFunctionalProgressHistory(lecturer.getIdLecturer());
+            sertificationProgressHistoryService.deleteSertificationProgressHistory(lecturer.getIdLecturer());
+            lecturerService.deleteLecturer(lecturer.getIdLecturer());
+        }
+        List<Major> listMajor = majorService.getDataMajorByFaculty(idFaculty);
+        for (Major major : listMajor){
+            majorService.deleteMajor(major.getIdMajor());
+        }
         facultyService.deleteFaculty(idFaculty);
         Map map = new HashMap<>();
         map.put("status", 1);

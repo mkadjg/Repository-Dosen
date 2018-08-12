@@ -10,9 +10,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import repository.dosen.dao.FileDao;
 import repository.dosen.dao.LectureDao;
+import repository.dosen.dao.LectureHistoryDao;
 import repository.dosen.dto.Lecture;
 import repository.dosen.models.MasterLecture;
+import repository.dosen.models.TranFile;
 import repository.dosen.service.LectureService;
 
 /**
@@ -25,6 +28,12 @@ public class LectureServiceImplement implements LectureService {
     
     @Autowired
     LectureDao lectureDao;
+    
+    @Autowired
+    FileDao fileDao;
+    
+    @Autowired
+    LectureHistoryDao lectureHistoryDao;
     
     @Override
     public List<Lecture> getLecture() {
@@ -59,8 +68,16 @@ public class LectureServiceImplement implements LectureService {
 
     @Override
     public void deleteLecture(String id) {
-        MasterLecture masterLecture = new MasterLecture();
-        masterLecture.setIdLecture(id);
+        MasterLecture masterLecture = lectureDao.getDataLecture(id);
+        List<Object[]> listData = fileDao.getFileByLecture(id);
+        if (listData != null){
+            for (Object[] object : listData){
+                TranFile tranFile = new TranFile();
+                tranFile.setIdTranFile(Integer.parseInt(object[0].toString()));
+                fileDao.deleteFile(tranFile);
+            }
+            lectureHistoryDao.deleteLectureHistoryById(id);
+        }
         lectureDao.deleteLecture(masterLecture);
     }
 

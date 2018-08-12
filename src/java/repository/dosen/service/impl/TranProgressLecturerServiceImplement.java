@@ -78,7 +78,11 @@ public class TranProgressLecturerServiceImplement implements TranProgressLecture
 
     @Override
     public void deleteTranProgressLecturer(int idLecturer) {
-        tranProgressLecturerDao.deleteTranProgresslecturer(idLecturer);
+        LecturerProgressHistory lecturerProgressHistory = lecturerProgressHistoryDao.getDataLecturerProgressHistory(idLecturer);
+        if (lecturerProgressHistory != null){
+            tranProgressLecturerDao.deleteTranProgresslecturer(lecturerProgressHistory.getIdProgressHistory());
+        }
+        
     }
     
 }

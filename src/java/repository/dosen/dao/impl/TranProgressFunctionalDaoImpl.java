@@ -55,8 +55,16 @@ public class TranProgressFunctionalDaoImpl extends HibernateUtil implements Tran
 
     @Override
     public void deleteTranProgressFunctional(int idLecturer) {
-        String sql = "delete from TranProgressFunctional where idLecturer=:ids";
+        String sql = "delete from TranProgressFunctional where idProgressHistory in ("
+                + "select idProgressHistory from FunctionalProgressHistory where idLecturer=:ids)";
         Query query = createQuery(sql).setParameter("ids", idLecturer);
+        query.executeUpdate();
+    }
+
+    @Override
+    public void deleteTranProgressFunctionalById(int idDetail) {
+        String sql = "delete from TranProgressFunctional where idDetail=:ids)";
+        Query query = createQuery(sql).setParameter("ids", idDetail);
         query.executeUpdate();
     }
     

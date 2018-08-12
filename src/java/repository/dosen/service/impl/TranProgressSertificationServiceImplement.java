@@ -36,7 +36,7 @@ public class TranProgressSertificationServiceImplement implements TranProgressSe
     public List<TranProgressSertificationDto> getTranProgressSertification(int idLecturer) {
         List<TranProgressSertificationDto> listProgressSertification = new ArrayList<>();
         List<TranProgressSertification> listModel = tranProgressSertificationDao.getTranProgressSertification(idLecturer);
-        List<DetailProgress> listDetail = detailProgressDao.getDetailProgressNidn();
+        List<DetailProgress> listDetail = detailProgressDao.getDetailProgressSertification();
         SertificationProgressHistory sertificationProgressHistory = sertificationProgressHistoryDao.getDataSertificationProgressHistory(idLecturer);
         if (sertificationProgressHistory == null){
             return listProgressSertification;
@@ -78,7 +78,10 @@ public class TranProgressSertificationServiceImplement implements TranProgressSe
 
     @Override
     public void deleteTranProgressSertification(int idLecturer) {
-        tranProgressSertificationDao.deleteTranProgressSertification(idLecturer);
+        SertificationProgressHistory sertificationProgressHistory = sertificationProgressHistoryDao.getDataSertificationProgressHistory(idLecturer);
+        if (sertificationProgressHistory != null){
+            tranProgressSertificationDao.deleteTranProgressSertification(sertificationProgressHistory.getIdProgressHistory());
+        }
     }
     
 }

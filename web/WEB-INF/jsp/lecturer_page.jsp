@@ -257,7 +257,7 @@
             reloadDataLecturer();
             
             var tableLecturer = $('#tableLecturer').DataTable({
-                pageLength: 8,
+                pageLength: 6,
                 lengthChange: false,
                 columns: [
                     { data: null, sortable: false},
@@ -286,7 +286,9 @@
                         data: "idLecturer=" + data.idLecturer,
                         type: 'GET',
                         success: function(response){
-                            $.growl().notice('Berhasil', 'Data berhasil dihapus')
+                            $.growl.notice({title: "Berhasil", message: "Data berhasil ditambahkan !" });
+                            tableLecturer.clear().draw();
+                            reloadDataLecturer()();
                         }
                     });
                 }

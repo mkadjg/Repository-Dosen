@@ -270,9 +270,9 @@ public class FunctionalProgressHistoryServiceImplement implements FunctionalProg
     @Override
     public void deleteFunctionalProgressHistory(int idLecturer) {
         FunctionalProgressHistory assistantProgressHistory = functionalProgressHistoryDao.getDataAssistantProgressHistory(idLecturer);
-        FunctionalProgressHistory lectorsProgressHistory = functionalProgressHistoryDao.getDataAssistantProgressHistory(idLecturer);
-        FunctionalProgressHistory headlectorsProgressHistory = functionalProgressHistoryDao.getDataAssistantProgressHistory(idLecturer);
-        FunctionalProgressHistory professorProgressHistory = functionalProgressHistoryDao.getDataAssistantProgressHistory(idLecturer);
+        FunctionalProgressHistory lectorsProgressHistory = functionalProgressHistoryDao.getDataLectorsProgressHistory(idLecturer);
+        FunctionalProgressHistory headlectorsProgressHistory = functionalProgressHistoryDao.getDataHeadlectorsProgressHistory(idLecturer);
+        FunctionalProgressHistory professorProgressHistory = functionalProgressHistoryDao.getDataProfessorProgressHistory(idLecturer);
         if (assistantProgressHistory != null){
             functionalProgressHistoryDao.deleteFunctionalProgressHistory(assistantProgressHistory);
         }

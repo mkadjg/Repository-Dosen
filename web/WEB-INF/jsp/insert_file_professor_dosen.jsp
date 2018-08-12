@@ -139,8 +139,7 @@
                             <div class="row">
                                 <div class="col-md-12" style="padding-left: 50px">
                                     <p style="font-size: 12px">
-                                        <i>File yang perlu diupload adalah Surat Keteragan Sehat Jasmani dan Rohani dan Surat Keterangan Bebas 
-                                            Narkotika dari pihak Kepolisian  
+                                        <i>File yang perlu diupload adalah dokumen - dokumen yang tertera pada tabel di bawah  
                                         </i>
                                     </p>
                                     <p style="font-size: 12px">
@@ -224,7 +223,7 @@
                 reloadDataFile();
                 
                 var tableFileProfessor = $('#tableFileProfessor').DataTable({
-                    pageLength: 10,
+                    pageLength: 6,
                     lengthChange: false,
                     columns: [
                         { data: null, sortable: false},
@@ -251,6 +250,19 @@
                     cell.innerHTML = i+1;
                     } );
                 }).draw();
+                
+                $('#tableFileProfessor tbody').on('click', 'button#delete', function () {
+                    var data = tableFileProfessor.row(this.closest('tr')).data();
+                    $.ajax({
+                        url : 'deleteFile.htm',
+                        data: 'idTranFile=' + data.idTranFile,
+                        type: 'GET',
+                        success : function(){
+                            $.growl.notice({title: "Berhasil", message: "Data berhasil dihapus"});
+                            reloadDataFile();
+                        }
+                    });
+                });
                 
                 function reloadDataFile(){
                     var idLecturer = $('input[name=idLecturer]').val();

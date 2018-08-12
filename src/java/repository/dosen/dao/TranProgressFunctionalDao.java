@@ -18,5 +18,6 @@ public interface TranProgressFunctionalDao {
     public List<TranProgressFunctional> getTranProgressHeadlectors(int idLecturer);
     public List<TranProgressFunctional> getTranProgressProfessor(int idLecturer);
     public void saveTranProgressFunctional(TranProgressFunctional tranProgressFunctional);
-    public void deleteTranProgressFunctional(int idLecturer); 
+    public void deleteTranProgressFunctional(int idLecturer);
+    public void deleteTranProgressFunctionalById(int idDetail);
 }

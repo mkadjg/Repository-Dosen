@@ -15,10 +15,12 @@ import repository.dosen.models.TranFile;
 public interface FileDao {
     public void saveFile(TranFile tranFile);
     public void deleteFile(TranFile tranFile);
+    public void deleteFileById(int idDetail);
     public void deleteAllFile(int idLecturer);
     public TranFile getDataFile(int idTranFile);
     public TranFile getPathPhoto(int idLecturer);
     public TranFile getLastDataFile();
+    public List<Object[]> getFileByLecture(String idLecture);
     public List<TranFile> getFile(int idLecturer);
     public List<Object[]> getFileRecruitment(int idLecturer);
     public List<Object[]> getFileNidn(int idLecturer);

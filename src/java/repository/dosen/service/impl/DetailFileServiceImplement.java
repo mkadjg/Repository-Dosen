@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import repository.dosen.dao.DetailFileDao;
+import repository.dosen.dao.FileDao;
 import repository.dosen.dto.DetailFileDto;
 import repository.dosen.models.DetailFile;
 import repository.dosen.service.DetailFileService;
@@ -25,6 +26,9 @@ public class DetailFileServiceImplement implements DetailFileService{
     
     @Autowired
     DetailFileDao detailFileDao;
+    
+    @Autowired
+    FileDao fileDao;
     
     @Override
     public List<DetailFileDto> getDetailFileRecruitment() {
@@ -130,6 +134,7 @@ public class DetailFileServiceImplement implements DetailFileService{
     public void deleteDetailFile(int idDetail) {
         DetailFile detailFile = new DetailFile();
         detailFile.setIdDetail(idDetail);
+        fileDao.deleteFileById(idDetail);
         detailFileDao.deleteDetailFile(detailFile);
     }
 

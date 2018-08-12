@@ -253,6 +253,8 @@ public class ReportController {
     
     @RequestMapping(value = "/showReportComprehensif", method = RequestMethod.GET)
     public String showReportComprehensif(ModelMap model){
+        List<Faculty> listFaculty = facultyService.getFaculty();
+        model.addAttribute("dataFaculty", listFaculty);
         return "report_comprehensif_data";
     }
     
@@ -308,7 +310,9 @@ public class ReportController {
     //==========================================================================
     
     @RequestMapping(value = "/showReportCareer", method = RequestMethod.GET)
-    public String showReportCareer(){
+    public String showReportCareer(ModelMap model){
+        List<Faculty> listFaculty = facultyService.getFaculty();
+        model.addAttribute("dataFaculty", listFaculty);
         return "report_career";
     }
     

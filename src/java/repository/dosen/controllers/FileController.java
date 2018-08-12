@@ -538,6 +538,16 @@ public class FileController {
         return "insert_file_professor";
     }
     
+    @RequestMapping( value = "/addFileRecruitmentDosen", method = RequestMethod.GET)
+    public String addFileRecruitmentDosen(ModelMap model, String idLecturer){
+        Lecturer lecturer = new Lecturer();
+        lecturer.setIdLecturer(Integer.parseInt(idLecturer));
+        List<DetailFileDto> listDetail = detailFileService.getDetailFileRecruitment();
+        model.addAttribute("fileRecruitment", listDetail);
+        model.addAttribute("dataLecturer", lecturer);
+        return "insert_file_recruitment_dosen";
+    }
+    
     @RequestMapping( value = "/addFileNidnDosen", method = RequestMethod.GET)
     public String addFileNidnDosen(ModelMap model, String idLecturer){
         Lecturer lecturer = new Lecturer();

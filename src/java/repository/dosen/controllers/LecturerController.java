@@ -224,6 +224,21 @@ public class LecturerController {
         return "update_lecturer_page";
     } 
     
+    @RequestMapping(value = "/editNidn", method = RequestMethod.GET)
+    public String editNidn(String idLecturer, ModelMap model){
+        Lecturer lecturer = lecturerService.getDataLecturer(Integer.parseInt(idLecturer));
+        List<Gender> listGender = genderService.getGender();
+        List<Religion> listReligion = religionService.getReligion();
+        List<Faculty> listFaculty = facultyService.getFaculty();
+        List<Major> listMajor = majorService.getMajor();
+        model.addAttribute("lecturer", lecturer);
+        model.addAttribute("dataFaculty", listFaculty);
+        model.addAttribute("dataMajor", listMajor);
+        model.addAttribute("dataGender", listGender);
+        model.addAttribute("dataReligion", listReligion);
+        return "update_nidn_page";
+    } 
+    
     @RequestMapping(value = "/deleteLecturer", method = RequestMethod.GET)
     @ResponseBody
     public String deleteLecturer(String idLecturer){
@@ -232,12 +247,12 @@ public class LecturerController {
         lectureHistoryService.deleteAllLectureHistory(Integer.parseInt(idLecturer));
         studyHistoryService.deleteAllStudyHistory(Integer.parseInt(idLecturer));
         fileService.deleteAllFile(Integer.parseInt(idLecturer));
+        
+        tranProgressLecturerService.deleteTranProgressLecturer(Integer.parseInt(idLecturer));
+        tranProgressFunctionalService.deleteTranProgressFunctional(Integer.parseInt(idLecturer)); 
         lecturerProgressHistoryService.deleteLecturerProgressHistory(Integer.parseInt(idLecturer));
         functionalProgressHistoryService.deleteFunctionalProgressHistory(Integer.parseInt(idLecturer));
         sertificationProgressHistoryService.deleteSertificationProgressHistory(Integer.parseInt(idLecturer));
-        tranProgressLecturerService.deleteTranProgressLecturer(Integer.parseInt(idLecturer));
-        tranProgressFunctionalService.deleteTranProgressFunctional(Integer.parseInt(idLecturer));
-        tranProgressSertificationService.deleteTranProgressSertification(Integer.parseInt(idLecturer));
         lecturerService.deleteLecturer(Integer.parseInt(idLecturer));
         return "lecturer_page";
     }

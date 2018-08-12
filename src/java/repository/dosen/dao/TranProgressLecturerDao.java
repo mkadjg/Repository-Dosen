@@ -15,5 +15,6 @@ import repository.dosen.models.TranProgressLecturer;
 public interface TranProgressLecturerDao {
     public List<TranProgressLecturer> getTranProgressNidn(int idLecturer);
     public void saveTranProgressLecturer(TranProgressLecturer tranProgressLecturer);
-    public void deleteTranProgresslecturer(int idLecturer);
+    public void deleteTranProgresslecturer(int idProgressHistory);
+    public void deleteTranProgresslecturerbyId(int idDetail);
 }

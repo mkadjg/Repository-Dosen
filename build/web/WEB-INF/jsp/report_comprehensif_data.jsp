@@ -245,7 +245,7 @@
             reloadDataLecturer();
             
             var tableLecturer = $('#tableLecturer').DataTable({
-                pageLength: 8,
+                pageLength: 6,
                 lengthChange: false,
                 columns: [
                     { data: null, sortable: false},

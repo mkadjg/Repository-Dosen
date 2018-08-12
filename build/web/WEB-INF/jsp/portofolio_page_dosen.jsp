@@ -153,6 +153,9 @@
                                             <div class="col-md-3" align="center">
                                                 <button id="editBiodata" class="form-control-submit">Edit Biodata</button>
                                             </div>
+                                            <div class="col-md-5" align="center">
+                                                <button id="editRecruitment" class="form-control-submit">Edit Dokumen Perekrutan</button>
+                                            </div>
                                         </div>
                                         <br>
                                         <div class="row">
@@ -1637,6 +1640,10 @@
                 window.location.assign('editLecturer.htm?idLecturer=' + idLecturer);
             });
             
+            $('#editRecruitment').click(function(){
+                var idLecturer = $('input[name=idLecturer]').val();
+                window.location.assign('addFileRecruitmentDosen.htm?idLecturer=' + idLecturer);
+            });
         });
     </script>
     <script src="resource/js/jquery.nicescroll.js"></script>

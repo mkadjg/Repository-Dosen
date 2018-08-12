@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import repository.dosen.dao.DetailProgressDao;
+import repository.dosen.dao.TranProgressFunctionalDao;
+import repository.dosen.dao.TranProgressLecturerDao;
+import repository.dosen.dao.TranProgressSertificationDao;
 import repository.dosen.dto.DetailProgressDto;
 import repository.dosen.models.DetailProgress;
 import repository.dosen.service.DetailProgressService;
@@ -25,6 +28,15 @@ public class DetailProgressServiceImplement implements DetailProgressService {
     
     @Autowired
     DetailProgressDao detailProgressDao;
+    
+    @Autowired
+    TranProgressFunctionalDao tranProgressFunctionalDao;
+    
+    @Autowired
+    TranProgressLecturerDao tranProgressLecturerDao;
+    
+    @Autowired
+    TranProgressSertificationDao tranProgressSertificationDao;
     
     @Override
     public List<DetailProgressDto> getDetailProgressNidn() {
@@ -130,6 +142,9 @@ public class DetailProgressServiceImplement implements DetailProgressService {
     public void deleteDetailProgress(int idDetail) {
         DetailProgress detailProgress = new DetailProgress();
         detailProgress.setIdDetail(idDetail);
+        tranProgressLecturerDao.deleteTranProgresslecturerbyId(idDetail);
+        tranProgressFunctionalDao.deleteTranProgressFunctionalById(idDetail);
+        tranProgressSertificationDao.deleteTranProgressSertificationById(idDetail);
         detailProgressDao.deleteDetailProgress(detailProgress);
     }
 

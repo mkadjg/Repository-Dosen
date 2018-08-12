@@ -144,8 +144,7 @@
                             <div class="row">
                                 <div class="col-md-12" style="padding-left: 50px">
                                     <p style="font-size: 12px">
-                                        <i>File yang perlu diupload adalah Pas Photo 2x3, Pas Photo 3x4, 
-                                            dan Fotocopy Kartu Tanda Penduduk,
+                                        <i>File yang perlu diupload adalah dokumen - dokumen yang tertera pada tabel di bawah
                                         </i>
                                     </p>
                                     <p style="font-size: 12px">

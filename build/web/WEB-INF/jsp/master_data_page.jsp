@@ -437,7 +437,7 @@
             reloadDropDownFaculty();
 
             var tableLecture = $('#tableLecture').DataTable({
-                pageLength: 5,
+                pageLength: 4,
                 lengthChange: false,
                 columns: [
                     { data: null, sortable: false},
@@ -452,7 +452,7 @@
             });
             
             var tableMajor = $('#tableMajor').DataTable({
-                pageLength: 5,
+                pageLength: 3,
                 lengthChange: false,
                 columns: [
                     { data: null, sortable: false},
@@ -468,7 +468,7 @@
             });
             
             var tableFaculty = $('#tableFaculty').DataTable({
-                pageLength: 5,
+                pageLength: 4,
                 lengthChange: false,
                 columns: [
                     { data: null, sortable: false},

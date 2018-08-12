@@ -320,7 +320,7 @@
                                     data : 'idProgressHistory=' + idProgressHistory,
                                     type: 'GET',
                                     success : function(response){
-                                        window.location.assign("editLecturer.htm?idLecturer=" + idLecturer);
+                                        window.location.assign("editNidn.htm?idLecturer=" + idLecturer);
                                     }
                                 });
                                 

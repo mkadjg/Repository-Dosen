@@ -99,7 +99,6 @@
                     });
 		</script>
                 <br>
-                <br>
                 <!--Isi-->
                 <div class="row">
                     <form action="saveLecturer.htm"
@@ -109,18 +108,9 @@
                         
                         <div class="col-md-6" align="center">
                             <div class="row">
-                                <div class="col-md-4" style="margin-top: 7px; text-align: right">
-                                    NIDN
-                                </div>
                                 <div class="col-md-8">
                                     <input type="hidden" name="idLecturer"
                                                  value="${lecturer.idLecturer}"/>
-                                    <input type="text" 
-                                       class="form-control" 
-                                       name="nidn"
-                                       value="${lecturer.nidn}"
-                                       placeholder="NIDN" 
-                                        />
                                 </div>
                             </div>
                             <br>

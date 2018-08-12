@@ -30,9 +30,16 @@ public class TranProgressLecturerDaoImpl extends HibernateUtil implements TranPr
     }
 
     @Override
-    public void deleteTranProgresslecturer(int idLecturer) {
-        String sql = "delete from TranProgressLecturer where idlecturer=:ids";
-        Query query = createQuery(sql).setParameter("ids", idLecturer);
+    public void deleteTranProgresslecturer(int idProgressHistory) {
+        String sql = "delete from TranProgressLecturer where idProgressHistory=:ids";
+        Query query = createQuery(sql).setParameter("ids", idProgressHistory);
+        query.executeUpdate();
+    }
+
+    @Override
+    public void deleteTranProgresslecturerbyId(int idDetail) {
+        String sql = "delete from TranProgressLecturer where idDetail=:ids";
+        Query query = createQuery(sql).setParameter("ids", idDetail);
         query.executeUpdate();
     }
     

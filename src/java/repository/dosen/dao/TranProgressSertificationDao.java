@@ -15,5 +15,6 @@ import repository.dosen.models.TranProgressSertification;
 public interface TranProgressSertificationDao {
     public List<TranProgressSertification> getTranProgressSertification(int idLecturer);
     public void saveTranProgressSertification(TranProgressSertification tranProgressSertification);
-    public void deleteTranProgressSertification(int idLecturer);
+    public void deleteTranProgressSertification(int idProgressHistory);
+    public void deleteTranProgressSertificationById(int idDetail);
 }

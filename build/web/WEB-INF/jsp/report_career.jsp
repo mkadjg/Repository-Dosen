@@ -137,6 +137,38 @@
                         <div class="tab-content">
                             <div class="tab-pane" 
                              id="tab1">
+                                <div class="row" style="padding-left: 50px; padding-right: 50px">
+                                    <div class="col-md-3">
+                                        <select name="idFacultyNidn"
+                                            id="facultyNidn"
+                                            class="form-control">
+                                            <option value="0" 
+                                                    selected="true"
+                                                    class="form-control">
+                                                --Semua Fakultas--
+                                            </option>
+                                            <c:forEach var="dataFaculty" 
+                                                       items="${dataFaculty}">
+                                                <option value="${dataFaculty.idFaculty}" 
+                                                        class="form-control">
+                                                            ${dataFaculty.nameFaculty}
+                                                </option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="form-control"
+                                                id="majorNidn"
+                                                name="idMajorNidn">
+                                            <option 
+                                                value="0" 
+                                                selected="true"
+                                                class="form-control">
+                                                --Semua Jurusan--
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-12" style="padding-left: 50px; padding-right: 50px">     
                                         <div class="table-responsive">
@@ -154,71 +186,199 @@
                             </div>
                         <div class="tab-pane" 
                              id="tab2">
+                            <div class="row" style="padding-left: 50px; padding-right: 50px">
+                                <div class="col-md-3">
+                                    <select name="idFacultyAssistant"
+                                        id="facultyAssistant"
+                                        class="form-control">
+                                        <option value="0" 
+                                                selected="true"
+                                                class="form-control">
+                                            --Semua Fakultas--
+                                        </option>
+                                        <c:forEach var="dataFaculty" 
+                                                   items="${dataFaculty}">
+                                            <option value="${dataFaculty.idFaculty}" 
+                                                    class="form-control">
+                                                        ${dataFaculty.nameFaculty}
+                                            </option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-control"
+                                            id="majorAssistant"
+                                            name="idMajorAssistant">
+                                        <option 
+                                            value="0" 
+                                            selected="true"
+                                            class="form-control">
+                                            --Semua Jurusan--
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="row">
-                                    <div class="col-md-12" style="padding-left: 50px; padding-right: 50px">     
-                                        <div class="table-responsive">
-                                            <table class="table table-hover" id="tableAssistant">
-                                                <thead>
-                                                    <th>No</th>
-                                                    <th>Nama</th>
-                                                    <th>Jurusan</th>                                                                 
-                                                    <th>Fakultas</th>
-                                                </thead>
-                                            </table>
-                                        </div>
+                                <div class="col-md-12" style="padding-left: 50px; padding-right: 50px">     
+                                    <div class="table-responsive">
+                                        <table class="table table-hover" id="tableAssistant">
+                                            <thead>
+                                                <th>No</th>
+                                                <th>Nama</th>
+                                                <th>Jurusan</th>                                                                 
+                                                <th>Fakultas</th>
+                                            </thead>
+                                        </table>
                                     </div>
                                 </div>
+                            </div>
                         </div>
                         <div class="tab-pane" 
                              id="tab3">
+                            <div class="row" style="padding-left: 50px; padding-right: 50px">
+                                <div class="col-md-3">
+                                    <select name="idFacultyLectors"
+                                        id="facultyLectors"
+                                        class="form-control">
+                                        <option value="0" 
+                                                selected="true"
+                                                class="form-control">
+                                            --Semua Fakultas--
+                                        </option>
+                                        <c:forEach var="dataFaculty" 
+                                                   items="${dataFaculty}">
+                                            <option value="${dataFaculty.idFaculty}" 
+                                                    class="form-control">
+                                                        ${dataFaculty.nameFaculty}
+                                            </option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-control"
+                                            id="majorLectors"
+                                            name="idMajorLectors">
+                                        <option 
+                                            value="0" 
+                                            selected="true"
+                                            class="form-control">
+                                            --Semua Jurusan--
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="row">
-                                    <div class="col-md-12" style="padding-left: 50px; padding-right: 50px">     
-                                        <div class="table-responsive">
-                                            <table class="table table-hover" id="tableLectors">
-                                                <thead>
-                                                    <th>No</th>
-                                                    <th>Nama</th>
-                                                    <th>Jurusan</th>                                                                 
-                                                    <th>Fakultas</th>
-                                                </thead>
-                                            </table>
-                                        </div>
+                                <div class="col-md-12" style="padding-left: 50px; padding-right: 50px">     
+                                    <div class="table-responsive">
+                                        <table class="table table-hover" id="tableLectors">
+                                            <thead>
+                                                <th>No</th>
+                                                <th>Nama</th>
+                                                <th>Jurusan</th>                                                                 
+                                                <th>Fakultas</th>
+                                            </thead>
+                                        </table>
                                     </div>
                                 </div>
+                            </div>
                         </div>
                         <div class="tab-pane" 
                              id="tab4">
+                            <div class="row" style="padding-left: 50px; padding-right: 50px">
+                                <div class="col-md-3">
+                                    <select name="idFacultyHeadlectors"
+                                        id="facultyHeadlectors"
+                                        class="form-control">
+                                        <option value="0" 
+                                                selected="true"
+                                                class="form-control">
+                                            --Semua Fakultas--
+                                        </option>
+                                        <c:forEach var="dataFaculty" 
+                                                   items="${dataFaculty}">
+                                            <option value="${dataFaculty.idFaculty}" 
+                                                    class="form-control">
+                                                        ${dataFaculty.nameFaculty}
+                                            </option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-control"
+                                            id="majorHeadlectors"
+                                            name="idMajorHeadlectors">
+                                        <option 
+                                            value="0" 
+                                            selected="true"
+                                            class="form-control">
+                                            --Semua Jurusan--
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="row">
-                                    <div class="col-md-12" style="padding-left: 50px; padding-right: 50px">     
-                                        <div class="table-responsive">
-                                            <table class="table table-hover" id="tableHeadlectors">
-                                                <thead>
-                                                    <th>No</th>
-                                                    <th>Nama</th>
-                                                    <th>Jurusan</th>                                                                 
-                                                    <th>Fakultas</th>
-                                                </thead>
-                                            </table>
-                                        </div>
+                                <div class="col-md-12" style="padding-left: 50px; padding-right: 50px">     
+                                    <div class="table-responsive">
+                                        <table class="table table-hover" id="tableHeadlectors">
+                                            <thead>
+                                                <th>No</th>
+                                                <th>Nama</th>
+                                                <th>Jurusan</th>                                                                 
+                                                <th>Fakultas</th>
+                                            </thead>
+                                        </table>
                                     </div>
                                 </div>
+                            </div>
                         </div>
                         <div class="tab-pane" 
                              id="tab5">
-                            <div class="row">
-                                    <div class="col-md-12" style="padding-left: 50px; padding-right: 50px">     
-                                        <div class="table-responsive">
-                                            <table class="table table-hover" id="tableProfessor">
-                                                <thead>
-                                                    <th>No</th>
-                                                    <th>Nama</th>
-                                                    <th>Jurusan</th>                                                                 
-                                                    <th>Fakultas</th>
-                                                </thead>
-                                            </table>
-                                        </div>          
-                                    </div>
+                            <div class="row" style="padding-left: 50px; padding-right: 50px">
+                                <div class="col-md-3">
+                                    <select name="idFacultyProfessor"
+                                        id="facultyProfessor"
+                                        class="form-control">
+                                        <option value="0" 
+                                                selected="true"
+                                                class="form-control">
+                                            --Semua Fakultas--
+                                        </option>
+                                        <c:forEach var="dataFaculty" 
+                                                   items="${dataFaculty}">
+                                            <option value="${dataFaculty.idFaculty}" 
+                                                    class="form-control">
+                                                        ${dataFaculty.nameFaculty}
+                                            </option>
+                                        </c:forEach>
+                                    </select>
                                 </div>
+                                <div class="col-md-3">
+                                    <select class="form-control"
+                                            id="majorProfessor"
+                                            name="idMajorProfessor">
+                                        <option 
+                                            value="0" 
+                                            selected="true"
+                                            class="form-control">
+                                            --Semua Jurusan--
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12" style="padding-left: 50px; padding-right: 50px">     
+                                    <div class="table-responsive">
+                                        <table class="table table-hover" id="tableProfessor">
+                                            <thead>
+                                                <th>No</th>
+                                                <th>Nama</th>
+                                                <th>Jurusan</th>                                                                 
+                                                <th>Fakultas</th>
+                                            </thead>
+                                        </table>
+                                    </div>          
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -348,17 +508,42 @@
             }).draw();
             
             function reloadDataNidn(){
+                var idMajorNidn = $('select[name=idMajorNidn]').val().toString();
+                var idFacultyNidn = $('select[name=idFacultyNidn]').val().toString();
                 $.ajax({
                     url : "getNewLecturer.htm",
-                    data: {idFaculty: '0', idMajor: '0'},
+                    data: {idFaculty: idFacultyNidn, idMajor: idMajorNidn},
                     type: 'GET',
                     success: function(response){
                         var data = JSON.parse(response);
-                        console.log(data);
+                        tableNidn.clear().draw();
                         tableNidn.rows.add(data).draw();
                     }
                 });
             }
+            
+            $("#facultyNidn").change(function(){
+                var idFacultyNidn = $('select[name=idFacultyNidn]').val().toString();
+                reloadDataNidn();
+                $.ajax({
+                    url : 'getDataMajorByFaculty.htm',
+                    data: "idFaculty=" + idFacultyNidn,
+                    type: 'GET',
+                    success : function(response) {
+                        var data = JSON.parse(response);
+                        var len = data.length;
+                        var content = '<option value="0" name="idMajorNidn">--Semua Jurusan--</option>';
+                        for (var i = 0; i < len; i++){
+                            content +='<option value="' + data[i].idMajor + '" name="idMajorNidn">' + data[i].nameMajor + '</option>';
+                            $('#majorNidn').html(content);
+                        }
+                    }
+                });    
+            });
+            
+            $("#majorNidn").change(function(){
+                reloadDataNidn();
+            });
             
             //========================
             
@@ -380,16 +565,42 @@
             }).draw();
             
             function reloadDataLecturerNonNidn(){
+                var idMajorAssistant = $('select[name=idMajorAssistant]').val().toString();
+                var idFacultyAssistant = $('select[name=idFacultyAssistant]').val().toString();
                 $.ajax({
                     url : "getLecturerNonNidn.htm",
-                    data: {idFaculty: '0', idMajor: '0'},
+                    data: {idFaculty: idFacultyAssistant, idMajor: idMajorAssistant},
                     type: 'GET',
                     success: function(response){
                         var data = JSON.parse(response);
+                        tableAssistant.clear().draw();
                         tableAssistant.rows.add(data).draw();
                     }
                 });
             }
+            
+            $("#facultyAssistant").change(function(){
+                var idFacultyAssistant = $('select[name=idFacultyAssistant]').val().toString();
+                reloadDataLecturerNonNidn();
+                $.ajax({
+                    url : 'getDataMajorByFaculty.htm',
+                    data: "idFaculty=" + idFacultyAssistant,
+                    type: 'GET',
+                    success : function(response) {
+                        var data = JSON.parse(response);
+                        var len = data.length;
+                        var content = '<option value="0" name="idMajorAssistant">--Semua Jurusan--</option>';
+                        for (var i = 0; i < len; i++){
+                            content +='<option value="' + data[i].idMajor + '" name="idMajorAssistant">' + data[i].nameMajor + '</option>';
+                            $('#majorAssistant').html(content);
+                        }
+                    }
+                });    
+            });
+            
+            $("#majorAssistant").change(function(){
+                reloadDataLecturerNonNidn();
+            });
             
             //===============================================================
             
@@ -405,12 +616,15 @@
             });
             
             function reloadDataLecturerNonAssistant(){
+                var idMajorLectors = $('select[name=idMajorLectors]').val().toString();
+                var idFacultyLectors = $('select[name=idFacultyLectors]').val().toString();
                 $.ajax({
                     url : "getLecturerNonAssistant.htm",
-                    data: {idFaculty: '0', idMajor: '0'},
+                    data: {idFaculty: idFacultyLectors, idMajor: idMajorLectors},
                     type: 'GET',
                     success: function(response){
                         var data = JSON.parse(response);
+                        tableLectors.clear().draw();
                         tableLectors.rows.add(data).draw();
                     }
                 });
@@ -421,6 +635,29 @@
                 cell.innerHTML = i+1;
                 } );
             }).draw();
+            
+            $("#facultyLectors").change(function(){
+                var idFacultyLectors = $('select[name=idFacultyLectors]').val().toString();
+                reloadDataLecturerNonAssistant();
+                $.ajax({
+                    url : 'getDataMajorByFaculty.htm',
+                    data: "idFaculty=" + idFacultyLectors,
+                    type: 'GET',
+                    success : function(response) {
+                        var data = JSON.parse(response);
+                        var len = data.length;
+                        var content = '<option value="0" name="idMajorLectors">--Semua Jurusan--</option>';
+                        for (var i = 0; i < len; i++){
+                            content +='<option value="' + data[i].idMajor + '" name="idMajorLectors">' + data[i].nameMajor + '</option>';
+                            $('#majorLectors').html(content);
+                        }
+                    }
+                });    
+            });
+            
+            $("#majorLectors").change(function(){
+                reloadDataLecturerNonNidn();
+            });
             
             //=======================================================================
             
@@ -436,9 +673,11 @@
             });
             
             function reloadDataLecturerNonLectors(){
+                var idMajorHeadlectors = $('select[name=idMajorHeadlectors]').val().toString();
+                var idFacultyHeadlectors = $('select[name=idFacultyHeadlectors]').val().toString();
                 $.ajax({
                     url : "getLecturerNonLectors.htm",
-                    data: {idFaculty: '0', idMajor: '0'},
+                    data: {idFaculty: idFacultyHeadlectors, idMajor: idMajorHeadlectors},
                     type: 'GET',
                     success: function(response){
                         var data = JSON.parse(response);
@@ -452,6 +691,29 @@
                 cell.innerHTML = i+1;
                 } );
             }).draw();
+            
+            $("#facultyHeadlectors").change(function(){
+                var idFacultyHeadlectors = $('select[name=idFacultyHeadlectors]').val().toString();
+                reloadDataLecturerNonLectors();
+                $.ajax({
+                    url : 'getDataMajorByFaculty.htm',
+                    data: "idFaculty=" + idFacultyHeadlectors,
+                    type: 'GET',
+                    success : function(response) {
+                        var data = JSON.parse(response);
+                        var len = data.length;
+                        var content = '<option value="0" name="idMajorHeadlectors">--Semua Jurusan--</option>';
+                        for (var i = 0; i < len; i++){
+                            content +='<option value="' + data[i].idMajor + '" name="idMajorHeadlectors">' + data[i].nameMajor + '</option>';
+                            $('#majorHeadlectors').html(content);
+                        }
+                    }
+                });    
+            });
+            
+            $("#majorHeadlectors").change(function(){
+                reloadDataLecturerNonLectors();
+            });
             
             //========================================================================
             
@@ -467,9 +729,11 @@
             });
             
             function reloadDataLecturerNonHeadlectors(){
+                var idMajorProfessor = $('select[name=idMajorProfessor]').val().toString();
+                var idFacultyProfessor = $('select[name=idFacultyProfessor]').val().toString();
                 $.ajax({
                     url : "getLecturerNonHeadlectors.htm",
-                    data: {idFaculty: '0', idMajor: '0'},
+                    data: {idFaculty: idFacultyProfessor, idMajor: idMajorProfessor},
                     type: 'GET',
                     success: function(response){
                         var data = JSON.parse(response);
@@ -483,6 +747,29 @@
                 cell.innerHTML = i+1;
                 } );
             }).draw();
+            
+            $("#facultyProfessor").change(function(){
+                var idFacultyProfessor = $('select[name=idFacultyProfessor]').val().toString();
+                reloadDataLecturerNonHeadlectors();
+                $.ajax({
+                    url : 'getDataMajorByFaculty.htm',
+                    data: "idFaculty=" + idFacultyProfessor,
+                    type: 'GET',
+                    success : function(response) {
+                        var data = JSON.parse(response);
+                        var len = data.length;
+                        var content = '<option value="0" name="idMajorProfessor">--Semua Jurusan--</option>';
+                        for (var i = 0; i < len; i++){
+                            content +='<option value="' + data[i].idMajor + '" name="idMajorProfessor">' + data[i].nameMajor + '</option>';
+                            $('#majorProfessor').html(content);
+                        }
+                    }
+                });    
+            });
+            
+            $("#majorProfessor").change(function(){
+                reloadDataLecturerNonHeadlectors();
+            });
         });
     </script>
     <script src="resource/js/jquery.nicescroll.js"></script>

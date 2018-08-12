@@ -30,9 +30,16 @@ public class TranProgressSertificationDaoImpl extends HibernateUtil implements T
     }
 
     @Override
-    public void deleteTranProgressSertification(int idLecturer) {
-        String sql = "delete from TranProgressSertification where idLecturer=:ids";
-        Query query = createQuery(sql).setParameter("ids", idLecturer);
+    public void deleteTranProgressSertification(int idProgressHistory) {
+        String sql = "delete from TranProgressSertification where idProgressHistory=:ids";
+        Query query = createQuery(sql).setParameter("ids", idProgressHistory);
+        query.executeUpdate();
+    }
+
+    @Override
+    public void deleteTranProgressSertificationById(int idDetail) {
+        String sql = "delete from TranProgressSertification where idDetail=:ids";
+        Query query = createQuery(sql).setParameter("ids", idDetail);
         query.executeUpdate();
     }
     
